@@ -17,9 +17,10 @@ body{font-family:'Noto Sans JP','Inter',sans-serif;background:var(--bg);color:va
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;transition:all .3s;background:rgba(255,255,255,.8);backdrop-filter:blur(12px)}
 nav.scrolled{background:rgba(255,255,255,.95);box-shadow:0 1px 12px rgba(0,0,0,.06);padding:10px 0}
 .nav-inner{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-size:1.3rem;font-weight:900;color:var(--text)}.nav-logo span{color:var(--red)}
-.nav-links{display:flex;list-style:none;gap:28px;align-items:center}
-.nav-links a{color:var(--text2);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
+.nav-logo{font-size:1.3rem;font-weight:900;color:var(--text);display:flex;align-items:center;gap:8px}.nav-logo span{color:var(--red)}
+.nav-logo-img{height:32px;width:auto}
+.nav-links{display:flex;list-style:none;gap:20px;align-items:center}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--red)}
 
 /* ヒーロー */
@@ -77,10 +78,10 @@ section{padding:100px 0}
 /* ソリューション */
 .solutions{background:var(--bg)}
 .sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px}
-.sol-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;transition:all .3s;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.sol-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px;transition:all .3s;box-shadow:0 1px 4px rgba(0,0,0,.04);overflow:hidden}
 .sol-card:hover{border-color:var(--red-border);transform:translateY(-6px);box-shadow:0 8px 32px rgba(0,0,0,.08),0 0 0 1px var(--red-border)}
-.sol-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-.sol-icon{font-size:1.8rem}
+.sol-img{width:100%;height:160px;object-fit:cover;border-radius:12px;margin-bottom:16px;background:var(--card2)}
+.sol-hd{display:flex;align-items:center;justify-content:flex-end;margin-bottom:12px}
 .sol-st{font-size:.72rem;font-weight:600;padding:4px 10px;border-radius:100px}
 .st-run{background:var(--red-soft);color:var(--red)}
 .st-dev{background:rgba(250,193,0,.12);color:#b8860b}
@@ -115,6 +116,26 @@ section{padding:100px 0}
 .num-card .unit{font-size:1rem;font-weight:700}
 .num-card .label{display:block;font-size:.82rem;color:var(--text2);margin-top:8px}
 
+/* 理念 */
+.philosophy{background:var(--bg2)}
+.phil-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.phil-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px 28px;text-align:center;transition:all .3s;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.phil-card:hover{border-color:var(--red-border);box-shadow:0 4px 16px rgba(0,0,0,.06);transform:translateY(-4px)}
+.phil-icon{font-size:2.4rem;margin-bottom:16px}
+.phil-card h3{font-size:1.1rem;font-weight:700;margin-bottom:12px;color:var(--text)}
+.phil-card p{font-size:.88rem;color:var(--text2);line-height:1.8}
+
+/* 法人概要 */
+.corporate{background:var(--bg)}
+.corp-grid{max-width:700px;margin:0 auto}
+.corp-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.corp-table tr{border-bottom:1px solid var(--border)}
+.corp-table tr:last-child{border-bottom:none}
+.corp-table th{padding:14px 20px;font-size:.88rem;font-weight:600;color:var(--text);text-align:left;width:130px;background:var(--card2);vertical-align:top}
+.corp-table td{padding:14px 20px;font-size:.88rem;color:var(--text2)}
+.corp-table a{color:var(--red);text-decoration:none;font-weight:500}
+.corp-table a:hover{text-decoration:underline}
+
 /* フッター */
 footer{padding:48px 0;border-top:1px solid var(--border);text-align:center;background:var(--bg2)}
 footer .logo{font-size:1.2rem;font-weight:900;margin-bottom:8px;color:var(--text)}
@@ -126,11 +147,11 @@ footer p{font-size:.82rem;color:var(--text3)}
 
 /* レスポンシブ */
 @media(max-width:900px){
-.sol-grid,.tech-grid{grid-template-columns:1fr 1fr}
+.sol-grid,.tech-grid,.phil-grid{grid-template-columns:1fr 1fr}
 .num-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:600px){
-.sol-grid,.tech-grid,.num-grid{grid-template-columns:1fr}
+.sol-grid,.tech-grid,.num-grid,.phil-grid{grid-template-columns:1fr}
 .nav-links{display:none}
 .stats{gap:20px}
 .hero h1{font-size:2rem}
