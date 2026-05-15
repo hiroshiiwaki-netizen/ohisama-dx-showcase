@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>おひさま会 DXソリューション — 在宅医療を、テクノロジーで支える</title>
+  <meta name="description" content="医療法人社団おひさま会が内製開発した51のDXソリューション。FAX AI自動分類、カルテ自動作成、保険証AI判別など、在宅医療の現場課題をテクノロジーで解決。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ナビ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">おひさま会<span>DX</span></div>
+      <ul class="nav-links">
+        <li><a href="#arch">アーキテクチャ</a></li>
+        <li><a href="#solutions">ソリューション</a></li>
+        <li><a href="#tech">技術スタック</a></li>
+        <li><a href="#numbers">実績</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ヒーロー -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+      <div class="grid-ov"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        在宅医療 × AI × Google Workspace
+      </div>
+      <h1>在宅医療を、<span class="accent">テクノロジー</span>で支える</h1>
+      <p class="hero-sub">医療法人社団おひさま会 DXソリューション</p>
+      <p class="hero-desc">
+        神戸市を拠点に<strong>5クリニック</strong>を展開する在宅医療法人。<br>
+        <span class="hi-num">51</span>のシステムを<strong>すべて内製</strong>で開発・運用し、<br>
+        現場の「困った」をデジタルで解決しています。
+      </p>
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-n">51</span>
+          <span class="stat-l">内製システム</span>
+        </div>
+        <div class="stat-d"></div>
+        <div class="stat">
+          <span class="stat-n">5</span>
+          <span class="stat-l">クリニック</span>
+        </div>
+        <div class="stat-d"></div>
+        <div class="stat">
+          <span class="stat-n">100<span class="stat-u">%</span></span>
+          <span class="stat-l">Google Workspace</span>
+        </div>
+        <div class="stat-d"></div>
+        <div class="stat">
+          <span class="stat-n">≈10<span class="stat-u">秒</span></span>
+          <span class="stat-l">FAX→AI処理完了</span>
+        </div>
+      </div>
+      <a href="#solutions" class="btn-p">ソリューションを見る</a>
+    </div>
+  </section>
+
+  <!-- アーキテクチャ -->
+  <section class="arch" id="arch">
+    <div class="container">
+      <div class="sec-hd">
+        <span class="sec-lb">ARCHITECTURE</span>
+        <h2 class="sec-tt">4層アーキテクチャ</h2>
+        <p class="sec-ds">既存システムを置き換えず、補助的にDXを積み重ねる設計思想</p>
+      </div>
+      <div class="layers reveal">
+        <div class="layer l1">
+          <div class="num">LAYER 1</div>
+          <div class="tt">おひさまシステム（FileMaker）— 頭脳・マスター</div>
+          <div class="ds">患者ステータス / 連携先 / 家族関係 ― リアルワールドのすべての関係性の地図</div>
+        </div>
+        <div class="arrow-d">↓ 参照</div>
+        <div class="layer l2">
+          <div class="num">LAYER 2</div>
+          <div class="tt">★ AI群 + 自動化エンジン ★ — 情報処理・コンテンツ生成</div>
+          <div class="ds">流入情報を処理 → サマリー・アラート・書類を自動生成（Gemini API / Go / Python）</div>
+        </div>
+        <div class="arrow-d">↓ 提示</div>
+        <div class="layer l3">
+          <div class="num">LAYER 3</div>
+          <div class="tt">人が活動する（スタッフのアクション）</div>
+          <div class="ds">AIが生成したコンテンツをもとに判断・動く</div>
+        </div>
+        <div class="arrow-d">↓ 入力</div>
+        <div class="layer l4">
+          <div class="num">LAYER 4</div>
+          <div class="tt">HOMIS（電子カルテ）— 結果の記録場所</div>
+          <div class="ds">カルテ記録 → レセプト処理</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ソリューション -->
+  <section class="solutions" id="solutions">
+    <div class="container">
+      <div class="sec-hd">
+        <span class="sec-lb">SOLUTIONS</span>
+        <h2 class="sec-tt">主要ソリューション</h2>
+        <p class="sec-ds">在宅医療現場のリアルな課題から生まれたシステム群</p>
+      </div>
+      <div class="sol-grid">
+
+        <div class="sol-card reveal">
+          <div class="sol-hd"><span class="sol-icon">📠</span><span class="sol-st st-run">本番運用中</span></div>
+          <h3>OhiScan — FAX AI自動分類</h3>
+          <p>FAX受信PDFをAIが即座に解析。患者特定・書類分類・PDF分割を自動処理し、電子カルテへ自動ファイリング。</p>
+          <div class="sol-tags">
+            <span class="sol-tag">Go</span><span class="sol-tag">Gemini API</span><span class="sol-tag">FileMaker API</span>
+          </div>
+        </div>
+
+        <div class="sol-card reveal">
+          <div class="sol-hd"><span class="sol-icon">🤖</span><span class="sol-st st-run">本番運用中</span></div>
+          <h3>OhisamaBot — 問い合わせ管理</h3>
+          <p>患者・施設からの問い合わせを3軸トリアージで自動分類。Google Chatに即時通知し、チャット上でステータス管理が完結。</p>
+          <div class="sol-tags">
+            <span class="sol-tag">GAS(TypeScript)</span><span class="sol-tag">Google Chat API</span><span class="sol-tag">FileMaker</span>
+          </div>
+        </div>
+
+        <div class="sol-card reveal">
+          <div class="sol-hd"><span class="sol-icon">📸</span><span class="sol-st st-run">本番運用中</span></div>
+          <h3>OhiSnap — 保険証AI撮影</h3>
+          <p>スマホで保険証を撮影するだけでAIが自動判別。PDF変換・月別フォルダ自動保存。マイナンバーカード誤撮影も防止。</p>
+          <div class="sol-tags">
+            <span class="sol-tag">GAS(TypeScript)</span><span class="sol-tag">Vertex AI</span><span class="sol-tag">Google Drive</span>
+          </div>
+        </div>
+
+        <div class="sol-card reveal">
+          <div class="sol-hd"><span class="sol-icon">📝</span><span class="sol-st st-run">本番運用中</span></div>
+          <h3>OhiCraft — カルテ自動作成</h3>
+          <p>CrossLog APIから往診予定を取得し、HOMIS電子カルテへ白紙・引用カルテを自動作成。処方日数の自動計算にも対応。</p>
+          <div class="sol-tags">
+            <span class="sol-tag">Go</span><span class="sol-tag">chromedp</span><span class="sol-tag">CrossLog API</span>
+          </div>
+        </div>
+
+        <div class="sol-card reveal">
+          <div class="sol-hd"><span class="sol-icon">📄</span><span class="sol-st st-dev">開発中</span></div>
+          <h3>OREST — 定期書類自動生成</h3>
+          <p>訪問看護指示書・診療情報提供書などの定期書類をHOMIS上で全自動作成。月19.5万円のRPAツールを内製で置き換え。</p>
+          <div class="sol-tags">
+            <span class="sol-tag">Go</span><span class="sol-tag">chromedp</span><span class="sol-tag">HOMIS API</span>
+          </div>
+        </div>
+
+        <div class="sol-card reveal">
+          <div class="sol-hd"><span class="sol-icon">🎙️</span><span class="sol-st st-run">本番運用中</span></div>
+          <h3>OhisamaVox — 診察音声記録</h3>
+          <p>診察時の音声をAIが文字起こし。患者ごとの診療記録として管理。月別グラフ・ヒートマップ・分析ダッシュボード付き。</p>
+          <div class="sol-tags">
+            <span class="sol-tag">GAS(TypeScript)</span><span class="sol-tag">Tukusi AI</span><span class="sol-tag">Spreadsheet</span>
+          </div>
+        </div>
+
+        <div class="sol-card reveal">
+          <div class="sol-hd"><span class="sol-icon">🩻</span><span class="sol-st st-run">本番運用中</span></div>
+          <h3>レントゲンナビ</h3>
+          <p>訪問診療のレントゲン依頼から撮影完了フロー・月次集計まで一元管理。健康診断の集団検診機能も搭載。</p>
+          <div class="sol-tags">
+            <span class="sol-tag">GAS</span><span class="sol-tag">Google Chat</span><span class="sol-tag">PDF生成</span>
+          </div>
+        </div>
+
+        <div class="sol-card reveal">
+          <div class="sol-hd"><span class="sol-icon">📬</span><span class="sol-st st-run">本番運用中</span></div>
+          <h3>書類配信サービス</h3>
+          <p>ケアマネ・訪問看護・薬局向けに書類をメール自動配信。事業所登録から重複チェック・配信まで全自動。</p>
+          <div class="sol-tags">
+            <span class="sol-tag">GAS(TypeScript)</span><span class="sol-tag">Google Drive</span><span class="sol-tag">Gmail</span>
+          </div>
+        </div>
+
+        <div class="sol-card reveal">
+          <div class="sol-hd"><span class="sol-icon">💊</span><span class="sol-st st-run">本番運用中</span></div>
+          <h3>薬剤発注ナビ</h3>
+          <p>在庫チェック・発注依頼・Google Chat通知をワンストップで管理。「月3週の火曜日」など複雑な周期発注にも対応。</p>
+          <div class="sol-tags">
+            <span class="sol-tag">GAS(TypeScript)</span><span class="sol-tag">Spreadsheet</span><span class="sol-tag">Google Chat</span>
+          </div>
+        </div>
+
+      </div>
+      <p class="sol-more">他にも <strong>往診予定チェッカー・食支援システム・HALO(DXポータル)・MeetRecorder</strong> など多数を運用中</p>
+    </div>
+  </section>
+
+  <!-- 技術スタック -->
+  <section class="tech" id="tech">
+    <div class="container">
+      <div class="sec-hd">
+        <span class="sec-lb">TECH STACK</span>
+        <h2 class="sec-tt">技術スタック</h2>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-cat reveal">
+          <div class="tech-cat-hd"><span>⚙️</span><h3>開発言語</h3></div>
+          <div class="tech-items">
+            <div class="tech-item">Go（バイナリ配布・常駐デーモン）</div>
+            <div class="tech-item">TypeScript（GAS・Webフロントエンド）</div>
+            <div class="tech-item">Python（データ処理・AI連携）</div>
+            <div class="tech-item">HTML / CSS / JavaScript</div>
+          </div>
+        </div>
+        <div class="tech-cat reveal">
+          <div class="tech-cat-hd"><span>🤖</span><h3>AI・クラウド</h3></div>
+          <div class="tech-items">
+            <div class="tech-item">Gemini API / Vertex AI</div>
+            <div class="tech-item">Google Workspace Business Standard</div>
+            <div class="tech-item">Google Chat API / Drive API</div>
+            <div class="tech-item">Tukusi AI プラットフォーム</div>
+          </div>
+        </div>
+        <div class="tech-cat reveal">
+          <div class="tech-cat-hd"><span>🏗️</span><h3>連携・自動化</h3></div>
+          <div class="tech-items">
+            <div class="tech-item">FileMaker Data API</div>
+            <div class="tech-item">CrossLog API（訪問診療）</div>
+            <div class="tech-item">HOMIS（電子カルテ）自動操作</div>
+            <div class="tech-item">chromedp（Go製ブラウザ自動化）</div>
+          </div>
+        </div>
+      </div>
+      <div class="badges reveal">
+        <span class="badge">Go</span><span class="badge">TypeScript</span><span class="badge">Python</span>
+        <span class="badge">Gemini API</span><span class="badge">Vertex AI</span><span class="badge">Google Drive</span>
+        <span class="badge">Google Chat</span><span class="badge">FileMaker</span><span class="badge">CrossLog</span>
+        <span class="badge">chromedp</span><span class="badge">clasp</span><span class="badge">Tukusi AI</span>
+        <span class="badge">Google Spreadsheet</span><span class="badge">SOAP API</span><span class="badge">HOMIS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 数字で見る -->
+  <section class="numbers" id="numbers">
+    <div class="container">
+      <div class="sec-hd">
+        <span class="sec-lb">RESULTS</span>
+        <h2 class="sec-tt">数字で見るおひさま会DX</h2>
+      </div>
+      <div class="num-grid">
+        <div class="num-card reveal">
+          <div class="icon">🏥</div>
+          <div class="val">5</div>
+          <div class="label">運営クリニック数</div>
+        </div>
+        <div class="num-card reveal">
+          <div class="icon">💻</div>
+          <div class="val">51</div>
+          <div class="label">内製開発システム数</div>
+        </div>
+        <div class="num-card reveal">
+          <div class="icon">📠</div>
+          <div class="val">≈10<span class="unit">秒</span></div>
+          <div class="label">FAX受信→AI処理完了</div>
+        </div>
+        <div class="num-card reveal">
+          <div class="icon">🎯</div>
+          <div class="val">100<span class="unit">%</span></div>
+          <div class="label">Tukusi通知成功率</div>
+        </div>
+        <div class="num-card reveal">
+          <div class="icon">🚫</div>
+          <div class="val">0<span class="unit">件</span></div>
+          <div class="label">患者誤認識（OhiScan）</div>
+        </div>
+        <div class="num-card reveal">
+          <div class="icon">💰</div>
+          <div class="val">19.5<span class="unit">万円</span></div>
+          <div class="label">月額RPAコスト削減</div>
+        </div>
+        <div class="num-card reveal">
+          <div class="icon">☁️</div>
+          <div class="val">100<span class="unit">%</span></div>
+          <div class="label">Google Workspaceベース</div>
+        </div>
+        <div class="num-card reveal">
+          <div class="icon">🔧</div>
+          <div class="val">1<span class="unit">人</span></div>
+          <div class="label">情シス体制（ひとり情シス）</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    <div class="container">
+      <div class="logo">おひさま会<span class="accent">DX</span></div>
+      <p>医療法人社団おひさま会 — 在宅医療を、テクノロジーで支える</p>
+      <p style="margin-top:8px">© 2026 医療法人社団おひさま会. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // スクロールでナビ変化
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+    // スクロールアニメーション
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
