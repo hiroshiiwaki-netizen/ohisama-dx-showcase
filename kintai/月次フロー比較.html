@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>勤怠業務 月次フロー比較（きんたくん → KOT）</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', 'Yu Gothic UI', 'Meiryo', sans-serif; background: #f0f2f5; color: #1a1a2e; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a5276 0%, #2e86c1 100%); color: #fff; padding: 32px 24px; text-align: center; }
+  .header h1 { font-size: 1.6rem; margin-bottom: 8px; }
+  .header p { font-size: 0.9rem; opacity: 0.9; }
+  .info-bar { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; padding: 16px 24px; background: #fff; border-bottom: 1px solid #e0e0e0; font-size: 0.85rem; }
+  .info-bar span { display: flex; align-items: center; gap: 6px; }
+  .info-bar .label { font-weight: 700; color: #555; }
+  .container { max-width: 1200px; margin: 24px auto; padding: 0 16px; }
+
+  /* フロー比較テーブル */
+  .flow-section { margin-bottom: 32px; }
+  .flow-section h2 { font-size: 1.2rem; margin-bottom: 16px; padding-left: 12px; border-left: 4px solid #2e86c1; }
+  .flow-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .flow-table th { background: #2c3e50; color: #fff; padding: 12px 16px; text-align: left; font-size: 0.85rem; }
+  .flow-table th.col-when { width: 14%; }
+  .flow-table th.col-current { width: 30%; background: #7f8c8d; }
+  .flow-table th.col-arrow { width: 5%; background: #34495e; text-align: center; }
+  .flow-table th.col-kot { width: 30%; background: #27ae60; }
+  .flow-table th.col-effect { width: 21%; }
+  .flow-table td { padding: 12px 16px; border-bottom: 1px solid #eee; font-size: 0.85rem; vertical-align: top; }
+  .flow-table tr:last-child td { border-bottom: none; }
+  .flow-table tr:hover { background: #f8f9fa; }
+  .flow-table td.arrow { text-align: center; font-size: 1.2rem; color: #2e86c1; font-weight: 700; }
+  .flow-table td.when { font-weight: 700; color: #2c3e50; white-space: nowrap; }
+
+  /* 担当タグ */
+  .who { display: inline-block; background: #eaf2f8; color: #2e86c1; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-top: 4px; }
+  .tool { display: inline-block; background: #fef9e7; color: #b7950b; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-top: 4px; }
+
+  /* 改善度バッジ */
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 700; }
+  .badge.same { background: #eee; color: #777; }
+  .badge.good { background: #d5f5e3; color: #1e8449; }
+  .badge.great { background: #abebc6; color: #145a32; }
+  .badge.best { background: #f9e79f; color: #7d6608; border: 2px solid #f4d03f; }
+
+  /* 決定事項・アラート */
+  .decided { background: #eaf4fb; border: 2px solid #2e86c1; border-radius: 12px; padding: 20px 24px; margin: 24px 0; }
+  .decided h3 { color: #1a5276; font-size: 1.05rem; margin-bottom: 12px; }
+  .decided ul { padding-left: 20px; }
+  .decided li { margin-bottom: 8px; font-size: 0.9rem; }
+  .alert-box { background: #fdf2f8; border: 2px solid #e74c3c; border-radius: 12px; padding: 20px 24px; margin: 24px 0; }
+  .alert-box h3 { color: #c0392b; font-size: 1.05rem; margin-bottom: 12px; }
+  .alert-box p { font-size: 0.9rem; margin-bottom: 6px; }
+  .rule-tag { display: inline-block; background: #2e86c1; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 4px; font-weight: 700; }
+
+  /* まとめ */
+  .summary-box { background: linear-gradient(135deg, #fff9db 0%, #fff3bf 100%); border: 2px solid #f4d03f; border-radius: 12px; padding: 24px; margin: 32px 0; }
+  .summary-box h3 { font-size: 1.1rem; margin-bottom: 12px; }
+  .summary-box ul { padding-left: 20px; }
+  .summary-box li { margin-bottom: 8px; font-size: 0.9rem; }
+
+  /* 未確認事項 */
+  .questions { background: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 32px; }
+  .questions h2 { font-size: 1.1rem; margin-bottom: 12px; color: #e74c3c; }
+  .questions ol { padding-left: 20px; }
+  .questions li { margin-bottom: 8px; font-size: 0.9rem; }
+
+  .footer { text-align: center; padding: 24px; font-size: 0.75rem; color: #999; }
+
+  @media (max-width: 768px) {
+    .flow-table th, .flow-table td { padding: 8px; font-size: 0.78rem; }
+    .info-bar { gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📋 勤怠業務 月次フロー比較</h1>
+  <p>きんたくん（現行） → King of Time（移行後）</p>
+</div>
+
+<div class="info-bar">
+  <span><span class="label">勤怠締め日:</span> 毎月末日</span>
+  <span><span class="label">給与支払日:</span> 翌月25日</span>
+  <span><span class="label">回答者:</span> 長澤柚月さん（経営推進部）</span>
+  <span><span class="label">作成日:</span> 2026-05-18</span>
+</div>
+
+<div class="container">
+
+  <div class="flow-section">
+    <h2>月次フロー 比較表</h2>
+    <table class="flow-table">
+      <thead>
+        <tr>
+          <th class="col-when">時期</th>
+          <th class="col-current">現行（きんたくん）</th>
+          <th class="col-arrow"></th>
+          <th class="col-kot">KOT移行後</th>
+          <th class="col-effect">改善度</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="when">① 毎日</td>
+          <td>出退勤の打刻<br><span class="who">全職員</span> <span class="tool">きんたくん ICカード</span></td>
+          <td class="arrow">→</td>
+          <td>
+            <span class="rule-tag">決定</span> 場所によって打刻方法が変わります<br>
+            🏢 <strong>デポ出勤</strong> → <span class="tool">ICカード打刻</span><br>
+            🏠 <strong>在宅・訪問</strong> → <span class="tool">スマホ オンライン打刻（GPS）</span><br>
+            <span class="who">全職員</span>
+          </td>
+          <td><span class="badge good">🟢 GPS管理で在宅も把握</span></td>
+        </tr>
+        <tr>
+          <td class="when">② 毎日〜随時</td>
+          <td>各種申請と承認<br><span class="who">本人・上長</span> <span class="tool">きんたくん</span></td>
+          <td class="arrow">→</td>
+          <td>
+            申請・承認ワークフロー<br><span class="who">本人・上長</span> <span class="tool">KOT</span><br>
+            <span class="rule-tag">新ルール</span> <strong>残業は事前申請が必須</strong><br>
+            <span class="rule-tag">新ルール</span> <strong>翌日に実績申請も必須</strong>
+          </td>
+          <td><span class="badge great">🟢 残業の見える化</span></td>
+        </tr>
+        <tr>
+          <td class="when">③ 月中〜25日</td>
+          <td>翌月シフト表を各自入力<br><span class="who">各職員 / 上長</span> <span class="tool">スプレッドシート</span><br>→ 西川さんがスプシ更新</td>
+          <td class="arrow">→</td>
+          <td>KOTのシフト管理で直接登録？<br>またはスプシ継続？<br><span class="tool">KOT スケジュール機能</span></td>
+          <td><span class="badge good">🟡 要検討</span></td>
+        </tr>
+        <tr>
+          <td class="when">③' 月末まで</td>
+          <td>シフト予定表をきんたくんに取込<br><span class="who">西川さん</span> <span class="tool">きんたくん</span></td>
+          <td class="arrow">→</td>
+          <td>KOTで直接管理なら<strong>この作業は不要</strong></td>
+          <td><span class="badge great">🟢 作業削減</span></td>
+        </tr>
+        <tr>
+          <td class="when">④ 月末（締め日）</td>
+          <td>勤怠データの最終チェック<br><span class="who">従業員本人</span> <span class="tool">きんたくん</span></td>
+          <td class="arrow">→</td>
+          <td>KOTの画面で確認<br><span class="who">従業員本人</span> <span class="tool">KOT</span></td>
+          <td><span class="badge same">ほぼ同じ</span></td>
+        </tr>
+        <tr>
+          <td class="when">⑤ 翌月1〜8日</td>
+          <td>勤怠データの不備チェック<br>＋不備メール送信<br><span class="who">長澤・奥本</span> <span class="tool">Excel</span></td>
+          <td class="arrow">→</td>
+          <td>KOTのアラート・エラー検知で自動化<br>打刻忘れ通知も自動<br><span class="tool">KOT アラート機能</span></td>
+          <td><span class="badge great">🟢 大幅改善</span></td>
+        </tr>
+        <tr>
+          <td class="when">⑥ 翌月8〜12日</td>
+          <td>勤怠データの二次チェック<br><span class="who">長澤・奥本</span> <span class="tool">Excel</span></td>
+          <td class="arrow">→</td>
+          <td>KOT上で完結<br>Excelなくせる可能性大<br><span class="tool">KOT 勤怠確認機能</span></td>
+          <td><span class="badge great">🟢 大幅改善</span></td>
+        </tr>
+        <tr style="background: #fffbe6;">
+          <td class="when">⑦ 翌月15日頃</td>
+          <td>集計された勤怠データをMF給与へ入力<br><span class="who">長澤・奥本</span> <span class="tool">MF給与（⚠️手入力）</span></td>
+          <td class="arrow" style="font-size:1.5rem;">⭐</td>
+          <td><strong>CSV出力 → MF給与にインポート</strong><br>手入力16項目が自動化！<br><span class="tool">KOT CSV出力 → MF給与</span></td>
+          <td><span class="badge best">⭐ 最大の改善！</span></td>
+        </tr>
+        <tr>
+          <td class="when">⑧ 翌月15〜20日</td>
+          <td>交通費・医療費・立替金等の計算と入力<br><span class="who">長澤・奥本</span> <span class="tool">MF給与（⚠️手入力）</span></td>
+          <td class="arrow">→</td>
+          <td>同じ（MF給与側の作業）<br>※KOT補助項目で一部管理可能</td>
+          <td><span class="badge same">変わらない</span></td>
+        </tr>
+        <tr>
+          <td class="when">⑨ 翌月20日頃</td>
+          <td>給与の最終チェック<br><span class="who">長澤</span> <span class="tool">MF給与 CSV確認</span></td>
+          <td class="arrow">→</td>
+          <td>同じ（MF給与側の作業）</td>
+          <td><span class="badge same">変わらない</span></td>
+        </tr>
+        <tr>
+          <td class="when">⑩ 翌月25日</td>
+          <td>給与支払い<br><span class="who">内山さん（経理）</span> <span class="tool">銀行振込</span><br>長澤から確定連絡→内山さん支払い</td>
+          <td class="arrow">→</td>
+          <td>同じ</td>
+          <td><span class="badge same">変わらない</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="decided">
+    <h3>✅ KOT運用ルール 決定事項</h3>
+    <ul>
+      <li>🏢 <strong>打刻方法（デポ出勤）</strong> — ICカード打刻</li>
+      <li>🏠 <strong>打刻方法（在宅・訪問）</strong> — スマホ オンライン打刻（GPS ON）</li>
+      <li>⏰ <strong>残業ルール</strong> — 事前申請必須 ＋ 翌日に実績申請も必須</li>
+    </ul>
+  </div>
+
+  <div class="alert-box">
+    <h3>🚨 要対応：有休付与ルールの就業規則変更が必要</h3>
+    <p>KOTで有休を正しく管理するにあたり、<strong>現在の就業規則の有休付与ルールを変更する必要があります。</strong></p>
+    <p>👉 <strong>社労士への相談・依頼が必要です。</strong> KOT稼働前までに完了しておく必要があります。</p>
+    <p style="color:#c0392b; font-weight:700;">⚠ IT Worldの操作指導（4回）の前に、就業規則の変更内容を確定しておくと、KOTの設定がスムーズに進みます。</p>
+  </div>
+
+  <div class="summary-box">
+    <h3>⭐ KOT移行の3大メリット</h3>
+    <ul>
+      <li><strong>⑦ MF給与への手入力16項目が自動化</strong> — 毎月の一番大きな作業が激減</li>
+      <li><strong>⑤⑥ Excel不備チェックがKOTアラートで自動化</strong> — 打刻忘れを自動通知</li>
+      <li><strong>③' シフト取込作業が不要に</strong> — KOTで直接シフト管理</li>
+    </ul>
+  </div>
+
+  <div class="questions">
+    <h2>❓ 追加確認が必要な事項</h2>
+    <ol>
+      <li><strong>社労士への提出</strong> — 毎月何か出していますか？（年数回だけ？）</li>
+      <li><strong>⑤の不備チェック用Excelの中身</strong> — どんな不備を見ている？（打刻漏れ？残業超過？）</li>
+      <li><strong>シフト管理の移行方法</strong> — スプレッドシートをやめてKOTに一本化する？それとも併用？</li>
+      <li><strong>🚨 有休付与の就業規則変更</strong> — 社労士に相談・依頼する時期を決める</li>
+    </ol>
+  </div>
+
+</div>
+
+<div class="footer">
+  おひさま会 DXプロジェクト — 勤怠システム入替（きんたくん → King of Time）<br>
+  関連: <a href="KOT構築チェックリスト.html">🔧 KOT構築チェックリスト</a> ｜ <a href="MF給与_KOT連携項目.html">MF給与 KOT連携項目一覧</a>
+</div>
+
+</body>
+</html>

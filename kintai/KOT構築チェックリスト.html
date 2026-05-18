@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KOT構築チェックリスト — やるべきことの全体像</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', 'Yu Gothic UI', 'Meiryo', sans-serif; background: #f0f2f5; color: #1a1a2e; line-height: 1.7; }
+  .header { background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%); color: #fff; padding: 32px 24px; text-align: center; }
+  .header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+  .header p { font-size: 0.9rem; opacity: 0.9; }
+  .container { max-width: 1000px; margin: 24px auto; padding: 0 16px; }
+
+  /* 注意ボックス */
+  .premise { background: #fdf2f8; border: 2px solid #e74c3c; border-radius: 12px; padding: 20px; margin-bottom: 24px; }
+  .premise h3 { color: #c0392b; margin-bottom: 8px; }
+  .premise p { font-size: 0.9rem; margin-bottom: 4px; }
+
+  /* フェーズ */
+  .phase { background: #fff; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .phase h2 { font-size: 1.15rem; margin-bottom: 4px; }
+  .phase .deadline { font-size: 0.85rem; color: #e74c3c; font-weight: 700; margin-bottom: 16px; }
+
+  /* タスク */
+  .task { border: 1px solid #e8e8e8; border-radius: 8px; padding: 16px; margin-bottom: 12px; }
+  .task:hover { border-color: #2e86c1; }
+  .task h3 { font-size: 0.95rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .task-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 0.8rem; font-weight: 700; color: #fff; flex-shrink: 0; }
+  .task-detail { font-size: 0.85rem; color: #444; }
+  .task-detail ul { padding-left: 20px; margin: 6px 0; }
+  .task-detail li { margin-bottom: 4px; }
+  .task-who { display: inline-block; background: #eaf2f8; color: #2e86c1; padding: 2px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; margin-top: 8px; }
+  .task-how { display: inline-block; background: #fef9e7; color: #b7950b; padding: 2px 10px; border-radius: 4px; font-size: 0.75rem; margin-top: 8px; margin-left: 4px; }
+  .who-murakmi { display: inline-block; background: #e8f6f3; color: #1a7a5e; padding: 2px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; margin-top: 8px; }
+  .who-nagasawa { display: inline-block; background: #eaf2fb; color: #1a5276; padding: 2px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; margin-top: 8px; }
+  .who-okumoto { display: inline-block; background: #f5eef8; color: #7d3c98; padding: 2px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; margin-top: 8px; }
+  .who-mikki { display: inline-block; background: #fef9e7; color: #7d6608; padding: 2px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; margin-top: 8px; }
+  .who-nishikawa { display: inline-block; background: #fef0e6; color: #a04000; padding: 2px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; margin-top: 8px; }
+  .who-legend { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.8rem; align-items: center; }
+  .schedule-box { background: #eaf2fb; border: 2px solid #2e86c1; border-radius: 12px; padding: 20px; margin-bottom: 24px; }
+  .schedule-box h3 { color: #1a5276; margin-bottom: 10px; }
+  .schedule-box table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  .schedule-box th { background: #2e86c1; color: #fff; padding: 8px 12px; text-align: left; }
+  .schedule-box td { padding: 8px 12px; border-bottom: 1px solid #d0e4f7; }
+  .schedule-box tr:last-child td { border-bottom: none; }
+  .plan-a { color: #1a5276; font-weight: 700; }
+  .plan-b { color: #7d6608; font-weight: 700; }
+
+  /* フェーズ色 */
+  .p1 .task-num { background: #c0392b; }
+  .p2 .task-num { background: #e67e22; }
+  .p3 .task-num { background: #27ae60; }
+  .p4 .task-num { background: #2e86c1; }
+  .p0 .task-num { background: #8e44ad; }
+
+  /* 前提条件 */
+  .prereq { background: #fef9e7; border: 2px solid #f4d03f; border-radius: 12px; padding: 20px; margin-bottom: 24px; }
+  .prereq h3 { color: #7d6608; margin-bottom: 8px; }
+  .prereq li { font-size: 0.9rem; margin-bottom: 6px; }
+
+  .footer { text-align: center; padding: 24px; font-size: 0.75rem; color: #999; }
+  .nav-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+  .nav-links a { background: #2e86c1; color: #fff; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; }
+  .nav-links a:hover { background: #1a5276; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🔧 KOT構築チェックリスト</h1>
+  <p>やるべきことの全体像 — 「何を」「誰が」「いつまでに」</p>
+</div>
+
+<div class="container">
+
+  <div class="nav-links">
+    <a href="月次フロー比較.html">📋 月次フロー比較</a>
+    <a href="MF給与_KOT連携項目.html">📊 MF給与 連携項目</a>
+  </div>
+
+  <div class="schedule-box">
+    <h3>📅 目標スケジュール</h3>
+    <table>
+      <thead><tr><th>フェーズ</th><th class="plan-a">🅰 7月勤怠から開始（理想）</th><th class="plan-b">🅱 8月勤怠から開始（最悪）</th></tr></thead>
+      <tbody>
+        <tr><td>🟣 フェーズ0（準備）</td><td class="plan-a">〜6月15日（補助金結果と同時）</td><td class="plan-b">〜6月末</td></tr>
+        <tr><td>🔴 フェーズ1（KOT基本設定）</td><td class="plan-a">6月15日〜6月20日</td><td class="plan-b">7月1日〜7月10日</td></tr>
+        <tr><td>🟠 フェーズ2（連携設定）</td><td class="plan-a">6月20日〜6月25日</td><td class="plan-b">7月10日〜7月18日</td></tr>
+        <tr><td>🟢 フェーズ3（テスト）</td><td class="plan-a">6月25日〜6月30日</td><td class="plan-b">7月18日〜7月25日</td></tr>
+        <tr><td>🔵 フェーズ4（本番切替）</td><td class="plan-a"><strong>7月1日 KOT本番開始 🎉</strong></td><td class="plan-b"><strong>8月1日 KOT本番開始</strong></td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.8rem; color:#555; margin-top:8px;">※ 補助金結果：6月中旬予定。結果を受けてどちらのプランで進むか決定する。</p>
+  </div>
+  <div class="who-legend">
+    <strong>担当カラー：</strong>
+    <span class="who-murakmi">🟢 村上さん（KOT設定）</span>
+    <span class="who-nagasawa">🔵 長澤さん（給与・データ）</span>
+    <span class="who-okumoto">🟣 奥本さん（フロー・チェック）</span>
+    <span class="who-nishikawa">🟠 西川さん（シフト情報提供）</span>
+    <span class="who-mikki">🟡 三木先生（決裁）</span>
+  </div>
+
+  <!-- ============ フェーズ0: 先に片付ける ============ -->
+  <div class="phase p0">
+    <h2>🟣 フェーズ0：先に動かないと詰まること</h2>
+    <div class="deadline">⏰ 🅰 〜6月15日 ／ 🅱 〜6月末</div>
+
+    <div class="task">
+      <h3><span class="task-num">0-1</span>有休付与ルールの就業規則変更</h3>
+      <div class="task-detail">
+        <p><strong>変更内容（シンプルです）：</strong></p>
+        <ul>
+          <li>現行：入社時に付与して6ヶ月後から使える（第49条第7項）</li>
+          <li>変更後：<strong>6ヶ月後に付与する</strong>（KOTに合わせたシンプルな設定）</li>
+          <li>変更条文：第49条第7項を削除 or 「入社後6ヶ月経過後に付与する」に改定</li>
+        </ul>
+        <p><strong>進め方：</strong></p>
+        <ul>
+          <li>① 岩城さん → 三木先生に「経営会議で決めてほしい」と1分説明</li>
+          <li>② 経営会議 or 理事会でサクッと決議（内容がシンプルなので大きな議論不要）</li>
+          <li>③ 社労士に「変更届を出して」と依頼するだけ（変更案は②で決まっている）</li>
+          <li><strong>KOT稼働前に完了しておくこと</strong></li>
+        </ul>
+      </div>
+      <span class="who-mikki">🟡 三木先生（経営会議で決裁）→ 社労士（届出）</span>
+      <span class="task-how">📞 三木先生への口頭説明 → 会議</span>
+    </div>
+
+    <div class="task">
+      <h3><span class="task-num">0-2</span>シフトパターンの一覧化（現場の情報収集）</h3>
+      <div class="task-detail">
+        <p><strong>西川さんにやってもらうこと：</strong></p>
+        <ul>
+          <li>「うちにはどんな勤務パターンがあるか」を紙 or Excelで書き出す</li>
+          <li>例：日勤（9:00-17:30）、早番（7:00-15:30）、夜勤（17:00-9:00）、半日、在宅…</li>
+          <li>部署ごとに違うパターンがあればそれも書く</li>
+          <li><strong>完璧でなくていい。「だいたいこれ」でOK</strong></li>
+        </ul>
+      </div>
+      <span class="who-nishikawa">🟠 西川さん（シフトパターンを書き出す）</span>
+      <span class="who-okumoto">🟣 奥本さん（西川さんに依頼・回収して村上さんに渡す）</span>
+      <span class="task-how">📝 Excel or 紙</span>
+    </div>
+
+    <div class="task">
+      <h3><span class="task-num">0-3</span>承認フローの決定</h3>
+      <div class="task-detail">
+        <p><strong>決めること：</strong></p>
+        <ul>
+          <li>残業申請 → 誰が承認する？（直属の上長？ 部長？）</li>
+          <li>有休申請 → 誰が承認する？</li>
+          <li>打刻修正 → 誰が承認する？</li>
+          <li><strong>部署ごとに上長を決めて一覧にする</strong></li>
+        </ul>
+        <p>例：</p>
+        <ul>
+          <li>垂水 → ○○先生が承認</li>
+          <li>清剃 → ○○先生が承認</li>
+          <li>汐連 → ○○先生が承認</li>
+          <li>経推・DX → 三木先生 or 岩城さんが承認</li>
+        </ul>
+      </div>
+      <span class="who-nagasawa">🔵 長澤さん（三木先生に確認して一覧を作る）</span>
+      <span class="task-how">📝 一覧表をExcelで作成</span>
+    </div>
+  </div>
+
+  <!-- ============ フェーズ1: KOT基本設定 ============ -->
+  <div class="phase p1">
+    <h2>🔴 フェーズ1：KOTの基本設定（最重要）</h2>
+    <div class="deadline">⏰ 🅰 6月15日〜6月20日 ／ 🅱 7月1日〜7月10日</div>
+
+    <div class="task">
+      <h3><span class="task-num">1-1</span>所属（部署・クリニック）の登録</h3>
+      <div class="task-detail">
+        <p><strong>KOT管理画面 →「設定」→「組織」</strong></p>
+        <ul>
+          <li>垂水クリニック / 清剃クリニック / 汐連クリニック</li>
+          <li>経営推進部 / DX推進部 / etc</li>
+          <li>※すでに登録済みなら確認だけ</li>
+        </ul>
+      </div>
+      <span class="who-murakmi">🟢 村上さん（KOT管理画面で操作）</span>
+      <span class="task-how">🖥 KOT管理画面</span>
+    </div>
+
+    <div class="task">
+      <h3><span class="task-num">1-2</span>勤務パターンの登録</h3>
+      <div class="task-detail">
+        <p><strong>KOT管理画面 →「設定」→「スケジュール」→「パターン設定」</strong></p>
+        <ul>
+          <li>0-2で西川さんが出したパターン一覧をKOTに登録する</li>
+          <li>出勤時刻・退勤時刻・休憩時間を入力</li>
+          <li>夜勤の場合は「日跨ぎ」設定が必要</li>
+          <li><strong>これが全ての基盤になる → 最も重要</strong></li>
+        </ul>
+      </div>
+      <span class="who-murakmi">🟢 村上さん（0-2の一覧をもとにKOTに入力）</span>
+      <span class="task-how">🖥 KOT管理画面</span>
+    </div>
+
+    <div class="task">
+      <h3><span class="task-num">1-3</span>従業員マスタの確認・修正</h3>
+      <div class="task-detail">
+        <p><strong>KOT管理画面 →「従業員」→「従業員一覧」</strong></p>
+        <ul>
+          <li>全90名が正しく登録されているか確認</li>
+          <li>雇用区分（正社員・パート・アルバイト等）が正しいか</li>
+          <li>所属部署が正しいか</li>
+          <li>メールアドレスが入っているか（通知に必要）</li>
+        </ul>
+      </div>
+      <span class="who-nagasawa">🔵 長澤さん（全員のデータを確認・修正依頼）</span>
+      <span class="task-how">🖥 KOT管理画面で確認 → 誤りは村上さんに修正依頼</span>
+    </div>
+
+    <div class="task">
+      <h3><span class="task-num">1-4</span>打刻デバイスの設定</h3>
+      <div class="task-detail">
+        <p><strong>KOT管理画面 →「設定」→「タイムレコーダー」</strong></p>
+        <ul>
+          <li>🏢 デポ3拠点：ICカードリーダーの設定（IDm登録済みなら紐づけ確認）</li>
+          <li>🏠 在宅・訪問：モバイル打刻の有効化 + GPS必須設定</li>
+          <li>※IDmエクスポートツールで抽出したデータが使える</li>
+        </ul>
+      </div>
+      <span class="who-murakmi">🟢 村上さん（ICカード設定）</span>
+      <span class="who-okumoto">🟣 奥本さん（GPS/モバイル打刻の確認テスト）</span>
+      <span class="task-how">🖥 KOT管理画面</span>
+    </div>
+
+    <div class="task">
+      <h3><span class="task-num">1-5</span>残業申請ワークフローの設定</h3>
+      <div class="task-detail">
+        <p><strong>KOT管理画面 →「設定」→「ワークフロー」</strong></p>
+        <ul>
+          <li>✅ 残業は<strong>事前申請を必須</strong>にする</li>
+          <li>✅ <strong>翌日に実績申請も必須</strong>にする</li>
+          <li>0-3で決めた承認者を設定する</li>
+        </ul>
+      </div>
+      <span class="who-murakmi">🟢 村上さん（ワークフロー設定）</span>
+      <span class="who-nagasawa">🔵 長澤さん（承認者一覧を渡す）</span>
+      <span class="task-how">🖥 KOT管理画面</span>
+    </div>
+
+    <div class="task">
+      <h3><span class="task-num">1-6</span>有休設定（就業規則変更後）</h3>
+      <div class="task-detail">
+        <p><strong>KOT管理画面 →「設定」→「休暇」→「休暇管理」</strong></p>
+        <ul>
+          <li>有休の自動付与ルールを設定（入社日基準 or 特定日基準）</li>
+          <li>半日単位・時間単位の有休取得可否を設定</li>
+          <li>年5日有給取得義務のアラート設定</li>
+          <li><strong>※0-1の就業規則変更が完了してから実施</strong></li>
+        </ul>
+      </div>
+      <span class="task-who">👤 岩城さん</span>
+      <span class="task-how">🖥 KOT管理画面</span>
+    </div>
+  </div>
+
+  <!-- ============ フェーズ2: 連携設定 ============ -->
+  <div class="phase p2">
+    <h2>🟠 フェーズ2：データ連携の設定</h2>
+    <div class="deadline">⏰ 🅰 6月20日〜6月25日 ／ 🅱 7月10日〜7月18日</div>
+
+    <div class="task">
+      <h3><span class="task-num">2-1</span>MF給与CSV出力レイアウトの作成</h3>
+      <div class="task-detail">
+        <p><strong>KOT管理画面 →「エクスポート/インポート」→「月別データ出力」→「出力レイアウト設定」</strong></p>
+        <ul>
+          <li>MF給与に渡す16項目（出勤日数、残業時間、有給等）をレイアウトに並べる</li>
+          <li>MF給与のインポート形式に合わせて列順を調整</li>
+          <li>テストCSVを出力 → MF給与にインポートして確認</li>
+        </ul>
+      </div>
+      <span class="who-nagasawa">🔵 長澤さん（MF給与のインポート形式を確認・テスト）</span>
+      <span class="who-murakmi">🟢 村上さん（KOT側のCSVレイアウト作成）</span>
+      <span class="task-how">🖥 KOT + MF給与</span>
+    </div>
+
+    <div class="task">
+      <h3><span class="task-num">2-2</span>シフトCSVインポートのテスト</h3>
+      <div class="task-detail">
+        <p><strong>KOT管理画面 →「エクスポート/インポート」→「スケジュールデータ[CSV]」</strong></p>
+        <ul>
+          <li>スプレッドシートのシフト表 → CSV保存 → KOTにインポート</li>
+          <li>テンプレートをKOTからダウンロード → スプシのデータを貼り付け</li>
+          <li>注意：従業員コードのゼロ埋め、日付形式（YYYY/MM/DD）</li>
+        </ul>
+      </div>
+      <span class="who-okumoto">🟣 奥本さん（スプシ→CSV変換をテスト）</span>
+      <span class="who-murakmi">🟢 村上さん（KOTへのインポートを実行）</span>
+      <span class="task-how">🖥 KOT + スプレッドシート</span>
+    </div>
+
+    <div class="task">
+      <h3><span class="task-num">2-3</span>アラート設定（KOT標準機能）</h3>
+      <div class="task-detail">
+        <p><strong>KOT管理画面 →「設定」→「アラート」</strong></p>
+        <ul>
+          <li>打刻忘れ通知（日次）</li>
+          <li>残業30時間超過警告（月次）</li>
+          <li>残業45時間超過アラート — 36協定（月次）</li>
+          <li>有給5日未取得アラート</li>
+          <li><strong>※村上さんの自作プログラムは不要。KOT標準で対応可能。</strong></li>
+        </ul>
+      </div>
+      <span class="who-murakmi">🟢 村上さん（KOT標準アラートを設定する ← 自作プログラムより先にこれ）</span>
+      <span class="task-how">🖥 KOT管理画面</span>
+    </div>
+  </div>
+
+  <!-- ============ フェーズ3: テスト ============ -->
+  <div class="phase p3">
+    <h2>🟢 フェーズ3：テスト運用</h2>
+    <div class="deadline">⏰ 🅰 6月25日〜6月30日 ／ 🅱 7月18日〜7月25日</div>
+
+    <div class="task">
+      <h3><span class="task-num">3-1</span>DXメンバーでパイロットテスト</h3>
+      <div class="task-detail">
+        <ul>
+          <li>村上さん・西川さんで一連の流れを実施（岩城さんは見守るだけ）</li>
+          <li>打刻（ICカード＋GPS）→ 残業申請 → 承認 → 月末チェック</li>
+          <li>問題があれば村上さんがKOT設定を修正</li>
+        </ul>
+      </div>
+      <span class="who-murakmi">🟢 村上さん（設定確認・修正）</span>
+      <span class="who-okumoto">🟣 奥本さん（テスト打刻・動作確認）</span>
+      <span class="task-how">🖥 KOT + スマホ</span>
+    </div>
+
+    <div class="task">
+      <h3><span class="task-num">3-2</span>経推メンバー追加テスト</h3>
+      <div class="task-detail">
+        <ul>
+          <li>長澤さん・奥本さんでMF給与連携の流れを確認</li>
+          <li>「CSV出力→インポートのどこが楽になったか」を体験する</li>
+          <li>不備があれば村上さんに修正依頼</li>
+        </ul>
+      </div>
+      <span class="who-nagasawa">🔵 長澤さん（MF給与側インポート確認）</span>
+      <span class="who-okumoto">🟣 奥本さん（勤怠データの不備チェック確認）</span>
+      <span class="task-how">🖥 KOT + MF給与</span>
+    </div>
+  </div>
+
+  <!-- ============ フェーズ4: 本番 ============ -->
+  <div class="phase p4">
+    <h2>🔵 フェーズ4：本番切替</h2>
+    <div class="deadline">⏰ 🅰 7月1日 本番開始 🎉 ／ 🅱 8月1日 本番開始</div>
+
+    <div class="task">
+      <h3><span class="task-num">4-1</span>全従業員向け案内の作成・配布</h3>
+      <div class="task-detail">
+        <ul>
+          <li>「打刻方法が変わります」の1枚もの案内（デポ=ICカード、在宅=GPS）</li>
+          <li>スマホアプリのインストール手順（QRコード付き）</li>
+          <li>残業申請の新ルール（事前申請＋翌日実績申請）の説明</li>
+        </ul>
+      </div>
+      <span class="who-okumoto">🟣 奥本さん（案内文を作成・配布）</span>
+      <span class="who-murakmi">🟢 村上さん（スマホアプリのQRコード作成）</span>
+      <span class="task-how">📄 紙 or チャット</span>
+    </div>
+
+    <div class="task">
+      <h3><span class="task-num">4-2</span>きんたくん → KOT 切替実施</h3>
+      <div class="task-detail">
+        <ul>
+          <li>切替日を月初に設定（月の途中で変えない）</li>
+          <li>切替月は「きんたくん」と「KOT」を並行稼働する</li>
+          <li>翌月からKOT一本に切り替え</li>
+        </ul>
+      </div>
+      <span class="who-murakmi">🟢 村上さん（KOT側の切替操作）</span>
+      <span class="who-nagasawa">🔵 長澤さん（きんたくんのデータ最終確認）</span>
+      <span class="task-how">🖥 KOT管理画面</span>
+    </div>
+  </div>
+
+
+
+</div>
+
+<div class="footer">
+  おひさま会 DXプロジェクト — 勤怠システム入替（きんたくん → King of Time）<br>
+  関連: <a href="月次フロー比較.html">月次フロー比較</a> ｜ <a href="MF給与_KOT連携項目.html">MF給与 連携項目</a>
+</div>
+
+</body>
+</html>
