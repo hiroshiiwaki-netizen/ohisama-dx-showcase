@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Google Workspaceだけで医療DXは完結するか？｜医療法人おひさま会</title>
+<meta name="description" content="51システムをすべてGoogle Workspace基盤で構築した在宅医療法人が語る、GWSの可能性と限界。追加コストほぼゼロのDX実践。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#D2422D;--orange:#FF5100;--red-soft:rgba(210,66,45,.08);--red-border:rgba(210,66,45,.25);--bg:#f8f9fb;--bg2:#fff;--card:#fff;--text:#1e2028;--text2:#5f6577;--text3:#8a8f9e;--border:rgba(0,0,0,.08)}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.9}
+.article-wrap{max-width:740px;margin:0 auto;padding:40px 24px 80px}
+header.art-header{text-align:center;padding:80px 24px 40px;background:linear-gradient(135deg,#fff5f0 0%,#fff 40%,#fef8f0 100%)}
+.art-tag{display:inline-flex;align-items:center;gap:6px;background:var(--red-soft);border:1px solid var(--red-border);color:var(--red);padding:4px 14px;border-radius:100px;font-size:.78rem;font-weight:600;margin-bottom:20px}.art-tag .dot{width:6px;height:6px;background:var(--red);border-radius:50%}
+header h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:900;line-height:1.4;margin-bottom:12px}
+header h1 .accent{background:linear-gradient(135deg,var(--red),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.art-meta{font-size:.82rem;color:var(--text3)}.art-meta a{color:var(--red);text-decoration:none;font-weight:600}
+.article-wrap h2{font-size:1.35rem;font-weight:900;margin:56px 0 20px;padding-bottom:10px;border-bottom:2px solid var(--red)}
+.article-wrap h3{font-size:1.1rem;font-weight:700;margin:36px 0 14px}
+.article-wrap p{margin-bottom:18px;color:var(--text2);font-size:.95rem}
+.article-wrap strong{color:var(--text)}
+.article-wrap ol,.article-wrap ul{margin:0 0 20px 24px;color:var(--text2);font-size:.92rem}
+.article-wrap li{margin-bottom:8px;line-height:1.8}.article-wrap li strong{color:var(--text)}
+.fig{display:flex;align-items:flex-start;gap:20px;margin:20px 0 24px}
+.fig img{width:120px;height:90px;object-fit:cover;border-radius:10px;flex-shrink:0;border:1px solid var(--border)}
+.fig-text{flex:1;font-size:.9rem;color:var(--text2);line-height:1.8}.fig-text strong{color:var(--text)}
+@media(max-width:600px){.fig{flex-direction:column;align-items:center}.fig img{width:160px;height:120px}}
+blockquote{border-left:3px solid var(--red);padding:12px 20px;margin:20px 0 24px;background:var(--red-soft);border-radius:0 8px 8px 0;font-size:.92rem;color:var(--text)}blockquote strong{color:var(--red)}
+.highlight-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 24px;margin:24px 0 32px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.effect{background:linear-gradient(135deg,rgba(210,66,45,.06),rgba(255,81,0,.03));border:1px solid var(--red-border);border-radius:12px;padding:16px 20px;margin:16px 0 24px;font-size:.88rem;color:var(--text2)}.effect strong{color:var(--red)}.effect::before{content:'💰';margin-right:6px}
+.warn{background:rgba(250,193,0,.08);border:1px solid rgba(250,193,0,.3);border-radius:12px;padding:16px 20px;margin:16px 0 24px;font-size:.88rem;color:var(--text2)}.warn::before{content:'⚠️';margin-right:6px}.warn strong{color:#b8860b}
+.cmp-table{width:100%;border-collapse:collapse;margin:20px 0 28px;font-size:.85rem;background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.cmp-table th{background:var(--red);color:#fff;padding:10px 14px;text-align:left;font-weight:600;font-size:.82rem}
+.cmp-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text2)}.cmp-table tr:last-child td{border-bottom:none}.cmp-table td:first-child{font-weight:600;color:var(--text);white-space:nowrap}
+.nav-series{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0}
+.nav-series a{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:100px;font-size:.82rem;font-weight:600;text-decoration:none;border:1px solid var(--border);color:var(--text2);transition:all .2s}
+.nav-series a:hover{border-color:var(--red);color:var(--red);background:var(--red-soft)}
+.nav-series a.current{background:var(--red);color:#fff;border-color:var(--red)}
+.cta{text-align:center;margin:48px 0 0;padding:40px 24px;background:linear-gradient(135deg,#fff5f0,#fef8f0);border-radius:20px;border:1px solid var(--red-border)}
+.cta h3{font-size:1.2rem;font-weight:900;margin-bottom:12px}.cta p{font-size:.9rem;color:var(--text2);margin-bottom:20px}
+.btn-cta{display:inline-flex;background:linear-gradient(135deg,var(--red),var(--orange));color:#fff;padding:12px 28px;border-radius:100px;font-weight:700;font-size:.9rem;text-decoration:none;box-shadow:0 4px 16px rgba(210,66,45,.2)}
+.art-footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);margin-top:60px}.art-footer p{font-size:.78rem;color:var(--text3)}.art-footer a{color:var(--red);text-decoration:none;font-weight:600}
+</style>
+</head>
+<body>
+<header class="art-header">
+  <div class="art-tag"><span class="dot"></span>コラム — シリーズ第3回</div>
+  <h1><span class="accent">Google Workspace</span>だけで<br>医療DXは完結するか？</h1>
+  <p class="art-meta">2026年5月｜<a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> DX推進室</p>
+</header>
+<div class="article-wrap">
+  <div class="nav-series">
+    <a href="../article/">0. 自動化3つの業務</a>
+    <a href="../article2/">1. DX推進部</a>
+    <a href="../article3/">2. AIの壁は信頼</a>
+    <a href="./" class="current">3. GWSで完結するか</a>
+  </div>
+
+  <h2>結論：8割は完結する。残り2割に工夫がいる</h2>
+  <p>おひさま会の51システムは、<strong>100%がGoogle Workspace（GWS）を基盤にしている</strong>。AWSもAzureも使っていない。専用サーバーも契約していない。</p>
+  <p>「本当にそれだけで医療DXができるのか？」と聞かれることが多い。答えは<strong>「8割はGWSだけで完結する。残り2割は、GWSの上にGoやPythonを載せれば解決できる」</strong>だ。</p>
+
+  <h2>GWSだけでできること</h2>
+  <div class="fig">
+    <img src="img/gws.png" alt="Google Workspaceエコシステム">
+    <div class="fig-text">GWSの強みは<strong>「すでに全員のPCに入っている」</strong>こと。追加導入の手間がゼロ。ライセンス費用も既存の契約に含まれている。</div>
+  </div>
+
+  <table class="cmp-table">
+    <tr><th>GWSの機能</th><th>医療DXでの使い方</th><th>追加コスト</th></tr>
+    <tr><td>Google Apps Script</td><td>自動化の心臓部。問い合わせ管理・保険証AI判別・レポート生成</td><td>0円</td></tr>
+    <tr><td>Google Chat</td><td>全社通知・アラート・ステータス管理の統一窓口</td><td>0円</td></tr>
+    <tr><td>Google Drive</td><td>FAX PDF保管・書類配信・患者データ管理</td><td>0円</td></tr>
+    <tr><td>Spreadsheet</td><td>マスターデータ管理・ダッシュボード・ログ記録</td><td>0円</td></tr>
+    <tr><td>Gmail</td><td>書類の自動配信・エラー通知</td><td>0円</td></tr>
+  </table>
+
+  <div class="effect"><strong>追加コスト合計：月額0円。</strong>GWS Business Standardのライセンス（月額約1,500円/人）は既に業務で使っているため、DX用の追加費用は発生しない。</div>
+
+  <h2>GWSだけでは足りないこと</h2>
+  <p>ただし、すべてがGWSで完結するわけではない。<strong>2つの壁</strong>がある。</p>
+
+  <h3>壁① GASの実行時間制限（6分/30分）</h3>
+  <p>GASには1回の実行が最大6分（トリガー実行は30分）という制限がある。数百枚のFAXを一括処理したり、数千件の患者データを同期するには足りない。</p>
+  <p><strong>解決策：Go言語で常駐プログラムを作る。</strong>院内のPCやサーバーで動かせば、実行時間の制限はない。GWSのAPIを叩いてSpreadsheetやDriveと連携するので、GWSエコシステムからは外れない。</p>
+
+  <h3>壁② 電子カルテの操作自動化</h3>
+  <p>電子カルテはブラウザベースで動いていても、APIが公開されていないことが多い。GASからは操作できない。</p>
+  <p><strong>解決策：GoやPythonのブラウザ自動化ツールを使う。</strong>人間がブラウザで操作する動きを、プログラムで再現する。</p>
+
+  <div class="warn"><strong>注意：</strong>電子カルテのブラウザ自動化は、ベンダーのサポート対象外になることが多い。「自己責任で、慎重に」が原則。壊れても元に戻せる設計にしておくことが必須。</div>
+
+  <h2>「GWS + α」の構成パターン</h2>
+  <table class="cmp-table">
+    <tr><th>レイヤー</th><th>技術</th><th>役割</th></tr>
+    <tr><td>基盤</td><td>Google Workspace</td><td>認証・通知・ファイル管理・データ保管</td></tr>
+    <tr><td>自動化エンジン</td><td>GAS（TypeScript）</td><td>定期実行・Webhook・Web UI</td></tr>
+    <tr><td>重い処理</td><td>Go常駐プログラム</td><td>大量データ処理・24時間監視・EXE配布</td></tr>
+    <tr><td>AI</td><td>Gemini API</td><td>書類分類・文字起こし・要約</td></tr>
+    <tr><td>データ統合</td><td>PostgreSQL</td><td>患者ID統合ハブ（次回コラムで詳述）</td></tr>
+  </table>
+  <p>ポイントは、<strong>どの層もGWSを中心に据えている</strong>こと。Go常駐プログラムもGWSのAPIで結果をSpreadsheetに書き、ChatにアラートをPOSTする。PostgreSQLのデータもGASのWeb UIで閲覧する。バラバラなツールを寄せ集めるのではなく、<strong>GWSを「ハブ」にして全部をつなぐ</strong>設計だ。</p>
+
+  <h2>なぜGWS中心にこだわるのか</h2>
+  <div class="fig">
+    <img src="img/cost.png" alt="コストゼロ">
+    <div class="fig-text">理由はシンプルだ。<strong>「スタッフ全員が毎日使っているツールだから」</strong>。新しいツールを導入すると、それだけで教育コストが発生する。GWSなら、通知がChatに届き、データがSpreadsheetで見え、ファイルがDriveにある。<strong>追加の学習コストがゼロ</strong>。</div>
+  </div>
+
+  <div class="highlight-box">
+    <h3 style="margin-top:0;font-size:1.05rem">✅ GWS中心設計の3つのメリット</h3>
+    <ol>
+      <li><strong>追加コストがほぼゼロ</strong> — 既存ライセンスの範囲内。AI APIの利用料も月数百円程度</li>
+      <li><strong>教育コストがゼロ</strong> — 全員が既に使い慣れたUI。新しいツールの操作説明が不要</li>
+      <li><strong>ベンダーロックインが少ない</strong> — データはSpreadsheetやDriveに入っているので、いつでも取り出せる</li>
+    </ol>
+  </div>
+
+  <blockquote><strong>「最高のツール」より「全員が使えるツール」を選ぶ。</strong>中小医療法人のDXでは、この判断が最も重要だ。</blockquote>
+
+  <div class="nav-series">
+    <a href="../article3/">← 前：AIの壁は信頼</a>
+    <a href="../article5/">次：IDが最大のボトルネック →</a>
+  </div>
+
+  <div class="cta">
+    <h3>☀️ おひさま会のDXソリューション一覧</h3>
+    <p>GWS基盤で動く51システムの一覧をご覧いただけます。</p>
+    <a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/" class="btn-cta">ソリューション一覧 →</a>
+  </div>
+  <footer class="art-footer">
+    <p><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> — 在宅医療を、テクノロジーで支える</p>
+    <p>© 2026 医療法人おひさま会. All rights reserved.</p>
+  </footer>
+</div>
+</body>
+</html>
