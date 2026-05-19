@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>在宅医療法人にDX推進部ができるまで｜医療法人おひさま会</title>
+<meta name="description" content="51システムを内製する在宅医療法人で、なぜDX推進部が生まれたのか。理事長のビジョン、現場の声、組織化の過程を振り返る。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#D2422D;--orange:#FF5100;--red-soft:rgba(210,66,45,.08);--red-border:rgba(210,66,45,.25);--bg:#f8f9fb;--bg2:#fff;--card:#fff;--text:#1e2028;--text2:#5f6577;--text3:#8a8f9e;--border:rgba(0,0,0,.08)}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.9}
+.article-wrap{max-width:740px;margin:0 auto;padding:40px 24px 80px}
+header.art-header{text-align:center;padding:80px 24px 40px;background:linear-gradient(135deg,#fff5f0 0%,#fff 40%,#fef8f0 100%)}
+.art-tag{display:inline-flex;align-items:center;gap:6px;background:var(--red-soft);border:1px solid var(--red-border);color:var(--red);padding:4px 14px;border-radius:100px;font-size:.78rem;font-weight:600;margin-bottom:20px}
+.art-tag .dot{width:6px;height:6px;background:var(--red);border-radius:50%}
+header h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:900;line-height:1.4;letter-spacing:-.01em;margin-bottom:12px}
+header h1 .accent{background:linear-gradient(135deg,var(--red),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.art-meta{font-size:.82rem;color:var(--text3)}.art-meta a{color:var(--red);text-decoration:none;font-weight:600}.art-meta a:hover{text-decoration:underline}
+.article-wrap h2{font-size:1.35rem;font-weight:900;margin:56px 0 20px;padding-bottom:10px;border-bottom:2px solid var(--red);color:var(--text)}
+.article-wrap h3{font-size:1.1rem;font-weight:700;margin:36px 0 14px;color:var(--text)}
+.article-wrap p{margin-bottom:18px;color:var(--text2);font-size:.95rem}
+.article-wrap strong{color:var(--text)}
+.article-wrap ol,.article-wrap ul{margin:0 0 20px 24px;color:var(--text2);font-size:.92rem}
+.article-wrap li{margin-bottom:8px;line-height:1.8}
+.article-wrap li strong{color:var(--text)}
+.fig{display:flex;align-items:flex-start;gap:20px;margin:20px 0 24px}
+.fig img{width:120px;height:90px;object-fit:cover;border-radius:10px;flex-shrink:0;border:1px solid var(--border)}
+.fig-text{flex:1;font-size:.9rem;color:var(--text2);line-height:1.8}
+.fig-text strong{color:var(--text)}
+@media(max-width:600px){.fig{flex-direction:column;align-items:center}.fig img{width:160px;height:120px}}
+blockquote{border-left:3px solid var(--red);padding:12px 20px;margin:20px 0 24px;background:var(--red-soft);border-radius:0 8px 8px 0;font-size:.92rem;color:var(--text);font-style:normal}
+blockquote strong{color:var(--red)}
+.highlight-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 24px;margin:24px 0 32px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.highlight-box:hover{border-color:var(--red-border);box-shadow:0 4px 20px rgba(210,66,45,.08)}
+.phase-label{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.15em;color:#fff;background:linear-gradient(135deg,var(--red),var(--orange));padding:4px 14px;border-radius:100px;margin-bottom:14px}
+.effect{background:linear-gradient(135deg,rgba(210,66,45,.06),rgba(255,81,0,.03));border:1px solid var(--red-border);border-radius:12px;padding:16px 20px;margin:16px 0 24px;font-size:.88rem;color:var(--text2)}
+.effect strong{color:var(--red)}
+.effect::before{content:'📊';margin-right:6px}
+.warn{background:rgba(250,193,0,.08);border:1px solid rgba(250,193,0,.3);border-radius:12px;padding:16px 20px;margin:16px 0 24px;font-size:.88rem;color:var(--text2)}
+.warn::before{content:'💡';margin-right:6px}
+.warn strong{color:#b8860b}
+.tl{position:relative;padding-left:28px;margin:24px 0 32px}
+.tl::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--red-border)}
+.tl-item{position:relative;margin-bottom:24px}
+.tl-item::before{content:'';position:absolute;left:-24px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--red);border:2px solid #fff;box-shadow:0 0 0 2px var(--red-border)}
+.tl-date{font-size:.78rem;font-weight:700;color:var(--red);margin-bottom:4px}
+.tl-title{font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.tl-desc{font-size:.85rem;color:var(--text2);line-height:1.7}
+.cmp-table{width:100%;border-collapse:collapse;margin:20px 0 28px;font-size:.85rem;background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.cmp-table th{background:var(--red);color:#fff;padding:10px 14px;text-align:left;font-weight:600;font-size:.82rem}
+.cmp-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text2)}
+.cmp-table tr:last-child td{border-bottom:none}
+.cmp-table td:first-child{font-weight:600;color:var(--text);white-space:nowrap}
+.nav-series{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0}
+.nav-series a{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:100px;font-size:.82rem;font-weight:600;text-decoration:none;border:1px solid var(--border);color:var(--text2);transition:all .2s}
+.nav-series a:hover{border-color:var(--red);color:var(--red);background:var(--red-soft)}
+.nav-series a.current{background:var(--red);color:#fff;border-color:var(--red)}
+.cta{text-align:center;margin:48px 0 0;padding:40px 24px;background:linear-gradient(135deg,#fff5f0,#fef8f0);border-radius:20px;border:1px solid var(--red-border)}
+.cta h3{font-size:1.2rem;font-weight:900;margin-bottom:12px;color:var(--text)}
+.cta p{font-size:.9rem;color:var(--text2);margin-bottom:20px}
+.btn-cta{display:inline-flex;background:linear-gradient(135deg,var(--red),var(--orange));color:#fff;padding:12px 28px;border-radius:100px;font-weight:700;font-size:.9rem;text-decoration:none;transition:all .3s;box-shadow:0 4px 16px rgba(210,66,45,.2)}
+.btn-cta:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(210,66,45,.3)}
+.art-footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);margin-top:60px}
+.art-footer p{font-size:.78rem;color:var(--text3)}
+.art-footer a{color:var(--red);text-decoration:none;font-weight:600}
+</style>
+</head>
+<body>
+
+<header class="art-header">
+  <div class="art-tag"><span class="dot"></span>コラム — シリーズ第1回</div>
+  <h1>在宅医療法人に<br><span class="accent">DX推進部</span>ができるまで</h1>
+  <p class="art-meta">2026年5月｜<a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/" target="_blank">医療法人おひさま会</a> DX推進室</p>
+</header>
+
+<div class="article-wrap">
+
+  <!-- シリーズナビ -->
+  <div class="nav-series">
+    <a href="../article/">0. 自動化すべき3つの業務</a>
+    <a href="./" class="current">1. DX推進部ができるまで</a>
+  </div>
+
+  <!-- 導入 -->
+  <h2>「DX」という言葉が来る前から、現場は動いていた</h2>
+
+  <p>おひさま会にDX推進部が正式に発足したのは、2026年4月のことだ。</p>
+  <p>だが、デジタル化の取り組みは、それよりずっと前から始まっていた。正確に言えば、<strong>「DX」という言葉を意識する前から、現場の「困った」を一つずつ解決する過程で、気づけば51のシステムが動いていた</strong>のだ。</p>
+  <p>この記事では、中小の在宅医療法人でDXがどのように芽生え、組織化に至ったかを振り返る。</p>
+
+  <!-- フェーズ1 -->
+  <h2>第1章 — 始まりは「紙とFAX」への違和感</h2>
+
+  <div class="fig">
+    <img src="img/culture.png" alt="紙からデジタルへの変化">
+    <div class="fig-text">在宅医療は、病院以上に<strong>紙の文化が根強い</strong>。訪問看護ステーション、ケアマネ事務所、薬局——連携先のほとんどがFAXで情報をやり取りしている。1日に数十枚届くFAXを、事務スタッフが1枚ずつ仕分けてカルテに貼り付ける。毎日のことだ。</div>
+  </div>
+
+  <p>問題は、この作業が<strong>誰にも疑問を持たれていなかった</strong>こと。「昔からこうだから」で回っていた。</p>
+  <p>転機は、ちょっとした自動化ツールを作ったときだった。Google Chatで「この患者さんのFAXが届きましたよ」と通知するだけの、小さなスクリプト。たったそれだけのことで、事務スタッフから<strong>「すごく助かる」</strong>という声が上がった。</p>
+
+  <blockquote><strong>「困っている」ことに気づいていなかった人が、解決されて初めて「困っていた」と気づく。</strong>DXの出発点は、往々にしてそこにある。</blockquote>
+
+  <!-- フェーズ2 -->
+  <h2>第2章 — 小さな成功体験の連鎖</h2>
+
+  <div class="fig">
+    <img src="img/growth.png" alt="成長の階段">
+    <div class="fig-text">1つ目のツールが好評だったことで、<strong>「次はこれを自動化できないか？」</strong>という声が現場から上がるようになった。レセコンの操作がわからない → 問い合わせ管理ツール。保険証の仕分けが大変 → AI撮影ツール。定期書類の作成に時間がかかる → 自動作成ツール。</div>
+  </div>
+
+  <p>重要だったのは、<strong>一つひとつを小さく作って、すぐに使ってもらったこと</strong>だ。半年かけて完璧なシステムを作るのではなく、1週間で動くものを現場に渡す。使ってもらいながら改善する。</p>
+  <p>このサイクルが回り始めると、システムの数は自然と増えていった。</p>
+
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-date">初期</div>
+      <div class="tl-title">FAX通知・問い合わせ管理</div>
+      <div class="tl-desc">Google ChatとGASで小さなツールを作る。現場の反応が良く、「次も」と声がかかる。</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">半年後</div>
+      <div class="tl-title">AI自動分類・保険証撮影・カルテ自動作成</div>
+      <div class="tl-desc">Gemini APIの登場で、AIを組み込んだシステムが一気に増える。FAX1枚の処理が5分→25秒に。</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">1年後</div>
+      <div class="tl-title">51システム稼働・月19.5万円のRPAを内製で置き換え</div>
+      <div class="tl-desc">外部ツールへの依存がなくなり、コスト削減と柔軟性の両方を手に入れる。</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2026年4月</div>
+      <div class="tl-title">DX推進部 正式発足</div>
+      <div class="tl-desc">システムの数と影響範囲が拡大し、組織的な運営体制が必要に。</div>
+    </div>
+  </div>
+
+  <!-- フェーズ3 -->
+  <h2>第3章 — 理事長が「DX好き」だった幸運</h2>
+
+  <p>中小医療法人でDXが進むかどうかは、<strong>経営トップの姿勢で8割決まる</strong>。</p>
+  <p>おひさま会の場合、理事長自身がテクノロジーに強い関心を持っていた。新しいツールのデモを見せると「面白いね、すぐやろう」と言ってくれる。この一言が、どれだけ現場の推進力になるか。</p>
+
+  <div class="warn"><strong>多くの医療法人で聞く話：</strong>「IT担当がやりたくても、院長が『うちは紙でいい』と言ったら終わり」。経営層の理解がなければ、どんなに優秀なエンジニアがいてもDXは進まない。</div>
+
+  <p>ただし、理事長の「やろう」だけでは組織は動かない。現場のスタッフが<strong>「自分たちのために作られたツールだ」</strong>と感じることが大切だった。そのために心がけたこと：</p>
+
+  <ol>
+    <li><strong>現場の言葉で話す</strong> — 「AIで自然言語処理を…」ではなく「FAXが来たら自動でChatに通知されますよ」</li>
+    <li><strong>最初の1人の味方を作る</strong> — 全員を説得するのではなく、1人のスタッフが「便利だ」と言えば周りに広がる</li>
+    <li><strong>強制しない</strong> — 「使いたい人から使ってください」。押し付けると反発が生まれる</li>
+  </ol>
+
+  <!-- フェーズ4 -->
+  <h2>第4章 — なぜ「組織化」が必要になったか</h2>
+
+  <div class="fig">
+    <img src="img/team.png" alt="チームの結成">
+    <div class="fig-text">51のシステムが稼働し始めると、<strong>一人で全部を見ることの限界</strong>が見えてきた。問い合わせ対応、障害対応、新規開発、スタッフ教育——すべてが同時に走る。</div>
+  </div>
+
+  <p>組織化が必要になった理由は3つあった。</p>
+
+  <table class="cmp-table">
+    <tr><th>課題</th><th>具体的な問題</th></tr>
+    <tr><td>属人化リスク</td><td>担当者が休んだらシステムの運用がわからない</td></tr>
+    <tr><td>優先順位の判断</td><td>「あれも作って」「これも直して」が同時に来る。組織的に優先順位を決める仕組みがなかった</td></tr>
+    <tr><td>拠点間の温度差</td><td>5クリニックでDXの浸透度にばらつきがあった</td></tr>
+  </table>
+
+  <p>2026年4月、DX推進部が正式に発足した。<strong>目的は「作る」ことではなく、「回す」こと</strong>。システムを安定的に運用し、現場の声を吸い上げ、優先順位をつけて改善していく。その体制を整えるための組織化だった。</p>
+
+  <!-- まとめ -->
+  <h2>中小医療法人がDXを進めるために</h2>
+
+  <p>おひさま会の経験から言えることをまとめる。</p>
+
+  <div class="highlight-box">
+    <h3 style="margin-top:0;font-size:1.05rem">✅ DXが根づく法人の3条件</h3>
+    <ol>
+      <li><strong>経営トップが「やろう」と言える</strong> — 技術に詳しくなくていい。「面白そうだね」の一言でいい</li>
+      <li><strong>現場発の課題を起点にする</strong> — 「DXしなきゃ」ではなく「これ面倒だよね」から始める</li>
+      <li><strong>小さく作って、すぐ使ってもらう</strong> — 半年後の完璧より、来週の「ちょっと便利」が信頼を作る</li>
+    </ol>
+  </div>
+
+  <p>そして、ある程度の規模になったら<strong>組織化する</strong>。一人の頑張りに依存する体制は、長くは続かない。</p>
+  <p>DX推進部の発足は、おひさま会にとって「DXが特別なことではなくなった」証でもある。<strong>デジタルは日常の一部になった。</strong>次に考えるべきは、この仕組みをどう維持し、どう進化させていくかだ。</p>
+
+  <blockquote><strong>DXの本質は、テクノロジーではない。「現場が楽になること」を積み重ねた先に、気づけば組織が変わっている。</strong>それが、おひさま会が歩んできた道だ。</blockquote>
+
+  <!-- シリーズナビ -->
+  <div class="nav-series">
+    <a href="../article/">← 前の記事：自動化すべき3つの業務</a>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h3>☀️ おひさま会のDXソリューション一覧</h3>
+    <p>51のシステムの具体的な内容をご覧いただけます。</p>
+    <a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/" class="btn-cta" target="_blank">DXソリューション一覧 →</a>
+  </div>
+
+  <footer class="art-footer">
+    <p><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> — 在宅医療を、テクノロジーで支える</p>
+    <p>© 2026 医療法人おひさま会. All rights reserved.</p>
+  </footer>
+</div>
+</body>
+</html>
