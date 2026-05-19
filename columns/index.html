@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>コラム一覧 — 在宅医療法人のDX、現場から学んだ5つの知見｜医療法人おひさま会</title>
+<meta name="description" content="51システムを5ヶ月で内製した在宅医療法人が語るDXコラム全5回。自動化・組織・AI信頼・ツール選定・ID統合の順番と、その理由。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#D2422D;--orange:#FF5100;--red-soft:rgba(210,66,45,.08);--red-border:rgba(210,66,45,.25);--bg:#f8f9fb;--card:#fff;--text:#1e2028;--text2:#5f6577;--text3:#8a8f9e;--border:rgba(0,0,0,.08)}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.9}
+
+header.col-header{text-align:center;padding:80px 24px 48px;background:linear-gradient(135deg,#fff5f0 0%,#fff 40%,#fef8f0 100%)}
+.col-tag{display:inline-flex;align-items:center;gap:6px;background:var(--red-soft);border:1px solid var(--red-border);color:var(--red);padding:4px 14px;border-radius:100px;font-size:.78rem;font-weight:600;margin-bottom:20px}
+.col-tag .dot{width:6px;height:6px;background:var(--red);border-radius:50%}
+header h1{font-size:clamp(1.5rem,4vw,2rem);font-weight:900;line-height:1.4;margin-bottom:12px}
+header h1 .accent{background:linear-gradient(135deg,var(--red),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.col-sub{font-size:.92rem;color:var(--text2);max-width:600px;margin:0 auto;line-height:1.8}
+
+.wrap{max-width:800px;margin:0 auto;padding:40px 24px 80px}
+
+/* 読み方ガイド */
+.guide{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 28px 20px;margin-bottom:48px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.guide h2{font-size:1.1rem;font-weight:900;margin-bottom:14px;color:var(--text)}
+.guide p{font-size:.9rem;color:var(--text2);margin-bottom:12px;line-height:1.8}
+.guide strong{color:var(--text)}
+
+/* タイムライン目次 */
+.toc-list{position:relative;padding-left:0;margin:0}
+.toc-item{position:relative;display:flex;gap:20px;margin-bottom:0}
+.toc-left{width:60px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;padding-top:28px}
+.toc-dot{width:14px;height:14px;border-radius:50%;background:var(--red);border:3px solid #fff;box-shadow:0 0 0 2px var(--red-border);z-index:1;flex-shrink:0}
+.toc-line{width:2px;flex:1;background:var(--red-border)}
+.toc-item:last-child .toc-line{background:transparent}
+.toc-right{flex:1;padding-bottom:16px}
+
+.toc-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px 24px 20px;text-decoration:none;display:block;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.toc-card:hover{border-color:var(--red-border);box-shadow:0 4px 20px rgba(210,66,45,.1);transform:translateY(-2px)}
+.toc-num{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.15em;color:#fff;background:linear-gradient(135deg,var(--red),var(--orange));padding:3px 12px;border-radius:100px;margin-bottom:10px}
+.toc-num.final{background:linear-gradient(135deg,#1e2028,#3a3d4a)}
+.toc-title{font-size:1.1rem;font-weight:900;color:var(--text);margin-bottom:6px;line-height:1.4}
+.toc-desc{font-size:.85rem;color:var(--text2);margin-bottom:10px;line-height:1.7}
+.toc-why{font-size:.82rem;color:var(--red);font-weight:600;line-height:1.6}
+.toc-why::before{content:'💡 '}
+
+/* 矢印コメント */
+.toc-bridge{padding:4px 0 4px 80px;font-size:.82rem;color:var(--text3);font-weight:500;display:flex;align-items:center;gap:8px}
+.toc-bridge::before{content:'';width:20px;height:1px;background:var(--red-border)}
+
+/* フッター */
+.col-footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);margin-top:48px}
+.col-footer p{font-size:.78rem;color:var(--text3)}
+.col-footer a{color:var(--red);text-decoration:none;font-weight:600}
+.btn-back{display:inline-flex;background:linear-gradient(135deg,var(--red),var(--orange));color:#fff;padding:12px 28px;border-radius:100px;font-weight:700;font-size:.9rem;text-decoration:none;box-shadow:0 4px 16px rgba(210,66,45,.2);margin-top:24px}
+
+@media(max-width:600px){.toc-left{width:40px}.toc-bridge{padding-left:60px}}
+</style>
+</head>
+<body>
+
+<header class="col-header">
+  <div class="col-tag"><span class="dot"></span>コラムシリーズ 全5回</div>
+  <h1>在宅医療法人のDX<br><span class="accent">現場から学んだ5つの知見</span></h1>
+  <p class="col-sub">51のシステムを5ヶ月で内製した在宅医療法人が、<br>「何を」「どの順番で」「なぜそうしたか」を語るコラムです。</p>
+</header>
+
+<div class="wrap">
+
+  <!-- 読み方ガイド -->
+  <div class="guide">
+    <h2>📖 このシリーズの読み方</h2>
+    <p>上から順番に読むと、<strong>医療DXの全体像が段階的に見えてくる</strong>構成になっています。</p>
+    <p>まず「何を自動化すべきか」を整理し、次に「それを誰がどう回すか（組織）」、「AIとどう付き合うか（信頼設計）」、「何のツールで作るか（基盤選定）」、最後に「すべてを繋ぐ基盤（ID統合）」へ——。</p>
+    <p><strong>1つ飛ばして読んでもOKです。</strong>興味のあるテーマから読んでください。各記事は独立して読めます。</p>
+  </div>
+
+  <!-- 目次タイムライン -->
+  <div class="toc-list">
+
+    <!-- Article 0 -->
+    <div class="toc-item">
+      <div class="toc-left"><div class="toc-dot"></div><div class="toc-line"></div></div>
+      <div class="toc-right">
+        <a href="../article/" class="toc-card">
+          <span class="toc-num">ARTICLE 0 — 入口</span>
+          <div class="toc-title">中小医療法人のDX — 最初に自動化すべき3つの業務</div>
+          <div class="toc-desc">FAX電子化 → 問い合わせAI振り分け → 定期書類自動作成。一般企業のDXとは順番が違う理由と、各ステップの具体的な進め方を解説。</div>
+          <div class="toc-why">まず「何を自動化すべきか」を決めないと、すべてが始まらない</div>
+        </a>
+      </div>
+    </div>
+    <div class="toc-bridge">「何を」が決まった → 次は「誰が・どう回すか」</div>
+
+    <!-- Article 1 -->
+    <div class="toc-item">
+      <div class="toc-left"><div class="toc-dot"></div><div class="toc-line"></div></div>
+      <div class="toc-right">
+        <a href="../article2/" class="toc-card">
+          <span class="toc-num">ARTICLE 1 — 土台</span>
+          <div class="toc-title">在宅医療法人にDX推進部ができるまで</div>
+          <div class="toc-desc">2025年2月のAI導入から、わずか5ヶ月で51システムが稼働するまで。理事長のビジョン、AIコーディングツールの威力、そして組織化の必然。</div>
+          <div class="toc-why">ツールだけでは動かない。経営の理解×専任体制×AIツールの3要素が揃って初めて加速する</div>
+        </a>
+      </div>
+    </div>
+    <div class="toc-bridge">体制ができた → AIを導入するとき、最初にぶつかる壁がある</div>
+
+    <!-- Article 2 -->
+    <div class="toc-item">
+      <div class="toc-left"><div class="toc-dot"></div><div class="toc-line"></div></div>
+      <div class="toc-right">
+        <a href="../article3/" class="toc-card">
+          <span class="toc-num">ARTICLE 2 — 思想</span>
+          <div class="toc-title">医療AIの壁は「精度」ではなく「信頼」</div>
+          <div class="toc-desc">「AIが間違えたらどうする？」の正体は精度ではなく責任の問題。事務員AIと医療AIを分ける設計思想と、3パターンの承認パイプライン。</div>
+          <div class="toc-why">医療は間違いが命に関わる。AIの使い方に「原則」がないと、現場の信頼は得られない</div>
+        </a>
+      </div>
+    </div>
+    <div class="toc-bridge">信頼設計がわかった → 実際に何のツールで作るか？</div>
+
+    <!-- Article 3 -->
+    <div class="toc-item">
+      <div class="toc-left"><div class="toc-dot"></div><div class="toc-line"></div></div>
+      <div class="toc-right">
+        <a href="../article4/" class="toc-card">
+          <span class="toc-num">ARTICLE 3 — 手段</span>
+          <div class="toc-title">Google Workspaceだけで医療DXは完結するか？</div>
+          <div class="toc-desc">結論：8割は完結する。追加コスト月額0円の理由、GASの実行時間制限の乗り越え方、「GWS＋Go＋Gemini API」の構成パターン。</div>
+          <div class="toc-why">「最高のツール」より「全員が使えるツール」を選ぶ。教育コスト0が最大のメリット</div>
+        </a>
+      </div>
+    </div>
+    <div class="toc-bridge">ツールが揃った → 最後に立ちはだかる「IDの壁」</div>
+
+    <!-- Article 4 -->
+    <div class="toc-item">
+      <div class="toc-left"><div class="toc-dot"></div><div class="toc-line"></div></div>
+      <div class="toc-right">
+        <a href="../article5/" class="toc-card">
+          <span class="toc-num final">ARTICLE 4 — 総仕上げ</span>
+          <div class="toc-title">バラバラなIDが医療DXの最大のボトルネック</div>
+          <div class="toc-desc">7つのシステム×9,800人の患者。同じ人なのにIDが全部違う問題。既存システムを変えずにID統合ハブを構築する設計原則。</div>
+          <div class="toc-why">個々の自動化は動く。だがシステム同士を「繋ぐ」とき、IDの壁が最後に立ちはだかる</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- フッター -->
+  <div style="text-align:center;margin-top:40px">
+    <a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/" class="btn-back">← DXソリューション一覧に戻る</a>
+  </div>
+
+  <footer class="col-footer">
+    <p><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> — 在宅医療を、テクノロジーで支える</p>
+    <p>© 2026 医療法人おひさま会. All rights reserved.</p>
+  </footer>
+</div>
+</body>
+</html>
