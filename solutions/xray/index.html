@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>レントゲンナビ｜医療法人おひさま会</title>
-<meta name="description" content="訪問診療のレントゲンオーダーから撮影完了・カルテ記録まで一元管理。集団検診にも対応。">
+<meta name="description" content="訪問診療のレントゲンオーダーから撮影完了・カルテ記録まで一元管理。">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../solution.css">
 </head><body>
@@ -12,28 +12,30 @@
 </header>
 <div class="wrap">
   <h2>概要</h2>
-  <p>訪問診療のレントゲン依頼から<strong>撮影完了フロー・カルテ自動書き込み・月次集計</strong>まで一元管理するWebアプリ。撮影担当者への自動通知、PDF生成、集団検診の一括オーダーにも対応。</p>
+  <p>訪問診療のレントゲン依頼から<strong>撮影完了・カルテ自動記録・月次集計</strong>まで一元管理するWebアプリ。撮影担当者への自動通知、PDF生成、集団検診の一括オーダーにも対応しています。</p>
+
   <div class="problem-box">
     <h3>このシステムがなかったら</h3>
     <ul><li>レントゲンオーダーが<strong>紙や口頭ベース</strong></li><li>撮影漏れ・通知漏れが発生</li><li>カルテへの記録も手動</li></ul>
   </div>
+
   <h2>処理フロー</h2>
   <div class="flow">
-    <div class="flow-step">医師がWebアプリからオーダー登録</div>
+    <div class="flow-step">医師がWebアプリからオーダーを登録</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step">患者情報を自動取得（マスター参照）</div>
+    <div class="flow-step">患者情報を自動で取得</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step hl">撮影担当者にGoogle Chat / メール通知</div>
+    <div class="flow-step hl">撮影担当者にチャット・メールで自動通知</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step">撮影完了ボタン → カルテに自動書き込み</div>
+    <div class="flow-step">撮影完了ボタン → カルテに自動で記録</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step">PDF生成・月次集計レポート</div>
+    <div class="flow-step">PDFレポート生成 → 月次集計</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step hl">集団検診対応（一括オーダー・個別キャンセル）</div>
+    <div class="flow-step hl">集団検診にも対応（一括オーダー・個別キャンセル）</div>
   </div>
-  <div class="effect"><strong>レントゲンオーダーの完全デジタル化。</strong>通知・カルテ記録の自動化。撮影漏れゼロを実現。</div>
-  <h2>技術スタック</h2>
-  <div class="tags"><span class="tag">GAS</span><span class="tag">HOMIS HTTP連携</span><span class="tag">Google Chat Webhook</span><span class="tag">PDF生成</span><span class="tag">Gemini API（AI読影）</span></div>
+
+  <div class="effect"><strong>レントゲンオーダーの完全デジタル化。</strong>撮影漏れゼロ。通知からカルテ記録まですべて自動です。</div>
+
   <div style="text-align:center;margin-top:40px"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/#solutions" class="btn-back">← ソリューション一覧に戻る</a></div>
   <footer class="sol-footer"><p><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> — 在宅医療を、テクノロジーで支える</p><p>© 2026 医療法人おひさま会. All rights reserved.</p></footer>
 </div></body></html>

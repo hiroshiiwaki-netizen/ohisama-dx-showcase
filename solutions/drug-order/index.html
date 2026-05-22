@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>薬剤発注ナビ｜医療法人おひさま会</title>
-<meta name="description" content="薬剤の在庫チェック・発注依頼・段階的リマインド通知をワンストップ管理。複雑な定期発注にも対応。">
+<meta name="description" content="薬剤の発注管理・段階的リマインド通知で発注漏れゼロ。複雑な定期発注にも対応。">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../solution.css">
 </head><body>
@@ -12,26 +12,28 @@
 </header>
 <div class="wrap">
   <h2>概要</h2>
-  <p>薬剤の在庫チェック・発注依頼・Google Chat通知をワンストップ管理。<strong>「月3週の火曜日」など複雑な定期発注パターン</strong>にも対応。段階的リマインド通知で発注漏れを防止。</p>
+  <p>薬剤の在庫チェック・発注依頼・チャット通知をワンストップ管理。<strong>「月3週の火曜日」など複雑な定期発注パターン</strong>にも対応。段階的なリマインド通知で発注漏れを確実に防止します。</p>
+
   <div class="problem-box">
     <h3>このシステムがなかったら</h3>
-    <ul><li>薬剤発注が<strong>手動管理で発注漏れ発生</strong></li><li>高額薬剤（例: ネクスビアザイム）のタイミング管理が困難</li><li>複雑な周期パターンに対応できない</li></ul>
+    <ul><li>薬剤発注が<strong>手動管理で発注漏れが発生</strong></li><li>高額薬剤の発注タイミング管理が困難</li><li>複雑な周期パターンに対応できない</li></ul>
   </div>
+
   <h2>処理フロー</h2>
   <div class="flow">
-    <div class="flow-step">発注登録（手動 or 定期テンプレートから自動生成）</div>
+    <div class="flow-step">発注を登録（手動 or 定期テンプレートから自動生成）</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step">定期パターン設定<small>毎週 / 隔週 / 毎月第N曜日</small></div>
+    <div class="flow-step">定期パターンを設定<small>毎週 / 隔週 / 毎月第N曜日</small></div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step hl">毎日1時に自動チェック → 該当日に発注を自動生成</div>
+    <div class="flow-step hl">毎日自動チェック → 該当日に発注を自動生成</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step">段階的リマインド通知<small>1-3日前 / 当日3回 / 超過時は毎時</small></div>
+    <div class="flow-step">段階的にリマインド通知<small>事前 → 当日 → 期限超過で段階的に通知</small></div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step hl">担当者が確認アクション（発注続行 / 不要キャンセル）</div>
+    <div class="flow-step hl">担当者が確認（発注する / 今回は不要）</div>
   </div>
-  <div class="effect"><strong>発注漏れゼロを実現。</strong>段階的通知で確実な対応を促進。定期発注の完全自動化。</div>
-  <h2>技術スタック</h2>
-  <div class="tags"><span class="tag">GAS</span><span class="tag">HTML/CSS/JavaScript</span><span class="tag">Spreadsheet</span><span class="tag">Google Chat Webhook</span><span class="tag">Googleカレンダー</span></div>
+
+  <div class="effect"><strong>発注漏れゼロを実現。</strong>段階的な通知で「うっかり忘れ」を確実に防止。定期発注の管理が完全自動化されました。</div>
+
   <div style="text-align:center;margin-top:40px"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/#solutions" class="btn-back">← ソリューション一覧に戻る</a></div>
   <footer class="sol-footer"><p><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> — 在宅医療を、テクノロジーで支える</p><p>© 2026 医療法人おひさま会. All rights reserved.</p></footer>
 </div></body></html>

@@ -21,7 +21,6 @@
         <li><a href="#solutions">ソリューション</a></li>
         <li><a href="#tech">技術スタック</a></li>
         <li><a href="#numbers">実績</a></li>
-        <li><a href="columns/" style="color:var(--red);font-weight:700">📝 コラム</a></li>
         <li><a href="#philosophy">理念</a></li>
         <li><a href="#corporate">法人概要</a></li>
       </ul>
@@ -118,126 +117,98 @@
       </div>
       <div class="sol-grid">
 
-        <a href="solutions/ohiscan/" class="sol-card reveal" style="text-decoration:none;color:inherit;cursor:pointer">
+        <div class="sol-card reveal">
           <img src="img/ohiscan.png" alt="OhiScan" class="sol-img">
           <div class="sol-hd"><span class="sol-st st-run">本番運用中</span></div>
           <h3>OhiScan — FAX AI自動分類</h3>
           <p>FAX受信PDFをAIが即座に解析。患者特定・書類分類・PDF分割を自動処理し、電子カルテへ自動ファイリング。</p>
+          <div class="sol-tags">
+            <span class="sol-tag">Go</span><span class="sol-tag">Gemini API</span><span class="sol-tag">患者DB API</span>
+          </div>
+        </div>
 
-          <span style="display:inline-block;margin-top:12px;color:#D2422D;font-size:.82rem;font-weight:700">詳細を見る →</span>
-        </a>
-
-        <a href="solutions/ohisamabot/" class="sol-card reveal" style="text-decoration:none;color:inherit;cursor:pointer">
+        <div class="sol-card reveal">
           <img src="img/ohisamabot.png" alt="OhisamaBot" class="sol-img">
           <div class="sol-hd"><span class="sol-st st-run">本番運用中</span></div>
           <h3>OhisamaBot — 問い合わせ管理</h3>
           <p>患者・施設からの問い合わせを3軸トリアージで自動分類。Google Chatに即時通知し、チャット上でステータス管理が完結。</p>
+          <div class="sol-tags">
+            <span class="sol-tag">GAS(TypeScript)</span><span class="sol-tag">Google Chat API</span><span class="sol-tag">患者DB</span>
+          </div>
+        </div>
 
-          <span style="display:inline-block;margin-top:12px;color:#D2422D;font-size:.82rem;font-weight:700">詳細を見る →</span>
-        </a>
-
-        <a href="solutions/ohisnap/" class="sol-card reveal" style="text-decoration:none;color:inherit;cursor:pointer">
+        <div class="sol-card reveal">
           <img src="img/ohisnap.png" alt="OhiSnap" class="sol-img">
           <div class="sol-hd"><span class="sol-st st-run">本番運用中</span></div>
           <h3>OhiSnap — 保険証AI撮影</h3>
           <p>スマホで保険証を撮影するだけでAIが自動判別。PDF変換・月別フォルダ自動保存。マイナンバーカード誤撮影も防止。</p>
+          <div class="sol-tags">
+            <span class="sol-tag">GAS(TypeScript)</span><span class="sol-tag">Vertex AI</span><span class="sol-tag">Google Drive</span>
+          </div>
+        </div>
 
-          <span style="display:inline-block;margin-top:12px;color:#D2422D;font-size:.82rem;font-weight:700">詳細を見る →</span>
-        </a>
-
-        <a href="solutions/ohicraft/" class="sol-card reveal" style="text-decoration:none;color:inherit;cursor:pointer">
+        <div class="sol-card reveal">
           <img src="img/ohicraft.png" alt="OhiCraft" class="sol-img">
           <div class="sol-hd"><span class="sol-st st-run">本番運用中</span></div>
           <h3>OhiCraft — カルテ自動作成</h3>
           <p>訪問診療管理システムから往診予定を取得し、電子カルテへ白紙・引用カルテを自動作成。処方日数の自動計算にも対応。</p>
+          <div class="sol-tags">
+            <span class="sol-tag">Go</span><span class="sol-tag">ブラウザ自動化</span><span class="sol-tag">訪問診療API</span>
+          </div>
+        </div>
 
-          <span style="display:inline-block;margin-top:12px;color:#D2422D;font-size:.82rem;font-weight:700">詳細を見る →</span>
-        </a>
-
-        <a href="solutions/orest/" class="sol-card reveal" style="text-decoration:none;color:inherit;cursor:pointer">
+        <div class="sol-card reveal">
           <img src="img/orest.png" alt="OREST" class="sol-img">
           <div class="sol-hd"><span class="sol-st st-dev">開発中</span></div>
           <h3>OREST — 定期書類自動生成</h3>
-          <p>訪問看護指示書・診療情報提供書などの定期書類を電子カルテ上で全自動作成。有料RPAツールを内製で置き換え。</p>
-          <span style="display:inline-block;margin-top:12px;color:#D2422D;font-size:.82rem;font-weight:700">詳細を見る →</span>
-        </a>
+          <p>訪問看護指示書・診療情報提供書などの定期書類を電子カルテ上で全自動作成。月19.5万円のRPAツールを内製で置き換え。</p>
+          <div class="sol-tags">
+            <span class="sol-tag">Go</span><span class="sol-tag">ブラウザ自動化</span><span class="sol-tag">電子カルテ連携</span>
+          </div>
+        </div>
 
-        <a href="solutions/ohisamavox/" class="sol-card reveal" style="text-decoration:none;color:inherit;cursor:pointer">
+        <div class="sol-card reveal">
           <img src="img/ohisamavox.png" alt="OhisamaVox" class="sol-img">
           <div class="sol-hd"><span class="sol-st st-run">本番運用中</span></div>
           <h3>OhisamaVox — 診察音声記録</h3>
           <p>診察時の音声をAIが文字起こし。患者ごとの診療記録として管理。月別グラフ・ヒートマップ・分析ダッシュボード付き。</p>
+          <div class="sol-tags">
+            <span class="sol-tag">GAS(TypeScript)</span><span class="sol-tag">AI業務自動化PF</span><span class="sol-tag">Spreadsheet</span>
+          </div>
+        </div>
 
-          <span style="display:inline-block;margin-top:12px;color:#D2422D;font-size:.82rem;font-weight:700">詳細を見る →</span>
-        </a>
-
-        <a href="solutions/xray/" class="sol-card reveal" style="text-decoration:none;color:inherit;cursor:pointer">
+        <div class="sol-card reveal">
           <img src="img/xray_nav.png" alt="レントゲンナビ" class="sol-img">
           <div class="sol-hd"><span class="sol-st st-run">本番運用中</span></div>
           <h3>レントゲンナビ</h3>
           <p>訪問診療のレントゲン依頼から撮影完了フロー・月次集計まで一元管理。健康診断の集団検診機能も搭載。</p>
+          <div class="sol-tags">
+            <span class="sol-tag">GAS</span><span class="sol-tag">Google Chat</span><span class="sol-tag">PDF生成</span>
+          </div>
+        </div>
 
-          <span style="display:inline-block;margin-top:12px;color:#D2422D;font-size:.82rem;font-weight:700">詳細を見る →</span>
-        </a>
-
-        <a href="solutions/doc-delivery/" class="sol-card reveal" style="text-decoration:none;color:inherit;cursor:pointer">
+        <div class="sol-card reveal">
           <img src="img/doc_delivery.png" alt="書類配信" class="sol-img">
           <div class="sol-hd"><span class="sol-st st-run">本番運用中</span></div>
           <h3>書類配信サービス</h3>
           <p>ケアマネ・訪問看護・薬局向けに書類をメール自動配信。事業所登録から重複チェック・配信まで全自動。</p>
+          <div class="sol-tags">
+            <span class="sol-tag">GAS(TypeScript)</span><span class="sol-tag">Google Drive</span><span class="sol-tag">Gmail</span>
+          </div>
+        </div>
 
-          <span style="display:inline-block;margin-top:12px;color:#D2422D;font-size:.82rem;font-weight:700">詳細を見る →</span>
-        </a>
-
-        <a href="solutions/drug-order/" class="sol-card reveal" style="text-decoration:none;color:inherit;cursor:pointer">
+        <div class="sol-card reveal">
           <img src="img/drug_order.png" alt="薬剤発注" class="sol-img">
           <div class="sol-hd"><span class="sol-st st-run">本番運用中</span></div>
           <h3>薬剤発注ナビ</h3>
-          <p>在庫チェック・発注依頼・チャット通知をワンストップで管理。「月3週の火曜日」など複雑な周期発注にも対応。</p>
-          <span style="display:inline-block;margin-top:12px;color:#D2422D;font-size:.82rem;font-weight:700">詳細を見る →</span>
-        </a>
+          <p>在庫チェック・発注依頼・Google Chat通知をワンストップで管理。「月3週の火曜日」など複雑な周期発注にも対応。</p>
+          <div class="sol-tags">
+            <span class="sol-tag">GAS(TypeScript)</span><span class="sol-tag">Spreadsheet</span><span class="sol-tag">Google Chat</span>
+          </div>
+        </div>
 
       </div>
       <p class="sol-more">他にも <strong>往診予定チェッカー・食支援システム・HALO(DXポータル)・MeetRecorder</strong> など多数を運用中</p>
-    </div>
-  </section>
-
-  <!-- 記事バナー -->
-  <section style="padding:60px 0;background:linear-gradient(135deg,#fff5f0 0%,#fff 40%,#fef8f0 100%)">
-    <div class="container">
-      <div class="sec-hd">
-        <span class="sec-lb">ARTICLES</span>
-        <h2 class="sec-tt">コラム</h2>
-        <p class="sec-ds">現場の実体験から学んだDXの知見</p>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;max-width:960px;margin:0 auto">
-        <a href="article/" class="reveal" style="background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:28px 24px;text-decoration:none;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,.04);display:block">
-          <span style="display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.15em;color:#D2422D;margin-bottom:8px">ARTICLE 0</span>
-          <h3 style="font-size:1.05rem;font-weight:900;line-height:1.5;margin-bottom:8px;color:#1e2028">最初に自動化すべき3つの業務</h3>
-          <p style="font-size:.82rem;color:#5f6577;line-height:1.7;margin:0">FAX電子化・AI振り分け・書類自動作成の優先順位。</p>
-        </a>
-        <a href="article2/" class="reveal" style="background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:28px 24px;text-decoration:none;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,.04);display:block">
-          <span style="display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.15em;color:#D2422D;margin-bottom:8px">ARTICLE 1</span>
-          <h3 style="font-size:1.05rem;font-weight:900;line-height:1.5;margin-bottom:8px;color:#1e2028">DX推進部ができるまで</h3>
-          <p style="font-size:.82rem;color:#5f6577;line-height:1.7;margin:0">5ヶ月で51システム。組織化に至る道のり。</p>
-        </a>
-        <a href="article3/" class="reveal" style="background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:28px 24px;text-decoration:none;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,.04);display:block">
-          <span style="display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.15em;color:#D2422D;margin-bottom:8px">ARTICLE 2</span>
-          <h3 style="font-size:1.05rem;font-weight:900;line-height:1.5;margin-bottom:8px;color:#1e2028">医療AIの壁は「信頼」</h3>
-          <p style="font-size:.82rem;color:#5f6577;line-height:1.7;margin:0">事務員AI/医療AI分業と承認パイプライン。</p>
-        </a>
-        <a href="article4/" class="reveal" style="background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:28px 24px;text-decoration:none;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,.04);display:block">
-          <span style="display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.15em;color:#D2422D;margin-bottom:8px">ARTICLE 3</span>
-          <h3 style="font-size:1.05rem;font-weight:900;line-height:1.5;margin-bottom:8px;color:#1e2028">GWSだけで完結するか？</h3>
-          <p style="font-size:.82rem;color:#5f6577;line-height:1.7;margin:0">追加コスト0円のDX基盤設計。</p>
-        </a>
-        <a href="article5/" class="reveal" style="background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:28px 24px;text-decoration:none;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,.04);display:block">
-          <span style="display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.15em;color:#D2422D;margin-bottom:8px">ARTICLE 4 — 最終回</span>
-          <h3 style="font-size:1.05rem;font-weight:900;line-height:1.5;margin-bottom:8px;color:#1e2028">IDが最大のボトルネック</h3>
-          <p style="font-size:.82rem;color:#5f6577;line-height:1.7;margin:0">7システムの患者IDを統合する基盤設計。</p>
-        </a>
-      </div>
-      <p style="text-align:center;margin-top:24px"><a href="columns/" style="display:inline-flex;align-items:center;gap:6px;color:#D2422D;font-weight:700;font-size:.9rem;text-decoration:none;border:1px solid rgba(210,66,45,.25);padding:10px 24px;border-radius:100px;transition:all .3s">📖 コラム目次（なぜこの順番か）を見る →</a></p>
     </div>
   </section>
 
