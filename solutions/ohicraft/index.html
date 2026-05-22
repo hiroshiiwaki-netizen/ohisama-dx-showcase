@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>OhiCraft — カルテ自動作成｜医療法人おひさま会</title>
+<meta name="description" content="訪問診療の定期処方カルテを一括事前作成。前回SOAP引用・看護師設定・処方日数計算まで自動化。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../solution.css">
+</head><body>
+<header class="sol-header">
+  <div class="sol-tag st-run">🟢 本番運用中</div>
+  <h1><span class="accent">OhiCraft</span></h1>
+  <p class="sol-sub">定期処方のカルテを、一括で事前作成</p>
+  <p class="sol-meta"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> DX推進室</p>
+</header>
+<div class="wrap">
+  <h2>概要</h2>
+  <p>訪問診療管理システムから往診予定を取得し、<strong>電子カルテ（HOMIS）上に白紙・引用カルテを自動作成</strong>。前回カルテのSOAP転記、看護師設定、処方日数の自動計算まで対応。医師の診療前準備時間を大幅に削減。</p>
+
+  <div class="problem-box">
+    <h3>このシステムがなかったら</h3>
+    <ul>
+      <li>毎月の定期処方カルテを<strong>医師が1人ずつ手作業で作成</strong></li>
+      <li>前回カルテの引用・SOAP転記に手間がかかる</li>
+      <li>1患者あたり数分〜数十分の準備時間</li>
+    </ul>
+  </div>
+
+  <h2>処理フロー</h2>
+  <div class="flow">
+    <div class="flow-step">訪問診療管理システムから往診スケジュール取得</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">電子カルテ（HOMIS）に自動アクセス</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step hl">前回カルテからSOAP自動引用</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">看護師フィールド自動設定（職員マスター照合）</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">定期処方の日数自動計算</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step hl">完了 → エラー時はGoogle Chat自動通知</div>
+  </div>
+
+  <div class="effect"><strong>定期処方カルテの事前一括作成を実現。</strong>医師の診療前準備時間を大幅に削減。Python版（EXE配布）とGAS版（Web App）の2系統で冗長性を確保。</div>
+
+  <h2>技術スタック</h2>
+  <div class="tags">
+    <span class="tag">Python / Selenium（v3）</span><span class="tag">GAS TypeScript（v4）</span><span class="tag">HOMIS HTTP連携</span><span class="tag">CrossLog API</span><span class="tag">PyInstaller</span>
+  </div>
+
+  <div style="text-align:center;margin-top:40px"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/#solutions" class="btn-back">← ソリューション一覧に戻る</a></div>
+  <footer class="sol-footer"><p><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> — 在宅医療を、テクノロジーで支える</p><p>© 2026 医療法人おひさま会. All rights reserved.</p></footer>
+</div></body></html>

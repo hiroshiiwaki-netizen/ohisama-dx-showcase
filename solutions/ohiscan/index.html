@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>OhiScan — FAX AI自動分類｜医療法人おひさま会</title>
+<meta name="description" content="FAX受信PDFをAIが秒速解析。患者特定・書類分類・カルテ自動登録を実現するFAX自動分類システム。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../solution.css">
+</head><body>
+<header class="sol-header">
+  <div class="sol-tag st-run">🟢 本番運用中</div>
+  <h1><span class="accent">OhiScan</span></h1>
+  <p class="sol-sub">紙のFAXを、AIが秒速でカルテに届ける</p>
+  <p class="sol-meta"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> DX推進室</p>
+</header>
+<div class="wrap">
+  <h2>概要</h2>
+  <p>FAX受信PDFをAI（Gemini 2.5 Flash）が即座に解析。<strong>患者特定・書類分類・PDF分割を自動処理</strong>し、電子カルテ（HOMIS）に自動ファイリング。処理結果はGoogle Chatで即時通知。</p>
+
+  <div class="problem-box">
+    <h3>このシステムがなかったら</h3>
+    <ul>
+      <li>1日数十枚のFAXを事務スタッフが<strong>手作業で仕分け</strong></li>
+      <li>1枚あたり数分の作業 × 5拠点 = 膨大な単純作業</li>
+      <li>患者誤認・登録漏れのリスクが常にある</li>
+    </ul>
+  </div>
+
+  <h2>処理フロー</h2>
+  <div class="flow">
+    <div class="flow-step">FAX受信フォルダを自動監視（拠点別）</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step hl">Gemini AIがPDFを解析<small>患者名・書類種類・送信元を自動抽出</small></div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">PDFを患者別・書類別に物理分割</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">患者データベースで照合・特定</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step hl">電子カルテ（HOMIS）に自動アップロード</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">Google Chatに処理結果を通知</div>
+  </div>
+
+  <div class="effect"><strong>FAX1枚の処理コスト約0.1円。処理時間1枚あたり3〜5秒。</strong>通知成功率100%。確信度が低い場合は「未確認」フォルダに自動振り分け。</div>
+
+  <h2>技術スタック</h2>
+  <div class="tags">
+    <span class="tag">Go</span><span class="tag">Gemini 2.5 Flash</span><span class="tag">go-rod（ブラウザ自動化）</span><span class="tag">FileMaker API</span><span class="tag">GAS Webhook</span><span class="tag">pdfcpu</span>
+  </div>
+
+  <div style="text-align:center;margin-top:40px">
+    <a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/#solutions" class="btn-back">← ソリューション一覧に戻る</a>
+  </div>
+  <footer class="sol-footer">
+    <p><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> — 在宅医療を、テクノロジーで支える</p>
+    <p>© 2026 医療法人おひさま会. All rights reserved.</p>
+  </footer>
+</div></body></html>

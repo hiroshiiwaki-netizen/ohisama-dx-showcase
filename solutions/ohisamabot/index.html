@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>OhisamaBot — 問い合わせ管理｜医療法人おひさま会</title>
+<meta name="description" content="問い合わせを3軸トリアージで自動分類し、Google Chatでステータス管理を完結させるシステム。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../solution.css">
+</head><body>
+<header class="sol-header">
+  <div class="sol-tag st-run">🟢 本番運用中</div>
+  <h1><span class="accent">OhisamaBot</span></h1>
+  <p class="sol-sub">問い合わせを、チャットで完結させる</p>
+  <p class="sol-meta"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> DX推進室</p>
+</header>
+<div class="wrap">
+  <h2>概要</h2>
+  <p>患者・施設からの問い合わせを<strong>3軸トリアージ（緊急度×問題種別×必要アクション）で自動分類</strong>。Google Chatにカード型通知を即時送信し、ボタン操作でステータス管理が完結。対応履歴も自動記録。</p>
+
+  <div class="problem-box">
+    <h3>このシステムがなかったら</h3>
+    <ul>
+      <li>問い合わせが来ても<strong>誰が対応中か分からない</strong></li>
+      <li>情報が管理システム内に閉じてリアルタイム共有できない</li>
+      <li>対応漏れ・重複対応のリスク</li>
+    </ul>
+  </div>
+
+  <h2>処理フロー</h2>
+  <div class="flow">
+    <div class="flow-step">問い合わせ管理システムからデータをHTTP POST</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step hl">3軸フラグ判定で自動分類<small>トリアージ × 問題種別 × 必要アクション</small></div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">クリニック別Chatスペースに自動振り分け</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">カード型通知（対応開始/完了ボタン付き）</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">担当医・ナースに自動メンション + 次回往診日表示</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step hl">ボタン操作でステータス更新 → 履歴自動記録</div>
+  </div>
+
+  <div class="effect"><strong>問い合わせの即時共有（秒単位）。</strong>対応者の可視化。コメント自動保存で経緯追跡。CSV/PDF出力にも対応。</div>
+
+  <h2>技術スタック</h2>
+  <div class="tags">
+    <span class="tag">GAS（TypeScript）</span><span class="tag">Goデーモン</span><span class="tag">Google Chat API</span><span class="tag">Admin Directory API</span><span class="tag">CrossLog API</span>
+  </div>
+
+  <div style="text-align:center;margin-top:40px"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/#solutions" class="btn-back">← ソリューション一覧に戻る</a></div>
+  <footer class="sol-footer"><p><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> — 在宅医療を、テクノロジーで支える</p><p>© 2026 医療法人おひさま会. All rights reserved.</p></footer>
+</div></body></html>

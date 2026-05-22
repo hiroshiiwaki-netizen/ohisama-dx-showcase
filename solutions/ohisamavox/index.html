@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>OhisamaVox — 診察音声記録｜医療法人おひさま会</title>
+<meta name="description" content="診察時の音声をAIが文字起こし。月別グラフ・ヒートマップ・分析ダッシュボード付き。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../solution.css">
+</head><body>
+<header class="sol-header">
+  <div class="sol-tag st-run">🟢 本番運用中</div>
+  <h1><span class="accent">OhisamaVox</span></h1>
+  <p class="sol-sub">診察を記録し、データで見える化</p>
+  <p class="sol-meta"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> DX推進室</p>
+</header>
+<div class="wrap">
+  <h2>概要</h2>
+  <p>診察時の音声記録をAIがテキスト化し、<strong>スプレッドシートに自動保存</strong>。分析ダッシュボードで月別グラフ・ヒートマップ・患者TOP5ランキングなどを可視化。AI業務プラットフォームと連携。</p>
+  <div class="problem-box">
+    <h3>このシステムがなかったら</h3>
+    <ul><li>診察記録が紙やメモベースで<strong>散逸</strong></li><li>後からの振り返りが困難</li><li>統計分析ができない</li></ul>
+  </div>
+  <h2>処理フロー</h2>
+  <div class="flow">
+    <div class="flow-step">AI業務プラットフォームが診察音声をテキスト化</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">HTTP POST でGASにデータ送信</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step hl">月別シートに自動保存</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step hl">分析ダッシュボード表示<small>サマリーカード4枚 / Chart.jsグラフ / ヒートマップ / TOP5</small></div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">年間CSVエクスポート</div>
+  </div>
+  <div class="effect"><strong>診療記録のデジタル化・一元管理を実現。</strong>月別集計・分析の完全自動化。患者別の診察頻度・傾向を可視化。</div>
+  <h2>技術スタック</h2>
+  <div class="tags"><span class="tag">GAS（TypeScript）</span><span class="tag">Chart.js</span><span class="tag">AI業務自動化PF連携</span><span class="tag">Spreadsheet</span></div>
+  <div style="text-align:center;margin-top:40px"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/#solutions" class="btn-back">← ソリューション一覧に戻る</a></div>
+  <footer class="sol-footer"><p><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> — 在宅医療を、テクノロジーで支える</p><p>© 2026 医療法人おひさま会. All rights reserved.</p></footer>
+</div></body></html>

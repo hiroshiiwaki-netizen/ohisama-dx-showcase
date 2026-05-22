@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>OhiSnap — 保険証AI撮影｜医療法人おひさま会</title>
+<meta name="description" content="スマホで保険証を撮影するだけでAIが自動判別。PDF変換・月別保存まで完結。マイナンバーカード誤撮影防止機能付き。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../solution.css">
+</head><body>
+<header class="sol-header">
+  <div class="sol-tag st-run">🟢 本番運用中</div>
+  <h1><span class="accent">OhiSnap</span></h1>
+  <p class="sol-sub">スマホで撮るだけ。AIが判別、自動保存</p>
+  <p class="sol-meta"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> DX推進室</p>
+</header>
+<div class="wrap">
+  <h2>概要</h2>
+  <p>スマートフォンで保険証を撮影するだけで、<strong>AIが画像種類を自動判別（10カテゴリ対応）</strong>。PDF変換・拠点別月別フォルダへの自動保存まで完結。マイナンバーカード誤撮影防止機能付き。個人情報がスマホに残らない設計。</p>
+
+  <div class="problem-box">
+    <h3>このシステムがなかったら</h3>
+    <ul>
+      <li>往診先に複合機がなく<strong>スキャンできない</strong></li>
+      <li>保険証のコピーを手作業で仕分け・保存</li>
+      <li>マイナンバーカードの誤撮影・誤保存リスク</li>
+    </ul>
+  </div>
+
+  <h2>処理フロー</h2>
+  <div class="flow">
+    <div class="flow-step">ブラウザでカメラ起動 or ギャラリーから写真選択</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step hl">Gemini AIが画像種類を自動判別<small>保険証 / 検査画像 / マイナンバー / その他</small></div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step" style="border-color:rgba(250,193,0,.4);background:rgba(250,193,0,.05)">⚠️ マイナンバーカード → 警告表示（保存しない）</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">保険証 → 患者名・保険証種類を自動読取</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">拠点選択 → PDF変換</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step hl">Google Drive 月別フォルダに自動保存</div>
+  </div>
+
+  <div class="effect"><strong>保険証登録を数秒に短縮。</strong>10カテゴリの保険証種類を網羅。電波のない往診先でも後からアップロード可能（オフライン対応）。</div>
+
+  <h2>技術スタック</h2>
+  <div class="tags">
+    <span class="tag">GAS（TypeScript）</span><span class="tag">Vertex AI（Gemini 2.5 Flash）</span><span class="tag">Google Drive API</span><span class="tag">PWA WebApp</span><span class="tag">JWT認証</span>
+  </div>
+
+  <div style="text-align:center;margin-top:40px"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/#solutions" class="btn-back">← ソリューション一覧に戻る</a></div>
+  <footer class="sol-footer"><p><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> — 在宅医療を、テクノロジーで支える</p><p>© 2026 医療法人おひさま会. All rights reserved.</p></footer>
+</div></body></html>

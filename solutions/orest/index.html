@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>OREST — 定期書類自動生成｜医療法人おひさま会</title>
+<meta name="description" content="訪問看護指示書・居宅介護情報提供書・在宅療養計画書を全自動作成。月19.5万円の有料RPAを内製で置き換え。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../solution.css">
+</head><body>
+<header class="sol-header">
+  <div class="sol-tag st-dev">🔨 開発中</div>
+  <h1><span class="accent">OREST</span></h1>
+  <p class="sol-sub">月19.5万円のRPAを、内製で置き換える</p>
+  <p class="sol-meta"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> DX推進室</p>
+</header>
+<div class="wrap">
+  <h2>概要</h2>
+  <p>訪問看護指示書・居宅介護情報提供書・在宅療養計画書の<strong>3種類の定期書類を電子カルテ上で全自動作成</strong>。有料RPAツール（月19.5万円＝年間234万円）の完全置き換えを実現するプロジェクト。書類作成から配信まで一気通貫。</p>
+
+  <div class="problem-box">
+    <h3>このシステムがなかったら</h3>
+    <ul>
+      <li>3種類の定期書類を<strong>毎月手作業で作成</strong></li>
+      <li>有料RPA（月19.5万円＝年間234万円）に依存</li>
+      <li>RPAの契約終了に伴い内製化が急務</li>
+    </ul>
+  </div>
+
+  <h2>処理フロー</h2>
+  <div class="flow">
+    <div class="flow-step">電子カルテ（HOMIS）に自動ログイン</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">書類一覧でフィルタ設定（クリニック/種別/日付）</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">対象患者リストを自動取得</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step hl">患者ごとに書類引用 → 期間/日付設定 → カルテ引用 → 完成</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step" style="border-style:dashed">（開発中）PDF取得 → Google Drive配置</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step" style="border-style:dashed">（開発中）連携事業所へメール自動配信</div>
+  </div>
+
+  <div class="effect"><strong>月19.5万円（年間234万円）のコスト削減。</strong>3書類すべての自動作成テスト完了。PDF取得・メール配信は開発中。</div>
+
+  <h2>技術スタック</h2>
+  <div class="tags">
+    <span class="tag">Go</span><span class="tag">chromedp（ヘッドレスブラウザ）</span><span class="tag">Google Drive API</span><span class="tag">Gmail API</span><span class="tag">YAML設定</span>
+  </div>
+
+  <div style="text-align:center;margin-top:40px"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/#solutions" class="btn-back">← ソリューション一覧に戻る</a></div>
+  <footer class="sol-footer"><p><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> — 在宅医療を、テクノロジーで支える</p><p>© 2026 医療法人おひさま会. All rights reserved.</p></footer>
+</div></body></html>
