@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>OhiSnap — 保険証AI撮影｜医療法人おひさま会</title>
-<meta name="description" content="スマホで保険証を撮影するだけでAIが自動判別。PDF変換・月別保存まで完結。">
+<meta name="description" content="往診先で保険証を撮るだけ。AIが判別してPDF化、自動保存まで完結。">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../solution.css">
 </head><body>
@@ -11,13 +11,17 @@
   <p class="sol-meta"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> DX推進室</p>
 </header>
 <div class="wrap">
-  <h2>概要</h2>
-  <p>スマートフォンで保険証を撮影するだけで、<strong>AIが画像の種類を自動判別（10カテゴリ対応）</strong>。PDF変換・拠点別月別フォルダへの自動保存まで完結。マイナンバーカードの誤撮影を防ぐ安全機能付き。個人情報がスマホに残らない設計です。</p>
+
+  <h2>背景 — なぜ作ったか</h2>
+  <p>在宅医療では、医師やスタッフが<strong>患者さんのご自宅や施設を訪問</strong>して診療を行います。そのとき必ず必要になるのが保険証の確認です。</p>
+  <p>しかし、訪問先には当然ながら複合機やスキャナーはありません。以前はスマホで撮影した写真をそのまま送ったり、クリニックに戻ってからスキャンしたりしていました。<strong>撮影した写真がスマホに残り続ける</strong>という個人情報管理の問題もありました。</p>
+  <p>さらに現場で困るのが<strong>マイナンバーカードの誤撮影</strong>です。保険証と間違えてマイナンバーカードを撮影してしまうと、番号が写り込んで重大な個人情報漏洩になりかねません。</p>
 
   <div class="problem-box">
-    <h3>このシステムがなかったら</h3>
+    <h3>導入前の課題</h3>
     <ul>
       <li>往診先に複合機がなく<strong>スキャンできない</strong></li>
+      <li>撮影した写真がスマホに残り<strong>個人情報管理に不安</strong></li>
       <li>保険証のコピーを手作業で仕分け・保存</li>
       <li>マイナンバーカードの誤撮影・誤保存リスク</li>
     </ul>
@@ -38,7 +42,13 @@
     <div class="flow-step hl">月別フォルダに自動保存</div>
   </div>
 
-  <div class="effect"><strong>保険証の登録がわずか数秒で完了。</strong>電波のない往診先でも撮影しておけば、後からアップロードできます。</div>
+  <h2>導入効果</h2>
+  <div class="effect"><strong>保険証の登録がわずか数秒で完了。</strong>撮影からPDF保存まで、スマホだけで完結します。</div>
+  <div class="effect"><strong>個人情報がスマホに残らない設計。</strong>撮影データはクラウドに直接保存され、端末には一切残りません。</div>
+  <div class="effect"><strong>マイナンバーカードの誤保存ゼロ。</strong>AIが自動検出して保存をブロック。ヒューマンエラーを仕組みで防ぎます。</div>
+  <div class="effect"><strong>電波のない往診先でも対応可能。</strong>撮影だけしておけば、電波が繋がったタイミングで後からアップロードできます。</div>
+
+  <blockquote>「往診先で保険証を確認するたびに感じていた<strong>小さなストレスがなくなった</strong>。これが5拠点×毎日となると、積み重ねの効果は大きい」</blockquote>
 
   <div style="text-align:center;margin-top:40px"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/#solutions" class="btn-back">← ソリューション一覧に戻る</a></div>
   <footer class="sol-footer"><p><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> — 在宅医療を、テクノロジーで支える</p><p>© 2026 医療法人おひさま会. All rights reserved.</p></footer>

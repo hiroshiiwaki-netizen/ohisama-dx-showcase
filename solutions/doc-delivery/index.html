@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>書類配信サービス｜医療法人おひさま会</title>
-<meta name="description" content="ケアマネ・訪問看護・薬局向け定期書類をメール自動配信。FAX/郵送のコスト削減。">
+<meta name="description" content="紙の郵送をデジタル配信に。連携先への書類送付を自動化。">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../solution.css">
 </head><body>
@@ -11,12 +11,20 @@
   <p class="sol-meta"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> DX推進室</p>
 </header>
 <div class="wrap">
-  <h2>概要</h2>
-  <p>ケアマネ・訪問看護・薬局向けの定期書類を<strong>メールで自動配信</strong>。事業所のメールアドレス登録から重複チェック・配信まで全自動。FAXや郵送にかかっていたコスト・手間を削減し、送付漏れもなくなります。</p>
+
+  <h2>背景 — なぜ作ったか</h2>
+  <p>在宅医療のクリニックは、<strong>ケアマネージャー・訪問看護ステーション・薬局</strong>など多くの連携先と定期的に書類をやりとりしています。居宅療養管理指導書、訪問看護指示書など、毎月かなりの量の書類を送付する必要があります。</p>
+  <p>以前はこれらをすべて<strong>紙で印刷 → 封筒に入れ → 切手を貼って郵送</strong>していました。印刷代・封筒代・切手代に加え、封入作業の人件費も無視できません。そして何より、<strong>送付漏れのリスク</strong>が常にありました。</p>
+  <p>「メールで送ればいいのに」— 単純な発想ですが、連携先のメールアドレスの管理、重複チェック、配信履歴の記録をすべて仕組みとして整えるのがこのプロジェクトです。</p>
 
   <div class="problem-box">
-    <h3>このシステムがなかったら</h3>
-    <ul><li>定期書類を毎月<strong>FAXや郵送で送付</strong></li><li>印刷・封入・切手貼りのコストと手間</li><li>送付漏れのリスク</li></ul>
+    <h3>導入前の課題</h3>
+    <ul>
+      <li>定期書類を毎月<strong>紙に印刷して郵送</strong></li>
+      <li>印刷・封入・切手貼りの<strong>コストと手間</strong></li>
+      <li>送付漏れのリスクが常にある</li>
+      <li>連携先のメールアドレスを体系的に管理していない</li>
+    </ul>
   </div>
 
   <h2>処理フロー</h2>
@@ -32,7 +40,12 @@
     <div class="flow-step">配信履歴を自動記録</div>
   </div>
 
-  <div class="effect"><strong>FAX・郵送のコスト削減と送付漏れゼロを実現。</strong>現在、書類作成システム（OREST）との統合を進めています。</div>
+  <h2>導入効果</h2>
+  <div class="effect"><strong>郵送コスト（印刷・封筒・切手・人件費）の大幅削減。</strong>メール配信に切り替えたことで、毎月の固定費がほぼゼロに。</div>
+  <div class="effect"><strong>送付漏れゼロ。</strong>配信リストに基づいて自動送信するため、「送り忘れ」がなくなりました。</div>
+  <div class="effect"><strong>連携先のメールアドレス管理を一元化。</strong>Webフォームから登録 → 自動で重複チェック → 台帳に反映。</div>
+
+  <blockquote>「郵送していた書類がメール1通で届く。<strong>連携先からも"紙より早くて助かる"と好評</strong>」</blockquote>
 
   <div style="text-align:center;margin-top:40px"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/#solutions" class="btn-back">← ソリューション一覧に戻る</a></div>
   <footer class="sol-footer"><p><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> — 在宅医療を、テクノロジーで支える</p><p>© 2026 医療法人おひさま会. All rights reserved.</p></footer>

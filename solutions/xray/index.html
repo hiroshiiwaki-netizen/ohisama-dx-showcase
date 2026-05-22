@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>レントゲンナビ｜医療法人おひさま会</title>
-<meta name="description" content="訪問診療のレントゲンオーダーから撮影完了・カルテ記録まで一元管理。">
+<meta name="description" content="訪問診療のレントゲンをオーダーから撮影完了・集計まで一元管理。">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../solution.css">
 </head><body>
@@ -11,12 +11,20 @@
   <p class="sol-meta"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> DX推進室</p>
 </header>
 <div class="wrap">
-  <h2>概要</h2>
-  <p>訪問診療のレントゲン依頼から<strong>撮影完了・カルテ自動記録・月次集計</strong>まで一元管理するWebアプリ。撮影担当者への自動通知、PDF生成、集団検診の一括オーダーにも対応しています。</p>
+
+  <h2>背景 — なぜ作ったか</h2>
+  <p>在宅医療でもレントゲン撮影は重要な検査のひとつです。しかし訪問診療では、<strong>オーダーする医師と実際に撮影するスタッフが別の場所にいる</strong>ことが多く、依頼の伝達が課題でした。</p>
+  <p>以前は紙の依頼書や口頭での連絡に頼っており、「撮影を依頼したのに忘れられていた」「撮影は終わったがカルテに記録されていない」という事態が起きていました。5つのクリニック間での集約や月次集計も、すべて手作業でした。</p>
+  <p>さらに、<strong>健康診断の集団検診</strong>では一度に多くの患者のオーダーが必要になり、個別に1件ずつ登録する方法では対応しきれませんでした。</p>
 
   <div class="problem-box">
-    <h3>このシステムがなかったら</h3>
-    <ul><li>レントゲンオーダーが<strong>紙や口頭ベース</strong></li><li>撮影漏れ・通知漏れが発生</li><li>カルテへの記録も手動</li></ul>
+    <h3>導入前の課題</h3>
+    <ul>
+      <li>レントゲンオーダーが<strong>紙や口頭で伝達</strong>されていた</li>
+      <li>撮影漏れ・通知漏れが発生するリスク</li>
+      <li>撮影完了後の<strong>カルテ記録も手動</strong></li>
+      <li>月次集計・レポート作成がすべて手作業</li>
+    </ul>
   </div>
 
   <h2>処理フロー</h2>
@@ -34,7 +42,13 @@
     <div class="flow-step hl">集団検診にも対応（一括オーダー・個別キャンセル）</div>
   </div>
 
-  <div class="effect"><strong>レントゲンオーダーの完全デジタル化。</strong>撮影漏れゼロ。通知からカルテ記録まですべて自動です。</div>
+  <h2>導入効果</h2>
+  <div class="effect"><strong>レントゲンオーダーの完全デジタル化。</strong>紙の依頼書がなくなり、依頼→通知→撮影→記録の流れがすべて自動に。</div>
+  <div class="effect"><strong>撮影漏れゼロを実現。</strong>自動通知により、依頼が忘れられることがなくなりました。</div>
+  <div class="effect"><strong>集団検診も一括オーダー対応。</strong>健康診断時の大量オーダーもワンクリックで完了。個別キャンセルにも対応。</div>
+  <div class="effect"><strong>月次集計が自動レポート化。</strong>手作業の集計が不要になり、PDFで出力するだけに。</div>
+
+  <blockquote>「レントゲンの依頼を出したら、<strong>あとは自動で撮影者に通知が行き、終わったらカルテにも書かれている</strong>。当たり前のようだけど、以前はそれができていなかった」</blockquote>
 
   <div style="text-align:center;margin-top:40px"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/#solutions" class="btn-back">← ソリューション一覧に戻る</a></div>
   <footer class="sol-footer"><p><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> — 在宅医療を、テクノロジーで支える</p><p>© 2026 医療法人おひさま会. All rights reserved.</p></footer>

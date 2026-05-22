@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>OhisamaVox — 診察音声記録｜医療法人おひさま会</title>
-<meta name="description" content="診察時の音声をAIが文字起こし。分析ダッシュボードで可視化。">
+<meta name="description" content="診察の音声をAIが自動記録。データで振り返り、傾向分析まで。">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../solution.css">
 </head><body>
@@ -11,12 +11,20 @@
   <p class="sol-meta"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> DX推進室</p>
 </header>
 <div class="wrap">
-  <h2>概要</h2>
-  <p>診察時の音声記録をAIがテキスト化し、<strong>患者ごとの診療記録として自動保存</strong>。分析ダッシュボードで月別グラフ・ヒートマップ・患者ランキングなどを可視化します。</p>
+
+  <h2>背景 — なぜ作ったか</h2>
+  <p>在宅医療の診察は、病院の外来と違って<strong>患者さんのご自宅や施設で行われます</strong>。医師が1人で訪問するケースも多く、診察内容の記録は医師の記憶とメモに頼る部分が大きくなりがちです。</p>
+  <p>「あのとき患者さんに何を伝えたか」「前回と今回で状態がどう変わったか」—— こうした情報を<strong>体系的に残して振り返る仕組み</strong>がありませんでした。月間数百件の診察が行われるなかで、記録の散逸は品質管理の課題でもありました。</p>
+  <p>「診察の音声をAIが自動で記録して、あとからデータとして振り返れたら」— そんな発想から生まれたシステムです。</p>
 
   <div class="problem-box">
-    <h3>このシステムがなかったら</h3>
-    <ul><li>診察記録が紙やメモベースで<strong>散逸</strong></li><li>後からの振り返りが困難</li><li>傾向分析や統計が取れない</li></ul>
+    <h3>導入前の課題</h3>
+    <ul>
+      <li>診察記録が医師の記憶やメモに依存し<strong>散逸しやすい</strong></li>
+      <li>「前回何を伝えたか」の振り返りが困難</li>
+      <li>月間数百件の診察を<strong>体系的に管理する仕組みがない</strong></li>
+      <li>傾向分析や統計的な振り返りができない</li>
+    </ul>
   </div>
 
   <h2>処理フロー</h2>
@@ -32,7 +40,12 @@
     <div class="flow-step">年間データのCSV出力にも対応</div>
   </div>
 
-  <div class="effect"><strong>診療記録のデジタル化・一元管理を実現。</strong>患者ごとの診察頻度や傾向が一目でわかるようになりました。</div>
+  <h2>導入効果</h2>
+  <div class="effect"><strong>診療記録のデジタル化・一元管理を実現。</strong>月間数百件の診察データが自動で蓄積されます。</div>
+  <div class="effect"><strong>ダッシュボードで傾向が一目でわかる。</strong>月別グラフ・時間帯ヒートマップ・患者ランキングで、診療の全体像を把握。</div>
+  <div class="effect"><strong>「あのとき何を話したか」を簡単に検索可能。</strong>患者名・日付で過去の記録をすぐに呼び出せます。</div>
+
+  <blockquote>「記録は"あとで書こう"と思うと書けない。<strong>診察しながら自動で残る仕組みが、いちばん確実</strong>」</blockquote>
 
   <div style="text-align:center;margin-top:40px"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/#solutions" class="btn-back">← ソリューション一覧に戻る</a></div>
   <footer class="sol-footer"><p><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> — 在宅医療を、テクノロジーで支える</p><p>© 2026 医療法人おひさま会. All rights reserved.</p></footer>

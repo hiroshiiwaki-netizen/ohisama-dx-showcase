@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>OhisamaBot — 問い合わせ管理｜医療法人おひさま会</title>
-<meta name="description" content="問い合わせを自動分類し、チャットでステータス管理を完結させるシステム。">
+<meta name="description" content="5クリニックの問い合わせを自動分類。チャットでステータス管理を完結。">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../solution.css">
 </head><body>
@@ -11,15 +11,18 @@
   <p class="sol-meta"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> DX推進室</p>
 </header>
 <div class="wrap">
-  <h2>概要</h2>
-  <p>患者・施設からの問い合わせを<strong>緊急度・問題の種類・必要なアクションの3軸で自動分類</strong>。チャットにカード型の通知が届き、ボタン操作だけでステータス管理が完結。対応履歴も自動で記録されます。</p>
+
+  <h2>背景 — なぜ作ったか</h2>
+  <p>在宅医療のクリニックには、患者さんのご家族・介護施設・薬局・ケアマネージャーなど、<strong>さまざまな方から毎日多くの問い合わせ</strong>が入ります。5つのクリニックを運営するおひさま会では、1日に数十件の問い合わせが発生することも珍しくありません。</p>
+  <p>以前は問い合わせの内容や対応状況が管理システム内に閉じていて、<strong>「いま誰が対応しているのか」「もう終わったのか」がリアルタイムで分からない</strong>状態でした。結果として、同じ問い合わせに2人が対応してしまったり、逆に誰も対応していなかったりという事態が起きていました。</p>
 
   <div class="problem-box">
-    <h3>このシステムがなかったら</h3>
+    <h3>導入前の課題</h3>
     <ul>
       <li>問い合わせが来ても<strong>誰が対応中か分からない</strong></li>
-      <li>情報がシステム内に閉じてリアルタイム共有できない</li>
-      <li>対応漏れ・重複対応のリスク</li>
+      <li>情報がシステム内に閉じて<strong>リアルタイム共有できない</strong></li>
+      <li>対応漏れ・重複対応のリスクが常にある</li>
+      <li>対応の経緯が記録に残らず、引き継ぎが困難</li>
     </ul>
   </div>
 
@@ -38,7 +41,12 @@
     <div class="flow-step hl">ボタンを押すだけでステータス更新 → 履歴も自動記録</div>
   </div>
 
-  <div class="effect"><strong>問い合わせが入った瞬間に全員が把握。</strong>「誰が対応中か」が一目でわかり、対応漏れゼロを実現。</div>
+  <h2>導入効果</h2>
+  <div class="effect"><strong>問い合わせの即時共有（秒単位）を実現。</strong>入った瞬間に担当クリニックのチャットに通知が届くので、見落としがゼロに。</div>
+  <div class="effect"><strong>「いま誰が対応中か」が一目でわかる。</strong>ボタン1つで「対応開始」→「完了」。重複対応・対応漏れが解消されました。</div>
+  <div class="effect"><strong>対応の経緯が自動で残る。</strong>チャットのコメントが自動保存され、あとから「あのとき何を伝えたか」を簡単に追えるようになりました。</div>
+
+  <blockquote>「問い合わせ対応の"見える化"によって、<strong>チーム全体の安心感が大きく変わった</strong>」— 現場スタッフの声です。</blockquote>
 
   <div style="text-align:center;margin-top:40px"><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/#solutions" class="btn-back">← ソリューション一覧に戻る</a></div>
   <footer class="sol-footer"><p><a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">医療法人おひさま会</a> — 在宅医療を、テクノロジーで支える</p><p>© 2026 医療法人おひさま会. All rights reserved.</p></footer>
