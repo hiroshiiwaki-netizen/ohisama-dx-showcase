@@ -52,39 +52,50 @@
     </div>
   </section>
 
-  <!-- アーキテクチャ -->
+  <!-- DXの考え方 -->
   <section class="arch" id="arch">
     <div class="container">
       <div class="sec-hd">
-        <span class="sec-lb">ARCHITECTURE</span>
-        <h2 class="sec-tt">4層アーキテクチャ</h2>
-        <p class="sec-ds">既存システムを置き換えず、補助的にDXを積み重ねる設計思想</p>
+        <span class="sec-lb">OUR APPROACH</span>
+        <h2 class="sec-tt">おひさま会のDX思想</h2>
+        <p class="sec-ds">DXは業務効率化のためではない。<br><strong>患者さんに伴走する時間を増やす</strong>ためのもの。</p>
       </div>
+
+      <blockquote class="vision-quote reveal" style="max-width:720px;margin:0 auto 40px;padding:24px 32px;background:rgba(210,66,45,.04);border-left:4px solid #D2422D;border-radius:0 12px 12px 0;font-size:1.05rem;line-height:1.8;color:#333">
+        1日8時間のうち2時間しか患者さんと向き合えていないなら、<br>
+        事務作業を減らすだけで、<strong>対面時間は2時間から4時間に倍増する</strong>。<br>
+        DXは患者さんに伴走する時間を増やすためのもの。
+        <div style="text-align:right;margin-top:12px;font-size:.85rem;color:#888">— 山口 高（理事長）</div>
+      </blockquote>
+
       <div class="layers reveal">
         <div class="layer l1">
-          <div class="num">LAYER 1</div>
-          <div class="tt">おひさまシステム（患者・スタッフDB）— 頭脳・マスター</div>
-          <div class="ds">患者ステータス / 連携先 / 家族関係 ― リアルワールドのすべての関係性の地図</div>
+          <div class="num">患者さんとの時間</div>
+          <div class="tt">リアルの場 — 対人業務</div>
+          <div class="ds">診察・問診・相談・ご家族への説明。<strong>ここにAIは入れない</strong>。人と人が向き合う時間を最も大切にします。</div>
         </div>
-        <div class="arrow-d">↓ 参照</div>
+        <div class="arrow-d">この時間を増やすために ↓</div>
         <div class="layer l2">
-          <div class="num">LAYER 2</div>
-          <div class="tt">★ AI群 + 自動化エンジン ★ — 情報処理・コンテンツ生成</div>
-          <div class="ds">流入情報を処理 → サマリー・アラート・書類を自動生成（Gemini API / Go / Python）</div>
+          <div class="num">仕事の自動化</div>
+          <div class="tt">ワークフロー層 — 非対人業務のデジタル化</div>
+          <div class="ds">FAXの仕分け、カルテの準備、書類の作成、発注管理 ——<strong>人がやらなくていい作業</strong>をシステムとAIに任せます。</div>
         </div>
-        <div class="arrow-d">↓ 提示</div>
+        <div class="arrow-d">自動化した結果を ↓</div>
         <div class="layer l3">
-          <div class="num">LAYER 3</div>
-          <div class="tt">人が活動する（スタッフのアクション）</div>
-          <div class="ds">AIが生成したコンテンツをもとに判断・動く</div>
-        </div>
-        <div class="arrow-d">↓ 入力</div>
-        <div class="layer l4">
-          <div class="num">LAYER 4</div>
-          <div class="tt">電子カルテ（ブラウザベース）— 結果の記録場所</div>
-          <div class="ds">カルテ記録 → レセプト処理</div>
+          <div class="num">記録と連携</div>
+          <div class="tt">記録の場 — 電子カルテ・管理システム</div>
+          <div class="ds">自動化された情報が電子カルテや管理台帳に正確に記録され、チーム全体で共有されます。</div>
         </div>
       </div>
+
+      <div class="reveal" style="max-width:720px;margin:32px auto 0;text-align:center">
+        <p style="font-size:.95rem;color:#666;line-height:1.8">
+          おひさま会のDXは<strong>「対人業務にAIを割り込ませない」</strong>という方針で進めています。<br>
+          AIや自動化が担うのは、あくまで<strong>事務作業・定型作業</strong>だけ。<br>
+          現場のスタッフが患者さんと過ごす時間を最大化すること。それがすべての原点です。
+        </p>
+      </div>
+
     </div>
   </section>
 
