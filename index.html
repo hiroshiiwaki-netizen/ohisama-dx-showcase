@@ -5,6 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>おひさま会 DX推進部 — 在宅医療を、テクノロジーで支える</title>
   <meta name="description" content="医療法人おひさま会が内製開発した51のDXソリューション。FAX AI自動分類、カルテ自動作成、保険証AI判別など、在宅医療の現場課題をテクノロジーで解決。">
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="おひさま会 DX推進部 — 在宅医療を、テクノロジーで支える">
+  <meta property="og:description" content="51のDXソリューションをすべて内製開発。FAX AI自動分類、カルテ自動作成、保険証AI判別など、在宅医療の現場課題をテクノロジーで解決。">
+  <meta property="og:image" content="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/img/ogp.jpg">
+  <meta property="og:url" content="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">
+  <meta property="og:site_name" content="おひさま会 DX推進部">
+  <meta property="og:locale" content="ja_JP">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="おひさま会 DX推進部 — 在宅医療を、テクノロジーで支える">
+  <meta name="twitter:description" content="51のDXソリューションをすべて内製開発。在宅医療の現場課題をテクノロジーで解決。">
+  <meta name="twitter:image" content="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/img/ogp.jpg">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="apple-touch-icon" href="img/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -16,7 +32,10 @@
   <nav id="navbar">
     <div class="nav-inner">
       <div class="nav-logo"><img src="img/logo.png" alt="おひさま会" class="nav-logo-img">おひさま会<span>DX</span></div>
-      <ul class="nav-links">
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
         <li><a href="#arch">DX思想</a></li>
         <li><a href="#solutions">ソリューション</a></li>
         <li><a href="#tech">使用技術</a></li>
@@ -407,6 +426,21 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // ハンバーガーメニュー
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+    // メニューリンクをクリックしたら閉じる
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
+    });
   </script>
 </body>
 </html>
