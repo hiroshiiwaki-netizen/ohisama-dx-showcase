@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CrossLog API × DX — 在宅医療の現場を変える</title>
+  <meta name="description" content="CrossLog APIを活用し、7つの業務自動化ソリューションを構築。在宅医療クリニックの現場効率を大幅に改善しました。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== リセット & CSS変数 ===== */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --red:#D2422D;--orange:#FF5100;--yellow:#FAC100;--gray:#A7A8A9;
+      --red-soft:rgba(210,66,45,.08);--red-border:rgba(210,66,45,.25);--red-glow:rgba(210,66,45,.15);
+      --bg:#f8f9fb;--bg2:#fff;--card:#ffffff;--card2:#f1f3f7;
+      --text:#1e2028;--text2:#5f6577;--text3:#8a8f9e;
+      --border:rgba(0,0,0,.08);
+      --grad-hero:linear-gradient(135deg,#fff5f0 0%,#fff 40%,#fef8f0 100%)
+    }
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'BIZ UDPGothic','Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.85;overflow-x:hidden;font-size:15px;letter-spacing:.02em}
+    .container{max-width:1040px;margin:0 auto;padding:0 24px}
+    .accent{color:var(--red)}
+
+    /* ===== スクロールアニメーション ===== */
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* ===== ナビゲーション ===== */
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:14px 0;transition:all .3s;background:rgba(255,255,255,.8);backdrop-filter:blur(12px)}
+    nav.scrolled{background:rgba(255,255,255,.95);box-shadow:0 1px 12px rgba(0,0,0,.06);padding:10px 0}
+    .nav-inner{max-width:1040px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-size:1.1rem;font-weight:900;color:var(--text);display:flex;align-items:center;gap:6px}
+    .nav-logo span{color:var(--red);font-size:.85rem}
+    .nav-links{display:flex;list-style:none;gap:20px;align-items:center}
+    .nav-links a{color:var(--text2);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:var(--red)}
+
+    /* ===== ハンバーガーメニュー ===== */
+    .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1001;flex-direction:column;gap:5px}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+    .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .hamburger.active span:nth-child(2){opacity:0}
+    .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+    /* ===== ヒーロー ===== */
+    .hero{min-height:85vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:var(--grad-hero)}
+    .hero-bg{position:absolute;inset:0;pointer-events:none}
+    .orb{position:absolute;border-radius:50%;filter:blur(100px);animation:orbF 8s ease-in-out infinite}
+    .orb1{width:450px;height:450px;background:radial-gradient(circle,rgba(210,66,45,.08) 0%,transparent 70%);top:-80px;left:-80px}
+    .orb2{width:350px;height:350px;background:radial-gradient(circle,rgba(250,193,0,.06) 0%,transparent 70%);bottom:-40px;right:-40px;animation-delay:-3s}
+    @keyframes orbF{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-20px) scale(1.05)}}
+    .grid-ov{position:absolute;inset:0;background-image:linear-gradient(rgba(0,0,0,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.02) 1px,transparent 1px);background-size:60px 60px}
+    .hero-content{position:relative;z-index:1;text-align:center;padding:120px 24px 80px;max-width:780px}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--red-soft);border:1px solid var(--red-border);color:var(--red);padding:6px 16px;border-radius:100px;font-size:.82rem;font-weight:600;margin-bottom:28px;animation:fadeIn .8s}
+    .badge-dot{width:8px;height:8px;background:var(--red);border-radius:50%;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+    .hero h1{font-size:clamp(1.8rem,4.5vw,2.8rem);font-weight:900;letter-spacing:-.02em;line-height:1.25;margin-bottom:20px;color:var(--text)}
+    .hero h1 .accent{background:linear-gradient(135deg,var(--red),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-sub{font-size:.95rem;color:var(--text2);margin-bottom:40px;line-height:1.9;max-width:640px;margin-left:auto;margin-right:auto}
+    .btn-scroll{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--red),var(--orange));color:#fff;padding:12px 28px;border-radius:100px;font-weight:700;font-size:.88rem;text-decoration:none;transition:all .3s;box-shadow:0 4px 24px var(--red-glow)}
+    .btn-scroll:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(210,66,45,.3)}
+
+    /* ===== セクション共通 ===== */
+    section{padding:80px 0}
+    .sec-hd{text-align:center;margin-bottom:56px}
+    .sec-lb{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.2em;color:var(--red);margin-bottom:10px}
+    .sec-tt{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:900;letter-spacing:-.02em;margin-bottom:14px;color:var(--text)}
+    .sec-ds{color:var(--text2);font-size:.92rem;line-height:1.8}
+
+    /* ===== 活用事例カード ===== */
+    .cases{background:var(--bg)}
+    .case-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+    .case-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px 24px;transition:all .3s;box-shadow:0 1px 4px rgba(0,0,0,.04);position:relative;overflow:hidden}
+    .case-card:hover{border-color:var(--red-border);transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.08),0 0 0 1px var(--red-border)}
+    .case-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--orange));opacity:0;transition:opacity .3s}
+    .case-card:hover::before{opacity:1}
+    .case-img{width:100%;height:140px;object-fit:cover;border-radius:12px;margin-bottom:16px;background:var(--card2)}
+    .case-icon{font-size:2rem;margin-bottom:12px;display:block}
+    .case-card h3{font-size:1.1rem;font-weight:700;margin-bottom:12px;color:var(--text)}
+    .case-card p{font-size:.9rem;color:#3a3d4a;line-height:1.9;margin-bottom:14px}
+    .case-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+    .case-tech{display:inline-flex;align-items:center;gap:4px;background:var(--card2);border:1px solid var(--border);color:var(--text3);padding:3px 10px;border-radius:100px;font-size:.72rem;font-weight:500}
+    .case-tech::before{content:'⚙';font-size:.7rem}
+
+
+
+    /* ===== フッター ===== */
+    footer{padding:48px 0;border-top:1px solid var(--border);text-align:center;background:var(--bg2)}
+    footer .f-logo{font-size:1.1rem;font-weight:900;margin-bottom:6px;color:var(--text)}
+    footer .f-logo .accent{color:var(--red)}
+    footer .f-tagline{font-size:.88rem;color:var(--text2);margin-bottom:8px}
+    footer .f-copy{font-size:.78rem;color:var(--text3)}
+
+    /* ===== アニメーション ===== */
+    @keyframes fadeIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+
+    /* ===== レスポンシブ ===== */
+    @media(max-width:900px){
+    }
+    @media(max-width:600px){
+      .case-grid{grid-template-columns:1fr}
+      .hamburger{display:flex}
+      .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);flex-direction:column;padding:16px 24px;box-shadow:0 8px 32px rgba(0,0,0,.1);gap:0}
+      .nav-links.open{display:flex}
+      .nav-links li{border-bottom:1px solid var(--border)}
+      .nav-links li:last-child{border-bottom:none}
+      .nav-links a{display:block;padding:14px 0;font-size:.95rem}
+      .hero h1{font-size:1.7rem}
+      .hero-sub{font-size:.88rem}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ナビゲーション -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">CrossLog API<span>× DX</span></div>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#cases">活用事例</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ヒーロー -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+      <div class="grid-ov"></div>
+    </div>
+    <div class="hero-content">
+      <h1>CrossLog API × <span class="accent">DX</span></h1>
+    </div>
+  </section>
+
+
+
+  <!-- 活用事例 -->
+  <section class="cases" id="cases">
+    <div class="container">
+      <div class="sec-hd">
+        <span class="sec-lb">USE CASES</span>
+        <h2 class="sec-tt">API活用事例</h2>
+        <p class="sec-ds">CrossLog APIを起点に、現場の「困った」を一つずつ解消しました</p>
+      </div>
+      <div class="case-grid">
+
+        <!-- 1. 往診予定チェッカー -->
+        <div class="case-card reveal">
+          <img src="img/schedule.png" alt="往診予定チェッカー" class="case-img">
+          <h3>📅 往診予定チェッカー</h3>
+          <p>
+            <strong>課題：</strong>その日の往診予定を確認するために、毎回CrossLogを開いてスタッフごとに検索する必要がありました。臨時往診が入ると「今、誰が近くにいるか」がすぐ分からず、電話連絡に頼っていました。<br><br>
+            <strong>解決：</strong>CrossLog APIから当日の往診予定・患者情報・スタッフの担当エリアをリアルタイムに取得し、スマホで一覧表示するWebアプリを構築。患者名で検索すれば、担当医・次回往診日・過去の訪問履歴まで即座に確認できます。<br><br>
+            <strong>効果：</strong>臨時往診の調整が数分で完了するようになり、5クリニック全スタッフが毎日利用するツールに成長しました。
+          </p>
+
+        </div>
+
+        <!-- 2. 外来予約カレンダー -->
+        <div class="case-card reveal">
+          <img src="img/outpatient.png" alt="外来予約カレンダー" class="case-img">
+          <h3>☀️ 外来予約カレンダー</h3>
+          <p>
+            <strong>課題：</strong>外来の予約状況を確認するには、CrossLogにログインして施設ごと・日付ごとに画面を切り替えて見る必要がありました。「今週どこが空いているか」を一目で把握できず、電話で問い合わせが来るたびに時間がかかっていました。<br><br>
+            <strong>解決：</strong>CrossLog APIから12週分の外来予約データを一括取得し、週単位のカレンダー形式でリアルタイム表示するWebアプリを構築。空き・予約済み・定員超過が色分けで一目瞭然。スマホからもすぐ確認でき、自動更新にも対応しています。<br><br>
+            <strong>効果：</strong>予約状況の確認が瞬時に。事務スタッフの電話対応も格段にスムーズになりました。
+          </p>
+
+        </div>
+
+        <!-- 3. カルテ自動作成 -->
+        <div class="case-card reveal">
+          <img src="img/karte.png" alt="カルテ自動作成" class="case-img">
+          <h3>📝 カルテ自動作成</h3>
+          <p>
+            <strong>課題：</strong>往診前のカルテ準備は、CrossLogで予定を確認→電子カルテを開く→患者を検索→白紙カルテを作成、という手順を患者ごとに繰り返す必要がありました。1日20人分で約40分かかっていました。<br><br>
+            <strong>解決：</strong>CrossLog APIから翌日の往診予定を自動取得し、電子カルテに白紙カルテまたは前回引用カルテを自動生成するデスクトップアプリを構築。処方日数の自動計算にも対応しています。<br><br>
+            <strong>効果：</strong>40分のカルテ準備作業がワンクリックに。医師が診療に集中できる時間が増えました。
+          </p>
+
+        </div>
+
+
+
+
+
+
+
+        <!-- 3. 訪問看護予約連携 -->
+        <div class="case-card reveal">
+          <img src="img/nurse.png" alt="訪問看護予約連携" class="case-img">
+          <h3>🏥 訪問看護予約連携</h3>
+          <p>
+            <strong>課題：</strong>訪問看護ステーションの予約情報はCrossLogに入っていますが、書類作成や報告業務では別のシステムを使っており、予約データを手動で転記していました。<br><br>
+            <strong>解決：</strong>CrossLog APIから訪問看護の予約情報を自動取得し、書類作成システムへ連携するデータパイプラインを構築。定期書類の自動生成につなげる基盤として機能しています。<br><br>
+            <strong>効果：</strong>手動転記がなくなり、予約と書類の不整合が解消されました。
+          </p>
+
+        </div>
+
+        <!-- 4. 定期書類自動生成 -->
+        <div class="case-card reveal">
+          <img src="img/documents.png" alt="定期書類自動生成" class="case-img">
+          <h3>📄 定期書類自動生成</h3>
+          <p>
+            <strong>課題：</strong>訪問看護指示書・診療情報提供書など、定期的に発行する書類の作成に有料RPAツールを使用していました。しかし動作が不安定で、エラー時の対応にも手間がかかっていました。<br><br>
+            <strong>解決：</strong>CrossLog APIの予定データをトリガーに、電子カルテ上で必要書類を全自動で作成するシステムを内製。RPAツールの全機能を置き換えました。<br><br>
+            <strong>効果：</strong>有料RPAツールのコストを削減。動作も安定し、エラー対応の負担もなくなりました。
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- フッター -->
+  <footer>
+    <div class="container">
+      <div class="f-logo">おひさま会<span class="accent">DX</span></div>
+      <p class="f-tagline">医療法人おひさま会 DX推進部 — 在宅医療を、テクノロジーで支える</p>
+      <p class="f-copy">© 2026 医療法人おひさま会. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // スクロールでナビ変化
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // スクロールアニメーション（IntersectionObserver）
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // ハンバーガーメニュー
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>
