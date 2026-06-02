@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CrossLog API × DX — 在宅医療の現場を変える</title>
-  <meta name="description" content="CrossLog APIを活用し、7つの業務自動化ソリューションを構築。在宅医療クリニックの現場効率を大幅に改善しました。">
+  <title>Tukusi × DX — Tukusi API活用事例</title>
+  <meta name="description" content="Tukusi APIを活用し、5つの業務自動化ソリューションを構築。在宅医療クリニックの現場効率を大幅に改善しました。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     /* ===== リセット & CSS変数 ===== */
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -20,7 +20,7 @@
       --grad-hero:linear-gradient(135deg,#fff5f0 0%,#fff 40%,#fef8f0 100%)
     }
     html{scroll-behavior:smooth;font-size:16px}
-    body{font-family:'Noto Sans JP','Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.85;overflow-x:hidden;font-size:15px;letter-spacing:.02em}
+    body{font-family:'BIZ UDPGothic','Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.85;overflow-x:hidden;font-size:15px;letter-spacing:.02em}
     .container{max-width:1040px;margin:0 auto;padding:0 24px}
     .accent{color:var(--red)}
 
@@ -54,14 +54,8 @@
     @keyframes orbF{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-20px) scale(1.05)}}
     .grid-ov{position:absolute;inset:0;background-image:linear-gradient(rgba(0,0,0,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.02) 1px,transparent 1px);background-size:60px 60px}
     .hero-content{position:relative;z-index:1;text-align:center;padding:120px 24px 80px;max-width:780px}
-    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--red-soft);border:1px solid var(--red-border);color:var(--red);padding:6px 16px;border-radius:100px;font-size:.82rem;font-weight:600;margin-bottom:28px;animation:fadeIn .8s}
-    .badge-dot{width:8px;height:8px;background:var(--red);border-radius:50%;animation:pulse 2s infinite}
-    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
-    .hero h1{font-size:clamp(1.8rem,4.5vw,2.8rem);font-weight:900;letter-spacing:-.02em;line-height:1.25;margin-bottom:20px;color:var(--text)}
+    .hero h1{font-size:clamp(1.8rem,4.5vw,2.8rem);font-weight:900;letter-spacing:-.02em;line-height:1.25;color:var(--text)}
     .hero h1 .accent{background:linear-gradient(135deg,var(--red),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .hero-sub{font-size:.95rem;color:var(--text2);margin-bottom:40px;line-height:1.9;max-width:640px;margin-left:auto;margin-right:auto}
-    .btn-scroll{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--red),var(--orange));color:#fff;padding:12px 28px;border-radius:100px;font-weight:700;font-size:.88rem;text-decoration:none;transition:all .3s;box-shadow:0 4px 24px var(--red-glow)}
-    .btn-scroll:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(210,66,45,.3)}
 
     /* ===== セクション共通 ===== */
     section{padding:80px 0}
@@ -81,11 +75,11 @@
     .case-icon{font-size:2rem;margin-bottom:12px;display:block}
     .case-card h3{font-size:1.1rem;font-weight:700;margin-bottom:12px;color:var(--text)}
     .case-card p{font-size:.9rem;color:#3a3d4a;line-height:1.9;margin-bottom:14px}
-    .case-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-    .case-tech{display:inline-flex;align-items:center;gap:4px;background:var(--card2);border:1px solid var(--border);color:var(--text3);padding:3px 10px;border-radius:100px;font-size:.72rem;font-weight:500}
-    .case-tech::before{content:'⚙';font-size:.7rem}
 
-
+    /* メインカード（OhiscanGO）を全幅で強調 */
+    .case-card.main-card{grid-column:1 / -1}
+    .case-card.main-card .case-inner{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+    .case-card.main-card .case-img{height:220px;margin-bottom:0}
 
     /* ===== フッター ===== */
     footer{padding:48px 0;border-top:1px solid var(--border);text-align:center;background:var(--bg2)}
@@ -99,6 +93,7 @@
 
     /* ===== レスポンシブ ===== */
     @media(max-width:900px){
+      .case-card.main-card .case-inner{grid-template-columns:1fr}
     }
     @media(max-width:600px){
       .case-grid{grid-template-columns:1fr}
@@ -109,7 +104,7 @@
       .nav-links li:last-child{border-bottom:none}
       .nav-links a{display:block;padding:14px 0;font-size:.95rem}
       .hero h1{font-size:1.7rem}
-      .hero-sub{font-size:.88rem}
+      .case-card.main-card .case-img{height:160px}
     }
   </style>
 </head>
@@ -118,7 +113,7 @@
   <!-- ナビゲーション -->
   <nav id="navbar">
     <div class="nav-inner">
-      <div class="nav-logo">CrossLog API<span>× DX</span></div>
+      <div class="nav-logo">Tukusi<span>× DX</span></div>
       <button class="hamburger" id="hamburger" aria-label="メニューを開く">
         <span></span><span></span><span></span>
       </button>
@@ -136,93 +131,104 @@
       <div class="grid-ov"></div>
     </div>
     <div class="hero-content">
-      <h1>CrossLog API × <span class="accent">DX</span></h1>
+      <h1>Tukusi × <span class="accent">DX</span></h1>
     </div>
   </section>
-
-
 
   <!-- 活用事例 -->
   <section class="cases" id="cases">
     <div class="container">
       <div class="sec-hd">
         <span class="sec-lb">USE CASES</span>
-        <h2 class="sec-tt">API活用事例</h2>
-        <p class="sec-ds">CrossLog APIを起点に、現場の「困った」を一つずつ解消しました</p>
+        <h2 class="sec-tt">Tukusi API活用事例</h2>
+        <p class="sec-ds">Tukusi AIの力を活かし、現場の業務を自動化しました</p>
       </div>
       <div class="case-grid">
 
-        <!-- 1. 往診予定チェッカー -->
-        <div class="case-card reveal">
-          <img src="img/schedule.png" alt="往診予定チェッカー" class="case-img">
-          <h3>📅 往診予定チェッカー</h3>
-          <p>
-            <strong>課題：</strong>その日の往診予定を確認するために、毎回CrossLogを開いてスタッフごとに検索する必要がありました。臨時往診が入ると「今、誰が近くにいるか」がすぐ分からず、電話連絡に頼っていました。<br><br>
-            <strong>解決：</strong>CrossLog APIから当日の往診予定・患者情報・スタッフの担当エリアをリアルタイムに取得し、スマホで一覧表示するWebアプリを構築。患者名で検索すれば、担当医・次回往診日・過去の訪問履歴まで即座に確認できます。<br><br>
-            <strong>効果：</strong>臨時往診の調整が数分で完了するようになり、5クリニック全スタッフが毎日利用するツールに成長しました。
-          </p>
-
+        <div class="case-card main-card reveal">
+          <div class="case-inner">
+            <img src="img/ohiscango.png" alt="OhiscanGO" class="case-img">
+            <div>
+              <h3>📸 OhiscanGO</h3>
+              <p>
+                FAX・スキャンで届いた文書を自動で選別し、Tukusi APIを利用してGoogle Chatに通知、さらに電子カルテへの登録までを一気通貫で行うシステムです。
+              </p>
+              <p>
+                <strong>課題：</strong>紹介状、検査結果、訪問看護報告書など、毎日大量のFAX・スキャン文書が届きます。それぞれの内容を確認し、どの患者のものか特定し、電子カルテに手動で登録する作業は膨大でした。登録漏れや患者の取り違えリスクも常にありました。
+              </p>
+              <p>
+                <strong>解決：</strong>受信した文書をOhiscanGOがAI（Vertex AI / Gemini）で自動解析し、文書の種類を判別。患者名・生年月日を抽出して電子カルテの患者と自動マッチング。Tukusi APIを通じてGoogle Chatへ選別結果を通知し、マッチした患者のカルテに文書を自動登録します。
+              </p>
+              <p>
+                <strong>効果：</strong>1日数十件の文書登録作業が完全自動化。登録漏れ・取り違えリスクも大幅に低減しました。
+              </p>
+            </div>
+          </div>
         </div>
 
-        <!-- 2. 外来予約カレンダー -->
+        <!-- 2. OhisamaBOT -->
         <div class="case-card reveal">
-          <img src="img/outpatient.png" alt="外来予約カレンダー" class="case-img">
-          <h3>☀️ 外来予約カレンダー</h3>
+          <img src="img/ohisamabot.png" alt="OhisamaBOT" class="case-img">
+          <h3>🤖 OhisamaBOT</h3>
           <p>
-            <strong>課題：</strong>外来の予約状況を確認するには、CrossLogにログインして施設ごと・日付ごとに画面を切り替えて見る必要がありました。「今週どこが空いているか」を一目で把握できず、電話で問い合わせが来るたびに時間がかかっていました。<br><br>
-            <strong>解決：</strong>CrossLog APIから12週分の外来予約データを一括取得し、週単位のカレンダー形式でリアルタイム表示するWebアプリを構築。空き・予約済み・定員超過が色分けで一目瞭然。スマホからもすぐ確認でき、自動更新にも対応しています。<br><br>
-            <strong>効果：</strong>予約状況の確認が瞬時に。事務スタッフの電話対応も格段にスムーズになりました。
+            <strong>課題：</strong>患者対応に関する確認依頼や問い合わせは電話やメールでやりとりしていましたが、「誰が対応したか」「どこまで進んだか」が追えず、対応漏れが発生していました。対応結果を電子カルテに記録する作業も手動でした。
           </p>
-
+          <p>
+            <strong>解決：</strong>問い合わせが発生すると自動でGoogle Chatに通知するBOTを構築。Chat上でステータス管理（未対応/対応中/完了）やコメント記録ができ、対応結果はTukusi APIを利用して電子カルテに自動登録されます。
+          </p>
+          <p>
+            <strong>効果：</strong>対応漏れがゼロに。対応履歴がカルテにも残り、チーム全体で状況を共有できるようになりました。
+          </p>
         </div>
 
-        <!-- 3. カルテ自動作成 -->
+        <!-- 3. Ohisupply -->
         <div class="case-card reveal">
-          <img src="img/karte.png" alt="カルテ自動作成" class="case-img">
-          <h3>📝 カルテ自動作成</h3>
+          <img src="img/ohisupply.png" alt="Ohisupply" class="case-img">
+          <h3>💊 Ohisupply</h3>
           <p>
-            <strong>課題：</strong>往診前のカルテ準備は、CrossLogで予定を確認→電子カルテを開く→患者を検索→白紙カルテを作成、という手順を患者ごとに繰り返す必要がありました。1日20人分で約40分かかっていました。<br><br>
-            <strong>解決：</strong>CrossLog APIから翌日の往診予定を自動取得し、電子カルテに白紙カルテまたは前回引用カルテを自動生成するデスクトップアプリを構築。処方日数の自動計算にも対応しています。<br><br>
-            <strong>効果：</strong>40分のカルテ準備作業がワンクリックに。医師が診療に集中できる時間が増えました。
+            <strong>課題：</strong>医療材料の発注は、各部署からの依頼を取りまとめ、手動で発注書を作成していました。発注した材料の情報を電子カルテに記録する作業も手間がかかっていました。
           </p>
-
+          <p>
+            <strong>解決：</strong>材料の申請をフォームから行い、AIが過去の発注履歴をもとに自動で回答する発注管理システムを構築。Tukusi APIを利用して電子カルテへの自動登録とGoogle Chatへの通知を行います。PDF生成にも対応しています。
+          </p>
+          <p>
+            <strong>効果：</strong>発注業務の効率が大幅に向上。カルテへの記録も自動化され、二重入力の手間がなくなりました。
+          </p>
         </div>
 
-
-
-
-
-
-
-        <!-- 3. 訪問看護予約連携 -->
+        <!-- 4. レントゲンナビ -->
         <div class="case-card reveal">
-          <img src="img/nurse.png" alt="訪問看護予約連携" class="case-img">
-          <h3>🏥 訪問看護予約連携</h3>
+          <img src="img/xray.png" alt="レントゲンナビ" class="case-img">
+          <h3>🩻 レントゲンナビ</h3>
           <p>
-            <strong>課題：</strong>訪問看護ステーションの予約情報はCrossLogに入っていますが、書類作成や報告業務では別のシステムを使っており、予約データを手動で転記していました。<br><br>
-            <strong>解決：</strong>CrossLog APIから訪問看護の予約情報を自動取得し、書類作成システムへ連携するデータパイプラインを構築。定期書類の自動生成につなげる基盤として機能しています。<br><br>
-            <strong>効果：</strong>手動転記がなくなり、予約と書類の不整合が解消されました。
+            <strong>課題：</strong>訪問診療でのレントゲン撮影依頼は紙ベースで管理しており、「誰がいつ依頼した」「撮影は完了したか」の追跡が難しく、依頼漏れが発生していました。撮影結果を電子カルテに登録する作業も手動でした。
           </p>
-
+          <p>
+            <strong>解決：</strong>レントゲンのオーダー作成から撮影完了までをシステムで一元管理。Tukusi APIを利用して撮影結果の電子カルテへの自動登録とGoogle Chatへの通知を行います。月次集計レポートにも対応しています。
+          </p>
+          <p>
+            <strong>効果：</strong>依頼から完了まですべて追跡可能に。カルテ登録も自動化され、紙の依頼書がなくなりました。
+          </p>
         </div>
 
-        <!-- 4. 定期書類自動生成 -->
+        <!-- 5. 文書管理 -->
         <div class="case-card reveal">
-          <img src="img/documents.png" alt="定期書類自動生成" class="case-img">
-          <h3>📄 定期書類自動生成</h3>
+          <img src="img/document.png" alt="文書管理" class="case-img">
+          <h3>📁 文書作成依頼ポータル</h3>
           <p>
-            <strong>課題：</strong>訪問看護指示書・診療情報提供書など、定期的に発行する書類の作成に有料RPAツールを使用していました。しかし動作が不安定で、エラー時の対応にも手間がかかっていました。<br><br>
-            <strong>解決：</strong>CrossLog APIの予定データをトリガーに、電子カルテ上で必要書類を全自動で作成するシステムを内製。RPAツールの全機能を置き換えました。<br><br>
-            <strong>効果：</strong>有料RPAツールのコストを削減。動作も安定し、エラー対応の負担もなくなりました。
+            <strong>課題：</strong>往診先で患者様から各種証明書（診断書、身体障害者診断書、年金関連書類など）の作成依頼を受けた際、紙のメモや口頭で事務に伝えており、「誰がいつ何を頼んだか」の管理が煩雑でした。依頼漏れや確認の手間も発生していました。
           </p>
-
+          <p>
+            <strong>解決：</strong>担当の看護師がその場でスマホから書類の作成依頼を登録できるWebアプリを構築。登録と同時にTukusi APIを利用して電子カルテに自動記録され、Google Chatへの通知も行われます。依頼のステータス管理や5クリニックへの自動同期にも対応しています。
+          </p>
+          <p>
+            <strong>効果：</strong>依頼漏れがなくなり、受付から完了まですべて追跡可能に。カルテへの記録も自動化され、事務スタッフの負担が大幅に軽減しました。
+          </p>
         </div>
 
       </div>
     </div>
   </section>
-
-
 
   <!-- フッター -->
   <footer>
