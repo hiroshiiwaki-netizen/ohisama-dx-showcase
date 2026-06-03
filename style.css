@@ -18,7 +18,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;transition:a
 nav.scrolled{background:rgba(255,255,255,.95);box-shadow:0 1px 12px rgba(0,0,0,.06);padding:10px 0}
 .nav-inner{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{font-size:1.3rem;font-weight:900;color:var(--text);display:flex;align-items:center;gap:8px}.nav-logo span{color:var(--red)}
-.nav-logo-img{height:32px;width:auto}
+.nav-logo-img{height:28px;width:auto}
 .nav-links{display:flex;list-style:none;gap:20px;align-items:center}
 .nav-links a{color:var(--text2);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--red)}
