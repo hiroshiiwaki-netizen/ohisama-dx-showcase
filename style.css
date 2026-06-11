@@ -155,7 +155,7 @@ footer p{font-size:.82rem;color:var(--text3)}
 
 
 /* 法人理念 — おひさま会の考え方 */
-.philosophy{padding:100px 0 80px;background:linear-gradient(180deg,#eef7f1 0%,#dff0e5 40%,#f5faf7 100%);text-align:center}
+.philosophy{padding:100px 0 80px;background:#eef7f1;text-align:center}
 .phil-sub{font-family:'Inter',sans-serif;font-size:.85rem;color:var(--text3);letter-spacing:.15em;margin-top:4px}
 .phil-intro{font-size:.92rem;color:var(--text2);line-height:2;margin-top:20px;font-weight:500}
 
