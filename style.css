@@ -154,42 +154,51 @@ footer p{font-size:.82rem;color:var(--text3)}
 
 
 /* 法人理念 — おひさま会の考え方 */
-.philosophy{padding:100px 0;background:linear-gradient(180deg,#f0f8f4 0%,#e8f5ee 30%,#fff 100%);position:relative}
-.philosophy::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:3px;background:linear-gradient(90deg,#4db6ac,#80cbc4);border-radius:2px}
-.philosophy-intro{text-align:center;font-size:.95rem;color:var(--text2);line-height:2;margin-top:16px;font-weight:500}
-/* 同心円 */
-.circles-wrap{display:flex;justify-content:center;margin:48px 0 60px;padding:0 16px}
-.circle{border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:24px;position:relative}
-.circle-outer{width:420px;height:420px;background:linear-gradient(180deg,#c8e6c9 0%,#a5d6a7 100%);box-shadow:0 8px 40px rgba(76,175,80,.15)}
-.circle-mid{width:300px;height:300px;background:linear-gradient(180deg,#80cbc4 0%,#4db6ac 100%);margin-top:8px;box-shadow:0 4px 24px rgba(77,182,172,.2)}
-.circle-inner{width:200px;height:200px;background:linear-gradient(180deg,#4db6ac 0%,#00897b 100%);margin-top:4px;box-shadow:0 4px 20px rgba(0,137,123,.2)}
-.circle-label{font-size:.72rem;color:rgba(0,0,0,.6);font-weight:700;text-align:center;line-height:1.4;letter-spacing:.05em}
-.circle-label small{font-size:.6rem;font-weight:400;color:rgba(0,0,0,.4)}
-.circle-title-en{font-family:'Inter','Noto Sans JP',sans-serif;font-size:1.6rem;font-weight:600;color:#1a3a2a;text-align:center;line-height:1.3;margin-top:12px}
-.circle-title-jp{font-size:1.8rem;font-weight:900;color:#fff;text-align:center;margin-top:8px;text-shadow:0 1px 4px rgba(0,0,0,.1)}
-.slogan-text{font-size:1.1rem;font-weight:700;color:#fff;margin-top:6px}
-/* ブリッジテキスト */
-.philosophy-bridge{text-align:center;font-size:.92rem;color:var(--text2);line-height:1.9;margin-top:8px;font-weight:500}
-.philosophy-link{display:inline-block;margin-top:24px;color:#00897b;font-weight:700;font-size:.9rem;text-decoration:none;transition:all .2s;padding:8px 0;border-bottom:2px solid transparent}
-.philosophy-link:hover{border-bottom-color:#00897b}
+.philosophy{padding:100px 0 80px;background:linear-gradient(180deg,#eef7f1 0%,#dff0e5 40%,#f5faf7 100%);text-align:center}
+.phil-sub{font-family:'Inter',sans-serif;font-size:.85rem;color:var(--text3);letter-spacing:.15em;margin-top:4px}
+.phil-intro{font-size:.92rem;color:var(--text2);line-height:2;margin-top:20px;font-weight:500}
+
+/* 同心円 — absolute positioningで中央配置 */
+.phil-circles{display:flex;justify-content:center;padding:56px 0 48px}
+.pc-outer,.pc-mid,.pc-inner{border-radius:50%;display:flex;flex-direction:column;align-items:center;position:relative}
+.pc-outer{width:460px;height:460px;background:linear-gradient(180deg,#c8e6c9 0%,#a5d6a7 60%,#81c784 100%);box-shadow:0 12px 48px rgba(76,175,80,.12),inset 0 -8px 24px rgba(255,255,255,.2);justify-content:flex-start;padding-top:28px}
+.pc-mid{width:320px;height:320px;background:linear-gradient(180deg,#80cbc4 0%,#4db6ac 60%,#26a69a 100%);box-shadow:0 8px 32px rgba(77,182,172,.18),inset 0 -6px 20px rgba(255,255,255,.15);position:absolute;left:50%;bottom:0;transform:translateX(-50%);padding-top:22px}
+.pc-inner{width:210px;height:210px;background:linear-gradient(180deg,#4db6ac 0%,#00897b 60%,#00796b 100%);box-shadow:0 6px 24px rgba(0,137,123,.2),inset 0 -4px 16px rgba(255,255,255,.1);position:absolute;left:50%;bottom:0;transform:translateX(-50%);padding-top:18px}
+
+/* ラベル */
+.pc-lbl{font-size:.7rem;font-weight:700;color:rgba(30,60,40,.7);letter-spacing:.08em;line-height:1.4;text-align:center}
+.pc-lbl small{font-size:.58rem;font-weight:400;color:rgba(30,60,40,.45);display:block;margin-top:1px}
+.pc-lbl-w{color:rgba(255,255,255,.85)}
+.pc-lbl-w small{color:rgba(255,255,255,.55)}
+
+/* 値テキスト */
+.pc-val-en{font-family:'Inter','Noto Sans JP',sans-serif;font-size:1.7rem;font-weight:700;color:#1a3a2a;line-height:1.25;margin-top:14px;letter-spacing:-.02em}
+.pc-val-jp{font-size:2rem;font-weight:900;color:#fff;margin-top:10px;text-shadow:0 2px 8px rgba(0,0,0,.08);letter-spacing:.1em}
+.pc-val-slogan{font-size:1.05rem;font-weight:700;color:#fff;margin-top:8px;line-height:1.5;text-shadow:0 1px 6px rgba(0,0,0,.1)}
+
+/* 下テキスト */
+.phil-bridge{font-size:.9rem;color:var(--text2);line-height:1.9;font-weight:500;margin-top:0}
+.phil-more{display:inline-block;margin-top:20px;padding:12px 28px;color:#00796b;font-weight:700;font-size:.85rem;text-decoration:none;border:2px solid #80cbc4;border-radius:100px;transition:all .3s;letter-spacing:.03em}
+.phil-more:hover{background:#00897b;color:#fff;border-color:#00897b;box-shadow:0 4px 16px rgba(0,137,123,.2)}
 
 /* レスポンシブ */
 @media(max-width:900px){
 .sol-grid,.tech-grid,.phil-grid{grid-template-columns:1fr 1fr}
 .num-grid{grid-template-columns:1fr 1fr}
-.circle-outer{width:340px;height:340px}
-.circle-mid{width:240px;height:240px}
-.circle-inner{width:160px;height:160px}
-.circle-title-en{font-size:1.3rem}
+.pc-outer{width:380px;height:380px}
+.pc-mid{width:260px;height:260px}
+.pc-inner{width:170px;height:170px}
+.pc-val-en{font-size:1.4rem}
 }
 @media(max-width:600px){
 .sol-grid,.tech-grid,.num-grid,.phil-grid{grid-template-columns:1fr}
-.circle-outer{width:300px;height:300px}
-.circle-mid{width:210px;height:210px}
-.circle-inner{width:140px;height:140px}
-.circle-title-en{font-size:1.1rem}
-.circle-title-jp{font-size:1.4rem}
-.slogan-text{font-size:.9rem}
+.pc-outer{width:300px;height:300px}
+.pc-mid{width:210px;height:210px}
+.pc-inner{width:140px;height:140px}
+.pc-val-en{font-size:1.1rem}
+.pc-val-jp{font-size:1.4rem}
+.pc-val-slogan{font-size:.85rem}
+.phil-bridge br{display:none}
 .hamburger{display:flex}
 .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);flex-direction:column;padding:16px 24px;box-shadow:0 8px 32px rgba(0,0,0,.1);gap:0}
 .nav-links.open{display:flex}
