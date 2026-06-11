@@ -1,4 +1,4 @@
-/* v20260611-3 */
+/* v20260611-5 */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --red:#D2422D;--orange:#FF5100;--yellow:#FAC100;--gray:#A7A8A9;
@@ -162,9 +162,9 @@ footer p{font-size:.82rem;color:var(--text3)}
 /* 同心円 — absolute positioningで中央配置 */
 .phil-circles{display:flex;justify-content:center;padding:56px 0 48px}
 .pc-outer,.pc-mid,.pc-inner{border-radius:50%;display:flex;flex-direction:column;align-items:center;position:relative}
-.pc-outer{width:400px;height:400px;background:linear-gradient(180deg,#c8e6c9 0%,#a5d6a7 60%,#81c784 100%);box-shadow:0 12px 48px rgba(76,175,80,.12),inset 0 -8px 24px rgba(255,255,255,.2);justify-content:flex-start;padding-top:20px}
-.pc-mid{width:290px;height:290px;background:linear-gradient(180deg,#80cbc4 0%,#4db6ac 60%,#26a69a 100%);box-shadow:0 8px 32px rgba(77,182,172,.18),inset 0 -6px 20px rgba(255,255,255,.15);position:absolute;left:50%;bottom:-10px;transform:translateX(-50%);padding-top:18px}
-.pc-inner{width:196px;height:196px;background:linear-gradient(180deg,#4db6ac 0%,#00897b 60%,#00796b 100%);box-shadow:0 6px 24px rgba(0,137,123,.2),inset 0 -4px 16px rgba(255,255,255,.1);position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);padding-top:14px}
+.pc-outer{width:440px;height:440px;background:linear-gradient(180deg,#c8e6c9 0%,#a5d6a7 60%,#81c784 100%);box-shadow:0 12px 48px rgba(76,175,80,.12),inset 0 -8px 24px rgba(255,255,255,.2);justify-content:flex-start;padding-top:22px}
+.pc-mid{width:310px;height:310px;background:linear-gradient(180deg,#80cbc4 0%,#4db6ac 60%,#26a69a 100%);box-shadow:0 8px 32px rgba(77,182,172,.18),inset 0 -6px 20px rgba(255,255,255,.15);position:absolute;left:50%;bottom:0;transform:translateX(-50%);padding-top:16px}
+.pc-inner{width:200px;height:200px;background:linear-gradient(180deg,#4db6ac 0%,#00897b 60%,#00796b 100%);box-shadow:0 6px 24px rgba(0,137,123,.2),inset 0 -4px 16px rgba(255,255,255,.1);position:absolute;left:50%;bottom:0;transform:translateX(-50%);padding-top:14px}
 
 /* ラベル */
 .pc-lbl{font-size:.7rem;font-weight:700;color:rgba(30,60,40,.7);letter-spacing:.08em;line-height:1.4;text-align:center}
@@ -186,16 +186,16 @@ footer p{font-size:.82rem;color:var(--text3)}
 @media(max-width:900px){
 .sol-grid,.tech-grid,.phil-grid{grid-template-columns:1fr 1fr}
 .num-grid{grid-template-columns:1fr 1fr}
-.pc-outer{width:340px;height:340px}
-.pc-mid{width:250px;height:250px}
+.pc-outer{width:360px;height:360px}
+.pc-mid{width:260px;height:260px}
 .pc-inner{width:168px;height:168px}
 .pc-val-en{font-size:1.4rem}
 }
 @media(max-width:600px){
 .sol-grid,.tech-grid,.num-grid,.phil-grid{grid-template-columns:1fr}
-.pc-outer{width:280px;height:280px}
-.pc-mid{width:200px;height:200px}
-.pc-inner{width:136px;height:136px}
+.pc-outer{width:290px;height:290px}
+.pc-mid{width:210px;height:210px}
+.pc-inner{width:140px;height:140px}
 .pc-val-en{font-size:1rem}
 .pc-val-jp{font-size:1.3rem}
 .pc-val-slogan{font-size:.78rem}
