@@ -159,23 +159,9 @@ footer p{font-size:.82rem;color:var(--text3)}
 .phil-sub{font-family:'Inter',sans-serif;font-size:.85rem;color:var(--text3);letter-spacing:.15em;margin-top:4px}
 .phil-intro{font-size:.92rem;color:var(--text2);line-height:2;margin-top:20px;font-weight:500}
 
-/* 同心円 — absolute positioningで中央配置 */
-.phil-circles{display:flex;justify-content:center;padding:56px 0 48px}
-.pc-outer,.pc-mid,.pc-inner{border-radius:50%;display:flex;flex-direction:column;align-items:center;position:relative}
-.pc-outer{width:440px;height:440px;background:linear-gradient(180deg,#c8e6c9 0%,#a5d6a7 60%,#81c784 100%);box-shadow:0 12px 48px rgba(76,175,80,.12),inset 0 -8px 24px rgba(255,255,255,.2);justify-content:flex-start;padding-top:22px}
-.pc-mid{width:310px;height:310px;background:linear-gradient(180deg,#80cbc4 0%,#4db6ac 60%,#26a69a 100%);box-shadow:0 8px 32px rgba(77,182,172,.18),inset 0 -6px 20px rgba(255,255,255,.15);position:absolute;left:50%;bottom:0;transform:translateX(-50%);padding-top:16px}
-.pc-inner{width:200px;height:200px;background:linear-gradient(180deg,#4db6ac 0%,#00897b 60%,#00796b 100%);box-shadow:0 6px 24px rgba(0,137,123,.2),inset 0 -4px 16px rgba(255,255,255,.1);position:absolute;left:50%;bottom:0;transform:translateX(-50%);padding-top:14px}
-
-/* ラベル */
-.pc-lbl{font-size:.7rem;font-weight:700;color:rgba(30,60,40,.7);letter-spacing:.08em;line-height:1.4;text-align:center}
-.pc-lbl small{font-size:.58rem;font-weight:400;color:rgba(30,60,40,.45);display:block;margin-top:1px}
-.pc-lbl-w{color:rgba(255,255,255,.85)}
-.pc-lbl-w small{color:rgba(255,255,255,.55)}
-
-/* 値テキスト */
-.pc-val-en{font-family:'Inter','Noto Sans JP',sans-serif;font-size:1.7rem;font-weight:700;color:#1a3a2a;line-height:1.25;margin-top:14px;letter-spacing:-.02em}
-.pc-val-jp{font-size:2rem;font-weight:900;color:#fff;margin-top:10px;text-shadow:0 2px 8px rgba(0,0,0,.08);letter-spacing:.1em}
-.pc-val-slogan{font-size:1.05rem;font-weight:700;color:#fff;margin-top:8px;line-height:1.5;text-shadow:0 1px 6px rgba(0,0,0,.1)}
+/* 同心円（画像） */
+.phil-circles{display:flex;justify-content:center;padding:48px 0 40px}
+.phil-circles-img{max-width:420px;width:100%;height:auto;border-radius:8px}
 
 /* 下テキスト */
 .phil-bridge{font-size:.9rem;color:var(--text2);line-height:1.9;font-weight:500;margin-top:0}
@@ -186,20 +172,11 @@ footer p{font-size:.82rem;color:var(--text3)}
 @media(max-width:900px){
 .sol-grid,.tech-grid,.phil-grid{grid-template-columns:1fr 1fr}
 .num-grid{grid-template-columns:1fr 1fr}
-.pc-outer{width:360px;height:360px}
-.pc-mid{width:260px;height:260px}
-.pc-inner{width:168px;height:168px}
-.pc-val-en{font-size:1.4rem}
+.phil-circles-img{max-width:360px}
 }
 @media(max-width:600px){
 .sol-grid,.tech-grid,.num-grid,.phil-grid{grid-template-columns:1fr}
-.pc-outer{width:290px;height:290px}
-.pc-mid{width:210px;height:210px}
-.pc-inner{width:140px;height:140px}
-.pc-val-en{font-size:1rem}
-.pc-val-jp{font-size:1.3rem}
-.pc-val-slogan{font-size:.78rem}
-.pc-lbl{font-size:.6rem}
+.phil-circles-img{max-width:280px}
 .phil-bridge br{display:none}
 .hamburger{display:flex}
 .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);flex-direction:column;padding:16px 24px;box-shadow:0 8px 32px rgba(0,0,0,.1);gap:0}
