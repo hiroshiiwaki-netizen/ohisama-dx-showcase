@@ -136,8 +136,10 @@
     <p style="margin-top:8px">© 2026 医療法人おひさま会. All rights reserved.</p>
   </footer>
 
+  <!-- 送信用の非表示iframe -->
+  <iframe name="gas_iframe" id="gasIframe" style="display:none"></iframe>
+
   <script>
-    // ★★★ GASデプロイ後にここにURLを設定 ★★★
     const GAS_URL = 'https://script.google.com/macros/s/AKfycbxGRwKkwjCnXikGLpR_8mRrCqTBBqTNBT0RGS8YZjA1cHlhu8laeSi24Lv5gh-mwLlR/exec';
 
     const form = document.getElementById('contactForm');
@@ -146,13 +148,8 @@
     const successMsg = document.getElementById('successMsg');
     const errorMsg = document.getElementById('errorMsg');
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      
-      if (!GAS_URL) {
-        alert('フォームのバックエンドが未設定です。dx.connect@nhw.jp まで直接ご連絡ください。');
-        return;
-      }
 
       submitBtn.disabled = true;
       submitBtn.textContent = '送信中...';
@@ -160,21 +157,28 @@
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
 
-      try {
-        const res = await fetch(GAS_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain' },
-          body: JSON.stringify(data)
-        });
-        
-        // no-corsモードではレスポンスが読めないので、送信成功とみなす
+      // hidden formを動的に作成してsubmit（確実にGASに届く方式）
+      const hiddenForm = document.createElement('form');
+      hiddenForm.method = 'POST';
+      hiddenForm.action = GAS_URL;
+      hiddenForm.target = 'gas_iframe';
+
+      // JSONデータをhidden inputとして追加
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'payload';
+      input.value = JSON.stringify(data);
+      hiddenForm.appendChild(input);
+
+      document.body.appendChild(hiddenForm);
+      hiddenForm.submit();
+      document.body.removeChild(hiddenForm);
+
+      // 3秒後に成功表示（iframeのレスポンスは読めないので時間で判定）
+      setTimeout(() => {
         formCard.style.display = 'none';
         successMsg.classList.add('show');
-      } catch (err) {
-        formCard.style.display = 'none';
-        errorMsg.classList.add('show');
-      }
+      }, 2000);
     });
   </script>
 </body>
