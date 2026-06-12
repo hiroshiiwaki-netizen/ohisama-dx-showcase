@@ -168,6 +168,13 @@ footer p{font-size:.82rem;color:var(--text3)}
 .phil-more{display:inline-block;margin-top:20px;padding:12px 28px;color:#00796b;font-weight:700;font-size:.85rem;text-decoration:none;border:2px solid #80cbc4;border-radius:100px;transition:all .3s;letter-spacing:.03em}
 .phil-more:hover{background:#00897b;color:#fff;border-color:#00897b;box-shadow:0 4px 16px rgba(0,137,123,.2)}
 
+/* フローティングお問い合わせボタン */
+.floating-contact{position:fixed;bottom:28px;right:28px;z-index:999;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#D2422D,#FF5100);color:#fff;text-decoration:none;padding:14px 18px;border-radius:100px;font-weight:700;font-size:.88rem;box-shadow:0 4px 20px rgba(210,66,45,.35);transition:all .3s;opacity:0;transform:translateY(20px);pointer-events:none}
+.floating-contact.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.floating-contact:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(210,66,45,.45)}
+.floating-icon{font-size:1.1rem}
+.floating-text{white-space:nowrap}
+
 /* レスポンシブ */
 @media(max-width:900px){
 .sol-grid,.tech-grid,.phil-grid{grid-template-columns:1fr 1fr}

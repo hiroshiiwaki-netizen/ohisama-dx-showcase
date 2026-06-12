@@ -349,10 +349,18 @@
     </div>
   </footer>
 
+  <!-- フローティングお問い合わせボタン -->
+  <a href="contact/" id="floatingContact" class="floating-contact" aria-label="お問い合わせ">
+    <span class="floating-icon">📧</span>
+    <span class="floating-text">お問い合わせ</span>
+  </a>
+
   <script>
-    // スクロールでナビ変化
+    // スクロールでナビ変化 + フローティングボタン表示
+    const floatingBtn = document.getElementById('floatingContact');
     window.addEventListener('scroll', () => {
       document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+      floatingBtn.classList.toggle('visible', window.scrollY > 300);
     });
     // スクロールアニメーション
     const obs = new IntersectionObserver((entries) => {
