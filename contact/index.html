@@ -115,9 +115,9 @@
 
     <!-- 送信完了 -->
     <div class="form-status" id="successMsg">
-      <div class="icon">✅</div>
-      <h2>送信完了しました</h2>
-      <p>お問い合わせいただきありがとうございます。<br>内容を確認のうえ、担当者よりご連絡いたします。</p>
+      <div class="icon">📧</div>
+      <h2>メーラーが起動しました</h2>
+      <p>メールアプリが開きましたので、そのまま送信してください。<br>メーラーが起動しない場合は <strong>dx.connect@nhw.jp</strong> 宛に直接お送りください。</p>
       <a href="../" class="back-btn">トップページに戻る</a>
     </div>
 
@@ -136,50 +136,46 @@
     <p style="margin-top:8px">© 2026 医療法人おひさま会. All rights reserved.</p>
   </footer>
 
-  <!-- 送信用の非表示iframe -->
-  <iframe name="gas_iframe" id="gasIframe" style="display:none"></iframe>
-
   <script>
-    const GAS_URL = 'https://script.google.com/macros/s/AKfycbxGRwKkwjCnXikGLpR_8mRrCqTBBqTNBT0RGS8YZjA1cHlhu8laeSi24Lv5gh-mwLlR/exec';
+    const CONTACT_EMAIL = 'dx.connect@nhw.jp';
 
     const form = document.getElementById('contactForm');
     const formCard = document.getElementById('formCard');
     const submitBtn = document.getElementById('submitBtn');
     const successMsg = document.getElementById('successMsg');
-    const errorMsg = document.getElementById('errorMsg');
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      submitBtn.disabled = true;
-      submitBtn.textContent = '送信中...';
-
       const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
+      const name = formData.get('name') || '';
+      const organization = formData.get('organization') || '';
+      const email = formData.get('email') || '';
+      const category = formData.get('category') || '';
+      const message = formData.get('message') || '';
 
-      // hidden formを動的に作成してsubmit（確実にGASに届く方式）
-      const hiddenForm = document.createElement('form');
-      hiddenForm.method = 'POST';
-      hiddenForm.action = GAS_URL;
-      hiddenForm.target = 'gas_iframe';
+      // メール本文を組み立て
+      const subject = '【DX推進部】' + category + ' - ' + name;
+      const body = 'お名前: ' + name + '\n'
+        + '会社名・団体名: ' + organization + '\n'
+        + 'メールアドレス: ' + email + '\n'
+        + '種別: ' + category + '\n\n'
+        + 'お問い合わせ内容:\n' + message;
 
-      // JSONデータをhidden inputとして追加
-      const input = document.createElement('input');
-      input.type = 'hidden';
-      input.name = 'payload';
-      input.value = JSON.stringify(data);
-      hiddenForm.appendChild(input);
+      // mailtoリンクを開く
+      const mailtoUrl = 'mailto:' + CONTACT_EMAIL
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+      
+      window.location.href = mailtoUrl;
 
-      document.body.appendChild(hiddenForm);
-      hiddenForm.submit();
-      document.body.removeChild(hiddenForm);
-
-      // 3秒後に成功表示（iframeのレスポンスは読めないので時間で判定）
+      // 送信完了表示
       setTimeout(() => {
         formCard.style.display = 'none';
         successMsg.classList.add('show');
-      }, 2000);
+      }, 500);
     });
   </script>
 </body>
 </html>
+
