@@ -1,0 +1,17 @@
+{
+    "name": "dx-contact-form",
+    "version": "1.0.0",
+    "description": "DX推進部 問い合わせフォーム バックエンド",
+    "private": true,
+    "scripts": {
+        "build": "node node_modules/typescript/bin/tsc",
+        "push": "clasp push --force",
+        "deploy": "npm run build && npm run push",
+        "status": "clasp status",
+        "open": "clasp open"
+    },
+    "devDependencies": {
+        "@types/google-apps-script": "^1.0.83",
+        "typescript": "^5.7.3"
+    }
+}

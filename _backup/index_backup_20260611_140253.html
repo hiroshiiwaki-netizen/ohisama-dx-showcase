@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>おひさま会 DX推進部 — 在宅医療を、テクノロジーで支える</title>
+  <meta name="description" content="医療法人おひさま会が内製開発した51のDXソリューション。FAX AI自動分類、カルテ自動作成、保険証AI判別など、在宅医療の現場課題をテクノロジーで解決。">
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="おひさま会 DX推進部 — 在宅医療を、テクノロジーで支える">
+  <meta property="og:description" content="51のDXソリューションをすべて内製開発。FAX AI自動分類、カルテ自動作成、保険証AI判別など、在宅医療の現場課題をテクノロジーで解決。">
+  <meta property="og:image" content="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/img/ogp.jpg">
+  <meta property="og:url" content="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">
+  <meta property="og:site_name" content="おひさま会 DX推進部">
+  <meta property="og:locale" content="ja_JP">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="おひさま会 DX推進部 — 在宅医療を、テクノロジーで支える">
+  <meta name="twitter:description" content="51のDXソリューションをすべて内製開発。在宅医療の現場課題をテクノロジーで解決。">
+  <meta name="twitter:image" content="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/img/ogp.jpg">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="apple-touch-icon" href="img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ナビ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo"><img src="img/logo.png" alt="OHISAMAKAI" class="nav-logo-img"></div>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#arch">DX思想</a></li>
+        <li><a href="#solutions">ソリューション</a></li>
+
+        <li><a href="#numbers">実績</a></li>
+        <li><a href="columns/" style="color:var(--red);font-weight:700">📝 コラム</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ヒーロー -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+      <div class="grid-ov"></div>
+    </div>
+    <div class="hero-content" style="display:flex;align-items:center;gap:40px;flex-wrap:wrap;justify-content:center;text-align:left">
+      <img src="img/hero_banner.png" alt="DXイメージ" style="width:340px;height:340px;object-fit:cover;border-radius:20px;box-shadow:0 8px 32px rgba(0,0,0,.15);flex-shrink:0">
+      <div style="flex:1;min-width:300px">
+        <h1 style="font-size:2.1rem;line-height:1.4;word-break:keep-all;overflow-wrap:normal">在宅医療を、<br><span class="accent">テクノロジー</span>で支える</h1>
+        <p class="hero-sub">医療法人おひさま会 DX推進部</p>
+        <p class="hero-desc">
+          神戸市を拠点に<strong>5クリニック</strong>を展開する在宅医療法人。<br>
+          <span class="hi-num">51</span>のシステムを<strong>すべて内製</strong>で開発・運用し、<br>
+          現場の「困った」をデジタルで解決しています。
+        </p>
+        <a href="#solutions" class="btn-p">ソリューションを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DXの考え方 -->
+  <section class="arch" id="arch">
+    <div class="container">
+      <div class="sec-hd">
+        <span class="sec-lb">OUR APPROACH</span>
+        <h2 class="sec-tt">おひさま会のDX思想</h2>
+        <p class="sec-ds">DXは業務効率化のためではない。<br><strong>患者さんに伴走する時間を増やす</strong>ためのもの。</p>
+      </div>
+
+      <div class="reveal" style="display:flex;align-items:center;gap:32px;max-width:820px;margin:0 auto 40px;flex-wrap:wrap;justify-content:center">
+        <img src="img/dx_philosophy.png" alt="在宅医療の温かさ" style="width:180px;height:180px;object-fit:cover;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,.08);flex-shrink:0">
+        <blockquote style="flex:1;min-width:280px;padding:24px 28px;background:rgba(210,66,45,.04);border-left:4px solid #D2422D;border-radius:0 12px 12px 0;font-size:1.02rem;line-height:1.8;color:#333;margin:0">
+          1日8時間のうち2時間しか患者さんと向き合えていないなら、<br>
+          事務作業を減らすだけで、<strong>対面時間は2時間から4時間に倍増する</strong>。<br>
+          DXは患者さんに伴走する時間を増やすためのもの。
+          <div style="text-align:right;margin-top:12px;font-size:.85rem;color:#888">— 山口 高秀（理事長）</div>
+        </blockquote>
+      </div>
+
+      <div class="layers reveal">
+        <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:center">
+          <img src="img/layer_human.png" alt="対人業務" style="width:160px;height:160px;object-fit:cover;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,.08);flex-shrink:0">
+          <div class="layer l1" style="flex:1;min-width:260px">
+            <div class="num">患者さんとの時間</div>
+            <div class="tt">リアルの場 — 人と人の対話</div>
+            <div class="ds">診察・問診・相談・ご家族への説明。<strong>ここにAIは入れない</strong>。人と人が向き合う時間を最も大切にします。</div>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:center;flex-direction:row-reverse">
+          <img src="img/layer_workflow.png" alt="業務自動化" style="width:160px;height:160px;object-fit:cover;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,.08);flex-shrink:0">
+          <div class="layer l2" style="flex:1;min-width:260px">
+            <div class="num">事務作業の自動化</div>
+            <div class="tt">ワークフロー層 — 非対人業務のデジタル化</div>
+            <div class="ds">FAXの仕分け、カルテの準備、書類の作成、発注管理 ——<strong>人がやらなくていい作業</strong>をシステムとAIに任せます。</div>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:center">
+          <img src="img/layer_record.png" alt="記録と連携" style="width:160px;height:160px;object-fit:cover;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,.08);flex-shrink:0">
+          <div class="layer l3" style="flex:1;min-width:260px">
+            <div class="num">記録と連携</div>
+            <div class="tt">共有の場 — 電子カルテ・グループウェア</div>
+            <div class="ds">自動化された情報が電子カルテやグループウェアに正確に記録され、チーム全体で共有されます。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="max-width:720px;margin:32px auto 0;text-align:center">
+        <p style="font-size:.95rem;color:#666;line-height:1.8">
+          おひさま会のDXは<strong>「対人業務にAIを割り込ませない」</strong>という方針で進めています。<br>
+          AIや自動化が担うのは、あくまで<strong>事務作業・定型作業</strong>だけ。<br>
+          現場のスタッフが患者さんと過ごす時間を最大化すること。それがすべての原点です。
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ソリューション -->
+  <section class="solutions" id="solutions">
+    <div class="container">
+      <div class="sec-hd">
+        <span class="sec-lb">SOLUTIONS</span>
+        <h2 class="sec-tt">主要ソリューション</h2>
+        <p class="sec-ds">在宅医療現場のリアルな課題から生まれたシステム群</p>
+      </div>
+      <div class="sol-grid">
+
+        <a href="solutions/ohiscan/" class="sol-card reveal" style="text-decoration:none;color:inherit;cursor:pointer">
+          <img src="img/ohiscan.png" alt="OhiScan" class="sol-img">
+          <div class="sol-hd"><span class="sol-st st-run">本番運用中</span></div>
+          <h3>OhiScan — FAX AI自動分類</h3>
+          <p>FAX受信PDFをAIが即座に解析。患者特定・書類分類・PDF分割を自動処理し、電子カルテへ自動ファイリング。</p>
+
+          <span style="display:inline-block;margin-top:12px;color:#D2422D;font-size:.82rem;font-weight:700">詳細を見る →</span>
+        </a>
+
+        <a href="solutions/ohisamabot/" class="sol-card reveal" style="text-decoration:none;color:inherit;cursor:pointer">
+          <img src="img/ohisamabot.png" alt="OhisamaBot" class="sol-img">
+          <div class="sol-hd"><span class="sol-st st-run">本番運用中</span></div>
+          <h3>OhisamaBot — 問い合わせ管理</h3>
+          <p>患者・施設からの問い合わせを3軸トリアージで自動分類。Google Chatに即時通知し、チャット上でステータス管理が完結。</p>
+
+          <span style="display:inline-block;margin-top:12px;color:#D2422D;font-size:.82rem;font-weight:700">詳細を見る →</span>
+        </a>
+
+        <a href="solutions/ohisnap/" class="sol-card reveal" style="text-decoration:none;color:inherit;cursor:pointer">
+          <img src="img/ohisnap.png" alt="OhiSnap" class="sol-img">
+          <div class="sol-hd"><span class="sol-st st-run">本番運用中</span></div>
+          <h3>OhiSnap — 保険証AI撮影</h3>
+          <p>スマホで保険証を撮影するだけでAIが自動判別。PDF変換・月別フォルダ自動保存。マイナンバーカード誤撮影も防止。</p>
+
+          <span style="display:inline-block;margin-top:12px;color:#D2422D;font-size:.82rem;font-weight:700">詳細を見る →</span>
+        </a>
+
+        <a href="solutions/ohicraft/" class="sol-card reveal" style="text-decoration:none;color:inherit;cursor:pointer">
+          <img src="img/ohicraft.png" alt="OhiCraft" class="sol-img">
+          <div class="sol-hd"><span class="sol-st st-run">本番運用中</span></div>
+          <h3>OhiCraft — カルテ自動作成</h3>
+          <p>訪問診療管理システムから往診予定を取得し、電子カルテへ白紙・引用カルテを自動作成。処方日数の自動計算にも対応。</p>
+
+          <span style="display:inline-block;margin-top:12px;color:#D2422D;font-size:.82rem;font-weight:700">詳細を見る →</span>
+        </a>
+
+        <a href="solutions/orest/" class="sol-card reveal" style="text-decoration:none;color:inherit;cursor:pointer">
+          <img src="img/orest.png" alt="OREST" class="sol-img">
+          <div class="sol-hd"><span class="sol-st st-dev">開発中</span></div>
+          <h3>OREST — 定期書類自動生成</h3>
+          <p>訪問看護指示書・診療情報提供書などの定期書類を電子カルテ上で全自動作成。有料RPAツールを内製で置き換え。</p>
+          <span style="display:inline-block;margin-top:12px;color:#D2422D;font-size:.82rem;font-weight:700">詳細を見る →</span>
+        </a>
+
+        <a href="solutions/xray/" class="sol-card reveal" style="text-decoration:none;color:inherit;cursor:pointer">
+          <img src="img/xray_nav.png" alt="レントゲンナビ" class="sol-img">
+          <div class="sol-hd"><span class="sol-st st-run">本番運用中</span></div>
+          <h3>レントゲンナビ</h3>
+          <p>訪問診療のレントゲン依頼から撮影完了フロー・月次集計まで一元管理。健康診断の集団検診機能も搭載。</p>
+          <span style="display:inline-block;margin-top:12px;color:#D2422D;font-size:.82rem;font-weight:700">詳細を見る →</span>
+        </a>
+
+        <div class="sol-card reveal">
+          <img src="img/hero.png" alt="HERO" class="sol-img">
+          <div class="sol-hd"><span class="sol-st st-run">本番運用中</span></div>
+          <h3>HERO — 外来予約カレンダー</h3>
+          <p>訪問診療管理システムのAPIと連携し、外来予約状況をカレンダー形式でリアルタイム可視化。スタッフがスマホ・PCから空き状況を即確認。</p>
+        </div>
+
+        <div class="sol-card reveal">
+          <img src="img/halo.png" alt="HALO" class="sol-img">
+          <div class="sol-hd"><span class="sol-st st-run">本番運用中</span></div>
+          <h3>HALO — AI問い合わせ管理</h3>
+          <p>法人内ヘルプデスクの問い合わせをAIが自動分類・担当振り分け・1次回答案を生成。週次・月次レポートも自動で作成・投稿。</p>
+        </div>
+
+        <div class="sol-card reveal">
+          <img src="img/blue.png" alt="BLUE" class="sol-img">
+          <div class="sol-hd"><span class="sol-st st-run">本番運用中</span></div>
+          <h3>BLUE — 通話履歴AI記録</h3>
+          <p>電話着信データをAIが自動で記録・分類。患者名の特定から書類分類まで自動処理し、スプレッドシートに蓄積。</p>
+        </div>
+
+        <a href="solutions/drug-order/" class="sol-card reveal" style="text-decoration:none;color:inherit;cursor:pointer">
+          <img src="img/drug_order.png" alt="薬剤発注" class="sol-img">
+          <div class="sol-hd"><span class="sol-st st-run">本番運用中</span></div>
+          <h3>薬剤発注ナビ</h3>
+          <p>在庫チェック・発注依頼・チャット通知をワンストップで管理。「月3週の火曜日」など複雑な周期発注にも対応。</p>
+          <span style="display:inline-block;margin-top:12px;color:#D2422D;font-size:.82rem;font-weight:700">詳細を見る →</span>
+        </a>
+
+      </div>
+      <p class="sol-more">他にも <strong>往診予定チェッカー・食支援システム・MeetRecorder</strong> など多数を運用中</p>
+    </div>
+  </section>
+
+  <!-- 記事バナー -->
+  <section style="padding:60px 0;background:linear-gradient(135deg,#fff5f0 0%,#fff 40%,#fef8f0 100%)">
+    <div class="container">
+      <div class="sec-hd">
+        <span class="sec-lb">ARTICLES</span>
+        <h2 class="sec-tt">コラム</h2>
+        <p class="sec-ds">現場の実体験から学んだDXの知見</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;max-width:960px;margin:0 auto">
+        <a href="article/" class="reveal" style="background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:28px 24px;text-decoration:none;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,.04);display:block">
+          <span style="display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.15em;color:#D2422D;margin-bottom:8px">ARTICLE 0</span>
+          <h3 style="font-size:1.05rem;font-weight:900;line-height:1.5;margin-bottom:8px;color:#1e2028">最初に自動化すべき3つの業務</h3>
+          <p style="font-size:.82rem;color:#5f6577;line-height:1.7;margin:0">FAX電子化・AI振り分け・書類自動作成の優先順位。</p>
+        </a>
+        <a href="article2/" class="reveal" style="background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:28px 24px;text-decoration:none;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,.04);display:block">
+          <span style="display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.15em;color:#D2422D;margin-bottom:8px">ARTICLE 1</span>
+          <h3 style="font-size:1.05rem;font-weight:900;line-height:1.5;margin-bottom:8px;color:#1e2028">DX推進部ができるまで</h3>
+          <p style="font-size:.82rem;color:#5f6577;line-height:1.7;margin:0">5ヶ月で51システム。組織化に至る道のり。</p>
+        </a>
+        <a href="article3/" class="reveal" style="background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:28px 24px;text-decoration:none;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,.04);display:block">
+          <span style="display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.15em;color:#D2422D;margin-bottom:8px">ARTICLE 2</span>
+          <h3 style="font-size:1.05rem;font-weight:900;line-height:1.5;margin-bottom:8px;color:#1e2028">医療AIの壁は「信頼」</h3>
+          <p style="font-size:.82rem;color:#5f6577;line-height:1.7;margin:0">事務員AI/医療AI分業と承認パイプライン。</p>
+        </a>
+        <a href="article4/" class="reveal" style="background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:28px 24px;text-decoration:none;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,.04);display:block">
+          <span style="display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.15em;color:#D2422D;margin-bottom:8px">ARTICLE 3</span>
+          <h3 style="font-size:1.05rem;font-weight:900;line-height:1.5;margin-bottom:8px;color:#1e2028">GWSだけで完結するか？</h3>
+          <p style="font-size:.82rem;color:#5f6577;line-height:1.7;margin:0">追加コスト0円のDX基盤設計。</p>
+        </a>
+        <a href="article5/" class="reveal" style="background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:28px 24px;text-decoration:none;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,.04);display:block">
+          <span style="display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.15em;color:#D2422D;margin-bottom:8px">ARTICLE 4 — 最終回</span>
+          <h3 style="font-size:1.05rem;font-weight:900;line-height:1.5;margin-bottom:8px;color:#1e2028">IDが最大のボトルネック</h3>
+          <p style="font-size:.82rem;color:#5f6577;line-height:1.7;margin:0">7システムの患者IDを統合する基盤設計。</p>
+        </a>
+      </div>
+      <p style="text-align:center;margin-top:24px"><a href="columns/" style="display:inline-flex;align-items:center;gap:6px;color:#D2422D;font-weight:700;font-size:.9rem;text-decoration:none;border:1px solid rgba(210,66,45,.25);padding:10px 24px;border-radius:100px;transition:all .3s">📖 コラム目次（なぜこの順番か）を見る →</a></p>
+    </div>
+  </section>
+
+
+
+  <!-- 数字で見る -->
+  <section class="numbers" id="numbers">
+    <div class="container">
+      <div class="sec-hd">
+        <span class="sec-lb">RESULTS</span>
+        <h2 class="sec-tt">数字で見るおひさま会DX</h2>
+      </div>
+      <div class="num-grid">
+        <div class="num-card reveal">
+          <div class="icon">🏥</div>
+          <div class="val">5</div>
+          <div class="label">運営クリニック数</div>
+        </div>
+        <div class="num-card reveal">
+          <div class="icon">💻</div>
+          <div class="val">51</div>
+          <div class="label">内製開発システム数</div>
+        </div>
+        <div class="num-card reveal">
+          <div class="icon">⏱️</div>
+          <div class="val">5<span class="unit">ヶ月</span></div>
+          <div class="label">51システムの開発期間</div>
+        </div>
+        <div class="num-card reveal">
+          <div class="icon">📠</div>
+          <div class="val">5,000<span class="unit">枚/月</span></div>
+          <div class="label">FAX処理をAIで自動化</div>
+        </div>
+        <div class="num-card reveal">
+          <div class="icon">📞</div>
+          <div class="val">100<span class="unit">件/日</span></div>
+          <div class="label">問い合わせをチャットで管理</div>
+        </div>
+        <div class="num-card reveal">
+          <div class="icon">✅</div>
+          <div class="val">RPA<span class="unit">内製化</span></div>
+          <div class="label">有料ツールを自社開発で置換</div>
+        </div>
+        <div class="num-card reveal">
+          <div class="icon">💰</div>
+          <div class="val">≈0.1<span class="unit">円</span></div>
+          <div class="label">FAX 1枚あたりのAI処理コスト</div>
+        </div>
+        <div class="num-card reveal">
+          <div class="icon">👥</div>
+          <div class="val">3<span class="unit">人</span></div>
+          <div class="label">DX推進部</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- フッター -->
+  <footer>
+    <div class="container">
+      <div class="logo"><img src="img/logo-footer.png" alt="OHISAMAKAI" style="height:60px;width:auto;margin-bottom:12px"></div>
+      <p>医療法人おひさま会 — 在宅医療を、テクノロジーで支える</p>
+      <a href="contact/" style="display:inline-block;margin-top:20px;padding:14px 36px;background:#D2422D;color:#fff;text-decoration:none;border-radius:100px;font-weight:700;font-size:.9rem;transition:all .3s;letter-spacing:.05em">📧 お問い合わせ</a>
+      <p style="margin-top:16px">© 2026 医療法人おひさま会. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // スクロールでナビ変化
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+    // スクロールアニメーション
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // ハンバーガーメニュー
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+    // メニューリンクをクリックしたら閉じる
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>

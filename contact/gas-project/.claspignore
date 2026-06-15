@@ -1,0 +1,13 @@
+**/*.md
+**/*.py
+**/_backup/**
+**/node_modules/**
+**/docs/**
+**/.gitignore
+**/desktop.ini
+**/tsconfig.json
+**/package.json
+**/package-lock.json
+**/.clasp.json
+**/.claspignore
+**/src/**
