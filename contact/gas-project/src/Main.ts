@@ -5,7 +5,10 @@
 
 // @ts-nocheck
 
-var CHAT_WEBHOOK = 'https://chat.googleapis.com/v1/spaces/AAQAh8o-t9E/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=IBX9_MpGuGCO2VfVNa1aghVEYRZ3u9B3pKpkKboEj2k';
+// Webhook URLはScript Propertiesから取得（セキュリティ対策）
+function getChatWebhook() {
+  return PropertiesService.getScriptProperties().getProperty('CHAT_WEBHOOK');
+}
 
 // ログ用スプレッドシートを自動作成・取得
 function getLogSheet() {
@@ -22,6 +25,9 @@ function getLogSheet() {
 
 // Google Chatにカード形式で通知
 function notifyChat(name, organization, email, category, message, timestamp) {
+  var webhookUrl = getChatWebhook();
+  if (!webhookUrl) return; // 未設定なら何もしない
+
   var card = {
     cardsV2: [{
       cardId: 'inquiry-' + Date.now(),
@@ -29,7 +35,7 @@ function notifyChat(name, organization, email, category, message, timestamp) {
         header: {
           title: 'DX推進部 新しいお問い合わせ',
           subtitle: category,
-          imageUrl: 'https://dx.nhw.jp/img/logo.png',
+          imageUrl: 'https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/img/logo.png',
           imageType: 'CIRCLE'
         },
         sections: [
@@ -101,7 +107,7 @@ function notifyChat(name, organization, email, category, message, timestamp) {
     }]
   };
 
-  UrlFetchApp.fetch(CHAT_WEBHOOK, {
+  UrlFetchApp.fetch(webhookUrl, {
     method: 'post',
     contentType: 'application/json',
     payload: JSON.stringify(card)
