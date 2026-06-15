@@ -165,8 +165,8 @@ footer p{font-size:.82rem;color:var(--text3)}
 
 /* 下テキスト */
 .phil-bridge{font-size:.9rem;color:var(--text2);line-height:1.9;font-weight:500;margin-top:0}
-.phil-more{display:inline-block;margin-top:20px;padding:12px 28px;color:#00796b;font-weight:700;font-size:.85rem;text-decoration:none;border:2px solid #80cbc4;border-radius:100px;transition:all .3s;letter-spacing:.03em}
-.phil-more:hover{background:#00897b;color:#fff;border-color:#00897b;box-shadow:0 4px 16px rgba(0,137,123,.2)}
+.phil-more{display:inline-block;margin-top:20px;padding:12px 28px;color:#D2422D;font-weight:700;font-size:.85rem;text-decoration:none;border:2px solid #D2422D;border-radius:100px;transition:all .3s;letter-spacing:.03em}
+.phil-more:hover{background:#D2422D;color:#fff;border-color:#D2422D;box-shadow:0 4px 16px rgba(210,66,45,.25)}
 
 /* フローティングお問い合わせボタン */
 .floating-contact{position:fixed;bottom:28px;right:28px;z-index:999;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#D2422D,#FF5100);color:#fff;text-decoration:none;padding:14px 18px;border-radius:100px;font-weight:700;font-size:.88rem;box-shadow:0 4px 20px rgba(210,66,45,.35);transition:all .3s;opacity:0;transform:translateY(20px);pointer-events:none}
