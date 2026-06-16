@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>学会当日まわるリスト — 第8回 日本在宅医療連合学会大会</title>
+  <meta name="description" content="2026年7月4日〜5日 札幌コンベンションセンター。おひさま会DX推進部の学会ブース回り＆セッション参加リスト。">
+  <link rel="icon" type="image/png" href="../img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --red:#D2422D;--orange:#FF5100;--yellow:#FAC100;--gray:#A7A8A9;
+      --red-soft:rgba(210,66,45,.08);--red-border:rgba(210,66,45,.25);
+      --bg:#f8f9fb;--card:#fff;--text:#1e2028;--text2:#5f6577;--text3:#8a8f9e;
+      --border:rgba(0,0,0,.08);
+      --partner:#2563eb;--partner-soft:rgba(37,99,235,.08);--partner-border:rgba(37,99,235,.25);
+      --crush:#ef4444;--crush-soft:rgba(239,68,68,.08);--crush-border:rgba(239,68,68,.25);
+      --collab:#8b5cf6;--collab-soft:rgba(139,92,246,.08);--collab-border:rgba(139,92,246,.25);
+      --spy:#f59e0b;--spy-soft:rgba(245,158,11,.08);--spy-border:rgba(245,158,11,.25);
+    }
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'Noto Sans JP','Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.85;font-size:15px}
+    .container{max-width:800px;margin:0 auto;padding:0 20px}
+
+    /* ナビ */
+    nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:12px 0}
+    .nav-inner{max-width:800px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .nav-logo{font-size:.92rem;font-weight:900;color:var(--text);display:flex;align-items:center;gap:8px;text-decoration:none}
+    .nav-logo img{height:28px}
+    .nav-links{display:flex;list-style:none;gap:6px;flex-wrap:wrap}
+    .nav-links a{color:var(--text2);text-decoration:none;font-size:.75rem;font-weight:600;padding:4px 10px;border-radius:100px;transition:all .2s;border:1px solid transparent}
+    .nav-links a:hover,.nav-links a.active{color:var(--red);background:var(--red-soft);border-color:var(--red-border)}
+
+    /* ヒーロー */
+    .hero{background:linear-gradient(135deg,#fff5f0 0%,#fff 40%,#fef8f0 100%);padding:80px 20px 48px;text-align:center}
+    .hero h1{font-size:clamp(1.4rem,4vw,2rem);font-weight:900;line-height:1.3;margin-bottom:8px}
+    .hero h1 .accent{background:linear-gradient(135deg,var(--red),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-sub{font-size:.95rem;color:var(--text2);margin-bottom:4px}
+    .hero-meta{font-size:.82rem;color:var(--text3)}
+    .hero-items{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px}
+    .hero-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:10px 16px;font-size:.78rem;font-weight:600;display:flex;align-items:center;gap:6px}
+
+    /* 日付ヘッダー */
+    .day-header{background:linear-gradient(135deg,var(--red),var(--orange));color:#fff;padding:20px 24px;border-radius:16px;margin:32px 0 20px;font-size:1.2rem;font-weight:900;display:flex;align-items:center;gap:12px}
+    .day-header span{font-size:.82rem;font-weight:500;opacity:.9}
+
+    /* 時間帯セクション */
+    .time-section{margin:0 0 28px;border-left:3px solid var(--border);padding-left:20px;position:relative}
+    .time-section::before{content:'';position:absolute;left:-7px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--red);border:2px solid #fff;box-shadow:0 0 0 2px var(--red)}
+    .time-label{font-size:.78rem;font-weight:700;color:var(--red);letter-spacing:.1em;margin-bottom:6px}
+
+    /* セッションカード */
+    .session-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin:10px 0;transition:all .2s;box-shadow:0 1px 4px rgba(0,0,0,.03)}
+    .session-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06);transform:translateY(-1px)}
+    .session-card.important{border-left:4px solid var(--red)}
+    .session-card.booked{border-left:4px solid var(--partner)}
+    .session-title{font-size:1rem;font-weight:900;margin-bottom:4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .session-detail{font-size:.82rem;color:var(--text2);margin-bottom:8px}
+    .session-purpose{font-size:.85rem;line-height:1.7;color:var(--text2)}
+    .session-purpose strong{color:var(--text)}
+    .badge{display:inline-block;font-size:.68rem;font-weight:700;padding:2px 10px;border-radius:100px;vertical-align:middle}
+    .badge-important{background:var(--red-soft);border:1px solid var(--red-border);color:var(--red)}
+    .badge-booked{background:var(--partner-soft);border:1px solid var(--partner-border);color:var(--partner)}
+
+    /* セッション選択肢 */
+    .options{display:grid;gap:8px;margin:8px 0}
+    .option{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:.82rem;color:var(--text2);line-height:1.6}
+    .option strong{color:var(--text)}
+    .option .rec{color:var(--red);font-weight:700;font-size:.72rem}
+
+    /* ブースカード */
+    .booth-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin:10px 0;transition:all .2s;box-shadow:0 1px 4px rgba(0,0,0,.03);cursor:default}
+    .booth-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06);transform:translateY(-1px)}
+    .booth-card.crush{border-left:4px solid var(--crush)}
+    .booth-card.partner{border-left:4px solid var(--partner)}
+    .booth-card.collab{border-left:4px solid var(--collab)}
+    .booth-card.spy{border-left:4px solid var(--spy)}
+    .booth-num{font-size:.72rem;font-weight:700;color:var(--text3);margin-bottom:2px}
+    .booth-name{font-size:1rem;font-weight:900;margin-bottom:2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .booth-type{display:inline-block;font-size:.68rem;font-weight:700;padding:2px 10px;border-radius:100px}
+    .type-crush{background:var(--crush-soft);border:1px solid var(--crush-border);color:var(--crush)}
+    .type-partner{background:var(--partner-soft);border:1px solid var(--partner-border);color:var(--partner)}
+    .type-collab{background:var(--collab-soft);border:1px solid var(--collab-border);color:var(--collab)}
+    .type-spy{background:var(--spy-soft);border:1px solid var(--spy-border);color:var(--spy)}
+    .booth-meta{font-size:.8rem;color:var(--text3);margin-bottom:8px}
+    .booth-purpose{font-size:.85rem;color:var(--text2);line-height:1.7;margin-bottom:10px}
+    .booth-purpose strong{color:var(--text)}
+    .talk-box{background:rgba(250,193,0,.06);border:1px solid rgba(250,193,0,.2);border-radius:10px;padding:12px 16px;margin:8px 0;font-size:.82rem;color:var(--text)}
+    .talk-box::before{content:'💬 声かけ：';font-weight:700;color:#b8860b}
+    .takeaway{font-size:.78rem;color:var(--text3);margin-top:8px}
+    .takeaway::before{content:'🎁 持って帰る → '}
+
+    /* チェックリスト */
+    .checklist{margin:24px 0}
+    .check-group{margin-bottom:20px}
+    .check-group h3{font-size:.88rem;font-weight:700;margin-bottom:10px;color:var(--text)}
+    .check-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--text2)}
+    .check-item:last-child{border-bottom:none}
+    .check-item input[type="checkbox"]{width:18px;height:18px;margin-top:2px;accent-color:var(--red);flex-shrink:0}
+    .check-item label{flex:1;cursor:pointer;line-height:1.5}
+    .check-item label strong{color:var(--text)}
+
+    /* ヒントボックス */
+    .hint{background:rgba(37,99,235,.05);border:1px solid rgba(37,99,235,.15);border-radius:10px;padding:14px 18px;margin:12px 0;font-size:.82rem;color:var(--text2);line-height:1.7}
+    .hint::before{content:'💡 ';font-size:1rem}
+    .hint strong{color:var(--partner)}
+
+    /* フッター */
+    footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);margin-top:48px}
+    footer p{font-size:.78rem;color:var(--text3)}
+    footer a{color:var(--red);text-decoration:none;font-weight:600}
+
+    /* プリント用 */
+    @media print{
+      nav,.hero{display:none}
+      body{font-size:12px}
+      .booth-card,.session-card{break-inside:avoid;box-shadow:none;border:1px solid #ddd}
+      .day-header{background:var(--red)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    }
+
+    /* モバイル対応 */
+    @media(max-width:600px){
+      .hero{padding:60px 16px 36px}
+      .hero h1{font-size:1.3rem}
+      .day-header{font-size:1rem;padding:16px 18px;flex-direction:column;align-items:flex-start;gap:4px}
+      .booth-card,.session-card{padding:14px 16px}
+      .nav-links{display:none}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ナビ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="../" class="nav-logo"><img src="../img/logo.png" alt="おひさま会">学会リスト</a>
+      <ul class="nav-links">
+        <li><a href="#day1">7/4（土）</a></li>
+        <li><a href="#day2">7/5（日）</a></li>
+        <li><a href="#checklist">チェックリスト</a></li>
+        <li><a href="../" style="color:var(--red)">← トップ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ヒーロー -->
+  <section class="hero">
+    <h1>📋 学会当日<span class="accent">まわるリスト</span></h1>
+    <p class="hero-sub">第8回 日本在宅医療連合学会大会</p>
+    <p class="hero-meta">2026年7月4日（土）〜 5日（日）｜ 札幌コンベンションセンター</p>
+    <div class="hero-items">
+      <div class="hero-item">📍 セッション <strong>12</strong></div>
+      <div class="hero-item">🏢 ブース <strong>9社</strong></div>
+      <div class="hero-item">🍺 懇親会 <strong>1回</strong></div>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <!-- ==================== 1日目 ==================== -->
+    <div class="day-header" id="day1">📅 1日目：7月4日（土）<span>札幌コンベンションセンター</span></div>
+
+    <!-- 朝 -->
+    <div class="time-section">
+      <div class="time-label">8:40 〜 10:30 ☀️ 朝</div>
+      <div class="session-card">
+        <div class="session-title">開会式 → 代表理事講演・大会長講演</div>
+        <div class="session-detail">第1会場（大ホールC）</div>
+        <div class="session-purpose">大友宣大会長の「在宅医療ラララ」コンセプト説明 + 平原代表理事による在宅医療の現状と課題。<strong>大会全体の方向性をつかむ。</strong></div>
+      </div>
+      <div class="options">
+        <div class="option"><strong>別の選択肢A:</strong> SY01 プラネタリーヘルス — 新しい視点。noteネタにも使える</div>
+        <div class="option"><strong>別の選択肢B:</strong> SY06 ヒトを集める広報戦略 — note投稿やDXショーケースの広報に直結</div>
+      </div>
+    </div>
+
+    <!-- 午前後半 -->
+    <div class="time-section">
+      <div class="time-label">10:45 〜 12:15 🕙 午前後半</div>
+      <div class="session-card important">
+        <div class="session-title">SY09 在宅医療の効率化、ご自慢バトル！ <span class="badge badge-important">⭐ 最重要</span></div>
+        <div class="session-detail">第2会場（特別会議場）｜ 座長：土井真喜、半澤博恵</div>
+        <div class="session-purpose"><strong>おひさま会のDX取り組みと最も関連が深いセッション。</strong>他施設の効率化事例を学び、自分たちの取り組みと比較する。</div>
+        <div class="takeaway">他施設のDX事例、次回の学会発表のネタ、連携できそうな人の名刺</div>
+      </div>
+    </div>
+
+    <!-- ランチ -->
+    <div class="time-section">
+      <div class="time-label">12:30 〜 13:30 🍱 ランチ</div>
+      <div class="session-card">
+        <div class="session-title">ランチョンセミナー（選択）</div>
+        <div class="options">
+          <div class="option"><strong>LS05</strong> BPSDを緩和する技術 — 認知症ケアの最新情報</div>
+          <div class="option"><strong>LS08</strong> 在宅での適切な服薬とNT-proBNP迅速測定 — 在宅検査の最新動向</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 午後：ブースつぶし -->
+    <div class="time-section">
+      <div class="time-label">13:45 〜 15:15 ⚡ ブースつぶしタイム</div>
+
+      <div class="booth-card collab">
+        <div class="booth-num">① ブース No.55 ｜ SCC 1F ホワイエ ｜ 15分</div>
+        <div class="booth-name">KISA2隊 <span class="booth-type type-collab">🚀 協業</span></div>
+        <div class="booth-purpose">AI在宅医療のネットワークに参加する。KISA2隊は「AI × 在宅医療」を推進する団体。おひさま会は51のDXソリューションを実際に動かしており、<strong>「理念じゃなくて実装を持ってる」</strong>のが最大の武器。</div>
+        <div class="talk-box">KISA2隊さんの活動に共感してます。うちは神戸の在宅医療法人で、51のDXシステムを内製で動かしてるんですけど、技術面でお手伝いできることがあると思います</div>
+        <div class="takeaway">代表者の連絡先、コミュニティ参加方法</div>
+      </div>
+
+      <div class="booth-card crush">
+        <div class="booth-num">② ブース No.29 ｜ SCC 1F 大ホール ｜ 10分</div>
+        <div class="booth-name">グランノート <span class="booth-type type-crush">💣 つぶし</span></div>
+        <div class="booth-purpose">在宅医療向けの業務効率化ツールを販売している企業。おひさま会はこの手のツールを全部内製済み。<strong>パッケージソフトの価格帯・機能を把握</strong>して、自社の内製品と比較する。</div>
+        <div class="talk-box">在宅医療向けのシステムですか？ちょっと見せてもらっていいですか？ → 「実はうち、こういうの全部自分たちで作ってるんですよ」</div>
+        <div class="takeaway">製品パンフレット（競合分析用）、価格表</div>
+      </div>
+
+      <div class="booth-card crush">
+        <div class="booth-num">③ ブース No.14 ｜ SCC 1F 大ホール ｜ 10分</div>
+        <div class="booth-name">プロアス <span class="booth-type type-crush">💣 つぶし</span></div>
+        <div class="booth-purpose">医療機関向けICTソリューションを販売。おひさま会は<strong>Google Workspace無料枠で同等以上を実現</strong>しており、コスト面で圧倒的に有利。</div>
+        <div class="talk-box">月額費用と導入費ってどのくらいですか？ → 「うちはGAS + AIで全部無料で作ってるんですけど、見ます？」</div>
+        <div class="takeaway">価格表、機能比較表</div>
+      </div>
+
+      <div class="booth-card collab">
+        <div class="booth-num">④ ブース No.25 ｜ SCC 1F 大ホール ｜ 10分</div>
+        <div class="booth-name">NTTプレシジョンメディシン <span class="booth-type type-collab">🚀 協業</span></div>
+        <div class="booth-purpose">NTTグループの医療DX事業。大企業は基盤技術は強いが現場の使い方がわからない。<strong>おひさま会は「現場で毎日使われるDXの作り方」を知っている。</strong></div>
+        <div class="talk-box">NTTさんの医療DX、とても興味があります。うちは在宅の医療法人なんですが、51のシステムを内製してまして。現場の声を入れた共同開発とか、興味ありませんか？</div>
+        <div class="takeaway">担当者の名刺、製品資料</div>
+      </div>
+
+      <div class="booth-card crush">
+        <div class="booth-num">⑤ ブース No.63 ｜ SCC 1F ホワイエ ｜ 5分</div>
+        <div class="booth-name">セコム医療システム <span class="booth-type type-crush">💣 つぶし</span></div>
+        <div class="booth-purpose">月額課金の見守りシステム。おひさま会はOhisamaBot + BLUEで<strong>同等機能をGAS（無料）で実現済み</strong>。</div>
+        <div class="talk-box">見守りシステムの月額っていくらくらいですか？</div>
+        <div class="takeaway">価格表</div>
+      </div>
+    </div>
+
+    <!-- 午後セッション候補 -->
+    <div class="time-section">
+      <div class="time-label">13:45 〜 15:15 セッション候補</div>
+      <div class="options">
+        <div class="option"><strong>SY17</strong> 在宅医療における医療安全と患者安全 — システム設計に反映できる安全の視点</div>
+        <div class="option"><strong>SY19</strong> 令和8年度診療報酬改定 — 診療報酬改定FAQシステムの更新に直結</div>
+        <div class="option"><strong>SY22</strong> 在宅訪問栄養食事指導 — 食支援システムの改善ヒント</div>
+      </div>
+    </div>
+
+    <!-- 午後後半 -->
+    <div class="time-section">
+      <div class="time-label">15:30 〜 17:00 🕞 午後後半</div>
+      <div class="options">
+        <div class="option"><strong>SY31</strong> 在宅医療×動物 — 多頭飼育問題。ユニークな話題。noteネタに最適</div>
+        <div class="option"><strong>SY32</strong> タスク・シェア／シフトを考える — DXによるタスクシフトの事例と比較</div>
+      </div>
+    </div>
+
+    <!-- 懇親会 -->
+    <div class="time-section">
+      <div class="time-label">18:00 〜 20:00 🍺 懇親会</div>
+      <div class="session-card">
+        <div class="session-title">懇親会＠アサヒビール園</div>
+        <div class="session-detail">参加費：5,580円（事前登録のみ）</div>
+        <div class="session-purpose">ブースで名刺交換した人との関係を深める。特に<strong>KISA2隊・NTTの人</strong>と話す。ビールを飲みながらDXショーケースを見せると盛り上がる 🍻</div>
+      </div>
+    </div>
+
+    <!-- ==================== 2日目 ==================== -->
+    <div class="day-header" id="day2">📅 2日目：7月5日（日）<span>札幌コンベンションセンター</span></div>
+
+    <!-- 朝 -->
+    <div class="time-section">
+      <div class="time-label">8:00 〜 9:30 ☀️ 朝</div>
+      <div class="options">
+        <div class="option"><span class="rec">推奨</span> <strong>SY40</strong> OMOROプロジェクト — 多職種連携のエビデンス創出。OhisamaVoxや在宅集計に応用可能</div>
+        <div class="option"><strong>SY33</strong> 在宅医療×人類学が生み出す新たな知 — noteネタ向き</div>
+        <div class="option"><strong>SY37</strong> 介護のオシゴト、知ってるつもり？ — 介護職向けDXのヒント</div>
+      </div>
+    </div>
+
+    <!-- 午前後半 -->
+    <div class="time-section">
+      <div class="time-label">9:45 〜 11:15 🕙 午前後半</div>
+      <div class="session-card important">
+        <div class="session-title">SY49 在宅医療インテグレーター資格化に向けて <span class="badge badge-important">⭐ 重要</span></div>
+        <div class="session-detail">第8会場（201+202）｜ 座長：杉浦真、荻野美恵子</div>
+        <div class="session-purpose">在宅医療のDX推進を「インテグレーター」として制度化する動き。<strong>おひさま会の岩城さんはまさにインテグレーターそのもの。</strong>資格化の動向を把握し、自分のキャリアに活かす。</div>
+        <div class="takeaway">資格化の具体的なスケジュール、必要なスキルセット</div>
+      </div>
+    </div>
+
+    <!-- 2日目ブース回り -->
+    <div class="time-section">
+      <div class="time-label">セッション合間 🏢 仲間ブース</div>
+
+      <div class="booth-card partner">
+        <div class="booth-num">⑥ ブース No.39 ｜ SCC 1F 大ホール ｜ 20分</div>
+        <div class="booth-name">Tukusi <span class="booth-type type-partner">🤝 仲間</span></div>
+        <div class="booth-purpose">おひさま会のFAX処理基盤。OhiScanGoやTukusiID自動登録で、Tukusiの弱い部分を自前で補完している。<strong>最もヘビーに使いこなしているユーザー</strong>として、対等以上の立場で話せる。</div>
+        <div class="talk-box">いつもお世話になってます、おひさま会です。実はTukusiの周辺ツールをいくつか自作してるんですけど、見てもらえますか？ここの部分をAPI化してくれたらもっと使い倒せるんです</div>
+        <div class="takeaway">開発ロードマップ情報、API公開予定の有無</div>
+      </div>
+
+      <div class="booth-card partner">
+        <div class="booth-num">⑦ ブース No.42 ｜ SCC 1F ホワイエ ｜ 15分</div>
+        <div class="booth-name">クロスログ <span class="booth-type type-partner">🤝 仲間</span></div>
+        <div class="booth-purpose">往診予定チェッカー・施設カレンダー・職員マスターなど、<strong>クロスログのAPIを最も活用しているユーザー。</strong>「API仕様をもっと公開してくれたら、さらにすごいものが作れる」と伝える。</div>
+        <div class="talk-box">クロスログのAPIで往診予定チェッカーとか施設カレンダーとか作ってるんですけど、API仕様をもう少し公開してもらえると助かるんです。うちのユースケース、御社のユーザー事例として紹介しましょうか？</div>
+        <div class="takeaway">APIロードマップ、ユーザー会情報</div>
+      </div>
+
+      <div class="booth-card spy">
+        <div class="booth-num">⑧ ブース No.20 ｜ SCC 1F 大ホール ｜ 10分</div>
+        <div class="booth-name">オープン株式会社 <span class="booth-type type-spy">👀 元ユーザー偵察</span></div>
+        <div class="booth-purpose">おひさま会が以前使っていたRPA（書類・カルテ自動化）の提供元。OREST・OhiCraftなどを内製したため<strong>解約予定。</strong>「有料RPAを卒業して内製に切り替えた法人」として、彼らの製品と自社内製品の差を確認する。</div>
+        <div class="talk-box">LS12聴きました。実はうち、御社のRPAを使ってたんですけど、内製システムに切り替えることにしたんです。他のユーザーさんって、どういう使い方が多いですか？</div>
+        <div class="takeaway">他院のRPA活用状況、最新の価格体系</div>
+      </div>
+
+      <div class="booth-card partner">
+        <div class="booth-num">⑨ ブース No.35 ｜ SCC 1F 大ホール ｜ 15分</div>
+        <div class="booth-name">メディカルインフォマティクス（HOMIS）<span class="booth-type type-partner">🤝 仲間</span></div>
+        <div class="booth-purpose">電子カルテHOMISの提供元。おひさま会はSeleniumで自動入力しているが、本来はAPIがあるべき。<strong>「API作ってくれたらSelenium卒業できます」</strong>と伝える。</div>
+        <div class="talk-box">HOMISを深く使わせてもらってます。実は今Seleniumで自動カルテ作成をやってるんですけど、APIがあればもっと安定した連携ができるんです。API公開の予定ってありますか？</div>
+        <div class="takeaway">API公開予定、次期バージョン情報</div>
+      </div>
+    </div>
+
+    <!-- ランチ -->
+    <div class="time-section">
+      <div class="time-label">12:00 〜 13:00 🍱 ランチ</div>
+      <div class="session-card booked">
+        <div class="session-title">LS12 AIとロボットで既存カルテ進化！ <span class="badge badge-booked">📩 申込済み</span></div>
+        <div class="session-detail">第2会場（特別会議場）｜ 座長：藤山洋平（オープン株式会社）<br>演者：八森淳・佐藤夏菜子（つながるクリニック）｜ 共催：オープン株式会社（ブース No.20）</div>
+        <div class="session-purpose"><strong>元ユーザーとして偵察。</strong>おひさま会はオープン社のRPAを使っていたが、OREST・OhiCraftなどを内製したため解約予定。他院の活用レベルと自社内製品を比較する。</div>
+        <ul style="font-size:.82rem;color:var(--text2);margin:8px 0 0 20px;line-height:1.8">
+          <li>他の医療機関がRPAでどこまで自動化しているか</li>
+          <li>月額コストに見合う価値があるか（うちは無料で同等以上を実現済み）</li>
+          <li>「つながるクリニック」の運用事例 vs おひさま会の内製品</li>
+        </ul>
+        <div class="takeaway">競合比較の材料、他院のRPA活用レベルの把握</div>
+      </div>
+      <div class="hint"><strong>LS11（KISA2隊×AI在宅）</strong>は同じ時間帯のため現地参加できない → <strong>オンデマンド配信で後日視聴</strong>（6/15〜9/30）。1日目のブースでKISA2隊と名刺交換しておけばOK。</div>
+    </div>
+
+    <!-- 午後 -->
+    <div class="time-section">
+      <div class="time-label">13:15 〜 14:45 🕐 午後</div>
+      <div class="session-card important">
+        <div class="session-title">SY51 未来の在宅医療</div>
+        <div class="session-detail">第1会場（大ホールC）｜ 座長：山岸暁美、佐々木淳</div>
+        <div class="session-purpose">在宅医療の未来像を把握。<strong>おひさま会のDXがその未来にどう貢献するか</strong>を考える。</div>
+        <div class="takeaway">5〜10年後の在宅医療のビジョン、DXの方向性</div>
+      </div>
+    </div>
+
+    <!-- 午後後半 -->
+    <div class="time-section">
+      <div class="time-label">15:00 〜 16:30 🕞 午後後半</div>
+      <div class="options">
+        <div class="option"><span class="rec">推奨</span> <strong>SY62</strong> ZEVIOUS Ⅱ — ケアとアウトカム多施設共同研究。データ駆動の研究</div>
+        <div class="option"><strong>SY60</strong> 被災高齢者の医療介護問題 — クラウド型DXの災害対応力をアピールできるネタ</div>
+      </div>
+    </div>
+
+    <div class="time-section">
+      <div class="time-label">16:30 〜 16:45</div>
+      <div class="session-card">
+        <div class="session-title">閉会式</div>
+        <div class="session-detail">第1会場（大ホールC）</div>
+      </div>
+    </div>
+
+    <!-- ==================== チェックリスト ==================== -->
+    <div class="day-header" id="checklist" style="background:linear-gradient(135deg,#1e2028,#3a3f4e)">📊 チェックリスト</div>
+
+    <div class="checklist">
+      <div class="check-group">
+        <h3>🏢 ブース回り</h3>
+        <div class="check-item"><input type="checkbox" id="b1"><label for="b1"><strong>No.55 KISA2隊</strong> — 🚀 協業（AI在宅コミュニティ参加）</label></div>
+        <div class="check-item"><input type="checkbox" id="b2"><label for="b2"><strong>No.29 グランノート</strong> — 💣 つぶし（在宅DXパッケージ）</label></div>
+        <div class="check-item"><input type="checkbox" id="b3"><label for="b3"><strong>No.14 プロアス</strong> — 💣 つぶし（医療ICTパッケージ）</label></div>
+        <div class="check-item"><input type="checkbox" id="b4"><label for="b4"><strong>No.25 NTT</strong> — 🚀 協業（大企業×現場コラボ）</label></div>
+        <div class="check-item"><input type="checkbox" id="b5"><label for="b5"><strong>No.63 セコム医療</strong> — 💣 つぶし（見守りシステム）</label></div>
+        <div class="check-item"><input type="checkbox" id="b6"><label for="b6"><strong>No.39 Tukusi</strong> — 🤝 仲間（共同開発提案）</label></div>
+        <div class="check-item"><input type="checkbox" id="b7"><label for="b7"><strong>No.42 クロスログ</strong> — 🤝 仲間（API改善要望）</label></div>
+        <div class="check-item"><input type="checkbox" id="b8"><label for="b8"><strong>No.20 オープン</strong> — 👀 元ユーザー偵察</label></div>
+        <div class="check-item"><input type="checkbox" id="b9"><label for="b9"><strong>No.35 HOMIS</strong> — 🤝 仲間（API公開交渉）</label></div>
+      </div>
+
+      <div class="check-group">
+        <h3>🎤 セッション</h3>
+        <div class="check-item"><input type="checkbox" id="s1"><label for="s1">4土 8:40 — 開会式 + 代表理事講演</label></div>
+        <div class="check-item"><input type="checkbox" id="s2"><label for="s2">4土 10:45 — <strong>SY09 効率化バトル ⭐最重要</strong></label></div>
+        <div class="check-item"><input type="checkbox" id="s3"><label for="s3">4土 12:30 — ランチョンセミナー</label></div>
+        <div class="check-item"><input type="checkbox" id="s4"><label for="s4">4土 13:45 — ブース回り + SY19 or SY22</label></div>
+        <div class="check-item"><input type="checkbox" id="s5"><label for="s5">4土 15:30 — SY31 or SY32</label></div>
+        <div class="check-item"><input type="checkbox" id="s6"><label for="s6">4土 18:00 — 🍺 懇親会＠ビール園</label></div>
+        <div class="check-item"><input type="checkbox" id="s7"><label for="s7">5日 8:00 — SY40 OMORO or SY33</label></div>
+        <div class="check-item"><input type="checkbox" id="s8"><label for="s8">5日 9:45 — <strong>SY49 インテグレーター ⭐重要</strong></label></div>
+        <div class="check-item"><input type="checkbox" id="s9"><label for="s9">5日 12:00 — <strong>LS12 RPA偵察（申込済み）⭐</strong></label></div>
+        <div class="check-item"><input type="checkbox" id="s10"><label for="s10">5日 13:15 — <strong>SY51 未来の在宅医療</strong></label></div>
+        <div class="check-item"><input type="checkbox" id="s11"><label for="s11">5日 15:00 — SY62 ZEVIOUS or SY60</label></div>
+        <div class="check-item"><input type="checkbox" id="s12"><label for="s12">5日 16:30 — 閉会式</label></div>
+      </div>
+
+      <div class="check-group">
+        <h3>🎒 当日の持ち物</h3>
+        <div class="check-item"><input type="checkbox" id="p1"><label for="p1"><strong>名刺</strong>（50枚くらい）</label></div>
+        <div class="check-item"><input type="checkbox" id="p2"><label for="p2"><strong>スマホ</strong>（DXショーケースサイトをブックマーク）</label></div>
+        <div class="check-item"><input type="checkbox" id="p3"><label for="p3"><strong>参加証</strong>（Confitから事前印刷）</label></div>
+        <div class="check-item"><input type="checkbox" id="p4"><label for="p4"><strong>モバイルバッテリー</strong>（スマホでサイト見せまくるので電池消耗注意）</label></div>
+        <div class="check-item"><input type="checkbox" id="p5"><label for="p5"><strong>メモ帳 or スマホメモ</strong>（ブースで聞いた価格・名前を即記録）</label></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- フッター -->
+  <footer>
+    <p>おひさま会 DX推進部 — <a href="../">ソリューション一覧へ戻る</a></p>
+    <p style="margin-top:8px">🔗 <a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">DXショーケースサイト</a> — ブースで見せる最強の武器</p>
+  </footer>
+
+  <!-- チェックリスト永続化（localStorage） -->
+  <script>
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      const key = 'jahcm8_' + cb.id;
+      cb.checked = localStorage.getItem(key) === '1';
+      cb.addEventListener('change', () => {
+        localStorage.setItem(key, cb.checked ? '1' : '0');
+      });
+    });
+  </script>
+
+</body>
+</html>
