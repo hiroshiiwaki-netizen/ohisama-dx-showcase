@@ -110,6 +110,20 @@
     .hint{background:rgba(37,99,235,.05);border:1px solid rgba(37,99,235,.15);border-radius:10px;padding:14px 18px;margin:12px 0;font-size:.82rem;color:var(--text2);line-height:1.7}
     .hint::before{content:'💡 ';font-size:1rem}
     .hint strong{color:var(--partner)}
+    .hint-warn{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25)}
+    .hint-warn::before{content:'⚠️ '}
+    .hint-warn strong{color:#b45309}
+
+    /* 旅行情報 */
+    .travel-grid{display:grid;gap:10px;margin:10px 0}
+    .travel-leg{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;box-shadow:0 1px 4px rgba(0,0,0,.03)}
+    .travel-leg .route{font-size:1rem;font-weight:900;margin-bottom:6px}
+    .travel-leg .flight{font-size:.78rem;font-weight:700;color:var(--red);margin-bottom:8px}
+    .travel-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:.82rem;color:var(--text2)}
+    .travel-meta span{display:block;font-size:.68rem;color:var(--text3);font-weight:700;letter-spacing:.05em}
+    .travel-link{display:inline-block;margin-top:10px;font-size:.82rem;font-weight:700;color:var(--red);text-decoration:none}
+    .travel-link:hover{text-decoration:underline}
+    @media(max-width:600px){.travel-meta{grid-template-columns:1fr}}
 
     /* フッター */
     footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);margin-top:48px}
@@ -141,9 +155,11 @@
     <div class="nav-inner">
       <a href="../" class="nav-logo"><img src="../img/logo.png" alt="おひさま会">学会リスト</a>
       <ul class="nav-links">
+        <li><a href="#travel">交通・宿泊</a></li>
+        <li><a href="#day0">7/3（金）</a></li>
         <li><a href="#day1">7/4（土）</a></li>
         <li><a href="#day2">7/5（日）</a></li>
-        <li><a href="#checklist">チェックリスト</a></li>
+        <li><a href="#checklist">チェック</a></li>
         <li><a href="../" style="color:var(--red)">← トップ</a></li>
       </ul>
     </div>
@@ -157,13 +173,85 @@
     <div class="hero-items">
       <div class="hero-item">📍 セッション <strong>12</strong></div>
       <div class="hero-item">🏢 ブース <strong>9社</strong></div>
+      <div class="hero-item">📱 スマホでこのページを見ながら歩く</div>
     </div>
   </section>
 
   <div class="container">
 
+    <!-- ==================== 交通・宿泊 ==================== -->
+    <div class="day-header" id="travel" style="background:linear-gradient(135deg,#1e3a5f,#2563eb)">✈️ 交通・宿泊</div>
+
+    <div class="time-section">
+      <div class="time-label">フライト（Peach）</div>
+      <div class="travel-grid">
+        <div class="travel-leg">
+          <div class="flight">1区間目 MM6103 ｜ 7/3（金）</div>
+          <div class="route">大阪（関西）→ 札幌（新千歳）</div>
+          <div class="travel-meta">
+            <div><span>出発</span>14:35 Terminal 2</div>
+            <div><span>到着</span>16:35 Terminal D</div>
+          </div>
+        </div>
+        <div class="travel-leg">
+          <div class="flight">2区間目 MM120 ｜ 7/5（日）</div>
+          <div class="route">札幌（新千歳）→ 大阪（関西）</div>
+          <div class="travel-meta">
+            <div><span>出発</span>20:10 Terminal D</div>
+            <div><span>到着</span>22:30 Terminal 2</div>
+          </div>
+        </div>
+      </div>
+      <div class="hint hint-warn"><strong>7/5 帰り：</strong>閉会式16:30終了 → 会場出17:00頃 → 新千歳到着18:00前後が目安（快速で約40分）。<strong>20:10発なら余裕あり</strong>（国内線は19:10頃までに空港到着推奨）。</div>
+    </div>
+
+    <div class="time-section">
+      <div class="time-label">ホテル T-STELLA.</div>
+      <div class="session-card booked">
+        <div class="session-title">T-STELLA. <span class="badge badge-booked">🏨 宿泊</span></div>
+        <div class="session-detail">〒062-0904 北海道札幌市豊平区豊平４条１２丁目２−１３</div>
+        <div class="session-purpose">
+          <strong>チェックイン：</strong>7/3（金）15:00<br>
+          <strong>チェックアウト：</strong>7/5（日）10:00
+        </div>
+        <a class="travel-link" href="https://maps.app.goo.gl/7nQRH9mBNsNu8RZk7" target="_blank" rel="noopener">📍 Google Mapsで開く</a>
+      </div>
+      <div class="hint hint-warn"><strong>7/5 朝の注意：</strong>チェックアウト10:00だが、ポスター開始8:50。<strong>7:30前に荷物をフロント預け→8:00会場直行</strong>、または前日に荷物整理して早朝チェックアウト。</div>
+    </div>
+
+    <!-- ==================== 0日目 ==================== -->
+    <div class="day-header" id="day0">📅 0日目：7月3日（金）<span>移動・宿泊</span></div>
+
+    <div class="hint" style="background:rgba(37,99,235,.05);border-color:rgba(37,99,235,.15)">
+      <strong style="color:var(--partner)">📋 0日目タイムライン</strong><br>
+      14:35 KIX発 → 16:35 新千歳着 → ホテルチェックイン → 会場下見・名刺確認 → 早寝
+    </div>
+
+    <div class="time-section">
+      <div class="time-label">14:35 〜 16:35 ✈️ 関西 → 新千歳</div>
+      <div class="session-card booked">
+        <div class="session-title">Peach MM6103</div>
+        <div class="session-detail">関西 Terminal 2 発 → 新千歳 Terminal D 着</div>
+        <div class="session-purpose">到着後、<strong>JR快速エアポート</strong>で札幌駅方面（約37分）→ ホテルへ。参加証・名刺・スマホ充電を確認。</div>
+      </div>
+    </div>
+
+    <div class="time-section">
+      <div class="time-label">17:00 〜 🏨 チェックイン</div>
+      <div class="session-card">
+        <div class="session-title">T-STELLA. チェックイン（15:00〜）</div>
+        <div class="session-purpose">荷物置いて一息。時間あれば SCC または 産業振興センターへの<strong>ルート下見</strong>（2日目の移動確認）。</div>
+      </div>
+    </div>
+
     <!-- ==================== 1日目 ==================== -->
     <div class="day-header" id="day1">📅 1日目：7月4日（土）<span>札幌コンベンションセンター</span></div>
+
+    <div class="hint" style="background:rgba(210,66,45,.05);border-color:rgba(210,66,45,.15)">
+      <strong style="color:var(--red)">📋 1日目タイムライン（種蒔き）</strong><br>
+      8:40 開会式 → 10:45 <strong>SY09⭐</strong> → 12:15 昼食 → 13:45 <strong>ブース優先</strong>（KISA2→モバカル→グランノート）→ 15:30 セッション任意 → <strong>18:00 🍺懇親会</strong><br>
+      名刺は<strong>おひさま会のみ</strong>（HiMaWaSa Syncは2日目）
+    </div>
 
     <!-- 朝 -->
     <div class="time-section">
@@ -192,19 +280,21 @@
 
     <!-- ランチ -->
     <div class="time-section">
-      <div class="time-label">12:30 〜 13:30 🍱 ランチ</div>
+      <div class="time-label">12:15 〜 13:45 🍱 昼食</div>
       <div class="session-card">
-        <div class="session-title">ランチョンセミナー（選択）</div>
+        <div class="session-title">昼食（LSは任意・ブース優先ならスキップ可）</div>
         <div class="options">
           <div class="option"><strong>LS05</strong> BPSDを緩和する技術 — 認知症ケアの最新情報</div>
           <div class="option"><strong>LS08</strong> 在宅での適切な服薬とNT-proBNP迅速測定 — 在宅検査の最新動向</div>
         </div>
       </div>
+      <div class="hint">13:45からの<strong>ブース回りを優先</strong>するなら、LSはオンデマンド視聴でOK。</div>
     </div>
 
     <!-- 午後：ブースつぶし -->
     <div class="time-section">
-      <div class="time-label">13:45 〜 15:15 ⚡ ブースつぶしタイム</div>
+      <div class="time-label">13:45 〜 15:15 ⚡ ブース回り【優先】</div>
+      <div class="hint">同時間帯のSY17/19/22は<strong>オンデマンド可</strong>。この枠はブースに集中。</div>
 
       <div class="booth-card collab">
         <div class="booth-num">① ブース No.55 ｜ SCC 1F ホワイエ ｜ 15分</div>
@@ -214,8 +304,16 @@
         <div class="takeaway">代表者の連絡先、コミュニティ参加方法</div>
       </div>
 
+      <div class="booth-card collab">
+        <div class="booth-num">② ブース No.25 ｜ SCC 1F 大ホール ｜ 15分</div>
+        <div class="booth-name">モバカルネット（NTTプレシジョンメディシン） <span class="booth-type type-collab">🚀 協業</span></div>
+        <div class="booth-purpose">クラウド型電子カルテの大手。KISA2隊 LS11（7/5 12:00）の<strong>共催</strong>。大企業は基盤は強いが現場理解のエンジニア不足のはず。<strong>1日目は種蒔き、2日目に再訪して深掘り。</strong></div>
+        <div class="talk-box">LS11共催ですね。うちは在宅の医療法人で51システムを内製してます。モバカル連携やAIカルテ自動作成も自前でやってるんですが、現場わかるエンジニア足りてます？</div>
+        <div class="takeaway">担当者の名刺、製品資料、LS11の話題</div>
+      </div>
+
       <div class="booth-card crush">
-        <div class="booth-num">② ブース No.29 ｜ SCC 1F 大ホール ｜ 10分</div>
+        <div class="booth-num">③ ブース No.29 ｜ SCC 1F 大ホール ｜ 10分</div>
         <div class="booth-name">グランノート <span class="booth-type type-crush">💣 つぶし</span></div>
         <div class="booth-purpose">在宅医療向けの業務効率化ツールを販売している企業。おひさま会はこの手のツールを全部内製済み。<strong>パッケージソフトの価格帯・機能を把握</strong>して、自社の内製品と比較する。</div>
         <div class="talk-box">在宅医療向けのシステムですか？ちょっと見せてもらっていいですか？ → 「実はうち、こういうの全部自分たちで作ってるんですよ」</div>
@@ -223,23 +321,15 @@
       </div>
 
       <div class="booth-card crush">
-        <div class="booth-num">③ ブース No.14 ｜ SCC 1F 大ホール ｜ 10分</div>
+        <div class="booth-num">④ ブース No.14 ｜ SCC 1F 大ホール ｜ 5分（余裕あれば）</div>
         <div class="booth-name">プロアス <span class="booth-type type-crush">💣 つぶし</span></div>
         <div class="booth-purpose">医療機関向けICTソリューションを販売。おひさま会は<strong>Google Workspace無料枠で同等以上を実現</strong>しており、コスト面で圧倒的に有利。</div>
         <div class="talk-box">月額費用と導入費ってどのくらいですか？ → 「うちはGAS + AIで全部無料で作ってるんですけど、見ます？」</div>
         <div class="takeaway">価格表、機能比較表</div>
       </div>
 
-      <div class="booth-card collab">
-        <div class="booth-num">④ ブース No.25 ｜ SCC 1F 大ホール ｜ 10分</div>
-        <div class="booth-name">NTTプレシジョンメディシン <span class="booth-type type-collab">🚀 協業</span></div>
-        <div class="booth-purpose">NTTグループの医療DX事業。大企業は基盤技術は強いが現場の使い方がわからない。<strong>おひさま会は「現場で毎日使われるDXの作り方」を知っている。</strong></div>
-        <div class="talk-box">NTTさんの医療DX、とても興味があります。うちは在宅の医療法人なんですが、51のシステムを内製してまして。現場の声を入れた共同開発とか、興味ありませんか？</div>
-        <div class="takeaway">担当者の名刺、製品資料</div>
-      </div>
-
       <div class="booth-card crush">
-        <div class="booth-num">⑤ ブース No.63 ｜ SCC 1F ホワイエ ｜ 5分</div>
+        <div class="booth-num">⑤ ブース No.63 ｜ SCC 1F ホワイエ ｜ 5分（余裕あれば）</div>
         <div class="booth-name">セコム医療システム <span class="booth-type type-crush">💣 つぶし</span></div>
         <div class="booth-purpose">月額課金の見守りシステム。おひさま会はOhisamaBot + BLUEで<strong>同等機能をGAS（無料）で実現済み</strong>。</div>
         <div class="talk-box">見守りシステムの月額っていくらくらいですか？</div>
@@ -249,7 +339,7 @@
 
     <!-- 午後セッション候補 -->
     <div class="time-section">
-      <div class="time-label">13:45 〜 15:15 セッション候補</div>
+      <div class="time-label">13:45 〜 15:15 セッション（オンデマンド可）</div>
       <div class="options">
         <div class="option"><strong>SY17</strong> 在宅医療における医療安全と患者安全 — システム設計に反映できる安全の視点</div>
         <div class="option"><strong>SY19</strong> 令和8年度診療報酬改定 — 診療報酬改定FAQシステムの更新に直結</div>
@@ -259,97 +349,103 @@
 
     <!-- 午後後半 -->
     <div class="time-section">
-      <div class="time-label">15:30 〜 17:00 🕞 午後後半</div>
+      <div class="time-label">15:30 〜 17:00 🕞 午後後半（任意）</div>
       <div class="options">
         <div class="option"><strong>SY31</strong> 在宅医療×動物 — 多頭飼育問題。ユニークな話題。noteネタに最適</div>
         <div class="option"><strong>SY32</strong> タスク・シェア／シフトを考える — DXによるタスクシフトの事例と比較</div>
       </div>
     </div>
 
+    <!-- 懇親会 -->
+    <div class="time-section">
+      <div class="time-label">18:00 〜 20:00 🍺 懇親会</div>
+      <div class="session-card important">
+        <div class="session-title">懇親会＠アサヒビール園 <span class="badge badge-important">⭐ 推奨</span></div>
+        <div class="session-detail">参加費 5,580円（事前登録のみ）</div>
+        <div class="session-purpose">1日目のブースで名刺交換した人との関係を深める。<strong>KISA2隊・モバカル（NTT）の人と再会</strong>するチャンス。DXショーケースを見せると盛り上がる。</div>
+      </div>
+    </div>
+
     <!-- ==================== 2日目 ==================== -->
-    <div class="day-header" id="day2">📅 2日目：7月5日（日）<span>札幌コンベンションセンター</span></div>
+    <div class="day-header" id="day2">📅 2日目：7月5日（日）<span>産業振興センター ＋ SCC本館</span></div>
 
     <!-- 📋 2日目 推奨タイムライン -->
     <div class="hint" style="margin-top:24px;background:rgba(210,66,45,.05);border-color:rgba(210,66,45,.15)">
-      <strong style="color:var(--red)">📋 2日目の推奨タイムライン</strong><br>
-      8:00 会場着 → 8:50 🌸P2-60（必須）→ 9:45 ⭐SY49 → 11:15 🏢ブース4社一気 → 12:00 📩LS12ランチ → <strong>13:00 🤝石川さんブース（確定）</strong> → 14:00 SY51途中参加 → 15:00 SY62 → 16:30 閉会式
+      <strong style="color:var(--red)">📋 2日目タイムライン（接近）</strong><br>
+      8:00 <strong>産業振興センター直行</strong> → 8:50 🌸P2-60＋ICT仲間 → 9:40 SCC移動 → 11:15 🏢<strong>モバカル再訪</strong>→Tukusi→CL（45分）→ 12:00 LS12 → <strong>13:00 🤝石川さん（確定）</strong> → 14:00 SY51途中 → 15:00 SY62 → 16:30 閉会式 → <strong>20:10 MM120帰り</strong><br>
+      2日目から<strong>HiMaWaSa Sync名刺OK</strong>（食いついた人・1対1のみ）
     </div>
 
     <!-- ① 8:00 会場到着 -->
     <div class="time-section">
-      <div class="time-label">8:00 〜 8:45 ☀️ 会場到着・ウォーミングアップ</div>
-      <div class="session-card">
-        <div class="session-title">会場到着 → SY40前半 or ポスター会場下見</div>
-        <div class="session-detail">産業振興センター 2F 体育実習室へのルート確認</div>
-        <div class="session-purpose">8:50のポスター発表に間に合うよう、<strong>先に産業振興センターに入っておく</strong>のが安全。<br>
-        時間があればSY40（OMOROプロジェクト）の冒頭だけ聴く。</div>
-      </div>
-      <div class="options">
-        <div class="option"><strong>SY40</strong> OMOROプロジェクト（8:00〜9:30） — 冒頭だけ聴いて8:45に抜ける</div>
-        <div class="option"><strong>SY33</strong> 在宅医療×人類学（8:00〜9:30） — noteネタ向き。オンデマンドでも可</div>
+      <div class="time-label">7:30 〜 8:50 ☀️ チェックアウト準備 → 産業振興センター</div>
+      <div class="session-card important">
+        <div class="session-title">ホテル荷物預け → 札幌市産業振興センター 2F 体育実習室へ直行</div>
+        <div class="session-detail">チェックアウト10:00 ｜ T-STELLA. → 産業振興センター</div>
+        <div class="session-purpose"><strong>7:30頃：荷物をフロントに預けてチェックアウト手続き</strong>（10:00までに完了）。8:50のポスターに間に合うよう、<strong>8:00までに産業振興センター到着</strong>を目標。</div>
       </div>
     </div>
 
     <!-- ② 8:50 おひさま会ポスター発表（必須） -->
     <div class="time-section">
-      <div class="time-label">8:50 〜 9:35 🌸 おひさま会ポスター発表【必須】</div>
+      <div class="time-label">8:50 〜 9:40 🌸 ポスター＋ICT仲間【必須】</div>
       <div class="session-card important">
         <div class="session-title">P2-60 村上 拓也・岩城ほか（おひさまクリニック） <span class="badge badge-important">🌸 うちの発表</span></div>
         <div class="session-detail">ポスター38：ICT-3 ｜ 札幌市産業振興センター 2F 体育実習室 ｜ 座長：大野 孝生</div>
         <div class="session-purpose"><strong>「在宅支援診療所における医薬品管理の効率化への取り組み」</strong><br>
-        村上さん発表、岩城も共同発表者。<strong>おひさま会としての学会発表、必ず行く！</strong><br>
-        同セッションの他演題（P2-55〜P2-63）もICT系で参考になる。特にP2-56（AI音声記録・RPA）やP2-58（AIカルテ自動作成）は競合分析にも使える。</div>
+        村上さん発表、岩城も共同発表者。<strong>9:40までICT-3会場に残り、他演題の発表者にも声をかける。</strong></div>
       </div>
-      <div class="hint">⏰ 9:35終了後、SCC本館に戻る。<strong>移動に10分</strong>見込む → 9:45のSY49にギリギリ間に合う</div>
+      <div class="options">
+        <div class="option"><span class="rec">声かけ推奨</span> <strong>P2-56</strong> 伊藤 優眞（秋本）— AI音声記録・RPA・遠隔エコー</div>
+        <div class="option"><span class="rec">声かけ推奨</span> <strong>P2-58</strong> 諸見里 透（ゆずりは）— AIカルテ自動作成</div>
+        <div class="option"><span class="rec">声かけ推奨</span> <strong>P2-59</strong> 木村 幸博（もりおか）— AI医療記録の分析</div>
+      </div>
+      <div class="talk-box" style="margin-top:8px">P2-60の岩城です。うちもAI音声からカルテ自動作成やってて、すごく共感しました</div>
+      <div class="hint">⏰ 9:40までICT-3に残る → 9:40〜9:55 SCC本館へ移動（徒歩10〜15分）</div>
     </div>
 
-    <!-- ③ 9:45 SY49 -->
+    <!-- ③ 9:55〜11:15 SY49 or 余裕 -->
     <div class="time-section">
-      <div class="time-label">9:45 〜 11:15 ⭐ インテグレーター資格化</div>
-      <div class="session-card important">
-        <div class="session-title">SY49 在宅医療インテグレーター資格化に向けて <span class="badge badge-important">⭐ 重要</span></div>
-        <div class="session-detail">第8会場（201+202）｜ 座長：杉浦真、荻野美恵子</div>
-        <div class="session-purpose">在宅医療のDX推進を「インテグレーター」として制度化する動き。<strong>おひさま会の岩城さんはまさにインテグレーターそのもの。</strong>資格化の動向を把握し、自分のキャリアに活かす。</div>
-        <div class="takeaway">資格化の具体的なスケジュール、必要なスキルセット</div>
+      <div class="time-label">9:55 〜 11:15 ⭐ SY49（推奨：オンデマンド）</div>
+      <div class="session-card">
+        <div class="session-title">SY49 在宅医療インテグレーター資格化に向けて</div>
+        <div class="session-detail">第8会場（201+202）｜ 9:45〜11:15 ｜ 座長：杉浦真、荻野美恵子</div>
+        <div class="session-purpose"><strong>推奨：ICT-3のネットワークを優先し、SY49はオンデマンド視聴</strong>（6/15〜9/30）。<br>
+        どうしても行く場合は10:30から後半のみ参加（移動2回でどちらも中途半端になりやすい）。</div>
+        <div class="takeaway">資格化スケジュール、必要スキルセット</div>
       </div>
     </div>
 
-    <!-- ④ 11:15 ブース4社一気回り -->
+    <!-- ④ 11:15 ブース3社（45分） -->
     <div class="time-section">
-      <div class="time-label">11:15 〜 12:00 🏢 ブース4社一気回り（計60分）</div>
-      <div class="hint">SY49終了後すぐスタート。12:00のLS12ランチまでに<strong>4社を60分で回りきる</strong>。効率重視！</div>
+      <div class="time-label">11:15 〜 12:00 🏢 ブース3社（計45分）</div>
+      <div class="hint">SY49終了 11:15 → LS12開始 12:00 ＝ <strong>45分のみ</strong>。12:00ぴったりに第2会場へ。</div>
+
+      <div class="booth-card collab">
+        <div class="booth-num">⑥ No.25 ｜ 15分 ｜ 🕚 11:15〜11:30</div>
+        <div class="booth-name">モバカルネット（NTT） <span class="booth-type type-collab">🚀 再訪</span></div>
+        <div class="booth-purpose">1日目に名刺交換済みなら<strong>2回目の会話で深掘り</strong>。カルテ連携・AI音声→カルテ（OhisamaVox）の話題。<strong>HiMaWaSa Sync名刺を渡すチャンス。</strong></div>
+        <div class="talk-box">昨日お話しした件、もう少し詳しく。うち、AI音声からカルテ自動作成も自前でやってるんです。御社側で現場わかるエンジニア、足りてます？</div>
+        <div class="takeaway">技術担当の連絡先、協業の可能性</div>
+      </div>
 
       <div class="booth-card partner">
-        <div class="booth-num">⑥ No.39 ｜ 20分 ｜ 🕚 11:15〜11:35</div>
+        <div class="booth-num">⑦ No.39 ｜ 12分 ｜ 🕚 11:30〜11:42</div>
         <div class="booth-name">Tukusi <span class="booth-type type-partner">🤝 仲間</span></div>
-        <div class="booth-purpose">おひさま会のFAX処理基盤。OhiScanGoやTukusiID自動登録で、Tukusiの弱い部分を自前で補完している。<strong>最もヘビーに使いこなしているユーザー</strong>として、対等以上の立場で話せる。</div>
-        <div class="talk-box">いつもお世話になってます、おひさま会です。実はTukusiの周辺ツールをいくつか自作してるんですけど、見てもらえますか？ここの部分をAPI化してくれたらもっと使い倒せるんです</div>
-        <div class="takeaway">開発ロードマップ情報、API公開予定の有無</div>
+        <div class="booth-purpose">OhiScanGo・TukusiID自動登録など<strong>最ヘビーユーザー</strong>としてAPI化要望を短時間で。</div>
+        <div class="talk-box">Tukusiの周辺ツールを自作してるんですけど、ここAPI化してくれたらもっと使い倒せるんです</div>
+        <div class="takeaway">API公開予定、開発ロードマップ</div>
       </div>
 
       <div class="booth-card partner">
-        <div class="booth-num">⑦ No.42 ｜ 15分 ｜ 🕚 11:35〜11:50</div>
+        <div class="booth-num">⑧ No.42 ｜ 10分 ｜ 🕚 11:42〜11:52</div>
         <div class="booth-name">クロスログ <span class="booth-type type-partner">🤝 仲間</span></div>
-        <div class="booth-purpose">往診予定チェッカー・施設カレンダー・職員マスターなど、<strong>クロスログのAPIを最も活用しているユーザー。</strong>「API仕様をもっと公開してくれたら、さらにすごいものが作れる」と伝える。</div>
-        <div class="talk-box">クロスログのAPIで往診予定チェッカーとか施設カレンダーとか作ってるんですけど、API仕様をもう少し公開してもらえると助かるんです。うちのユースケース、御社のユーザー事例として紹介しましょうか？</div>
-        <div class="takeaway">APIロードマップ、ユーザー会情報</div>
+        <div class="booth-purpose">往診予定チェッカー等、<strong>API活用事例</strong>を短く見せて改善要望。</div>
+        <div class="talk-box">API仕様をもう少し公開してもらえると助かるんです。うちのユースケース、ユーザー事例として紹介しましょうか？</div>
+        <div class="takeaway">APIロードマップ、担当者連絡先</div>
       </div>
 
-      <div class="booth-card spy">
-        <div class="booth-num">⑧ No.20 ｜ 5分 ｜ 🕚 11:50〜11:55</div>
-        <div class="booth-name">オープン株式会社 <span class="booth-type type-spy">👀 元ユーザー偵察</span></div>
-        <div class="booth-purpose">LS12の感想を伝えつつ軽く偵察。<strong>解約前の最終確認</strong>として、他ユーザーの活用状況を聞く。</div>
-        <div class="talk-box">LS12聴きました。うちは内製に切り替えることにしたんですが、他のユーザーさんってどういう使い方が多いですか？</div>
-        <div class="takeaway">他院のRPA活用状況</div>
-      </div>
-
-      <div class="booth-card partner">
-        <div class="booth-num">⑨ No.35 ｜ 5分 ｜ 🕚 11:55〜12:00</div>
-        <div class="booth-name">HOMIS <span class="booth-type type-partner">🤝 仲間</span></div>
-        <div class="booth-purpose">「API作ってくれたらSelenium卒業できます」の一言を伝える。<strong>名刺交換して後日メール</strong>でもOK。</div>
-        <div class="talk-box">HOMISのAPI公開予定ってありますか？うちはSeleniumで自動入力してるんですが、APIがあれば安定します</div>
-        <div class="takeaway">API公開予定、担当者連絡先</div>
-      </div>
+      <div class="hint"><strong>No.20 オープン</strong> → LS12（共催）で十分。<strong>No.35 HOMIS</strong> → 時間あれば石川さんブース前に5分、またはオンデマンド後にメール。</div>
     </div>
 
     <!-- ⑤ ランチ -->
@@ -370,7 +466,9 @@
       <div class="session-card booked">
         <div class="session-title">石川爽一朗さん 展示ブースで情報交換 <span class="badge badge-booked">📩 確定</span></div>
         <div class="session-detail">展示ブース ｜ 山口先生も参加 ｜ すずらん会の内田先生ほか数名</div>
-        <div class="session-purpose">石川さんからのお誘いでディスカッションの場を設定。<strong>山口先生も「覗きに行きます〜〜」と応答済み。</strong><br>「基本的には暇しているのでいつでもいらっしゃってください」とのことなので、別の時間にも立ち寄れる。</div>
+        <div class="session-purpose">石川さんからのお誘いでディスカッションの場を設定。<strong>山口先生も「覗きに行きます〜〜」と応答済み。</strong><br>
+        すずらん会の内田先生ほか数名。雑談タイムで<strong>1対1になった瞬間にHiMaWaSa Sync名刺</strong>を。<br>
+        「基本的には暇しているのでいつでもいらっしゃってください」とのことなので、別の時間にも立ち寄れる。<strong>ブース番号は当日確認。</strong></div>
       </div>
     </div>
 
@@ -403,35 +501,54 @@
       </div>
     </div>
 
+    <!-- ⑨ 帰路 -->
+    <div class="time-section">
+      <div class="time-label">17:00 〜 20:10 🛫 会場 → 新千歳 → 関西</div>
+      <div class="session-card booked">
+        <div class="session-title">Peach MM120 ｜ 20:10 新千歳 Terminal D 発</div>
+        <div class="session-detail">22:30 関西 Terminal 2 着</div>
+        <div class="session-purpose">閉会式後、<strong>17:00頃会場出発</strong> → ホテルで荷物回収（必要なら）→ JR快速で新千歳。<strong>19:10までに空港到着</strong>を目安に。</div>
+      </div>
+    </div>
+
     <!-- ==================== チェックリスト ==================== -->
     <div class="day-header" id="checklist" style="background:linear-gradient(135deg,#1e2028,#3a3f4e)">📊 チェックリスト</div>
 
     <div class="checklist">
       <div class="check-group">
+        <h3>✈️ 交通・宿泊</h3>
+        <div class="check-item"><input type="checkbox" id="t1"><label for="t1">7/3 14:35 — <strong>MM6103 関西→新千歳</strong></label></div>
+        <div class="check-item"><input type="checkbox" id="t2"><label for="t2">7/3 17:00 — T-STELLA. チェックイン</label></div>
+        <div class="check-item"><input type="checkbox" id="t3"><label for="t3">7/5 7:30 — 荷物預け・チェックアウト準備</label></div>
+        <div class="check-item"><input type="checkbox" id="t4"><label for="t4">7/5 17:00 — 会場出発 → <strong>MM120 20:10発</strong></label></div>
+      </div>
+
+      <div class="check-group">
         <h3>🏢 ブース回り</h3>
         <div class="check-item"><input type="checkbox" id="b1"><label for="b1"><strong>No.55 KISA2隊</strong> — 🚀 協業（AI在宅コミュニティ参加）</label></div>
         <div class="check-item"><input type="checkbox" id="b2"><label for="b2"><strong>No.29 グランノート</strong> — 💣 つぶし（在宅DXパッケージ）</label></div>
-        <div class="check-item"><input type="checkbox" id="b3"><label for="b3"><strong>No.14 プロアス</strong> — 💣 つぶし（医療ICTパッケージ）</label></div>
-        <div class="check-item"><input type="checkbox" id="b4"><label for="b4"><strong>No.25 NTT</strong> — 🚀 協業（大企業×現場コラボ）</label></div>
-        <div class="check-item"><input type="checkbox" id="b5"><label for="b5"><strong>No.63 セコム医療</strong> — 💣 つぶし（見守りシステム）</label></div>
-        <div class="check-item"><input type="checkbox" id="b6"><label for="b6"><strong>No.39 Tukusi</strong> — 🤝 仲間（共同開発提案）</label></div>
-        <div class="check-item"><input type="checkbox" id="b7"><label for="b7"><strong>No.42 クロスログ</strong> — 🤝 仲間（API改善要望）</label></div>
-        <div class="check-item"><input type="checkbox" id="b8"><label for="b8"><strong>No.20 オープン</strong> — 👀 元ユーザー偵察</label></div>
-        <div class="check-item"><input type="checkbox" id="b9"><label for="b9"><strong>No.35 HOMIS</strong> — 🤝 仲間（API公開交渉）</label></div>
+        <div class="check-item"><input type="checkbox" id="b3"><label for="b3"><strong>No.14 プロアス</strong> — 💣 つぶし（余裕あれば）</label></div>
+        <div class="check-item"><input type="checkbox" id="b4"><label for="b4"><strong>No.25 モバカルネット</strong> — 🚀 1日目種蒔き / 2日目再訪</label></div>
+        <div class="check-item"><input type="checkbox" id="b5"><label for="b5"><strong>No.63 セコム医療</strong> — 💣 つぶし（余裕あれば）</label></div>
+        <div class="check-item"><input type="checkbox" id="b6"><label for="b6"><strong>No.39 Tukusi</strong> — 🤝 仲間（2日目11:30〜）</label></div>
+        <div class="check-item"><input type="checkbox" id="b7"><label for="b7"><strong>No.42 クロスログ</strong> — 🤝 仲間（2日目11:42〜）</label></div>
+        <div class="check-item"><input type="checkbox" id="b8"><label for="b8"><strong>No.20 オープン</strong> — 👀 LS12で偵察</label></div>
+        <div class="check-item"><input type="checkbox" id="b9"><label for="b9"><strong>No.35 HOMIS</strong> — 🤝 任意（時間あれば）</label></div>
       </div>
 
       <div class="check-group">
         <h3>🎤 セッション</h3>
         <div class="check-item"><input type="checkbox" id="s1"><label for="s1">4土 8:40 — 開会式 + 代表理事講演</label></div>
         <div class="check-item"><input type="checkbox" id="s2"><label for="s2">4土 10:45 — <strong>SY09 効率化バトル ⭐最重要</strong></label></div>
-        <div class="check-item"><input type="checkbox" id="s3"><label for="s3">4土 12:30 — ランチョンセミナー</label></div>
-        <div class="check-item"><input type="checkbox" id="s4"><label for="s4">4土 13:45 — ブース回り + SY19 or SY22</label></div>
-        <div class="check-item"><input type="checkbox" id="s5"><label for="s5">4土 15:30 — SY31 or SY32</label></div>
+        <div class="check-item"><input type="checkbox" id="s3"><label for="s3">4土 12:15 — 昼食（LSは任意）</label></div>
+        <div class="check-item"><input type="checkbox" id="s4"><label for="s4">4土 13:45 — <strong>ブース回り</strong>（KISA2→モバカル→グランノート）</label></div>
+        <div class="check-item"><input type="checkbox" id="s5"><label for="s5">4土 15:30 — SY31 or SY32（任意）</label></div>
+        <div class="check-item"><input type="checkbox" id="s5b"><label for="s5b">4土 18:00 — <strong>🍺 懇親会＠ビール園</strong></label></div>
 
-        <div class="check-item"><input type="checkbox" id="s7"><label for="s7">5日 8:50 — <strong>🌸 P2-60 村上拓也・岩城 ポスター発表（ICT-3）必須！</strong></label></div>
-        <div class="check-item"><input type="checkbox" id="s7b"><label for="s7b">5日 8:00 — SY40 OMORO or SY33</label></div>
-        <div class="check-item"><input type="checkbox" id="s8"><label for="s8">5日 9:45 — <strong>SY49 インテグレーター ⭐重要</strong></label></div>
-        <div class="check-item"><input type="checkbox" id="s9"><label for="s9">5日 12:00 — <strong>LS12 RPA偵察（申込済み）⭐</strong></label></div>
+        <div class="check-item"><input type="checkbox" id="s7"><label for="s7">5日 8:50 — <strong>🌸 P2-60 ＋ P2-56/58/59 声かけ</strong></label></div>
+        <div class="check-item"><input type="checkbox" id="s7b"><label for="s7b">5日 9:55 — SY49（推奨：オンデマンド）</label></div>
+        <div class="check-item"><input type="checkbox" id="s7c"><label for="s7c">5日 11:15 — <strong>モバカル再訪 → Tukusi → CL</strong></label></div>
+        <div class="check-item"><input type="checkbox" id="s8"><label for="s8">5日 12:00 — <strong>LS12 RPA偵察（申込済み）⭐</strong></label></div>
         <div class="check-item"><input type="checkbox" id="s10"><label for="s10">5日 13:00 — <strong>🤝 石川さんブースディスカッション（確定）</strong></label></div>
         <div class="check-item"><input type="checkbox" id="s10b"><label for="s10b">5日 14:00 — SY51 未来の在宅医療（途中参加）</label></div>
         <div class="check-item"><input type="checkbox" id="s11"><label for="s11">5日 15:00 — SY62 ZEVIOUS or SY60</label></div>
@@ -440,8 +557,8 @@
 
       <div class="check-group">
         <h3>🎒 当日の持ち物</h3>
-        <div class="check-item"><input type="checkbox" id="p1"><label for="p1"><strong>名刺</strong>（50枚くらい）</label></div>
-        <div class="check-item"><input type="checkbox" id="p2"><label for="p2"><strong>スマホ</strong>（DXショーケースサイトをブックマーク）</label></div>
+        <div class="check-item"><input type="checkbox" id="p1"><label for="p1"><strong>名刺</strong>（おひさま会50枚 ＋ HiMaWaSa Sync20枚）</label></div>
+        <div class="check-item"><input type="checkbox" id="p2"><label for="p2"><strong>スマホ</strong>（このページ＋DXショーケースをブックマーク）</label></div>
         <div class="check-item"><input type="checkbox" id="p3"><label for="p3"><strong>参加証</strong>（Confitから事前印刷）</label></div>
         <div class="check-item"><input type="checkbox" id="p4"><label for="p4"><strong>モバイルバッテリー</strong>（スマホでサイト見せまくるので電池消耗注意）</label></div>
         <div class="check-item"><input type="checkbox" id="p5"><label for="p5"><strong>メモ帳 or スマホメモ</strong>（ブースで聞いた価格・名前を即記録）</label></div>
@@ -453,7 +570,7 @@
   <!-- フッター -->
   <footer>
     <p>おひさま会 DX推進部 — <a href="../">ソリューション一覧へ戻る</a></p>
-    <p style="margin-top:8px">🔗 <a href="https://hiroshiiwaki-netizen.github.io/ohisama-dx-showcase/">DXショーケースサイト</a> — ブースで見せる最強の武器</p>
+    <p style="margin-top:8px">🔗 <a href="https://dx.nhw.jp/jahcm8/">このページ</a> ｜ <a href="https://dx.nhw.jp/">DXショーケース</a></p>
   </footer>
 
   <!-- チェックリスト永続化（localStorage） -->
