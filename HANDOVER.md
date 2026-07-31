@@ -1,6 +1,6 @@
 # おひさま会 DX推進部 紹介ページ 引継書
 
-> 最終更新: 2026-06-15 | 作業環境: 会社PC (G:)
+> 最終更新: 2026-07-04 | 作業環境: 会社PC (G:)
 
 ## 📌 プロジェクト概要
 
@@ -10,7 +10,7 @@
 ## 🎯 現在のステータス
 - **状況**: 運用中 ✅（ブランドチェック承認済み・カスタムドメインdx.nhw.jp公開中）
 - **優先度**: 高
-- **担当**: 岩木
+- **担当**: 岩城
 
 ## 🔗 関連リンク・ファイル
 
@@ -24,8 +24,13 @@
 | **GitHubアカウント** | hiroshiiwaki-netizen（hiroshi.iwaki@nhw.jp） |
 | **DNS管理** | お名前.com（西川さんが管理者） |
 | **ローカルフォルダ** | `G:\マイドライブ\Antigravity-PJ\ohisama-dx-showcase` |
+| **学会名刺・商談引継** | `在宅医療学会/HANDOVER.md`（第8回日本在宅医療連合学会） |
+| **学会当日リストWeb** | `jahcm8/index.html` → https://dx.nhw.jp/jahcm8/ |
 
 ## ✅ 完了済み作業
+
+- 2026-07-04: **第8回日本在宅医療連合学会** — 記録は `在宅医療学会/` PJに集約
+  - 名刺7枚・モバカル岸野デモ・QUEEN'S・宮澤P062 等
 
 - 2026-06-15: **ブランドチェック承認＋カスタムドメインdx.nhw.jp公開**
   - 田崎理事によるブランドチェック完了・承認
@@ -76,6 +81,7 @@
 2. **Chat通知のCard V2形式への再デプロイ** — push済み、ユーザーによるGAS再デプロイ+Script Properties設定（CHAT_WEBHOOK）が必要
 3. **画像差し替え** — OhisamaBot, HALO, BLUEの画像を適切な画像に置換
 4. **KIZUNAの会（2026-07-23）に向けたコンテンツ調整** — 学会ポスターQRコード用
+5. **学会フォロー** — `在宅医療学会/HANDOVER.md`
 
 ## ⚠️ 注意事項・既知の問題
 
@@ -109,6 +115,7 @@
 | `img/logo.png` | 正式ロゴ横型（ヘッダー用） |
 | `img/logo-footer.png` | 正式ロゴ縦型（フッター用） |
 | `img/` | その他画像 |
+| `pv/` | 学会ブース用PV（自動ループ・noindex・トップ非リンク）→ https://dx.nhw.jp/pv/ |
 | `contact/` | 問い合わせフォーム（GASバックエンド連携） |
 | `contact/gas-project/` | GAS TypeScript ソース（doPost/Chat通知/SSログ） |
 | `crosslog/` | CrossLog API活用事例ページ |

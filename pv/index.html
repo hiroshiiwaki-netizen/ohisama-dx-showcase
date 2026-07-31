@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>ブース用PV（ループ再生）｜おひさま会 DX推進部</title>
+<link rel="icon" type="image/png" href="../img/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#D2422D;--orange:#FF7A2F;--ink:#1a1c22;--mute:#6b6f7a;
+  --soft:#fff4ee;--white:#fff;
+}
+html,body{height:100%;background:#0e0f12;overflow:hidden;
+  font-family:'BIZ UDPGothic','Noto Sans JP',sans-serif;color:var(--ink);
+  -webkit-font-smoothing:antialiased}
+body{display:flex;align-items:center;justify-content:center;cursor:none}
+
+/* 16:9 stage */
+#stage{position:relative;width:min(100vw,calc(100vh*16/9));height:min(100vh,calc(100vw*9/16));
+  background:#fff;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.06)}
+
+.slide{position:absolute;inset:0;opacity:0;pointer-events:none;
+  display:flex;flex-direction:column;justify-content:center;padding:7% 8%;
+  transition:opacity .7s ease}
+.slide.on{opacity:1;pointer-events:auto}
+.slide .eyebrow{font-size:clamp(.7rem,1.6vh,1rem);letter-spacing:.18em;color:var(--red);font-weight:700;margin-bottom:1.4vh}
+.slide h1{font-size:clamp(1.6rem,5.2vh,3.4rem);font-weight:900;line-height:1.35;letter-spacing:.02em}
+.slide h1 .accent{color:var(--red)}
+.slide .sub{margin-top:2.2vh;font-size:clamp(.95rem,2.4vh,1.45rem);color:var(--mute);line-height:1.7;max-width:34em}
+.slide .sub b{color:var(--ink);font-weight:700}
+.split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);align-items:center;gap:5vw;width:100%}
+.visual{width:100%;max-height:70vh;object-fit:cover;border-radius:22px;box-shadow:0 18px 55px rgba(0,0,0,.18)}
+.portrait{width:min(27vw,360px);aspect-ratio:1/1;object-fit:cover;object-position:center top;border-radius:22px;box-shadow:0 18px 50px rgba(0,0,0,.14)}
+.photo-note{margin-top:1vh;color:var(--mute);font-size:clamp(.62rem,1.3vh,.8rem);text-align:center}
+
+/* progress */
+#bar{position:absolute;left:0;right:0;bottom:0;height:6px;background:rgba(0,0,0,.06);z-index:20}
+#bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--orange));
+  transition:width .05s linear}
+
+/* HUD (hidden in kiosk unless keys) */
+#hud{position:absolute;top:12px;right:14px;z-index:30;display:flex;gap:8px;opacity:0;transition:opacity .3s}
+body.show-hud #hud,body:hover #hud{opacity:.85;cursor:default}
+#hud button{border:0;background:rgba(0,0,0,.55);color:#fff;font:inherit;font-size:12px;
+  padding:6px 10px;border-radius:8px;cursor:pointer}
+#hud button:hover{background:rgba(0,0,0,.75)}
+#hint{position:absolute;left:14px;bottom:16px;z-index:30;font-size:11px;color:rgba(0,0,0,.35);
+  opacity:0;transition:opacity .3s}
+body.show-hud #hint,body:hover #hint{opacity:1}
+
+/* cover */
+.s-cover{background:linear-gradient(135deg,#D2422D 0%,#FF7A2F 55%,#ffb070 100%);color:#fff}
+.s-cover .eyebrow{color:rgba(255,255,255,.85)}
+.s-cover h1{color:#fff;font-size:clamp(1.7rem,5.6vh,3.6rem)}
+.s-cover .sub{color:rgba(255,255,255,.92)}
+.s-cover .brand{margin-top:4vh;font-size:clamp(.85rem,2vh,1.15rem);opacity:.9;line-height:1.8}
+.s-cover .cover-photo{position:absolute;right:5%;top:10%;width:35%;height:80%;object-fit:cover;border-radius:26px;
+  box-shadow:0 25px 70px rgba(83,20,7,.35);opacity:.96}
+.s-cover .cover-copy{position:relative;z-index:2;width:58%}
+.s-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(210,66,45,.12) 45%,rgba(210,66,45,.58) 70%,rgba(210,66,45,.18));pointer-events:none}
+.orb{position:absolute;border-radius:50%;background:rgba(255,255,255,.12);pointer-events:none}
+.orb.a{width:42vmin;height:42vmin;right:-8vmin;bottom:-14vmin}
+.orb.b{width:22vmin;height:22vmin;right:18vmin;top:-6vmin;background:rgba(255,255,255,.08)}
+
+/* philosophy */
+.quote{margin-top:3vh;padding:2.4vh 2.8vh;background:var(--soft);border-left:5px solid var(--red);
+  border-radius:0 14px 14px 0;font-size:clamp(.95rem,2.5vh,1.4rem);line-height:1.75;max-width:36em}
+.quote cite{display:block;margin-top:1.4vh;font-style:normal;font-size:.75em;color:var(--mute);text-align:right}
+
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:2.2vh;margin-top:4vh;max-width:52em}
+.num{background:#f7f7f8;border-radius:16px;padding:3vh 2.2vh;text-align:center}
+.num .v{font-size:clamp(1.8rem,5.5vh,3.4rem);font-weight:900;color:var(--red);line-height:1.1}
+.num .l{margin-top:1vh;font-size:clamp(.75rem,1.8vh,1.05rem);color:var(--mute);line-height:1.5}
+
+/* solutions grid */
+.sols{display:grid;grid-template-columns:1fr 1fr;gap:2vh;margin-top:3.2vh;max-width:52em}
+.sol{border:1px solid rgba(0,0,0,.08);border-radius:14px;padding:2.4vh 2.6vh;background:#fff;
+  box-shadow:0 6px 24px rgba(0,0,0,.04)}
+.sol.has-img{display:grid;grid-template-columns:29% 1fr;gap:1.6vh;align-items:center;padding:1.4vh}
+.sol.has-img img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px;background:#f4f4f5}
+.sol-copy{padding-right:.8vh}
+.sol .tag{font-size:clamp(.65rem,1.4vh,.85rem);color:var(--orange);font-weight:700;letter-spacing:.06em;margin-bottom:.6vh}
+.sol .name{font-size:clamp(1.05rem,2.8vh,1.7rem);font-weight:900;margin-bottom:.8vh}
+.sol .desc{font-size:clamp(.8rem,1.9vh,1.1rem);color:var(--mute);line-height:1.6}
+
+/* consult CTA */
+.s-consult{background:linear-gradient(160deg,#fff 0%,#fff6f1 100%)}
+.s-consult .consult-photo{position:absolute;inset:0 0 0 52%;width:48%;height:100%;object-fit:cover}
+.s-consult::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fff 0%,#fff 47%,rgba(255,255,255,.91) 54%,rgba(255,255,255,.05) 78%);pointer-events:none}
+.s-consult .consult-copy{position:relative;z-index:2;width:57%}
+.cta{display:inline-block;margin-top:3.2vh;background:var(--red);color:#fff;font-weight:900;
+  font-size:clamp(1rem,2.8vh,1.55rem);padding:1.6vh 3.2vh;border-radius:999px;letter-spacing:.04em}
+.cta-note{margin-top:2vh;font-size:clamp(.8rem,1.9vh,1.1rem);color:var(--mute)}
+
+/* end */
+.s-end{background:var(--ink);color:#fff;text-align:center;align-items:center}
+.s-end h1{color:#fff}
+.s-end .sub{color:rgba(255,255,255,.75);margin-left:auto;margin-right:auto}
+.s-end .url{margin-top:3.5vh;font-size:clamp(1.2rem,3.4vh,2.1rem);font-weight:900;color:#ffb070;letter-spacing:.04em}
+.s-end .orgs{margin-top:3vh;font-size:clamp(.75rem,1.8vh,1.05rem);color:rgba(255,255,255,.55);line-height:1.9}
+.end-logo{width:clamp(54px,8vh,90px);height:auto;margin-bottom:2.2vh;filter:drop-shadow(0 4px 14px rgba(0,0,0,.3))}
+
+/* enter anim */
+.slide.on .anim{animation:up .8s ease both}
+.slide.on .anim.d1{animation-delay:.12s}
+.slide.on .anim.d2{animation-delay:.24s}
+.slide.on .anim.d3{animation-delay:.36s}
+.slide.on .anim.d4{animation-delay:.48s}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+@media (max-aspect-ratio:16/9){
+  .nums{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<div id="stage" aria-live="polite">
+
+  <!-- 0 cover -->
+  <section class="slide s-cover on" data-sec="7">
+    <div class="orb a"></div><div class="orb b"></div>
+    <img class="cover-photo anim d1" src="../img/hero_banner.png" alt="在宅医療DXのイメージ">
+    <div class="cover-copy">
+      <div class="eyebrow anim">第9回 日本在宅医療連合学会大会｜企業展示</div>
+      <h1 class="anim d1">在宅医療の「困った」を、<br>現場でつくる。</h1>
+      <p class="sub anim d2">売りのないブースです。<br>実際に動いている内製システムを見せながら、<br><b>無料でDXの相談に乗ります。</b></p>
+      <div class="brand anim d3">一般社団法人NHW　×　医療法人おひさま会</div>
+    </div>
+  </section>
+
+  <!-- 1 why -->
+  <section class="slide" data-sec="6">
+    <div class="split">
+      <div>
+        <div class="eyebrow anim">WHY WE BUILD</div>
+        <h1 class="anim d1">DXは効率化のためではない。<br><span class="accent">患者さんに伴走する時間</span>を増やすため。</h1>
+        <div class="quote anim d2">
+          1日8時間のうち2時間しか患者さんと向き合えていないなら、<br>
+          事務作業を減らすだけで、対面時間は2倍になる。
+          <cite>— 山口 高秀（医療法人おひさま会 理事長）</cite>
+        </div>
+      </div>
+      <div class="anim d2" style="text-align:center">
+        <img class="portrait" src="../img/chairman.jpg" alt="医療法人おひさま会 理事長 山口高秀">
+        <div class="photo-note">医療法人おひさま会　理事長 山口 高秀</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 numbers -->
+  <section class="slide" data-sec="6">
+    <div class="split">
+      <div>
+        <div class="eyebrow anim">IN PRACTICE</div>
+        <h1 class="anim d1">神戸を拠点に、<br>現場から内製しています。</h1>
+        <div class="nums" style="grid-template-columns:repeat(3,1fr)">
+          <div class="num anim d1"><div class="v">5</div><div class="l">クリニック</div></div>
+          <div class="num anim d2"><div class="v">30+</div><div class="l">内製システム</div></div>
+          <div class="num anim d3"><div class="v">0</div><div class="l">外注開発<br>（主要システム）</div></div>
+        </div>
+        <p class="sub anim d4" style="margin-top:3vh">FAX、カルテ、定期書類、シフト——<br>「買えない・合わない」を、<b>自分たちで書く</b>。</p>
+      </div>
+      <img class="visual anim d2" src="../img/hero_banner.png" alt="おひさま会DXのイメージ">
+    </div>
+  </section>
+
+  <!-- 3 solutions -->
+  <section class="slide" data-sec="8">
+    <div class="eyebrow anim">WHAT WE SHOW</div>
+    <h1 class="anim d1">動いているものを、そのまま見せます。</h1>
+    <div class="sols">
+      <div class="sol has-img anim d1">
+        <img src="../img/ohiscan.png" alt="OhiScan画面イメージ">
+        <div class="sol-copy"><div class="tag">FAX / PDF</div><div class="name">OhiScan</div><div class="desc">受信FAXをAIで分類・リネームし、Driveへ。現場の「探す」を減らす。</div></div>
+      </div>
+      <div class="sol has-img anim d2">
+        <img src="../img/ohisamavox.png" alt="OhisamaVox画面イメージ">
+        <div class="sol-copy"><div class="tag">音声 → カルテ</div><div class="name">OhisamaVox</div><div class="desc">診察の音声から記録を支援。書く時間を、診る時間へ。</div></div>
+      </div>
+      <div class="sol has-img anim d3">
+        <img src="../img/orest.png" alt="OREST画面イメージ">
+        <div class="sol-copy"><div class="tag">定期書類 RPA</div><div class="name">OREST</div><div class="desc">毎月の定期書類を自動作成。有料RPAを内製で置き換え。</div></div>
+      </div>
+      <div class="sol anim d4">
+        <div class="tag">ポスター発表連動</div>
+        <div class="name">MediTrace2</div>
+        <div class="desc">おひさま会の実践を学会ポスターで報告。ブースと発表をつなぐ。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 consult -->
+  <section class="slide s-consult" data-sec="7">
+    <img class="consult-photo" src="img/consult.png" alt="DX相談コーナーのイメージ">
+    <div class="consult-copy">
+      <div class="eyebrow anim">FREE DX CONSULTATION</div>
+      <h1 class="anim d1">売り物はありません。<br><span class="accent">相談に乗ります。</span></h1>
+      <p class="sub anim d2">カルテ、記録、報告書、シフト、請求——<br>どの法人も、同じところで詰まっています。<br><b>「うちはこうやった」</b>を実物で見せながら、一緒に整理します。</p>
+      <div class="cta anim d3">無料DX相談コーナー ／ このブースへ</div>
+      <p class="cta-note anim d4">※対応時間帯はブース掲示をご確認ください</p>
+    </div>
+  </section>
+
+  <!-- 5 roles -->
+  <section class="slide" data-sec="6">
+    <div class="eyebrow anim">WHO WE ARE</div>
+    <h1 class="anim d1">ブースと発表で、<br>主体を分けています。</h1>
+    <div class="sols" style="grid-template-columns:1fr 1fr">
+      <div class="sol anim d1" style="border-color:rgba(210,66,45,.35);background:#fff6f1">
+        <div class="tag" style="color:var(--red)">企業展示ブース</div>
+        <div class="name">一般社団法人NHW</div>
+        <div class="desc">展示・PV・協賛窓口。DXの現場実践を伝える場をつくる。</div>
+      </div>
+      <div class="sol anim d2" style="border-color:rgba(74,118,201,.35);background:#f2f6fd">
+        <div class="tag" style="color:#4a76c9">学会発表</div>
+        <div class="name">医療法人おひさま会</div>
+        <div class="desc">口演・ポスター。臨床と内製の成果を学術として届ける。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 end -->
+  <section class="slide s-end" data-sec="6">
+    <img class="end-logo anim" src="../img/logo.png" alt="おひさま会ロゴ">
+    <div class="eyebrow anim" style="color:#ffb070">COME TALK WITH US</div>
+    <h1 class="anim d1">立ち話、歓迎です。</h1>
+    <p class="sub anim d2">詳しい取り組みはこちら</p>
+    <div class="url anim d3">dx.nhw.jp</div>
+    <div class="orgs anim d4">
+      一般社団法人NHW<br>
+      医療法人おひさま会 DX推進部<br>
+      第9回 日本在宅医療連合学会大会｜企業展示
+    </div>
+  </section>
+
+  <div id="bar"><i id="prog"></i></div>
+  <div id="hud">
+    <button type="button" id="btnPause" title="Space">一時停止</button>
+    <button type="button" id="btnFs" title="F">全画面</button>
+  </div>
+  <div id="hint">Space 一時停止　←→ 前後　F 全画面　H 操作表示</div>
+</div>
+
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const prog=document.getElementById('prog');
+  const btnPause=document.getElementById('btnPause');
+  const btnFs=document.getElementById('btnFs');
+  let i=0, paused=false, t0=performance.now(), raf=0;
+
+  function sec(){ return (parseFloat(slides[i].dataset.sec)||6)*1000; }
+
+  function show(n){
+    slides[i].classList.remove('on');
+    i=(n+slides.length)%slides.length;
+    // reflow for re-anim
+    void slides[i].offsetWidth;
+    slides[i].classList.add('on');
+    t0=performance.now();
+    prog.style.width='0%';
+  }
+
+  function tick(now){
+    if(!paused){
+      const p=Math.min(1,(now-t0)/sec());
+      prog.style.width=(p*100)+'%';
+      if(p>=1) show(i+1);
+    }
+    raf=requestAnimationFrame(tick);
+  }
+  raf=requestAnimationFrame(tick);
+
+  function togglePause(){
+    paused=!paused;
+    if(!paused) t0=performance.now()-(parseFloat(prog.style.width)/100)*sec();
+    btnPause.textContent=paused?'再開':'一時停止';
+  }
+
+  btnPause.addEventListener('click',togglePause);
+  btnFs.addEventListener('click',()=>{
+    if(!document.fullscreenElement) document.documentElement.requestFullscreen().catch(()=>{});
+    else document.exitFullscreen();
+  });
+
+  document.addEventListener('keydown',e=>{
+    if(e.key===' '||e.code==='Space'){ e.preventDefault(); togglePause(); }
+    else if(e.key==='ArrowRight') show(i+1);
+    else if(e.key==='ArrowLeft') show(i-1);
+    else if(e.key==='f'||e.key==='F') btnFs.click();
+    else if(e.key==='h'||e.key==='H') document.body.classList.toggle('show-hud');
+  });
+
+  // idle: hide cursor after 3s
+  let hideT;
+  function wake(){
+    document.body.style.cursor='default';
+    clearTimeout(hideT);
+    hideT=setTimeout(()=>{ document.body.style.cursor='none'; },3000);
+  }
+  ['mousemove','mousedown','keydown'].forEach(ev=>document.addEventListener(ev,wake));
+  wake();
+})();
+</script>
+</body>
+</html>
