@@ -72,8 +72,8 @@
   </nav>
 
   <div class="hero">
-    <h1>お問い合わせ</h1>
-    <p>DX推進部へのご質問・ご相談はこちらからお気軽にどうぞ。</p>
+    <h1 id="contactTitle">お問い合わせ</h1>
+    <p id="contactLead">DX推進部へのご質問・ご相談はこちらからお気軽にどうぞ。</p>
   </div>
 
   <div class="form-container">
@@ -96,10 +96,11 @@
 
         <div class="form-group">
           <label>お問い合わせ種別</label>
-          <select name="category">
+          <select name="category" id="categorySelect">
             <option value="一般的なお問い合わせ">一般的なお問い合わせ</option>
             <option value="DXに関するご相談">DXに関するご相談</option>
             <option value="視察・見学のご依頼">視察・見学のご依頼</option>
+            <option value="手順書・資料について">手順書・資料について</option>
             <option value="講演・登壇のご依頼">講演・登壇のご依頼</option>
             <option value="その他">その他</option>
           </select>
@@ -151,6 +152,35 @@
     const submitBtn = document.getElementById('submitBtn');
     const successMsg = document.getElementById('successMsg');
     const errorMsg = document.getElementById('errorMsg');
+    const categorySelect = document.getElementById('categorySelect');
+    const contactTitle = document.getElementById('contactTitle');
+    const contactLead = document.getElementById('contactLead');
+
+    // トップのボタンから来たとき、種別を合わせて見出しを変える
+    const typeMap = {
+      visit: {
+        category: '視察・見学のご依頼',
+        title: '現場見学のご相談',
+        lead: '人数・ご希望日・見たい業務があればご記入ください。調整のうえご返信します。'
+      },
+      consult: {
+        category: 'DXに関するご相談',
+        title: '自院への導入相談',
+        lead: 'いま困っている業務（FAX、問合せ、定期書類など）を教えてください。'
+      },
+      guide: {
+        category: '手順書・資料について',
+        title: '手順書・資料について',
+        lead: '公開中の手順書へのご質問、印刷用PDFのご希望などがあればご記入ください。'
+      }
+    };
+    const type = new URLSearchParams(location.search).get('type');
+    if (type && typeMap[type]) {
+      const info = typeMap[type];
+      categorySelect.value = info.category;
+      contactTitle.textContent = info.title;
+      contactLead.textContent = info.lead;
+    }
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();

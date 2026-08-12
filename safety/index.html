@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2FKKTBLSV5"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2FKKTBLSV5');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>医療DXの安全設計 — 3つの原則｜医療法人おひさま会</title>
+  <meta name="description" content="事務のAIと医療判断を分ける。人の確認を挟む。自信が低いものは止める。おひさま会が現場で守っている安全設計。">
+  <link rel="icon" type="image/png" href="../img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--red:#D2422D;--orange:#FF5100;--red-soft:rgba(210,66,45,.08);--red-border:rgba(210,66,45,.25);--bg:#f8f9fb;--text:#1e2028;--text2:#5f6577;--text3:#8a8f9e;--border:rgba(0,0,0,.08);--card:#fff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.85}
+    nav{position:fixed;top:0;left:0;right:0;z-index:10;background:rgba(255,255,255,.95);box-shadow:0 1px 12px rgba(0,0,0,.06)}
+    .nav-inner{max-width:800px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo-img{height:28px}
+    .nav-back{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500}
+    .nav-back:hover{color:var(--red)}
+    header{padding:120px 24px 48px;text-align:center;background:linear-gradient(135deg,#fff5f0 0%,#fff 40%,#fef8f0 100%)}
+    .tag{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.14em;color:var(--red);margin-bottom:12px}
+    header h1{font-size:clamp(1.5rem,4vw,2.1rem);font-weight:900;line-height:1.4;margin-bottom:12px}
+    header p{color:var(--text2);max-width:640px;margin:0 auto}
+    .wrap{max-width:740px;margin:0 auto;padding:40px 24px 80px}
+    h2{font-size:1.25rem;font-weight:900;margin:40px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--red)}
+    p{margin-bottom:16px;color:var(--text2)}
+    strong{color:var(--text)}
+    .grid{display:grid;gap:16px;margin:20px 0 28px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px 20px}
+    .card .n{font-size:.72rem;font-weight:800;letter-spacing:.12em;color:var(--red);margin-bottom:6px}
+    .card h3{font-size:1.05rem;font-weight:800;margin-bottom:8px}
+    .card p{margin:0;font-size:.92rem}
+    .flow{display:flex;flex-direction:column;align-items:center;gap:0;margin:16px 0 24px}
+    .step{background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px 18px;width:100%;text-align:center;font-weight:700;font-size:.9rem}
+    .step small{display:block;font-weight:400;color:var(--text2);margin-top:4px}
+    .step.hl{background:var(--red-soft);border-color:var(--red-border)}
+    .arr{color:var(--text3);padding:4px 0}
+    .note{background:#fff4d6;border:1px solid rgba(138,90,0,.25);border-radius:12px;padding:14px 16px;font-size:.88rem;color:#5c3d00;margin:16px 0 24px}
+    .cta{text-align:center;margin:48px 0 0;padding:36px 24px;background:linear-gradient(135deg,#fff5f0,#fef8f0);border-radius:20px;border:1px solid var(--red-border)}
+    .cta a{display:inline-flex;margin:6px;padding:12px 24px;border-radius:100px;text-decoration:none;font-weight:700;font-size:.9rem}
+    .btn-p{background:linear-gradient(135deg,var(--red),var(--orange));color:#fff}
+    .btn-s{background:#fff;color:var(--red);border:1px solid var(--red-border)}
+    footer{text-align:center;padding:32px 24px;font-size:.78rem;color:var(--text3)}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="../"><img src="../img/logo.png" alt="OHISAMAKAI" class="nav-logo-img"></a>
+      <a href="../" class="nav-back">← トップに戻る</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="tag">SAFE BY DESIGN</div>
+    <h1>医療DXを安心して進める、<br>3つの原則</h1>
+    <p>おひさま会は「AIが間違えないこと」を約束しません。間違えても、人が止められる仕組みを先に置きます。</p>
+  </header>
+
+  <div class="wrap">
+    <h2>なぜ「安全」を先に話すか</h2>
+    <p>医療機関が新しい仕組みをためらうとき、いちばん多い言葉は「AIが間違えたらどうするの？」です。</p>
+    <p>本当の心配は精度の数字よりも、<strong>間違えたとき、誰が責任を取り、誰が止められるか</strong>です。だからおひさま会では、機能の説明より先に設計の原則を公開しています。</p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="n">原則 1</div>
+        <h3>事務のAIと、医療の判断を分ける</h3>
+        <p>宛名の識別、書類の分類、フォルダ分けなど、非臨床の作業だけをAIに任せます。診断・処方・治療方針の判断には使いません。人と人が向き合う時間には、AIを割り込ませません。</p>
+      </div>
+      <div class="card">
+        <div class="n">原則 2</div>
+        <h3>人の確認を必ず挟む</h3>
+        <p>AIの出力をそのまま最終結果にしません。スタッフまたは医師が見てから電子カルテへ反映します。対外の文章は下書きまで。医療書類の「完成」ボタンは人が押します。</p>
+      </div>
+      <div class="card">
+        <div class="n">原則 3</div>
+        <h3>自信が低いものは止める</h3>
+        <p>確信度が低いデータは「要確認」へ回します。進めることより、止められることを優先します。見落としを減らすために、怪しいものは人が見る側へ倒します。</p>
+      </div>
+    </div>
+
+    <h2>現場での流れ（イメージ）</h2>
+    <div class="flow">
+      <div class="step">紙やデータが届く<small>FAX・問合せ・定期書類など</small></div>
+      <div class="arr">▼</div>
+      <div class="step">事務のAIが下ごしらえする<small>分類・宛名の候補・下書き</small></div>
+      <div class="arr">▼</div>
+      <div class="step hl">人が確認する<small>自信が低ければここで止まる</small></div>
+      <div class="arr">▼</div>
+      <div class="step">電子カルテや共有へ反映<small>完成の責任は人にある</small></div>
+    </div>
+
+    <div class="note">対外的に「誤登録ゼロ」「医療事故を完全に防止」とは言いません。設計で事故の芽を小さくし、最終判断は現場の人に残します。</div>
+
+    <h2>もっと詳しく</h2>
+    <p>考え方の背景は、コラム「医療AIの壁は信頼」にまとめています。技術の中身ではなく、現場でどう信頼を積んだかの話です。</p>
+
+    <div class="cta">
+      <h2 style="border:none;margin:0 0 10px;padding:0;font-size:1.15rem">次の一歩</h2>
+      <p style="margin-bottom:16px">安全の前提を共有したうえで、見学や自院への適用をご相談ください。</p>
+      <a class="btn-p" href="../contact/">見学・相談する</a>
+      <a class="btn-s" href="../article3/">コラムを読む</a>
+      <a class="btn-s" href="../#issues">課題から探す</a>
+    </div>
+  </div>
+
+  <footer>医療法人おひさま会 DX推進部｜© 2026</footer>
+</body>
+</html>

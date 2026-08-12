@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2FKKTBLSV5"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2FKKTBLSV5');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>在宅医療DX・失敗しない自動化の手順書｜医療法人おひさま会</title>
+  <meta name="description" content="おひさま会が現場で守っている、最初に自動化すべき仕事と、安全の進め方。">
+  <link rel="icon" type="image/png" href="../img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--red:#D2422D;--orange:#FF5100;--red-soft:rgba(210,66,45,.08);--red-border:rgba(210,66,45,.25);--bg:#f8f9fb;--text:#1e2028;--text2:#5f6577;--text3:#8a8f9e;--border:rgba(0,0,0,.08);--card:#fff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.85}
+    nav{position:fixed;top:0;left:0;right:0;z-index:10;background:rgba(255,255,255,.95);box-shadow:0 1px 12px rgba(0,0,0,.06)}
+    .nav-inner{max-width:800px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo-img{height:28px}
+    .nav-back{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500}
+    .nav-back:hover{color:var(--red)}
+    header{padding:120px 24px 48px;text-align:center;background:linear-gradient(135deg,#fff5f0 0%,#fff 40%,#fef8f0 100%)}
+    .tag{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.14em;color:var(--red);margin-bottom:12px}
+    header h1{font-size:clamp(1.45rem,4vw,2rem);font-weight:900;line-height:1.4;margin-bottom:12px}
+    header p{color:var(--text2);max-width:640px;margin:0 auto}
+    .wrap{max-width:740px;margin:0 auto;padding:40px 24px 80px}
+    h2{font-size:1.22rem;font-weight:900;margin:40px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--red)}
+    h3{font-size:1.02rem;font-weight:800;margin:22px 0 8px}
+    p,li{color:var(--text2)}
+    p{margin-bottom:14px}
+    strong{color:var(--text)}
+    ol,ul{margin:0 0 16px 1.3em}
+    li{margin-bottom:6px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 18px;margin:0 0 14px}
+    .n{font-size:.72rem;font-weight:800;letter-spacing:.12em;color:var(--red);margin-bottom:6px}
+    .note{background:#fff4d6;border:1px solid rgba(138,90,0,.25);border-radius:12px;padding:14px 16px;font-size:.88rem;color:#5c3d00;margin:16px 0 24px}
+    .cta{text-align:center;margin:48px 0 0;padding:36px 24px;background:linear-gradient(135deg,#fff5f0,#fef8f0);border-radius:20px;border:1px solid var(--red-border)}
+    .cta a{display:inline-flex;margin:6px;padding:12px 24px;border-radius:100px;text-decoration:none;font-weight:700;font-size:.9rem}
+    .btn-p{background:linear-gradient(135deg,var(--red),var(--orange));color:#fff}
+    .btn-s{background:#fff;color:var(--red);border:1px solid var(--red-border)}
+    footer{text-align:center;padding:32px 24px;font-size:.78rem;color:var(--text3)}
+    @media print{nav,.cta a.btn-p{display:none}header{padding-top:24px}}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="../"><img src="../img/logo.png" alt="OHISAMAKAI" class="nav-logo-img"></a>
+      <a href="../" class="nav-back">← トップに戻る</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="tag">GUIDE</div>
+    <h1>在宅医療DX<br>失敗しない自動化の手順書</h1>
+    <p>医療法人おひさま会が、自院の事務負荷を減らすために守ってきた順番です。印刷して社内共有しても構いません。</p>
+  </header>
+
+  <div class="wrap">
+    <h2>1. 最初に決めること</h2>
+    <p>DXの目的は、システムを増やすことではありません。<strong>患者さんと向き合う時間を増やすこと</strong>です。</p>
+    <p>そのために、次の線引きを先にします。</p>
+    <ul>
+      <li><strong>人と人が向き合う仕事</strong>（診察、説明、相談）には、AIを入れない</li>
+      <li><strong>人がやらなくてよい仕事</strong>（仕分け、転記、下ごしらえ）から自動化する</li>
+      <li>完成の責任は、最後まで人が持つ</li>
+    </ul>
+
+    <h2>2. 最初に手をつける3つ</h2>
+    <p>全部を一度に作りません。効果が早く、医療判断から遠いものから始めます。</p>
+
+    <div class="card">
+      <div class="n">手順 1</div>
+      <h3>FAX・紙の仕分けを仕組みにする</h3>
+      <p>宛先と書類の種類を人が調べる時間が、いちばん積もります。ここを先に減らすと、事務の一日が変わります。</p>
+      <p>おひさま会では月約5,000枚を対象に、1枚あたり数秒オーダーまで圧縮し、処理費用は約0.1円/枚です。確信度が低いものは人が確認します。</p>
+    </div>
+    <div class="card">
+      <div class="n">手順 2</div>
+      <h3>問合せを「止めて、分けて、渡す」</h3>
+      <p>電話そのものをボットに置き換えません。内容の整理と担当への通知を仕組みにし、返信は人が行います。</p>
+    </div>
+    <div class="card">
+      <div class="n">手順 3</div>
+      <h3>定期書類は下ごしらえだけ自動化する</h3>
+      <p>指示書や情報提供書は、引用と下書きまで。完成ボタンは医師・担当者が押します。</p>
+    </div>
+
+    <h2>3. 安全の3原則（短縮版）</h2>
+    <ol>
+      <li>事務のAIと、医療の判断を分ける</li>
+      <li>人の確認を挟んでからカルテへ載せる</li>
+      <li>自信が低いデータは「要確認」へ倒す</li>
+    </ol>
+    <p>詳しくは <a href="../safety/">安全の考え方</a> を参照してください。</p>
+
+    <h2>4. 自院で進めるときの順番</h2>
+    <ol>
+      <li>いまいちばん時間を奪っている非対人業務を1つ書く</li>
+      <li>既存の電子カルテや複合機を、捨てずに使えるかを見る</li>
+      <li>「人が確認する地点」を先に決める</li>
+      <li>小さく本番で試し、件数と詰まりを1ヶ月見る</li>
+      <li>次の業務に広げる。最初から全体最適を狙わない</li>
+    </ol>
+
+    <div class="note">このページの数字は、おひさま会5拠点の運用実績です。他院で同じ結果になる保証はありません。試算が必要な場合は、個別にご相談ください。</div>
+
+    <h2>5. 次の一歩</h2>
+    <p>読み物で足りなければ、稼働している現場の見学か、自院の状況に合わせた対話ができます。先に、現場の困りごとを伺います。</p>
+
+    <div class="cta">
+      <h2 style="border:none;margin:0 0 10px;padding:0;font-size:1.15rem">このあと、どうしますか</h2>
+      <a class="btn-p" href="../contact/?type=consult">自院の話を相談する</a>
+      <a class="btn-s" href="../contact/?type=visit">見学を相談する</a>
+      <a class="btn-s" href="../article/">最初の3業務（コラム）</a>
+    </div>
+  </div>
+
+  <footer>医療法人おひさま会 DX推進部｜手順書 HTML版（PDFは後続）｜© 2026</footer>
+</body>
+</html>
