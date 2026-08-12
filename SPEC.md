@@ -86,7 +86,7 @@ DX総合EXPOやパートナー企業との協業提案時の「デジタル名�
 | `solutions/drug-order/` | 薬剤発注システム |
 | `solutions/doc-delivery/` | 書類配信サービス |
 | `solutions/orest/` | OREST — 定期書類自動生成 |
-| `solutions/meditrace/` | MediTrace — 医療物品の在庫追跡 |
+| `solutions/meditrace/` | MediTrace2 — 医療在庫管理（入庫・払出） |
 
 各詳細ページには以下のセクションを含む：
 - **誕生の背景**（なぜ作ったか）
