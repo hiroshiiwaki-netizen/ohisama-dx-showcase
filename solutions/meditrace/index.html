@@ -43,11 +43,25 @@
     <li><strong>発注の知らせ</strong> — 払出が一定量を超えたら、Google Chat に届く</li>
   </ul>
 
+  <h2>薬剤マスターの考え方</h2>
+  <p>在庫アプリでいちばん詰まりやすいのが、「薬の名前を、誰が・どう登録するか」です。全品を先に手入力するのも、巨大な一覧を毎回探すのも、現場には合いません。</p>
+  <p>MediTrace2は、<strong>2段</strong>に分けています。</p>
+  <div class="flow">
+    <div class="flow-step hl">日常は「いま扱っている薬」だけを見る<small>取扱マスタ。件数は実使用分だけ。検索が速い</small></div>
+    <div class="flow-arrow">▼ 取扱に無いバーコードを読んだとき</div>
+    <div class="flow-step">約6万件の医薬品マスタで、名前だけ引く<small>JAN と、販売包装のコードのどちらでも探す</small></div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step hl">名前が分かったら、取扱へ自動で足す<small>次からは手登録なしで読める</small></div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">入数（箱に何個入るか）は、大きなマスタを信じない<small>初回の納品で、現場が入れた数を覚える</small></div>
+  </div>
+  <div class="effect"><strong>名前は大きなマスタから。入数は現場の実物から。</strong>マスタ係が全品を先に打ち込む必要がなく、箱の入り数もカタログ値でずれません。</div>
+
   <h2>処理フロー</h2>
   <div class="flow">
     <div class="flow-step">クリニックを選んで起動<small>垂水 / 舞子。作業中も切替できる</small></div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step hl">バーコードを読む<small>取扱にない品は、読み取るとマスタへ追加</small></div>
+    <div class="flow-step hl">バーコードを読む<small>取扱になければ、大きな医薬品マスタで名前を引いて追加</small></div>
     <div class="flow-arrow">▼</div>
     <div class="flow-step">納品なら在庫に足す ／ 払出ならカートへ<small>払出はまとめて減算</small></div>
     <div class="flow-arrow">▼</div>
