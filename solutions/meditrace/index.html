@@ -5,8 +5,8 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2FKKTBLSV5"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2FKKTBLSV5');</script>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>MediTrace2 — 医療在庫管理｜医療法人おひさま会</title>
-  <meta name="description" content="バーコードで納品（入庫）と払出（出庫）を記録する、クリニック向け医療在庫管理。在庫一覧、払出の取消、発注の知らせに対応。">
+  <title>MediTrace2 — 医薬品入出庫管理｜医療法人おひさま会</title>
+  <meta name="description" content="医薬品の入荷から保管、払い出しまでを記録する入出庫管理。バーコードで納品・払出、在庫一覧、ログ管理、発注の知らせに対応。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../solution.css">
@@ -15,19 +15,19 @@
 <header class="sol-header">
   <div class="sol-tag st-run">🟢 本番運用中</div>
   <h1><span class="accent">MediTrace2</span></h1>
-  <p class="sol-sub">クリニックの医薬品を、納品と払出から管理する</p>
+  <p class="sol-sub">入荷から保管、払い出しまでを記録する</p>
   <p class="sol-meta"><a href="../../">医療法人おひさま会</a> DX推進部</p>
 </header>
 <div class="wrap">
 
-  <h2>背景 — なぜ作ったか</h2>
-  <p>クリニックの薬品庫では、納品された薬を足し、使った分を引く、という日常が毎日あります。数えるだけの棚卸ではなく、<strong>実運用の入庫と払出</strong>を残さないと、「今、何が何個あるか」が分かりません。</p>
+  <h2>医薬品入出庫管理</h2>
+  <p>医薬品入出庫管理とは、扱う薬の<strong>入荷から保管、払い出し</strong>までの流れを正確に記録・管理する業務です。</p>
   <p>MediTrace2は、スマホやPCで<strong>バーコード（JAN）を読む</strong>だけで、納品・払出・在庫一覧まで扱えるウェブアプリです。おひさま会では<strong>垂水</strong>と<strong>舞子</strong>で運用しています。</p>
 
   <div class="problem-box">
     <h3>導入前の課題</h3>
     <ul>
-      <li>納品と払出が、<strong>紙や記憶に残りにくい</strong></li>
+      <li>納品と払出の、<strong>紙記録の手間</strong>、人の記憶に頼る管理</li>
       <li>薬品庫と車載など、<strong>置き場所ごとの残量が見えない</strong></li>
       <li>払出の打ち間違いを、<strong>あとから直せない</strong></li>
       <li>よく使う薬の減りに気づくのが遅れ、<strong>発注のタイミングを逃す</strong></li>
@@ -36,11 +36,11 @@
 
   <h2>できること</h2>
   <ul>
-    <li><strong>納品（入庫）</strong> — バーコードを読んで在庫に足す</li>
-    <li><strong>払出（出庫）</strong> — 読み取った品をカートに溜め、まとめて減らす</li>
-    <li><strong>在庫一覧</strong> — いまの残量を確認する</li>
-    <li><strong>払出の取消</strong> — 当日と前日の、自分の払出を取り消せる</li>
-    <li><strong>発注の知らせ</strong> — 払出が一定量を超えたら、Google Chat に届く</li>
+    <li><strong>納品（入庫）</strong> — 医薬品のパッケージに表示されているバーコードを読み取り、在庫加算や期限を記録する</li>
+    <li><strong>払出（出庫）</strong> — 払出を行う医薬品のバーコードを読み取り、払出先を記録する</li>
+    <li><strong>在庫一覧</strong> — リアルタイムな在庫数を確認する</li>
+    <li><strong>ログ管理</strong> — 納品された日時や期限、いつ・どこに使用したのか、払出情報を閲覧できる</li>
+    <li><strong>発注の知らせ</strong> — 記録をもとに、在庫が減った医薬品の発注を促すメッセージが Google Chat に届く</li>
   </ul>
 
   <h2>薬剤マスターの考え方</h2>
@@ -63,11 +63,11 @@
     <div class="flow-arrow">▼</div>
     <div class="flow-step hl">バーコードを読む<small>取扱になければ、大きな医薬品マスタで名前を引いて追加</small></div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step">納品なら在庫に足す ／ 払出ならカートへ<small>払出はまとめて減算</small></div>
+    <div class="flow-step">納品なら在庫に足し、期限を残す ／ 払出なら払出先を残す</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step hl">在庫一覧で残量を確認<small>打ち間違いは、当日・前日まで取消可</small></div>
+    <div class="flow-step hl">在庫一覧とログで確認<small>納品日時・期限、いつ・どこに払出したか</small></div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step">払出がしきい値を超えたら、発注の知らせ</div>
+    <div class="flow-step">在庫が減ったら、発注を促す知らせ</div>
   </div>
 
   <h2>導入効果</h2>
