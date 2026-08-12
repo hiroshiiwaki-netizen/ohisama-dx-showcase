@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2FKKTBLSV5"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2FKKTBLSV5');</script>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>MediTrace — 医療物品の在庫追跡｜医療法人おひさま会</title>
+  <meta name="description" content="往診車の定数薬や医療材料を、バーコードで出庫・残量まで追う。紙の伝票が現場に定着しなかったところから生まれた実践。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../solution.css">
+</head>
+<body>
+<header class="sol-header">
+  <div class="sol-tag st-run">🟢 本番運用中</div>
+  <h1><span class="accent">MediTrace</span></h1>
+  <p class="sol-sub">往診車の薬と医療材料を、バーコードで追う</p>
+  <p class="sol-meta"><a href="../../">医療法人おひさま会</a> DX推進部</p>
+</header>
+<div class="wrap">
+
+  <h2>背景 — なぜ作ったか</h2>
+  <p>在宅医療では、往診車に定数の注射薬や医療材料を積んで出かけます。おひさま会では複数台の往診車があり、<strong>「今、何が何本残っているか」</strong>が紙の伝票だけでは追いつきませんでした。</p>
+  <p>出庫の記録が残らないと、次の発注タイミングも、車ごとの過不足も見えません。伝票を配っても現場に定着せず、結局「たぶん足りる」で動く状態が続いていました。</p>
+  <p>そこで、<strong>医薬品についているバーコードを読むだけ</strong>で出庫と残量を残す仕組みを、現場の手元で使える形にしました。名前は MediTrace（めでぃとれーす）です。</p>
+
+  <div class="problem-box">
+    <h3>導入前の課題</h3>
+    <ul>
+      <li>注射薬の<strong>出庫記録が残らない</strong></li>
+      <li>往診車ごとの定数薬が、<strong>今いくつあるか分からない</strong></li>
+      <li>紙の伝票は用意しても、<strong>現場に定着しない</strong></li>
+      <li>足りないことに気づくのが遅れ、<strong>発注のタイミングを逃す</strong></li>
+    </ul>
+  </div>
+
+  <h2>処理フロー</h2>
+  <div class="flow">
+    <div class="flow-step">往診車や倉庫で、薬・材料のバーコードを読む</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step hl">出庫・入庫として記録する<small>手書きの伝票を増やさない</small></div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">車ごと・品目ごとの残量が見える</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step hl">残りが少なくなったら気づける<small>人が発注の判断をする</small></div>
+  </div>
+
+  <h2>導入効果</h2>
+  <div class="effect"><strong>「今、車に何が乗っているか」が残る。</strong>記憶や紙に頼らず、出庫のあとが追えます。</div>
+  <div class="effect"><strong>読む作業で完結する。</strong>新しい伝票の書き方を現場に覚えさせなくて済みます。</div>
+  <div class="effect"><strong>発注の判断は人が行う。</strong>残量が見えるところまでが仕組みの仕事です。薬剤発注ナビ（周期発注のリマインド）とは役割が違います。</div>
+
+  <blockquote>紙を増やしても定着しなかった。<strong>バーコードを読むだけなら、往診の合間でも続く</strong>。</blockquote>
+
+  <div style="text-align:center;margin-top:40px">
+    <a href="../../#solutions" class="btn-back">← ソリューション一覧に戻る</a>
+  </div>
+  <footer class="sol-footer">
+    <p><a href="../../">医療法人おひさま会</a> — 在宅医療を、テクノロジーで支える</p>
+    <p>© 2026 医療法人おひさま会. All rights reserved.</p>
+  </footer>
+</div>
+</body>
+</html>

@@ -85,7 +85,8 @@ DX総合EXPOやパートナー企業との協業提案時の「デジタル名�
 | `solutions/xray/` | X線ナビゲーター |
 | `solutions/drug-order/` | 薬剤発注システム |
 | `solutions/doc-delivery/` | 書類配信サービス |
-| `solutions/orest/` | OREST — 在宅レセプト |
+| `solutions/orest/` | OREST — 定期書類自動生成 |
+| `solutions/meditrace/` | MediTrace — 医療物品の在庫追跡 |
 
 各詳細ページには以下のセクションを含む：
 - **誕生の背景**（なぜ作ったか）
