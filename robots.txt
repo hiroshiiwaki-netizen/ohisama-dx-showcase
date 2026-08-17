@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+Disallow: /pv/
+Disallow: /docs/
+Disallow: /reports/
+Disallow: /jahcm8/
+Disallow: /kintai/
+Disallow: /renraku/
+Disallow: /tukusi/
+Disallow: /crosslog/
+Disallow: /_backup/
+
+Sitemap: https://dx.nhw.jp/sitemap.xml
