@@ -6,9 +6,20 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2FKKTBLSV5');</script>
   <script src="../../js/cta-track.js" defer></script>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>MediTrace — 医薬品入出庫管理｜在宅医療DX</title>
-  <meta name="description" content="在宅医療DXの医薬品入出庫管理。バーコードで納品・払出、在庫一覧、ログ、発注の知らせ。おひさま会の垂水・舞子で運用。">
+  <title>クリニックの医薬品在庫管理・医薬品発注｜在宅医療DX</title>
+  <meta name="description" content="クリニックの医薬品在庫管理。バーコードで入庫・払出を記録し、残量が減ったら医薬品発注の知らせが届く。おひさま会の垂水・舞子で運用。">
   <link rel="canonical" href="https://dx.nhw.jp/solutions/meditrace/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="クリニックの医薬品在庫管理・医薬品発注">
+  <meta property="og:description" content="紙と記憶に頼らない医薬品在庫管理。入庫・払出の記録から、医薬品発注の知らせまで。">
+  <meta property="og:url" content="https://dx.nhw.jp/solutions/meditrace/">
+  <meta property="og:image" content="https://dx.nhw.jp/img/ogp.jpg">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"クリニックの医薬品在庫管理とは何ですか","acceptedAnswer":{"@type":"Answer","text":"扱う薬の入荷から保管、払い出しまでを記録し、置き場所ごとの残量と期限を見えるようにする業務です。おひさま会ではバーコードで入庫・払出を残しています。"}},
+    {"@type":"Question","name":"医薬品発注のタイミングはどう分かりますか","acceptedAnswer":{"@type":"Answer","text":"在庫が減った薬について、発注を促す知らせが届きます。患者ごとの周期で高額薬を知らせる発注ナビとは役割が違います。"}}
+  ]}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../solution.css">
@@ -16,15 +27,15 @@
 <body>
 <header class="sol-header">
   <div class="sol-tag st-run">🟢 本番運用中</div>
-  <h1><span class="accent">MediTrace</span></h1>
-  <p class="sol-sub">入荷から保管、払い出しまでを記録する</p>
-  <p class="sol-meta"><a href="../../">医療法人おひさま会</a> DX推進部</p>
+  <h1><span class="accent">医薬品在庫管理</span></h1>
+  <p class="sol-sub">入庫・払出の記録から、医薬品発注の知らせまで</p>
+  <p class="sol-meta"><a href="../../">医療法人おひさま会</a> DX推進部 ／ 仕組みの名前は MediTrace</p>
 </header>
 <div class="wrap">
 
-  <h2>医薬品入出庫管理</h2>
-  <p>医薬品入出庫管理とは、扱う薬の<strong>入荷から保管、払い出し</strong>までの流れを正確に記録・管理する業務です。</p>
-  <p>MediTraceは、スマホやPCで<strong>バーコード（JAN）を読む</strong>だけで、納品・払出・在庫一覧まで扱えるウェブアプリです。おひさま会では<strong>垂水</strong>と<strong>舞子</strong>で運用しています。</p>
+  <h2>クリニックの医薬品在庫管理</h2>
+  <p>医薬品在庫管理とは、扱う薬の<strong>入荷から保管、払い出し</strong>までの流れを記録し、置き場所ごとの残量と期限を見えるようにする業務です。</p>
+  <p>おひさま会の垂水と舞子では、スマホやPCで<strong>バーコード（JAN）を読む</strong>だけで、納品・払出・在庫一覧まで扱っています。残量が減ったら、<strong>医薬品発注</strong>を促す知らせが届きます。</p>
 
   <div class="problem-box">
     <h3>導入前の課題</h3>
@@ -42,12 +53,15 @@
     <li><strong>払出（出庫）</strong> — 払出を行う医薬品のバーコードを読み取り、払出先を記録する</li>
     <li><strong>在庫一覧</strong> — リアルタイムな在庫数を確認する</li>
     <li><strong>ログ管理</strong> — 納品された日時や期限、いつ・どこに使用したのか、払出情報を閲覧できる</li>
-    <li><strong>発注の知らせ</strong> — 記録をもとに、在庫が減った医薬品の発注を促すメッセージが Google Chat に届く</li>
+    <li><strong>医薬品発注の知らせ</strong> — 在庫が減った薬について、発注を促すメッセージが届く</li>
   </ul>
 
+  <h2>医薬品発注との違い</h2>
+  <p>ここで言う医薬品発注は、<strong>在庫が減ったこと</strong>に気づくための知らせです。患者ごとの周期で高額薬を知らせる<a href="../drug-order/">薬剤発注ナビ</a>とは、役割が違います。</p>
+
   <h2>薬剤マスターの考え方</h2>
-  <p>在庫アプリでいちばん詰まりやすいのが、「薬の名前を、誰が・どう登録するか」です。全品を先に手入力するのも、巨大な一覧を毎回探すのも、現場には合いません。</p>
-  <p>MediTraceは、<strong>2段</strong>に分けています。</p>
+  <p>医薬品在庫管理でいちばん詰まりやすいのが、「薬の名前を、誰が・どう登録するか」です。全品を先に手入力するのも、巨大な一覧を毎回探すのも、現場には合いません。</p>
+  <p>この仕組みは、<strong>2段</strong>に分けています。</p>
   <div class="flow">
     <div class="flow-step hl">日常は「いま扱っている薬」だけを見る<small>取扱マスタ。件数は実使用分だけ。検索が速い</small></div>
     <div class="flow-arrow">▼ 取扱に無いバーコードを読んだとき</div>
@@ -69,13 +83,13 @@
     <div class="flow-arrow">▼</div>
     <div class="flow-step hl">在庫一覧とログで確認<small>納品日時・期限、いつ・どこに払出したか</small></div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step">在庫が減ったら、発注を促す知らせ</div>
+    <div class="flow-step">在庫が減ったら、医薬品発注を促す知らせ</div>
   </div>
 
   <h2>導入効果</h2>
   <div class="effect"><strong>入庫と払出が、同じ流れで残る。</strong>棚卸の数字合わせではなく、現場の出し入れそのものを記録します。</div>
   <div class="effect"><strong>スマホでもPCでも使える。</strong>薬品庫でも、その場でバーコードを読めます。</div>
-  <div class="effect"><strong>発注のきっかけが届く。</strong>減った量が見えるので、「そろそろ発注」を見逃しにくくなります。周期で知らせる薬剤発注ナビとは役割が違います。</div>
+  <div class="effect"><strong>医薬品発注のきっかけが届く。</strong>減った量が見えるので、「そろそろ発注」を見逃しにくくなります。</div>
 
   <blockquote>数えるためのアプリではない。<strong>納品した・払い出した、をその場で残す</strong>ためのものです。</blockquote>
 
