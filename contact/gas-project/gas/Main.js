@@ -7,6 +7,34 @@
 function getChatWebhook() {
     return PropertiesService.getScriptProperties().getProperty('CHAT_WEBHOOK');
 }
+// エディタで1回実行し、メール送信の権限を承認する
+function authorizeMail() {
+    MailApp.getRemainingDailyQuota();
+}
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+// 問い合わせ本人への受付メール。本文の転記はしない（個人情報を増やさない）
+function sendAutoReply(name, email, category) {
+    if (!email || email === '（未記入）' || !isValidEmail(email)) {
+        return 'SKIP';
+    }
+    var greet = (name && name !== '（未記入）') ? name + ' 様\n\n' : '';
+    MailApp.sendEmail({
+        to: email,
+        replyTo: 'dx.connect@nhw.jp',
+        name: '医療法人おひさま会 DX推進部',
+        subject: '【おひさま会 DX推進部】お問い合わせを受け付けました',
+        body: greet +
+            '医療法人おひさま会 DX推進部です。\n' +
+            'お問い合わせを受け付けました。内容を確認のうえ、通常2〜3営業日以内にご返信します。\n\n' +
+            '種別：' + category + '\n\n' +
+            'このメールは自動送信です。返信が必要な場合は、このメールに返信するか dx.connect@nhw.jp へご連絡ください。\n\n' +
+            '医療法人おひさま会 DX推進部\n' +
+            'https://dx.nhw.jp/\n'
+    });
+    return 'OK';
+}
 // ログ用スプレッドシートを自動作成・取得
 function getLogSheet() {
     var files = DriveApp.getFilesByName('DX推進部_問い合わせログ');
@@ -139,8 +167,15 @@ function doPost(e) {
                 .createTextOutput(JSON.stringify({ status: 'error', message: 'データなし' }))
                 .setMimeType(ContentService.MimeType.JSON);
         }
+        var mailStatus = 'NONE';
+        try {
+            mailStatus = sendAutoReply(name, email, category);
+        }
+        catch (mailError) {
+            mailStatus = 'ERROR:' + String(mailError);
+        }
         // スプレッドシートに記録
-        sheet.appendRow([timestamp, 'OK', name, organization, email, category, message, '']);
+        sheet.appendRow([timestamp, 'OK', name, organization, email, category, message, 'mail=' + mailStatus]);
         // Google Chat カード通知
         notifyChat(name, organization, email, category, message, timestamp);
         return ContentService

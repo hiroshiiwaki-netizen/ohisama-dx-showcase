@@ -5,6 +5,7 @@
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2FKKTBLSV5"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2FKKTBLSV5');</script>
+  <script src="../js/cta-track.js" defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>在宅医療DXへのお問い合わせ｜医療法人おひさま会</title>
   <meta name="description" content="在宅医療DXについて、資料・見学・導入の相談を受け付けています。おひさま会 DX推進部。">
@@ -113,7 +114,7 @@
           <textarea name="message" required placeholder="お問い合わせ内容をご記入ください"></textarea>
         </div>
 
-        <p class="form-note" style="margin-bottom:20px">※ 通常2〜3営業日以内にご返信いたします。</p>
+        <p class="form-note" style="margin-bottom:20px">※ 送信直後に受付メールが届きます。担当からの返信は通常2〜3営業日以内です。</p>
 
         <button type="submit" class="submit-btn" id="submitBtn">送信する</button>
       </form>
@@ -123,7 +124,7 @@
     <div class="form-status" id="successMsg">
       <div class="icon">✅</div>
       <h2>送信完了しました</h2>
-      <p>お問い合わせいただきありがとうございます。<br>内容を確認のうえ、担当者よりご連絡いたします。<br><br>万が一返信がない場合は <strong>dx.connect@nhw.jp</strong> まで直接ご連絡ください。</p>
+      <p>お問い合わせいただきありがとうございます。<br>受付の自動メールをお送りしています。担当者からの返信は、通常2〜3営業日以内です。<br><br>メールが届かない場合は、迷惑メールフォルダをご確認ください。それでも無いときは <strong>dx.connect@nhw.jp</strong> まで直接ご連絡ください。</p>
       <a href="../" class="back-btn">トップページに戻る</a>
     </div>
 
@@ -211,6 +212,9 @@
       document.body.appendChild(hiddenForm);
       hiddenForm.submit();
       document.body.removeChild(hiddenForm);
+      if (typeof window.ohisamaTrackLead === 'function') {
+        window.ohisamaTrackLead(type || 'form');
+      }
 
       // 成功表示
       setTimeout(() => {

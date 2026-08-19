@@ -1,6 +1,6 @@
 # おひさま会 DX推進部 紹介ページ 引継書
 
-> 最終更新: 2026-08-12 | 作業環境: 会社PC (G:)
+> 最終更新: 2026-08-19 | 作業環境: 会社PC (G:)
 
 ## 📌 プロジェクト概要
 
@@ -30,6 +30,12 @@
 | **学会当日リストWeb** | `jahcm8/index.html` → https://dx.nhw.jp/jahcm8/ |
 
 ## ✅ 完了済み作業
+
+- 2026-08-19: **アクセス増の3点（コラム／GA4計測／自動返信）**
+  - 新コラム `article6/`（在宅医療のFAX仕分け）。目次・トップ・サイトマップ・`zaitaku-dx/` から接続
+  - 相談リンククリックを GA4 イベント `consult_click`、フォーム送信を `generate_lead`（`js/cta-track.js`）
+  - 問い合わせ受付の自動メール（MailApp）。本文は転記しない。`authorizeMail()` をエディタで1回実行して権限承認が必要
+  - バックアップ: `_backup/*_backup_20260819_104147.*`
 
 - 2026-08-12: **MediTrace2 をサイトに追加（内容修正済み）**
   - 公開名は MediTrace（2 は出さない）。入庫・払出・在庫一覧・ログ・発注アラート（垂水・舞子）
@@ -119,6 +125,7 @@
 
 ### GASバックエンド設定
 12. **Chat Webhook URLはScript Propertiesに移行済み** — ユーザーによるGASエディタでのScript Properties設定（CHAT_WEBHOOK）が必要
+15. **受付自動メール** — `script.send_mail` を追加。GASエディタで `authorizeMail` を1回実行して権限承認するまで、自動返信は動かない
 13. **GAS doPostはiframe POST未検証** — コマンドラインでは正常動作するがブラウザからのiframe送信は未確認
 14. **ユーザーの要望: 簡単にあきらめない** — 最悪メールリンクだけでもいい、は最後の手段の意味
 
@@ -141,7 +148,8 @@
 | `crosslog/` | CrossLog API活用事例ページ |
 | `tukusi/` | Tukusi API活用事例ページ |
 | `solutions/` | 9つのソリューション詳細ページ |
-| `article/` 〜 `article5/` | コラム記事5本 |
+| `article/` 〜 `article6/` | コラム記事（0〜4＋実践ノート） |
+| `js/cta-track.js` | 相談ボタン・フォーム送信のGA4計測 |
 | `columns/` | コラム目次ページ |
 | `_backup/` | 変更前バックアップ |
 
