@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8">
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8">
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2FKKTBLSV5"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2FKKTBLSV5');</script>
   <script src="../../js/cta-track.js" defer></script><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>OhiCraft — カルテ自動作成｜在宅医療DX</title>
 <link rel="canonical" href="https://dx.nhw.jp/solutions/ohicraft/">
-<meta name="description" content="往診3日前に事務スタッフが手作業で立てていたカルテを全自動化。事務作業の大幅な軽減を実現。">
+<meta name="description" content="在宅医療DXクリニックのカルテ自動作成。往診3日前に事務が1件ずつ立てていた定期処方のカルテを、スケジュールから一括で下ごしらえ。前回の引用と処方日数の計算まで。おひさま会で運用。">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../solution.css">
 </head><body>
@@ -13,7 +13,7 @@
   <div class="sol-tag st-run">🟢 本番運用中</div>
   <h1><span class="accent">OhiCraft</span></h1>
   <p class="sol-sub">定期処方のカルテを、一括で事前作成</p>
-  <p class="sol-meta"><a href="https://dx.nhw.jp/">医療法人おひさま会</a> DX推進室</p>
+  <p class="sol-meta"><a href="https://dx.nhw.jp/">医療法人おひさま会</a> DX推進部</p>
 </header>
 <div class="wrap">
 
@@ -27,7 +27,7 @@
     <ul>
       <li>往診3日前に<strong>事務スタッフがカルテを1件ずつ手作業で作成</strong></li>
       <li>前回カルテの引用・看護師設定・日数計算がすべて手動</li>
-      <li>1患者あたり数分 × 数十人 = <strong>事務スタッフの大きな負担</strong></li>
+      <li>1患者あたり数分 × 数十人 = <strong>毎日数時間のカルテ準備作業</strong></li>
       <li>18名の医師分のカルテを事務が一手に引き受けていた</li>
     </ul>
   </div>
@@ -36,21 +36,23 @@
   <div class="flow">
     <div class="flow-step">往診スケジュールから対象患者を自動取得</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step">電子カルテに新しいカルテを自動作成</div>
+    <div class="flow-step">電子カルテに当日のカルテを作成</div>
     <div class="flow-arrow">▼</div>
     <div class="flow-step hl">前回カルテの記録を自動で引用</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step">担当看護師を自動設定</div>
+    <div class="flow-step">担当看護師を設定</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step">処方日数を自動計算</div>
+    <div class="flow-step">処方日数を計算</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step hl">完了 → エラーがあればチャットで通知</div>
+    <div class="flow-step hl">下ごしらえ完了 → エラーがあればチャットで通知</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">往診当日、医師が内容を確認して診察</div>
   </div>
 
   <h2>導入効果</h2>
-  <div class="effect"><strong>事務スタッフのカルテ準備作業がゼロに。</strong>数分×数十人分の手作業がすべて自動化され、事務の負担が大幅に軽減。</div>
-  <div class="effect"><strong>毎日のカルテ準備から解放。</strong>システムが自動でカルテを立てるので、事務スタッフは他の業務に集中できるように。</div>
-  <div class="effect"><strong>引用ミス・設定漏れの解消。</strong>看護師の自動設定、処方日数の自動計算により、ヒューマンエラーが減少。</div>
+  <div class="effect"><strong>事務スタッフのカルテ準備作業がなくなった。</strong>1患者あたり数分 × 数十人分の手作業を仕組みが引き受け、事務は本来の業務に戻れました。</div>
+  <div class="effect"><strong>18名の医師分を、往診3日前にまとめて用意。</strong>事務が1件ずつ手で立てていた作業を、往診スケジュールから一括で下ごしらえします。</div>
+  <div class="effect"><strong>引用ミス・設定漏れが減った。</strong>看護師の設定と処方日数の計算をプログラムが行うため、手作業のブレが起きにくくなります。</div>
 
   <blockquote>「以前は毎日、カルテを立てる作業に追われていた。<strong>その時間がまるごとなくなって、本来の事務業務に集中できるようになった</strong>」</blockquote>
 

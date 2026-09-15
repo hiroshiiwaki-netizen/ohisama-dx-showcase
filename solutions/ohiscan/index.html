@@ -12,47 +12,47 @@
 <header class="sol-header">
   <div class="sol-tag st-run">🟢 本番運用中</div>
   <h1><span class="accent">OhiScan</span></h1>
-  <p class="sol-sub">紙のFAXを、AIが秒速でカルテに届ける</p>
-  <p class="sol-meta"><a href="https://dx.nhw.jp/">医療法人おひさま会</a> DX推進室</p>
+  <p class="sol-sub">届いた紙の宛先と書類種別をAIが仕分け、カルテ登録を下ごしらえ</p>
+  <p class="sol-meta"><a href="https://dx.nhw.jp/">医療法人おひさま会</a> DX推進部</p>
 </header>
 <div class="wrap">
 
   <h2>背景 — なぜ作ったか</h2>
-  <p>在宅医療の現場では、病院・薬局・施設からの連絡手段として<strong>いまだにFAXが主流</strong>です。おひさま会では5つのクリニックで<strong>月間約5,000枚</strong>のFAXや郵送物を受け取っています。</p>
-  <p>これまではすべて事務スタッフが手作業で処理していました。1枚のFAXを処理するのに「どの患者さん宛か調べる → 書類の種類を判断する → カルテに登録する」まで<strong>平均3〜5分</strong>。単純計算で<strong>月間250〜400時間</strong>がFAXの仕分けだけに費やされていた計算になります。</p>
-  <p>さらに厄介なのは、<strong>1枚のFAXに複数の患者の情報が含まれている</strong>ケースです。健康管理一覧表のように、1ページに何人もの情報が並んでいる書類では、見落としや誤登録のリスクが常にありました。</p>
+  <p>在宅医療の現場では、病院・薬局・施設からの連絡手段として<strong>いまだにFAXが主流</strong>です。おひさま会では5つのクリニックで<strong>月約5,000枚</strong>のFAXや郵送物を受け取っています。</p>
+  <p>以前はすべて事務スタッフが手作業で処理していました。1枚のFAXを処理するのに「どの患者さん宛か調べる → 書類の種類を判断する → カルテに登録する」まで<strong>1枚あたり3〜5分</strong>。単純計算で月間に数百時間もの事務作業が、紙の仕分けだけに費やされていました。</p>
+  <p>さらに厄介なのは、健康管理一覧表のように<strong>1枚のFAXに複数の患者さんの情報が含まれている</strong>ケースです。手作業での確認では、忙しい日の見落としや誤登録のリスクが常にありました。</p>
 
   <div class="problem-box">
     <h3>導入前の課題</h3>
     <ul>
-      <li>月間約5,000枚のFAXを<strong>事務スタッフが手作業で仕分け</strong></li>
+      <li>月約5,000枚のFAXを<strong>事務スタッフが手作業で仕分け</strong></li>
       <li>1枚あたり3〜5分 × 5拠点 = <strong>月間250〜400時間の事務作業</strong></li>
-      <li>患者の取り違え・登録漏れのリスクが常にある</li>
-      <li>複数患者が含まれる書類の分離が特に困難</li>
+      <li>急ぎの日や枚数が多い日の、見落とし・取り違えリスク</li>
+      <li>1枚に複数患者が含まれる書類の分離・確認の負担</li>
     </ul>
   </div>
 
   <h2>処理フロー</h2>
   <div class="flow">
-    <div class="flow-step">FAXが届く（拠点ごとに自動監視）</div>
+    <div class="flow-step">FAXが届く（拠点ごとに自動受信・監視）</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step hl">AIが書類の中身を読み取る<small>「誰の」「何の書類か」を自動判定</small></div>
+    <div class="flow-step hl">AIが書類の中身を読み取る<small>「誰の」「何の書類か」を一次判定</small></div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step">複数の書類が混ざっていれば自動で分割</div>
+    <div class="flow-step">複数患者や異なる書類が混ざっていれば自動で分割</div>
     <div class="flow-arrow">▼</div>
     <div class="flow-step">患者データベースと照合して本人を特定</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step hl">電子カルテに自動で登録</div>
+    <div class="flow-step hl">確信度を判定<small>迷うものは「要確認」として人に回す安全設計</small></div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step">担当スタッフにチャットで完了通知</div>
+    <div class="flow-step">スタッフが確認して電子カルテへ反映</div>
   </div>
 
   <h2>導入効果</h2>
-  <div class="effect"><strong>FAX1枚あたりの処理時間：3〜5分 → 約5秒。</strong>手作業と比べて約99%の時間削減。</div>
-  <div class="effect"><strong>患者の誤認識：ゼロ。</strong>確信度が低い場合は「要確認」として人に回す安全設計。AI任せにしない仕組みです。</div>
-  <div class="effect"><strong>FAX1枚あたりのAI処理コスト：約0.1円。</strong>月間5,000枚でも500円程度。人件費と比較にならないコスト効率です。</div>
+  <div class="effect"><strong>1枚3〜5分の手作業が、約5秒の下ごしらえに。</strong>宛先調べと書類分類をAIが済ませ、スタッフは確認に集中できます。</div>
+  <div class="effect"><strong>人の目による二重チェックで誤登録を防止。</strong>確信度が低いものは自動で「要確認」へ。AIに勝手に確定させない設計です。</div>
+  <div class="effect"><strong>処理費用 約0.1円/枚 の低コスト運用。</strong>月約5,000枚を処理しても月に約500円。費用面でも無理なく継続できる仕組みです。</div>
 
-  <blockquote>「FAXの仕分けに追われていた事務スタッフが、<strong>患者さんへの対応に集中できるようになった</strong>」— これがこのシステムの本当の価値です。</blockquote>
+  <blockquote>「FAXの仕分けに追われていた事務スタッフが、<strong>患者さんやご家族への対応に時間を充てられるようになった</strong>」— これがこの仕組みの本当の価値です。</blockquote>
 
   <div style="text-align:center;margin-top:40px">
     <a href="https://dx.nhw.jp/#solutions" class="btn-back">← ソリューション一覧に戻る</a>

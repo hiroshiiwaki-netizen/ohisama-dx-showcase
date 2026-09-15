@@ -1,26 +1,26 @@
-﻿<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8">
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8">
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2FKKTBLSV5"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2FKKTBLSV5');</script>
   <script src="../../js/cta-track.js" defer></script><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>OREST — 定期書類自動生成｜在宅医療DX</title>
 <link rel="canonical" href="https://dx.nhw.jp/solutions/orest/">
-<meta name="description" content="毎月の定期書類3種類を全自動作成。有料RPAツールを内製で完全置き換え。">
+<meta name="description" content="在宅医療DXクリニックの定期書類作成。訪問看護指示書など毎月作成する3種類の書類を電子カルテから一括で下ごしらえ。有料RPAツールを内製の仕組みに置き換えた実践。おひさま会で運用。">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../solution.css">
 </head><body>
 <header class="sol-header">
   <div class="sol-tag st-run">🟢 本番運用中</div>
   <h1><span class="accent">OREST</span></h1>
-  <p class="sol-sub">毎月の定期書類を、全自動で作成する</p>
-  <p class="sol-meta"><a href="https://dx.nhw.jp/">医療法人おひさま会</a> DX推進室</p>
+  <p class="sol-sub">毎月の定期書類3種類を、電子カルテから下ごしらえ</p>
+  <p class="sol-meta"><a href="https://dx.nhw.jp/">医療法人おひさま会</a> DX推進部</p>
 </header>
 <div class="wrap">
 
   <h2>背景 — なぜ作ったか</h2>
   <p>在宅医療では、<strong>訪問看護指示書・居宅介護情報提供書・在宅療養計画書</strong>の3種類の書類を毎月作成する必要があります。これらは連携する訪問看護ステーションやケアマネージャーに送付する重要な書類です。</p>
   <p>おひさま会では以前、<strong>有料のRPAツール</strong>を使ってこの作業を自動化していました。しかし、RPAツールの契約終了に伴い、そのまま契約を継続するか、自前で作り直すかの判断を迫られました。</p>
-  <p>「毎月のランニングコストをゼロにしつつ、さらに高機能にできるはず」— そう考えて、<strong>有料RPAの完全内製化</strong>に踏み切りました。書類作成だけでなく、PDF化・メール配信まで一気通貫で自動化するのが最終目標です。</p>
+  <p>「毎月のランニングコストをゼロにしつつ、必要な改善を自分たちで続けられるはず」— そう考えて、<strong>有料RPAの内製化</strong>に踏み切りました。書類の下ごしらえに加え、PDF化・送付の周辺作業まで含めて仕組み化していくのが最終目標です。</p>
 
   <div class="problem-box">
     <h3>導入前の課題</h3>
@@ -40,17 +40,19 @@
     <div class="flow-arrow">▼</div>
     <div class="flow-step">対象患者のリストを自動取得</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step hl">患者ごとに書類を引用 → 期間・日付を設定 → 完成</div>
+    <div class="flow-step hl">患者ごとに書類を引用 → 期間・日付を設定して下ごしらえ</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step" style="border-style:dashed">（開発中）完成した書類をPDF化して保存</div>
+    <div class="flow-step">スタッフ・医師が内容を確認して確定</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step" style="border-style:dashed">（開発中）連携事業所へメールで自動配信</div>
+    <div class="flow-step" style="border-style:dashed">（開発中）確定した書類をPDF化して保存</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step" style="border-style:dashed">（開発中）連携事業所への送付を仕組み化</div>
   </div>
 
   <h2>導入効果</h2>
-  <div class="effect"><strong>有料RPAのランニングコストがゼロに。</strong>年間で大幅なコスト削減を実現。</div>
-  <div class="effect"><strong>3種類すべての書類で自動作成テスト完了。</strong>訪問看護指示書・居宅介護情報提供書・在宅療養計画書のすべてに対応。</div>
-  <div class="effect"><strong>将来的にはPDF化→メール配信まで全自動化。</strong>書類の作成から連携先への送付まで、人の手を介さないフローを目指しています。</div>
+  <div class="effect"><strong>有料RPAのランニングコストがゼロに。</strong>外部ツールの契約を続けず、自前の仕組みで運用しています。</div>
+  <div class="effect"><strong>定期書類3種類の下ごしらえに対応。</strong>訪問看護指示書・居宅介護情報提供書・在宅療養計画書の前回引用と日付設定を一括処理します。</div>
+  <div class="effect"><strong>PDF化・送付の周辺作業も、これから仕組み化。</strong>確定した書類の保存や連携先への共有まで、人の確認を残したまま付帯作業を減らしていきます。</div>
 
   <blockquote>「<strong>外部ツールに払っていたコストをゼロにして、しかも自分たちで自由に改善できる</strong>」— 内製化の最大のメリットです。</blockquote>
 

@@ -32,6 +32,22 @@
 
 ## ✅ 完了済み作業
 
+- 2026-09-15: **文面推敲（第1弾）＋組織名統一を本番反映**
+  - **公開した範囲**
+    - トップ `index.html`（AIっぽい誇大表現の整理、ヒーローに「在宅医療DXクリニック」維持）
+    - `solutions/meditrace/`（仕様外の「誰が」削除、meta/見出しは維持）
+    - `solutions/drug-order/`（実績数字・発注漏れゼロは維持）
+    - `solutions/ohiscan/`（安全原則と整合。月約5,000枚／0.1円／250〜400時間／約5秒を維持）
+    - `solutions/ohicraft/`（全自動化表現を下ごしらえに。18名・3日前・数分×数十人を維持）
+    - `solutions/orest/`（全自動／人の手を介さない を削除。下ごしらえ→人の確定。RPAコストゼロは維持）
+    - 組織名「DX推進室」→「DX推進部」一括統一（solutions 8＋article〜article5）
+  - **同日に先行公開済み**: `/kusuri-zaiko/`（医薬品在庫管理ハブ）、OhiSnap題名の「保険業務 スキャナー」対応
+  - **次回着手するページ（推敲未実施）**
+    - `solutions/ohisamabot/`、`solutions/xray/`、`solutions/doc-delivery/`、`solutions/ohisamavox/`
+    - `guide/`、`safety/`、`contact/`、`columns/`、`zaitaku-dx/`、`article/`〜`article6/`（表記統一以外の文面）
+  - 方針: 数字・実績は落とさない。誇大表現のみ落とす。仕様にない機能は足さない
+  - バックアップ: `_backup/*_backup_20260915_15*.html` ほか
+
 - 2026-09-15: **おひさまステーション短い入口**
   - `https://dx.nhw.jp/0130station` → 現行 GAS `/exec` へリダイレクト
   - トップ・サイトマップには出さない。検索にも出さない（noindex）
@@ -106,12 +122,14 @@
 
 ## 🔧 次にやること（優先順）
 
-1. **本番反映後の目視** — https://dx.nhw.jp でヒーロー・課題・安全・手順書・相談フォームを確認
-2. **田崎理事へ公開後の共有**（必要なら指摘反映）
-3. **フェーズ2** — 導入効果シミュレーター（計算式は岩城さんが実データで確定してから）
-4. **手順書のPDF版** — いまは HTML（`/guide/`）のみ
-5. **ブラウザからのフォーム送信テスト** — コマンドラインPOSTは成功済み、ブラウザiframe POSTは未確認
-6. **画像差し替え** — OhisamaBot, HALO, BLUE
+1. **文面推敲（第2弾）** — 上記「次回着手」リスト（ohisamabot / xray / doc-delivery / ohisamavox / guide / safety / contact / columns / zaitaku-dx / 記事本文）
+2. **Search Console** — `https://dx.nhw.jp/kusuri-zaiko/` と `https://dx.nhw.jp/solutions/ohisnap/` のインデックス登録リクエスト
+3. **本番反映後の目視** — https://dx.nhw.jp でヒーロー・課題・安全・手順書・相談フォームを確認
+4. **田崎理事へ公開後の共有**（必要なら指摘反映）
+5. **フェーズ2** — 導入効果シミュレーター（計算式は岩城さんが実データで確定してから）
+6. **手順書のPDF版** — いまは HTML（`/guide/`）のみ
+7. **ブラウザからのフォーム送信テスト** — コマンドラインPOSTは成功済み、ブラウザiframe POSTは未確認
+8. **画像差し替え** — OhisamaBot, HALO, BLUE、MediTraceカード（仮画像）
 
 ## ⚠️ 注意事項・既知の問題
 
