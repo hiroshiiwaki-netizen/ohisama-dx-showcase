@@ -107,9 +107,9 @@ blockquote strong{color:var(--red)}
   </table>
 
   <p>重要なのは、<strong>最初は事務員AIだけを導入する</strong>こと。</p>
-  <p>FAXの仕分け、保険証の判別、問い合わせの分類——これらは「間違えても致命的ではない」業務だ。ここでAIの信頼実績を積み上げてから、徐々に医療寄りの業務に広げていく。</p>
+  <p>FAXの仕分け、保険証の判別、問い合わせの分類など、これらは「間違えても致命的ではない」業務だ。ここでAIの信頼実績を積み上げてから、徐々に医療寄りの業務に広げていく。</p>
 
-  <div class="effect"><strong>おひさま会の実績：</strong>FAX自動分類の患者誤認識 0件。「AIが間違えたら未確認フォルダに入る」設計で、誤った患者への書類貼付を完全に防止している。</div>
+  <div class="effect"><strong>おひさま会の運用：</strong>患者が特定できない場合は「未確認」へ回し、人が確認してからカルテへ反映する設計にすることで、取り違えのリスクを最小限に抑えています。</div>
 
   <!-- 承認パイプライン -->
   <h2>実践 — 承認パイプラインを入れる</h2>
@@ -121,15 +121,15 @@ blockquote strong{color:var(--red)}
 
   <h3>📋 3つのパターン</h3>
 
-  <p><strong>パターン①：自動実行OK（事務作業）</strong></p>
+  <p><strong>パターン①：下ごしらえまで（事務作業）</strong></p>
   <div class="flow">
     <div class="flow-step">AIがFAXの書類種別・患者名を判定</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step">確信度が高い → 自動でカルテにファイリング</div>
+    <div class="flow-step">確信度が高い → カルテ貼付の下ごしらえ（スタッフが確認して反映）</div>
     <div class="flow-arrow">▼</div>
     <div class="flow-step hl">確信度が低い → 「未確認」フォルダへ（人が後で確認）</div>
   </div>
-  <p>書類の仕分けは「間違えても貼り直せばいい」ので、確信度が高ければ自動実行してよい。ただし<strong>安全弁として「未確認」ルートを必ず用意する</strong>。</p>
+  <p>書類の仕分けは「間違えても貼り直せばいい」ので、確信度が高ければ下ごしらえまで進め、スタッフが確認して反映します。ただし<strong>安全弁として「未確認」ルートを必ず用意する</strong>。</p>
 
   <p><strong>パターン②：下書き→確認→送信（対外コミュニケーション）</strong></p>
   <div class="flow">
@@ -139,17 +139,17 @@ blockquote strong{color:var(--red)}
     <div class="flow-arrow">▼</div>
     <div class="flow-step hl">担当者が確認・編集 → 送信</div>
   </div>
-  <p>対外的なやり取りは、AIの下書きをそのまま送らない。<strong>敬語がおかしい、事実関係が微妙に違う</strong>——AIの「惜しいミス」は信用問題になる。</p>
+  <p>対外的なやり取りは、AIの下書きをそのまま送らない。<strong>敬語がおかしい、事実関係が微妙に違う</strong>といった、AIの「惜しいミス」は信用問題になる。</p>
 
-  <p><strong>パターン③：自動作成→医師確認→完成（医療書類）</strong></p>
+  <p><strong>パターン③：下ごしらえ→医師確認→完成（医療書類）</strong></p>
   <div class="flow">
-    <div class="flow-step">前回の書類を引用して自動作成</div>
+    <div class="flow-step">前回の書類を引用して下ごしらえ（下書き作成）</div>
     <div class="flow-arrow">▼</div>
     <div class="flow-step">「中断保存」状態でストップ</div>
     <div class="flow-arrow">▼</div>
     <div class="flow-step hl">医師が内容を確認 → 「完成」ボタン</div>
   </div>
-  <p>医療書類は<strong>絶対に「完成」を自動化しない</strong>。処方内容、診断名、患者情報——すべて医師の目を通してから確定する。AIは「下ごしらえ」までが仕事だ。</p>
+  <p>医療書類は<strong>絶対に「完成」を自動化しない</strong>。処方内容、診断名、患者情報など、すべて医師の目を通してから確定する。AIは「下ごしらえ」までが仕事だ。</p>
 
   <!-- 信頼を積む -->
   <h2>信頼の積み上げ方</h2>
@@ -184,6 +184,7 @@ blockquote strong{color:var(--red)}
 
   <div class="nav-series">
     <a href="../article2/">← 前：DX推進部ができるまで</a>
+    <a href="../article4/">次の記事：Google Workspaceだけで完結するか？ →</a>
   </div>
 
   <div class="cta">

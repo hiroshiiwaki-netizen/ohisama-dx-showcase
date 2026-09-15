@@ -126,7 +126,7 @@ blockquote strong{color:var(--red)}
       <li><a href="#intro">はじめに — 医療DXは一般企業と順番が違う</a></li>
       <li><a href="#step1">FAX・紙書類の電子化と自動仕分け</a></li>
       <li><a href="#step2">社内問い合わせのAI振り分け</a></li>
-      <li><a href="#step3">定期書類の自動作成</a></li>
+      <li><a href="#step3">定期書類の作成支援（下ごしらえ）</a></li>
       <li><a href="#foundation">裏で進めるべき基盤 — ID統合</a></li>
       <li><a href="#summary">まとめ</a></li>
     </ol>
@@ -158,7 +158,7 @@ blockquote strong{color:var(--red)}
   <ol>
     <li><strong>FAXをPDFで受信する環境を作る</strong> — 複合機の設定変更だけでできる。新しい機械は不要</li>
     <li><strong>AIで書類の種類と患者名を自動判別する</strong> — 今のAI（大規模言語モデル）なら、「診療情報提供書」「訪問看護報告書」などの書類種別と患者名を画像から正確に読み取れる</li>
-    <li><strong>電子カルテに自動でファイリングする</strong> — 患者を特定できれば、カルテへの貼付も自動化できる</li>
+    <li><strong>スタッフが確認して電子カルテへ反映する</strong> — 患者を特定できれば、貼付の下ごしらえまで仕組み化できる</li>
   </ol>
 
   <div class="effect"><strong>削減効果の目安：</strong>1日50枚のFAXを手作業で1枚5分処理 → 自動化で約25秒/枚に。<strong>毎日4時間の削減。年間約1,000時間。</strong></div>
@@ -211,16 +211,16 @@ blockquote strong{color:var(--red)}
   <div class="effect"><strong>期待効果：</strong>IT担当の対応時間 50%削減 + 対応履歴の可視化で「同じ質問が多い分野」が特定でき、研修計画の根拠データになる。</div>
 
   <!-- Step 3 -->
-  <h2 id="step3">3. 定期書類の自動作成</h2>
+  <h2 id="step3">3. 定期書類の作成支援（下ごしらえ）</h2>
 
   <div class="step-card">
     <span class="step-num">STEP 3 — 3番目にやるべき</span>
-    <h3>📋 毎月数百枚の書類を自動で作る</h3>
+    <h3>📋 毎月数百枚の書類の下ごしらえを仕組み化する</h3>
     <p>①②で運用ノウハウを積んでから、慎重に着手する。</p>
   </div>
 
   <div class="fig">
-    <img src="img/document_automation.png" alt="書類自動作成のイメージ">
+    <img src="img/document_automation.png" alt="書類下ごしらえのイメージ">
     <div class="fig-text">訪問看護指示書、居宅介護情報提供書、在宅療養計画書。在宅医療法人では<strong>毎月数百枚の定期書類</strong>を手作業で作っている。1枚10分として、500枚なら<strong>約83時間/月</strong>。ほぼ2人月分の事務作業だ。</div>
   </div>
 
@@ -228,10 +228,10 @@ blockquote strong{color:var(--red)}
   <ol>
     <li><strong>書類テンプレートとデータソースを整理する</strong> — 前回の書類を「引用」して作成するフローが多い。この引用を自動化する</li>
     <li><strong>記載内容の自動入力</strong> — 患者情報・期間・前回内容はシステムから自動取得できる</li>
-    <li><strong>完成した書類をPDF化して配信する</strong> — 連携事業所へのメール送信まで一気通貫で自動化</li>
+    <li><strong>完成した書類をPDF化して配信する</strong> — 連携事業所へのメール配信までをひとつの流れでつなぐ</li>
   </ol>
 
-  <div class="warn"><strong>なぜ3番目なのか：</strong>医療書類は<strong>患者の生命に関わる</strong>。請求書の数字が1桁違っても訂正すれば済むが、処方内容の間違いは取り返しがつかない。必ず<strong>「自動作成 → 医師確認 → 完成」</strong>のフローで、①②で培ったAI運用の経験値が必要。</div>
+  <div class="warn"><strong>なぜ3番目なのか：</strong>医療書類は<strong>患者の生命に関わる</strong>。請求書の数字が1桁違っても訂正すれば済むが、処方内容の間違いは取り返しがつかない。必ず<strong>「下ごしらえ → 医師確認 → 完成」</strong>のフローで、①②で培ったAI運用の経験値が必要。</div>
 
   <h3>📊 コスト削減の実例</h3>
   <table class="cmp-table">
@@ -256,7 +256,7 @@ blockquote strong{color:var(--red)}
   <ul>
     <li>FAX自動仕分けで「この患者のカルテIDは？」を瞬時に解決できる</li>
     <li>問い合わせ対応で「この患者の情報はどのシステムにある？」がわかる</li>
-    <li>書類自動作成で、複数システムから必要な情報を自動収集できる</li>
+    <li>書類の下ごしらえで、複数システムから必要な情報を自動収集できる</li>
   </ul>
 
   <blockquote><strong>ID統合は「見えないインフラ」</strong>だ。道路がなければ車は走れない。ID統合がなければ、自動化システム同士が連携できない。</blockquote>
@@ -269,7 +269,7 @@ blockquote strong{color:var(--red)}
     <div class="flow-arrow">▼</div>
     <div class="flow-step">Step 2：社内問い合わせのAI振り分け<small>属人化の解消。承認パイプラインを習慣化する</small></div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step">Step 3：定期書類の自動作成<small>①②で積んだ運用ノウハウで慎重に展開</small></div>
+    <div class="flow-step">Step 3：定期書類の作成支援（下ごしらえ）<small>①②で積んだ運用ノウハウで慎重に展開</small></div>
     <div class="flow-arrow">⬇ 並行して</div>
     <div class="flow-step highlight">基盤：患者ID統合ハブ<small>全システムの「真実の1つ」を作る</small></div>
   </div>

@@ -48,10 +48,17 @@
     - `solutions/doc-delivery/`（送付漏れゼロを抑制。確定は人・送付は仕組み）
     - `solutions/ohisamavox/`（月間数百件・ダッシュボード項目を維持）
     - これで `solutions/` 配下の公開ソリューションページの推敲は一巡
+  - **第3弾（コラム・記事・途中まで）本番反映**
+    - `columns/`（——解消、定期書類の下ごしらえ表記）
+    - `article/`（自動作成→下ごしらえ。コスト比較表は維持）
+    - `article2/`（——解消、OhiCraft/OREST表記整合、次記事リンク）
+    - `article3/`（「誤認識0件・完全防止」を削除し safety と整合。承認パイプラインを下ごしらえ表記に）
+    - `safety/`・`guide/`・`contact/`・`zaitaku-dx/` はレビューで修正不要と判断（未変更）
   - **次回着手するページ（推敲未実施）**
-    - `guide/`、`safety/`、`contact/`、`columns/`、`zaitaku-dx/`、`article/`〜`article6/`（表記統一以外の文面）
-  - 方針: 数字・実績は落とさない。誇大表現のみ落とす。仕様にない機能は足さない
+    - `article4/`〜`article6/`（連載の残り）
+  - 方針: 数字・実績は落とさない。誇大表現のみ落とす。仕様にない機能は足さない。対外で「誤登録ゼロ」と言わない（safety準拠）
   - バックアップ: `_backup/*_backup_20260915_15*.html` ほか
+  - コミット例: `ac5659d`（第1弾）／`990ba95`（solutions残り）／本セッション末尾コミット（columns〜article3）
 
 - 2026-09-15: **おひさまステーション短い入口**
   - `https://dx.nhw.jp/0130station` → 現行 GAS `/exec` へリダイレクト
