@@ -134,7 +134,7 @@
 
 ## 🔧 次にやること（優先順）
 
-1. **文面推敲（第3弾）** — `guide/`、`safety/`、`contact/`、`columns/`、`zaitaku-dx/`、`article/`〜`article6/`（表記統一以外の文面）
+1. **文面推敲（第3弾の続き）** — `article4/`〜`article6/`（連載の残り）
 2. **Search Console** — `https://dx.nhw.jp/kusuri-zaiko/` と `https://dx.nhw.jp/solutions/ohisnap/` のインデックス登録リクエスト
 3. **本番反映後の目視** — https://dx.nhw.jp でヒーロー・課題・安全・手順書・相談フォームを確認
 4. **田崎理事へ公開後の共有**（必要なら指摘反映）
