@@ -5,14 +5,14 @@
   <script src="../../js/cta-track.js" defer></script><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>OhisamaBot — 問い合わせ管理｜在宅医療DX</title>
 <link rel="canonical" href="https://dx.nhw.jp/solutions/ohisamabot/">
-<meta name="description" content="5クリニックの問い合わせを自動分類。チャットでステータス管理を完結。">
+<meta name="description" content="在宅医療DXクリニックの問い合わせ管理。1日100件前後の問い合わせを緊急度などで分類し、担当クリニックのチャットへ通知。ステータス管理まで。返信は人が行います。おひさま会で運用。">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../solution.css">
 </head><body>
 <header class="sol-header">
   <div class="sol-tag st-run">🟢 本番運用中</div>
   <h1><span class="accent">OhisamaBot</span></h1>
-  <p class="sol-sub">問い合わせを、チャットで完結させる</p>
+  <p class="sol-sub">分類と通知を仕組みに。返信は人が行う</p>
   <p class="sol-meta"><a href="https://dx.nhw.jp/">医療法人おひさま会</a> DX推進部</p>
 </header>
 <div class="wrap">
@@ -20,6 +20,7 @@
   <h2>背景 — なぜ作ったか</h2>
   <p>在宅医療のクリニックには、患者さんのご家族・介護施設・薬局・ケアマネージャーなど、<strong>さまざまな方から毎日多くの問い合わせ</strong>が入ります。5つのクリニックを運営するおひさま会では、<strong>1日に100件前後</strong>の問い合わせが発生します。</p>
   <p>以前は問い合わせの内容や対応状況が管理システム内に閉じていて、<strong>「いま誰が対応しているのか」「もう終わったのか」がリアルタイムで分からない</strong>状態でした。結果として、同じ問い合わせに2人が対応してしまったり、逆に誰も対応していなかったりという事態が起きていました。</p>
+  <p>電話応対そのものをボットに置き換える話ではありません。内容の仕分けと担当への通知を仕組みにし、<strong>判断と返信は人が行う</strong>ためのものです。</p>
 
   <div class="problem-box">
     <h3>導入前の課題</h3>
@@ -35,21 +36,21 @@
   <div class="flow">
     <div class="flow-step">問い合わせが入る</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step hl">3軸で自動分類<small>緊急度 × 問題の種類 × 必要なアクション</small></div>
+    <div class="flow-step hl">3軸で分類<small>緊急度 × 問題の種類 × 必要なアクション</small></div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step">担当クリニックのチャットに自動振り分け</div>
+    <div class="flow-step">担当クリニックのチャットに振り分け</div>
     <div class="flow-arrow">▼</div>
     <div class="flow-step">カード型で通知（「対応開始」「完了」ボタン付き）</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step">担当の医師・ナースに自動で通知</div>
+    <div class="flow-step">担当の医師・ナースに通知</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step hl">ボタンを押すだけでステータス更新 → 履歴も自動記録</div>
+    <div class="flow-step hl">人が判断・返信し、ボタンでステータス更新 → 履歴も記録</div>
   </div>
 
   <h2>導入効果</h2>
-  <div class="effect"><strong>問い合わせの即時共有（秒単位）を実現。</strong>入った瞬間に担当クリニックのチャットに通知が届くので、見落としがゼロに。</div>
-  <div class="effect"><strong>「いま誰が対応中か」が一目でわかる。</strong>ボタン1つで「対応開始」→「完了」。重複対応・対応漏れが解消されました。</div>
-  <div class="effect"><strong>対応の経緯が自動で残る。</strong>チャットのコメントが自動保存され、あとから「あのとき何を伝えたか」を簡単に追えるようになりました。</div>
+  <div class="effect"><strong>問い合わせが入った瞬間に、担当クリニックへ共有。</strong>チャットに通知が届くので、見落としにくくなります。</div>
+  <div class="effect"><strong>「いま誰が対応中か」が一目でわかる。</strong>ボタン1つで「対応開始」→「完了」。重複対応・対応漏れが減りました。</div>
+  <div class="effect"><strong>対応の経緯が残る。</strong>チャットのコメントが保存され、あとから「あのとき何を伝えたか」を追いやすくなりました。</div>
 
   <blockquote>「問い合わせ対応の"見える化"によって、<strong>チーム全体の安心感が大きく変わった</strong>」— 現場スタッフの声です。</blockquote>
 

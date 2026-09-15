@@ -42,8 +42,13 @@
     - `solutions/orest/`（全自動／人の手を介さない を削除。下ごしらえ→人の確定。RPAコストゼロは維持）
     - 組織名「DX推進室」→「DX推進部」一括統一（solutions 8＋article〜article5）
   - **同日に先行公開済み**: `/kusuri-zaiko/`（医薬品在庫管理ハブ）、OhiSnap題名の「保険業務 スキャナー」対応
+  - **第2弾（solutions 残り4ページ）本番反映**
+    - `solutions/ohisamabot/`（電話をボットに置き換えない。1日100件前後を維持）
+    - `solutions/xray/`（撮影漏れゼロ等を抑制。5拠点・集団検診を維持）
+    - `solutions/doc-delivery/`（送付漏れゼロを抑制。確定は人・送付は仕組み）
+    - `solutions/ohisamavox/`（月間数百件・ダッシュボード項目を維持）
+    - これで `solutions/` 配下の公開ソリューションページの推敲は一巡
   - **次回着手するページ（推敲未実施）**
-    - `solutions/ohisamabot/`、`solutions/xray/`、`solutions/doc-delivery/`、`solutions/ohisamavox/`
     - `guide/`、`safety/`、`contact/`、`columns/`、`zaitaku-dx/`、`article/`〜`article6/`（表記統一以外の文面）
   - 方針: 数字・実績は落とさない。誇大表現のみ落とす。仕様にない機能は足さない
   - バックアップ: `_backup/*_backup_20260915_15*.html` ほか
@@ -122,7 +127,7 @@
 
 ## 🔧 次にやること（優先順）
 
-1. **文面推敲（第2弾）** — 上記「次回着手」リスト（ohisamabot / xray / doc-delivery / ohisamavox / guide / safety / contact / columns / zaitaku-dx / 記事本文）
+1. **文面推敲（第3弾）** — `guide/`、`safety/`、`contact/`、`columns/`、`zaitaku-dx/`、`article/`〜`article6/`（表記統一以外の文面）
 2. **Search Console** — `https://dx.nhw.jp/kusuri-zaiko/` と `https://dx.nhw.jp/solutions/ohisnap/` のインデックス登録リクエスト
 3. **本番反映後の目視** — https://dx.nhw.jp でヒーロー・課題・安全・手順書・相談フォームを確認
 4. **田崎理事へ公開後の共有**（必要なら指摘反映）
