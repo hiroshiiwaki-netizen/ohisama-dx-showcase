@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2FKKTBLSV5"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2FKKTBLSV5');</script>
+  <script src="../js/cta-track.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>クリニックの医薬品在庫管理、何から始めるか｜在宅医療DXクリニック</title>
+  <meta name="description" content="クリニックの医薬品在庫管理は何が難しいか。Excelでどこまでやれるか、バーコードが要る理由、期限と置き場所、医薬品の受発注まで。おひさま会が垂水・舞子で内製した実践から、質問の形でまとめました。">
+  <link rel="canonical" href="https://dx.nhw.jp/kusuri-zaiko/">
+  <link rel="alternate" hreflang="ja" href="https://dx.nhw.jp/kusuri-zaiko/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="クリニックの医薬品在庫管理、何から始めるか">
+  <meta property="og:description" content="Excelでどこまでやれるか、バーコードが要る理由、期限と置き場所、医薬品の受発注まで。おひさま会の実践から。">
+  <meta property="og:url" content="https://dx.nhw.jp/kusuri-zaiko/">
+  <meta property="og:image" content="https://dx.nhw.jp/img/ogp.jpg">
+  <meta property="og:image:alt" content="クリニックの医薬品在庫管理">
+  <meta property="og:site_name" content="在宅医療DXクリニック｜おひさま会">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@takahide_nhw">
+  <meta name="twitter:title" content="クリニックの医薬品在庫管理、何から始めるか">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"在宅医療DXクリニック","item":"https://dx.nhw.jp/"},{"@type":"ListItem","position":2,"name":"クリニックの医薬品在庫管理","item":"https://dx.nhw.jp/kusuri-zaiko/"}]},
+    {"@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"医薬品在庫管理とは何ですか","acceptedAnswer":{"@type":"Answer","text":"診療所・クリニックにおいて、院内で扱う医薬品の納品から保管、処置や往診への払い出しまでを記録し、保管場所ごとの実在庫と使用期限を正確に把握する業務です。単に数を合わせる棚卸しにとどまらず、どの患者さんや往診車にいつ払い出されたかを記録に残すことまでが求められます。"}},
+      {"@type":"Question","name":"クリニックの医薬品在庫管理はExcelでどこまでやれますか","acceptedAnswer":{"@type":"Answer","text":"品目数が少なく、入出庫を担当するスタッフが1人なら運用可能です。破綻しやすいのは「払い出すスタッフが複数いる」「保管場所が複数拠点や往診車に分かれている」「使用期限を納品した分ごとに追いたい」という状況になった時です。入力の手間が日々の診療業務を圧迫し、記録そのものが滞って形骸化してしまいます。"}},
+      {"@type":"Question","name":"一般の在庫管理システムを医療で使えますか","acceptedAnswer":{"@type":"Answer","text":"単に入出庫の足し引きを行うだけであれば動きます。しかし、医療現場特有の「納品した分ごとの使用期限管理」「調剤包装と販売包装（箱）で異なるバーコード」「出庫先が棚ではなく患者さんや往診車であること」といった要件に適合しにくいのが現実です。汎用システムを無理にカスタマイズするより、最初から医薬品管理の要件に合わせて設計する方がスムーズです。"}},
+      {"@type":"Question","name":"病院の在庫管理システムとクリニックでは何が違いますか","acceptedAnswer":{"@type":"Answer","text":"一番の違いは専任担当者の有無です。病院には薬剤部があり専任者がシステムに合わせた厳格な運用を行えますが、クリニックでは看護師や医療事務が診療の合間に操作します。多機能さよりも、「薬品庫の前でスマホから数タップでバーコードを読み取れるか」といった操作の手数が成否を分けます。"}},
+      {"@type":"Question","name":"バーコードは何を読んでいますか","acceptedAnswer":{"@type":"Answer","text":"医薬品パッケージに印字されたJANコードを読み取ります。注意が必要なのは、個装（調剤包装単位）と外箱（販売包装単位）でバーコードの番号が異なる点です。どちらを読み取っても同一薬品として自動認識される仕組みがないと、現場で読み取りエラーが多発します。"}},
+      {"@type":"Question","name":"医薬品の受発注は在庫管理と同じ仕組みでできますか","acceptedAnswer":{"@type":"Answer","text":"「残量が一定以下になったら補充する定期発注」は在庫データと連動できます。しかし、「患者さんの次回訪問予定に合わせて高額薬を手配する発注」は、在庫数ではなく診療スケジュールから逆算する必要があるため別物です。おひさま会ではこの2つを明確に切り離して運用しています。"}},
+      {"@type":"Question","name":"麻薬や向精神薬の帳簿も兼ねられますか","acceptedAnswer":{"@type":"Answer","text":"兼ねることはできません。麻薬・向精神薬取締法に基づく受払簿や保管管理は、法令で定められた厳格な基準を満たす必要があります。日々の実在庫を把握するためのシステムと法定帳簿は目的が異なるため、法定帳簿は別途適正に管理する必要があります。"}}
+    ]}
+  ]}
+  </script>
+  <link rel="icon" type="image/png" href="../img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--red:#D2422D;--orange:#FF5100;--red-soft:rgba(210,66,45,.08);--red-border:rgba(210,66,45,.25);--bg:#f8f9fb;--text:#1e2028;--text2:#5f6577;--text3:#8a8f9e;--border:rgba(0,0,0,.08);--card:#fff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.85}
+    nav{position:fixed;top:0;left:0;right:0;z-index:10;background:rgba(255,255,255,.95);box-shadow:0 1px 12px rgba(0,0,0,.06)}
+    .nav-inner{max-width:800px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo-img{height:28px}
+    .nav-back{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500}
+    .nav-back:hover{color:var(--red)}
+    header{padding:120px 24px 48px;text-align:center;background:linear-gradient(135deg,#fff5f0 0%,#fff 40%,#fef8f0 100%)}
+    .crumb{font-size:.78rem;color:var(--text3);margin-bottom:16px}
+    .crumb a{color:var(--text3);text-decoration:none}
+    .tag{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.14em;color:var(--red);margin-bottom:12px}
+    header h1{font-size:clamp(1.45rem,4vw,2rem);font-weight:900;line-height:1.4;margin-bottom:12px}
+    header p{color:var(--text2);max-width:640px;margin:0 auto}
+    .wrap{max-width:740px;margin:0 auto;padding:40px 24px 80px}
+    h2{font-size:1.22rem;font-weight:900;margin:40px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--red)}
+    h3{font-size:1.02rem;font-weight:800;margin:22px 0 8px}
+    p,li{color:var(--text2)}
+    p{margin-bottom:14px}
+    strong{color:var(--text)}
+    a{color:var(--red)}
+    ul{margin:0 0 16px 1.3em}
+    li{margin-bottom:6px}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0 28px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 18px;margin-bottom:14px}
+    .card.hl{border-color:var(--red-border);background:#fff8f6}
+    .n{font-size:.72rem;font-weight:800;letter-spacing:.12em;color:var(--red);margin-bottom:6px}
+    .qa{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 18px 8px;margin:0 0 14px}
+    .qa .q{font-weight:800;color:var(--text);margin-bottom:8px}
+    .note{background:#fff4d6;border:1px solid rgba(138,90,0,.25);border-radius:12px;padding:14px 16px;font-size:.88rem;color:#5c3d00;margin:16px 0 24px}
+    .cta{text-align:center;margin:48px 0 0;padding:36px 24px;background:linear-gradient(135deg,#fff5f0,#fef8f0);border-radius:20px;border:1px solid var(--red-border)}
+    .cta a{display:inline-flex;margin:6px;padding:12px 24px;border-radius:100px;text-decoration:none;font-weight:700;font-size:.9rem}
+    .btn-p{background:linear-gradient(135deg,var(--red),var(--orange));color:#fff}
+    .btn-s{background:#fff;color:var(--red);border:1px solid var(--red-border)}
+    footer{text-align:center;padding:32px 24px;font-size:.78rem;color:var(--text3)}
+    @media(max-width:700px){.two{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="../"><img src="../img/logo.png" alt="OHISAMAKAI" class="nav-logo-img"></a>
+      <a href="../" class="nav-back">← トップに戻る</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="crumb"><a href="../">ホーム</a> ／ クリニックの医薬品在庫管理</div>
+    <div class="tag">医薬品在庫管理</div>
+    <h1>クリニックの医薬品在庫管理、<br>何から始めるか</h1>
+    <p>特定のIT製品を売り込むためのページではありません。医療法人おひさま会が、垂水・舞子の診療現場で医薬品在庫管理を内製し、実際に直面した課題と解決策をQ&amp;A形式で整理しました。</p>
+  </header>
+
+  <div class="wrap">
+    <h2>医薬品在庫管理とは</h2>
+    <p>クリニックにおける医薬品在庫管理とは、院内で扱う医薬品の<strong>納品から保管、処置や往診への払い出し</strong>までを記録し、置き場所ごとの実在庫と使用期限を正確に把握する業務です。</p>
+    <p>言葉にすると当たり前の管理業務ですが、現場で本当につまずくのは計算の手間ではありません。<strong>「日々の多忙な診療の合間に、無理なく記録を残せるか」</strong>という運用負荷の問題です。入力作業に時間がかかりすぎると、どんなに正しい仕組みを用意しても現場の記録が止まり、システム上の数字と棚の実数がズレていきます。</p>
+    <p>おひさま会ではこの課題を解決するため、現場の動線に合わせた在庫管理システム「<a href="../solutions/meditrace/">MediTrace</a>」を自院で内製し、垂水・舞子の拠点で実際に運用しています。</p>
+
+    <h2>クリニックの医薬品在庫管理がつまずく「4つの壁」</h2>
+    <div class="card">
+      <div class="n">その1</div>
+      <h3>保管場所が1か所ではない</h3>
+      <p>薬品庫の棚だけでなく、往診車、拠点ごとのストックなど。同じ医薬品が点在していると、クリニック全体での合計数は分かっても<strong>「どの往診車で在庫が切れかけているか」</strong>という現場ごとの不足に気づけません。</p>
+    </div>
+    <div class="card">
+      <div class="n">その2</div>
+      <h3>数量だけでは、使用期限が見えない</h3>
+      <p>「この薬の在庫が残り10本」と数量だけ分かっても、それぞれの使用期限までは見えません。いつ納品した分が、いつ期限を迎えるのか。そこまで記録できていないと、古いものが棚の奥に取り残され、気づいたときには期限切れ廃棄になってしまいます。</p>
+    </div>
+    <div class="card">
+      <div class="n">その3</div>
+      <h3>在庫管理の「専任担当者」がいない</h3>
+      <p>専門の薬剤部がある大病院と異なり、一般診療所や在宅クリニックでは看護師や医療事務が診療の合間に入出庫を記録します。<strong>端末を開き、バーコードをスキャンして完了する</strong>までの手数が多すぎると、日々の診療業務の中で記録がどうしても後回しになります。</p>
+    </div>
+    <div class="card">
+      <div class="n">その4</div>
+      <h3>膨大な医薬品マスターの初期登録・更新の負担</h3>
+      <p>ここが導入時の最大の関門です。院内で扱う全品目を事前に手入力するのは膨大な手間がかかり、数万件の汎用薬品リストから毎回検索するのも現場には合いません。おひさま会では、バーコードを読み取った際に必要な情報だけを自動登録・補完する<a href="../solutions/meditrace/">「2段構えのマスター構造」</a>でこの問題を解決しました。</p>
+    </div>
+
+    <h2>よくある質問</h2>
+    <div class="qa">
+      <p class="q">クリニックの医薬品在庫管理は、Excelでどこまでやれますか？</p>
+      <p>品目数が少なく、入出庫を担当するスタッフが1人だけであれば、Excelでも十分に回ります。実際におひさま会でも、最初は紙の台帳やExcelシートでの管理からスタートしました。</p>
+      <p>運用が破綻しやすいのは、次の3つの条件が重なったときです。<strong>「出庫するスタッフが複数人になる」「保管場所が往診車や他拠点など複数に分かれる」「使用期限を、納品した分ごとに追いたくなる」</strong>。この状態になると、シートの更新漏れや二重入力が発生し、Excel関数やマクロの工夫だけでは管理しきれなくなります。</p>
+    </div>
+    <div class="qa">
+      <p class="q">一般の在庫管理システムを、医療で使えますか？</p>
+      <p>入庫・出庫による数量の足し引きだけであれば、小売業向けなどの一般的な在庫管理ソフトでも動作します。しかし、実際の医療現場では以下の3点でギャップが生じます。</p>
+      <ul>
+        <li><strong>使用期限の個別管理</strong> — 同じ薬品でも、納品時期によって期限が異なるため同一視できない</li>
+        <li><strong>包装単位の混在</strong> — 個装（調剤包装単位）と外箱（販売包装単位）でバーコードが異なる</li>
+        <li><strong>出庫先が固定の棚ではない</strong> — 払い出し先が患者さん個人、特定の往診車、あるいは他拠点になる</li>
+      </ul>
+      <p>汎用システムを後から医療向けに改修することも不可能ではありませんが、最初から医薬品の流通規格や現場動線を前提に構築した方が、無駄なコストや手戻りを防げます。</p>
+    </div>
+    <div class="qa">
+      <p class="q">病院の在庫管理システムと、クリニックでは何が違いますか？</p>
+      <p>最大の違いは、管理体制と人員リソースです。病院には薬剤部という専門部署があり、システム側の仕様にスタッフの運用を合わせることができます。一方、クリニックには専任の管理者がいないため、<strong>現場スタッフの既存の動きに合わせてシステム側を極力シンプルにする</strong>必要があります。</p>
+      <p>選定時に比較すべきなのは機能の多さではなく、「バーコードをかざして完了するまでのタップ数や所要時間」です。おひさま会では、薬品庫の前でスマホからでも、事務のPCからでも、その場で読み取りを終えられるようにしました。</p>
+    </div>
+    <div class="qa">
+      <p class="q">バーコードは、何を読んでいるのですか？</p>
+      <p>医薬品の外箱やシートに印字されているJANコードを読み取ります。ここで見落としがちなのが、<strong>個装（調剤包装単位）と外箱（販売包装単位）ではバーコードの番号が全く異なる</strong>という点です。どちらをスキャンしても「同じ薬品」として自動識別・換算できる仕組みにしておかないと、現場で「エラーが出て登録できない」という混乱が日常化してしまいます。</p>
+    </div>
+    <div class="qa">
+      <p class="q">医薬品の受発注も、同じ仕組みでできますか？</p>
+      <p>医薬品の発注には、性質の異なる2つのパターンがあります。おひさま会ではこれらを別々の仕組みとして切り分けています。</p>
+      <div class="two" style="margin:14px 0 4px">
+        <div class="card" style="margin:0">
+          <div class="n">在庫から気づく発注</div>
+          <h3>残量が減ったら知らせる</h3>
+          <p>日常的に使う薬剤の定期補充。在庫データの増減と連動し、基準値を下回った際に通知します。<a href="../solutions/meditrace/">医薬品在庫管理</a>の役割です。</p>
+        </div>
+        <div class="card hl" style="margin:0">
+          <div class="n">予定から逆算する発注</div>
+          <h3>高額薬を、切らさない</h3>
+          <p>患者ごとの訪問診療スケジュールから逆算して手配します。在庫数ではなく予定日をもとに管理する<a href="../solutions/drug-order/">薬剤発注ナビ</a>の役割です。</p>
+        </div>
+      </div>
+      <p>「毎月第3週の火曜日に訪問する患者さんの注射薬」のような定期処方は、棚の在庫が減ってから発注していては間に合いません。1回あたり数十万円に達するような高額薬剤を扱う在宅医療では、過剰在庫のリスクを抑えつつ欠品を防ぐため、この2つの発注ルートを分離することが不可欠です。</p>
+    </div>
+    <div class="qa">
+      <p class="q">医療機器や衛生材料も、同じように管理できますか？</p>
+      <p>注射針やガーゼ、輸液セットなどの衛生材料や医療機器も、基本的な管理手順は同様です。バーコードがあれば読み取れますし、バーコードのない部材は品目マスターから数量を増減させます。ただし、医薬品と比べて使用期限の管理基準や出庫頻度が異なるため、<strong>医薬品と同じ画面で一元管理するか、別枠として管理するかは現場の運用動線に合わせて判断する</strong>のが現実的です。</p>
+    </div>
+    <div class="qa">
+      <p class="q">麻薬や向精神薬の帳簿も、兼ねられますか？</p>
+      <p>兼ねることはできません。麻薬及び向精神薬取締法に基づく帳簿記載（受払簿）や保管金庫の管理には、法令で定められた厳格なルールが存在します。本システムのような日常的な在庫管理ツールは、あくまで現場での欠品防止や実在庫の見える化を目的としたものであり、<strong>法令で義務付けられた法定帳簿の代替にはならない</strong>点にご留意ください。</p>
+    </div>
+
+    <h2>おひさま会がやっていること</h2>
+    <p>特定のパッケージ製品の宣伝ではありません。おひさま会では既存の電子カルテや業務フローを活かしながら、現場で本当に必要なツールを自院スタッフの手で開発・改善しています。</p>
+    <ul>
+      <li><a href="../solutions/meditrace/">医薬品在庫管理（MediTrace）</a> — バーコードで納品・払出。置き場所別の実在庫とログ、医薬品発注の知らせ</li>
+      <li><a href="../solutions/drug-order/">薬剤発注ナビ</a> — 訪問予定日から逆算し、高額薬の発注漏れや過剰在庫を防ぐ</li>
+    </ul>
+    <p>どの業務から着手すべきか、また「どこまでを自動化し、どこで人間のダブルチェックを残すか」の判断基準については、<a href="../guide/">失敗しない自動化の手順書</a>にまとめています。また、在宅クリニックにおける内製化のアプローチ全体については、<a href="../zaitaku-dx/">在宅医療DXクリニックとは</a>のページをご覧ください。</p>
+
+    <div class="note">※ 本ページの内容は、医療法人おひさま会における自院運用の実践記録です。他院での同様の運用結果を保証するものではありません。また、薬機法や麻薬及び向精神薬取締法などの法的解釈を行うものではありません。実際の運用にあたっては、自院の管理薬剤師や法務担当、および管轄の保健所・厚生局等の最新の指導・通知をご確認ください。</div>
+
+    <div class="cta">
+      <h2 style="border:none;margin:0 0 10px;padding:0;font-size:1.15rem">「棚卸しのたびに数が合わない」を、仕組みで解消する</h2>
+      <a class="btn-p" href="../solutions/meditrace/">医薬品在庫管理の中身を見る</a>
+      <a class="btn-s" href="../guide/">内製の手順書を読む</a>
+      <a class="btn-s" href="../contact/?type=consult">内製の相談をする</a>
+    </div>
+  </div>
+
+  <footer>医療法人おひさま会 DX推進部｜© 2026</footer>
+</body>
+</html>
