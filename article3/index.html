@@ -109,7 +109,7 @@ blockquote strong{color:var(--red)}
   <p>重要なのは、<strong>最初は事務員AIだけを導入する</strong>こと。</p>
   <p>FAXの仕分け、保険証の判別、問い合わせの分類など、これらは「間違えても致命的ではない」業務だ。ここでAIの信頼実績を積み上げてから、徐々に医療寄りの業務に広げていく。</p>
 
-  <div class="effect"><strong>おひさま会の運用：</strong>患者が特定できない場合は「未確認」へ回し、人が確認してからカルテへ反映する設計にすることで、取り違えのリスクを最小限に抑えています。</div>
+  <div class="effect"><strong>おひさま会の運用：</strong>患者が特定できない場合や検問に引っかかった場合は「未確認／要確認」へ回し、人が見ます。通ったものは仕組みが貼付を進めますが、<strong>止める道は残しています</strong>。</div>
 
   <!-- 承認パイプライン -->
   <h2>実践 — 承認パイプラインを入れる</h2>
@@ -121,15 +121,15 @@ blockquote strong{color:var(--red)}
 
   <h3>📋 3つのパターン</h3>
 
-  <p><strong>パターン①：下ごしらえまで（事務作業）</strong></p>
+  <p><strong>パターン①：検問つきで仕組みが進める（事務作業）</strong></p>
   <div class="flow">
     <div class="flow-step">AIがFAXの書類種別・患者名を判定</div>
     <div class="flow-arrow">▼</div>
-    <div class="flow-step">確信度が高い → カルテ貼付の下ごしらえ（スタッフが確認して反映）</div>
+    <div class="flow-step">確信度が高い → 電子カルテへ貼付（仕組みが進める）</div>
     <div class="flow-arrow">▼</div>
     <div class="flow-step hl">確信度が低い → 「未確認」フォルダへ（人が後で確認）</div>
   </div>
-  <p>書類の仕分けは「間違えても貼り直せばいい」ので、確信度が高ければ下ごしらえまで進め、スタッフが確認して反映します。ただし<strong>安全弁として「未確認」ルートを必ず用意する</strong>。</p>
+  <p>書類の仕分けは「間違えても貼り直せばいい」ので、確信度が高ければ仕組みが先に進める。ただし<strong>安全弁として「未確認」ルートを必ず用意する</strong>。</p>
 
   <p><strong>パターン②：下書き→確認→送信（対外コミュニケーション）</strong></p>
   <div class="flow">
