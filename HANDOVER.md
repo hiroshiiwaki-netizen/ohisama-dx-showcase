@@ -1,6 +1,6 @@
 # おひさま会 DX推進部 紹介ページ 引継書
 
-> 最終更新: 2026-09-25 | 作業環境: 会社PC (G:)
+> 最終更新: 2026-10-05 | 作業環境: 会社PC (G:)
 
 ## 📌 プロジェクト概要
 
@@ -28,9 +28,18 @@
 | **ローカルフォルダ** | `G:\マイドライブ\Antigravity-PJ\ohisama-dx-showcase` |
 | **学会名刺・商談引継** | `在宅医療学会/HANDOVER.md`（第8回日本在宅医療連合学会） |
 | **学会当日リストWeb** | `jahcm8/index.html` → https://dx.nhw.jp/jahcm8/ |
-| **おひさまステーション入口** | `0130station/index.html` → https://dx.nhw.jp/0130station → **https://app.nhw.jp/0130station**（PWA。IAP=`@nhw.jp`。本体は GAS） |
+| **おひさまステーション入口** | `0130station/index.html` → https://dx.nhw.jp/0130station → **https://app.nhw.jp/0130station/**（PWA。IAP=`@nhw.jp`。**GASポータルは卒業**） |
 
 ## ✅ 完了済み作業
+
+- 2026-10-05: **あかり在宅クリニック オンライン面談（16:30〜17:20）を実施 → 面談記録を送付**
+  - 当日朝、院長から事前質問4つ（使っているAI／効果が高かったもの・合わなかったもの／小規模院の最初の一歩／導入支援）
+  - 社内用「答え方」ページ https://task.nhw.jp/dash/akari/ （IAP）。正本 `G:\マイドライブ\Antigravity-PJ\docs\ソリューション外販提案\plan_2026-09\20261005_あかり在宅_事前質問_回答.html`、更新履歴は同フォルダ `…_回答_更新履歴.md`（ページには載せない＝岩城さん指示）
+  - 面談記録（先方に送った外向け・ローカルのみ）`…\plan_2026-09\20261005_あかり在宅_面談記録.html`。画像は `img\akari\minutes\`（Antigravity 作成。4枚済・4枚は利用上限で後日）。岩城さんが PDF にしてメール送付済み
+  - 面談で伝えたこと: 土台は Tukusi（医師の音声カルテ・カルテ登録）、FAX は Tukusi で始めて OhiScan を追加開発、月約5,000枚・月250〜400時間。金額は出していない
+  - 先方の課題: 連絡手段が多い（MCS・LINE・Chatwork・Slack・メール）。MCS は API なし。CrossLog を導入予定。Google Workspace 移行を検討中
+  - 提案（記録に記載）: ①連絡テキストを Gemini（Workspace のみ・患者名は伏せ字）でカルテ用に整える ②事務の作業時間を1〜2週間記録 ③窓口の段階的な整理・CrossLog Connect ④カルテ記載の統一
+  - 次: 先方からの返事・見学（平日）の調整。当面は法人の DX推進部（岩城）として対応
 
 - 2026-09-28: **ステーション入口を app.nhw.jp へ**
   - `https://dx.nhw.jp/0130station` → `https://app.nhw.jp/0130station`（PWA・IAP）
@@ -150,7 +159,7 @@
 
 ## 🔧 次にやること（優先順）
 
-1. **あかり在宅の面談メモを図中心に直す（来週）** — 正本 `docs/ソリューション外販提案/plan_2026-09/20261005_あかり在宅_面談メモ.html`。2026-09-25 に岩城さん「文字が多く見づらい。来週調整」。面談は 10/5 16:30。価格は出さない
+1. **あかり在宅の返事待ち・見学の調整** — 10/5 面談済・記録送付済。資料の正本は `G:\マイドライブ\Antigravity-PJ\docs\ソリューション外販提案\plan_2026-09\`（showcase フォルダの中ではない）。価格は出さない
 2. **文面推敲（第3弾の続き）** — `article4/`〜`article6/`（連載の残り）
 3. **Search Console** — `https://dx.nhw.jp/kusuri-zaiko/` と `https://dx.nhw.jp/solutions/ohisnap/` のインデックス登録リクエスト
 4. **本番反映後の目視** — https://dx.nhw.jp でヒーロー・課題・安全・手順書・相談フォームを確認
