@@ -200,8 +200,13 @@
 
     // GASへJSONで送り、返事が status:'ok' のときだけ完了にする。
     // 本文は文字列のまま送る（text/plain になり、事前確認の通信が起きない）。GASは本文のJSONを読む経路を持っている
+    // 時間切れのあとは、GAS が受け取っている場合がある。再送の前に確かめてもらう（二重送信を防ぐ）
+    let maybeSent = false;
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (maybeSent && !window.confirm('前回の送信が届いている可能性があります。受付メールが届いていないことを確かめてから、もう一度送りますか？')) return;
+      maybeSent = false;
       sendError.style.display = 'none';
       submitBtn.disabled = true;
       submitBtn.textContent = '送信中...';
@@ -220,8 +225,10 @@
       } catch (err) {
         if (err && err.name === 'AbortError') result = 'timeout';
         else if (err && err.name === 'TypeError') result = 'network';
+        else if (err && err.name === 'SyntaxError') result = 'parse_error';   // GAS がエラー画面(HTML)を返したとき
       }
       clearTimeout(timer);
+      if (result === 'timeout') maybeSent = true;
 
       if (result === 'ok') {
         if (typeof window.ohisamaTrackLead === 'function') window.ohisamaTrackLead(type || 'form');

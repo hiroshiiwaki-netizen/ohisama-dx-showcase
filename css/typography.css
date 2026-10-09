@@ -3,11 +3,11 @@
    - 「。」「、」だけの行を作らない
    - 見出しの字間のマイナスを外す
    - 薄すぎる補助文字を少し濃く
-   - クラスの無い普通のリンクをブランドの赤に */
+   - クラスの無い普通のリンクをブランドの赤に（:where で強さ0。ページ側に色の指定があるリンクは変えない） */
 html{line-break:strict}
 body{word-break:auto-phrase}
 h1,h2,h3,h4{text-wrap:balance;letter-spacing:0}
 p,li,dd,td,th,figcaption,blockquote{text-wrap:pretty}
 p,li{overflow-wrap:break-word}
 :root{--text3:#6b7080}
-a:not([class]){color:#D2422D;text-underline-offset:3px}
+:where(a:not([class])){color:#D2422D;text-underline-offset:3px}
