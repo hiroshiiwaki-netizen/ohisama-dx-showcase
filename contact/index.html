@@ -91,22 +91,22 @@
     <div class="form-card" id="formCard">
       <form id="contactForm">
         <div class="form-group">
-          <label>お名前<span class="req">*必須</span></label>
-          <input type="text" name="name" required placeholder="山田 太郎">
+          <label for="f-name">お名前<span class="req">*必須</span></label>
+          <input type="text" name="name" id="f-name" required autocomplete="name" placeholder="山田 太郎">
         </div>
 
         <div class="form-group">
-          <label>会社名・団体名</label>
-          <input type="text" name="organization" placeholder="株式会社○○">
+          <label for="f-org">法人名・医療機関名</label>
+          <input type="text" name="organization" id="f-org" autocomplete="organization" placeholder="医療法人○○会 ○○クリニック">
         </div>
 
         <div class="form-group">
-          <label>メールアドレス<span class="req">*必須</span></label>
-          <input type="email" name="email" required placeholder="example@example.com">
+          <label for="f-email">メールアドレス<span class="req">*必須</span></label>
+          <input type="email" name="email" id="f-email" required autocomplete="email" placeholder="example@example.com">
         </div>
 
         <div class="form-group">
-          <label>お問い合わせ種別</label>
+          <label for="categorySelect">お問い合わせ種別</label>
           <select name="category" id="categorySelect">
             <option value="一般的なお問い合わせ">一般的なお問い合わせ</option>
             <option value="DXに関するご相談">DXに関するご相談</option>
@@ -118,8 +118,8 @@
         </div>
 
         <div class="form-group">
-          <label>お問い合わせ内容<span class="req">*必須</span></label>
-          <textarea name="message" required placeholder="お問い合わせ内容をご記入ください"></textarea>
+          <label for="f-message">お問い合わせ内容<span class="req">*必須</span></label>
+          <textarea name="message" id="f-message" required placeholder="お問い合わせ内容をご記入ください"></textarea>
         </div>
 
         <p class="form-note" style="margin-bottom:8px">※ 送信直後に受付メールが届きます。担当からの返信は通常2〜3営業日以内です。</p>
