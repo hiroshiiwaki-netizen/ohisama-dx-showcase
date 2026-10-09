@@ -200,13 +200,24 @@
 
     // GASへJSONで送り、返事が status:'ok' のときだけ完了にする。
     // 本文は文字列のまま送る（text/plain になり、事前確認の通信が起きない）。GASは本文のJSONを読む経路を持っている
-    // 時間切れのあとは、GAS が受け取っている場合がある。再送の前に確かめてもらう（二重送信を防ぐ）
-    let maybeSent = false;
+    // 時間切れのあとは、GAS が受け取っている場合がある（二重送信を防ぐ）。
+    // 印は「成功するまで」消さない。再読み込みでも消えないよう、タブの一時保存(sessionStorage)にも残す。
+    // ブラウザの確認ダイアログは使わない（出ない環境がある）。画面に知らせを出し、もう一度押したときだけ送る。
+    const MAYBE_KEY = 'dx_contact_maybe_sent';
+    const getMaybe = () => { try { return sessionStorage.getItem(MAYBE_KEY) === '1'; } catch (_) { return false; } };
+    const setMaybe = (on) => { try { on ? sessionStorage.setItem(MAYBE_KEY, '1') : sessionStorage.removeItem(MAYBE_KEY); } catch (_) {} };
+    let maybeSent = getMaybe();
+    let resendArmed = false;
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (maybeSent && !window.confirm('前回の送信が届いている可能性があります。受付メールが届いていないことを確かめてから、もう一度送りますか？')) return;
-      maybeSent = false;
+      if (maybeSent && !resendArmed) {
+        resendArmed = true;
+        sendError.innerHTML = '前回の送信が、届いている可能性があります。受付メール（件名「お問い合わせを受け付けました」）が届いていないことを確かめてください。届いていなければ、もう一度「送信する」を押すと送ります。';
+        sendError.style.display = 'block';
+        return;
+      }
+      resendArmed = false;
       sendError.style.display = 'none';
       submitBtn.disabled = true;
       submitBtn.textContent = '送信中...';
@@ -228,9 +239,10 @@
         else if (err && err.name === 'SyntaxError') result = 'parse_error';   // GAS がエラー画面(HTML)を返したとき
       }
       clearTimeout(timer);
-      if (result === 'timeout') maybeSent = true;
+      if (result === 'timeout') { maybeSent = true; setMaybe(true); }
 
       if (result === 'ok') {
+        maybeSent = false; setMaybe(false);
         if (typeof window.ohisamaTrackLead === 'function') window.ohisamaTrackLead(type || 'form');
         formCard.style.display = 'none';
         successMsg.classList.add('show');
