@@ -1,0 +1,13 @@
+/* 日本語の改行と読みやすさ（全ページ共通・2026-10 追加）
+   - 単語の途中で改行しない（Chrome/Edge。Safari は未対応なので、見出しは個別に区切りを入れる）
+   - 「。」「、」だけの行を作らない
+   - 見出しの字間のマイナスを外す
+   - 薄すぎる補助文字を少し濃く
+   - クラスの無い普通のリンクをブランドの赤に */
+html{line-break:strict}
+body{word-break:auto-phrase}
+h1,h2,h3,h4{text-wrap:balance;letter-spacing:0}
+p,li,dd,td,th,figcaption,blockquote{text-wrap:pretty}
+p,li{overflow-wrap:break-word}
+:root{--text3:#6b7080}
+a:not([class]){color:#D2422D;text-underline-offset:3px}
