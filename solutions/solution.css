@@ -30,3 +30,5 @@ blockquote{border-left:3px solid var(--red);padding:12px 20px;margin:20px 0 24px
 .tag{background:var(--red-soft);border:1px solid var(--red-border);color:var(--red);padding:4px 14px;border-radius:100px;font-size:.78rem;font-weight:600}
 .btn-back{display:inline-flex;background:linear-gradient(135deg,var(--red),var(--orange));color:#fff;padding:12px 28px;border-radius:100px;font-weight:700;font-size:.9rem;text-decoration:none;box-shadow:0 4px 16px rgba(210,66,45,.2)}
 .sol-footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);margin-top:48px}.sol-footer p{font-size:.78rem;color:var(--text3)}.sol-footer a{color:var(--red);text-decoration:none;font-weight:600}
+/* 「一覧に戻る」は控えめな文字リンクに。相談ボタンと同じ重さにしない（2026-10） */
+a.btn-back[href$="#solutions"]{background:none;color:var(--text2);box-shadow:none;padding:8px 4px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
