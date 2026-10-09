@@ -110,7 +110,7 @@ DX総合EXPOやパートナー企業との協業提案時の「デジタル名�
 
 | パス | 内容 |
 |------|------|
-| `contact/index.html` | 問い合わせフォーム（iframe でGAS WebApp POST） |
+| `contact/index.html` | 問い合わせフォーム（fetch で GAS WebApp に JSON を送り、返事で成否を出し分ける。2026-10-09 から） |
 | `contact/gas-backend.ts` | GAS TypeScript ソース |
 | `contact/gas-project/` | GAS プロジェクトファイル |
 
@@ -118,6 +118,15 @@ DX総合EXPOやパートナー企業との協業提案時の「デジタル名�
 - **通知先**: Google Chat Webhook（Card V2形式）
 - **ログ**: 「DX推進部_問い合わせログ」スプレッドシート自動作成
 - **受信方式**: 直接フォームPOST / JSONペイロード / fetchボディ の3方式対応
+- **送信の成否（2026-10-09）**: 本文は文字列（text/plain）で送る（事前確認の通信が起きない）。返事が `status:'ok'` のときだけ完了画面。失敗・通信不可・GAS のエラー画面・時間切れ（20秒）はフォーム上に知らせを出し、入力は残す
+- **二重送信の防止**: 時間切れのあとは「届いている可能性がある」印を、成功するまで残す（sessionStorage `dx_contact_maybe_sent`）。印があるときは1回目の「送信」で知らせだけ出し、2回目で送る。ブラウザの確認ダイアログは使わない
+- **計測（GA4）**: 成功時だけ `generate_lead`、失敗時は `form_error`（reason: error / network / timeout / parse_error）
+- **GAS の正本**: `contact/gas-project/src/Main.ts`（tsc の出力が `gas/Main.js` と一致することを 10/9 に確認）。`npm run deploy` は gas/ を上書きして clasp push --force するので、正本をそろえてから使う
+
+### 5.5 共通の組版CSS・軽量画像（2026-10-09）
+
+- `css/typography.css` を公開25ページで読み込む。単語の途中で改行しない（`word-break:auto-phrase`。Chrome/Edge。Safari は未対応）、見出しの字間のマイナスを外す、薄い補助文字を少し濃く、クラスの無いリンクを赤に（`:where` で強さ0。ページ側に色の指定があるリンクは変えない）
+- `img/opt/*.webp`: トップで使う重い画像を、表示の約2倍に縮めたもの（元の png は残す）
 
 ## 6. コンテンツルール（重要）
 
