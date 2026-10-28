@@ -3,9 +3,6 @@ Allow: /
 
 Disallow: /pv/
 Disallow: /docs/
-Disallow: /reports/
-Disallow: /jahcm8/
-Disallow: /kintai/
 Disallow: /renraku/
 Disallow: /tukusi/
 Disallow: /crosslog/
