@@ -1,3 +1,4 @@
+/* 2026-10-28 段B: 使わなくなった .sol-footer の決まりを外した（共通のフッターに替えたため） */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--red:#D2422D;--orange:#FF5100;--red-soft:rgba(210,66,45,.08);--red-border:rgba(210,66,45,.25);--bg:#f8f9fb;--card:#fff;--text:#1e2028;--text2:#5f6577;--text3:#8a8f9e;--border:rgba(0,0,0,.08)}
 html{scroll-behavior:smooth;font-size:16px}
@@ -29,6 +30,5 @@ blockquote{border-left:3px solid var(--red);padding:12px 20px;margin:20px 0 24px
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 32px}
 .tag{background:var(--red-soft);border:1px solid var(--red-border);color:var(--red);padding:4px 14px;border-radius:100px;font-size:.78rem;font-weight:600}
 .btn-back{display:inline-flex;background:linear-gradient(135deg,var(--red),var(--orange));color:#fff;padding:12px 28px;border-radius:100px;font-weight:700;font-size:.9rem;text-decoration:none;box-shadow:0 4px 16px rgba(210,66,45,.2)}
-.sol-footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);margin-top:48px}.sol-footer p{font-size:.78rem;color:var(--text3)}.sol-footer a{color:var(--red);text-decoration:none;font-weight:600}
 /* 「一覧に戻る」は控えめな文字リンクに。相談ボタンと同じ重さにしない（2026-10） */
 a.btn-back[href$="#solutions"]{background:none;color:var(--text2);box-shadow:none;padding:8px 4px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
