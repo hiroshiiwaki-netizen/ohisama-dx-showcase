@@ -156,7 +156,9 @@
   </footer>
 
   <script>
-    const GAS_URL = 'https://script.google.com/macros/s/AKfycbxGRwKkwjCnXikGLpR_8mRrCqTBBqTNBT0RGS8YZjA1cHlhu8laeSi24Lv5gh-mwLlR/exec';
+    // 送り先（2026-10-28 GAS から Cloud Run の受け口へ切り替え）。
+    // 戻すときは、下の行を以前の GAS の URL（https://script.google.com/macros/s/AKfycbxGRwKkwjCnXikGLpR_8mRrCqTBBqTNBT0RGS8YZjA1cHlhu8laeSi24Lv5gh-mwLlR/exec）にする
+    const CONTACT_API = 'https://dx-contact-932889871898.asia-northeast1.run.app/contact';
     const CONTACT_EMAIL = 'dx.connect@nhw.jp';
 
     const form = document.getElementById('contactForm');
@@ -198,9 +200,9 @@
     const TIMEOUT_MS = 20000;
     const MAIL_LINK = '<a href="mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent('【dx.nhw.jp】お問い合わせ') + '">' + CONTACT_EMAIL + '</a>';
 
-    // GASへJSONで送り、返事が status:'ok' のときだけ完了にする。
-    // 本文は文字列のまま送る（text/plain になり、事前確認の通信が起きない）。GASは本文のJSONを読む経路を持っている
-    // 時間切れのあとは、GAS が受け取っている場合がある（二重送信を防ぐ）。
+    // 受け口へJSONで送り、返事が status:'ok' のときだけ完了にする。
+    // 本文は文字列のまま送る（text/plain になり、事前確認の通信が起きない）。受け口は本文のJSONを読む
+    // 時間切れのあとは、受け口が受け取っている場合がある（二重送信を防ぐ）。
     // 印は「成功するまで」消さない。再読み込みでも消えないよう、タブの一時保存(sessionStorage)にも残す。
     // ブラウザの確認ダイアログは使わない（出ない環境がある）。画面に知らせを出し、もう一度押したときだけ送る。
     const MAYBE_KEY = 'dx_contact_maybe_sent';
@@ -230,13 +232,13 @@
       const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
       let result = 'error';
       try {
-        const res = await fetch(GAS_URL, { method: 'POST', body: JSON.stringify(payload), signal: ctrl.signal });
+        const res = await fetch(CONTACT_API, { method: 'POST', body: JSON.stringify(payload), signal: ctrl.signal });
         const data = await res.json();
         if (res.ok && data && data.status === 'ok') result = 'ok';
       } catch (err) {
         if (err && err.name === 'AbortError') result = 'timeout';
         else if (err && err.name === 'TypeError') result = 'network';
-        else if (err && err.name === 'SyntaxError') result = 'parse_error';   // GAS がエラー画面(HTML)を返したとき
+        else if (err && err.name === 'SyntaxError') result = 'parse_error';   // 受け口の手前でエラー画面(HTML)が返ったとき
       }
       clearTimeout(timer);
       if (result === 'timeout') { maybeSent = true; setMaybe(true); }
